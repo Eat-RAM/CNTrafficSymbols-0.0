@@ -1,0 +1,76 @@
+{
+  "variants": {
+    "facing=south": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation0"},
+    "facing=ssw": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation1"},
+    "facing=southwest": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation2"},
+    "facing=wsw": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation15",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation0",
+      "y": 90
+    },
+    "facing=wnw": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation1",
+      "y": 90
+    },
+    "facing=northwest": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation2",
+      "y": 90
+    },
+    "facing=nnw": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation15",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation0",
+      "y": 180
+    },
+    "facing=nne": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation1",
+      "y": 180
+    },
+    "facing=northeast": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation2",
+      "y": 180
+    },
+    "facing=ene": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation15",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation0",
+      "y": 270
+    },
+    "facing=ese": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation1",
+      "y": 270
+    },
+    "facing=southeast": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation2",
+      "y": 270
+    },
+    "facing=sse": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation15"},
+    "facing=north_south": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation16"},
+    "facing=nne_ssw": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation17"},
+    "facing=northeast_southwest": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation18"},
+    "facing=ene_wsw": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation23",
+      "y": 90
+    },
+    "facing=east_west": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation16",
+      "y": 90
+    },
+    "facing=ese_wnw": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation17",
+      "y": 90
+    },
+    "facing=northwest_southeast": {
+      "model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation18",
+      "y": 90
+    },
+    "facing=sse_nnw": {"model": "regedt32:block/cntrafficsymbols/speedlimit_high_50_rotation23"}
+  }
+}

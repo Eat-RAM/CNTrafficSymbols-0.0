@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "regedt32:cntrafficsymbols/speedlimit_low"
+  },
+  "result": "regedt32:cntrafficsymbols/speedlimit_low_10"
+}
