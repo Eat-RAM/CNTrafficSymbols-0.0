@@ -2,7 +2,7 @@ EX=b"""{
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "regedt32:cntrafficsymbols/speedlimit_low"
+    "tag": "regedt32:cntrafficsymbols/blue_circle_white_text"
   },
   "result": "regedt32:cntrafficsymbols/speedlimit_low_%s"
 }

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "regedt32:cntrafficsymbols/red_circle_black_text"
+  },
+  "result": "regedt32:cntrafficsymbols/heightlimit_6d1"
+}

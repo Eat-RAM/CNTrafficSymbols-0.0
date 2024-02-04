@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "regedt32:cntrafficsymbols/speedlimit_high"
+    "tag": "regedt32:cntrafficsymbols/red_circle_black_text"
   },
   "result": "regedt32:cntrafficsymbols/speedlimit_high_130"
 }
