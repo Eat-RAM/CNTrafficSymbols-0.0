@@ -215,7 +215,7 @@ heightlimit_9d8
 heightlimit_9d9
 heightlimit_10""".split(b"\n")
 for i in BLOCKS:
- for j in(0,1,2,15):
+ for j in(0,1,2,15,26):
   with open(f"{i.decode()}_rotation{j}.json","wb")as f:f.write(EX1%(j,i))
  for j in(16,17,18,23):
   with open(f"{i.decode()}_rotation{j}.json","wb")as f:f.write(EX2%(j,i))

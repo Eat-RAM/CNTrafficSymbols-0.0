@@ -71,7 +71,20 @@ EX=b"""{
       "model": "regedt32:block/cntrafficsymbols/%s_rotation18",
       "y": 90
     },
-    "facing=sse_nnw": {"model": "regedt32:block/cntrafficsymbols/%s_rotation23"}
+    "facing=sse_nnw": {"model": "regedt32:block/cntrafficsymbols/%s_rotation23"},
+    "facing=wall_north": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
+      "y": 180
+    },
+    "facing=wall_east": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
+      "y": 270
+    },
+    "facing=wall_south": {"model": "regedt32:block/cntrafficsymbols/%s_rotation26"},
+    "facing=wall_west": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
+      "y": 90
+    }
   }
 }
 """.replace(b"\n",b"\r\n")
@@ -275,4 +288,4 @@ heightlimit_9d8
 heightlimit_9d9
 heightlimit_10""".split(b"\n")
 for i in BLOCKS:
- with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*24))
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*28))
