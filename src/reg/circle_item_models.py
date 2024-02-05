@@ -201,6 +201,11 @@ heightlimit_9d6
 heightlimit_9d7
 heightlimit_9d8
 heightlimit_9d9
-heightlimit_10""".split(b"\n")
+heightlimit_10
+prohibition
+no_u_turn
+no_left_turn
+no_right_turn
+no_parking""".split(b"\n")
 for i in BLOCKS:
  with open(f"{i.decode()}.json","wb")as f:f.write(EX%i)

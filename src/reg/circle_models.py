@@ -1,5 +1,5 @@
 EX1=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/circle_rotation%d",
+  "parent": "regedt32:block/cntrafficsymbols/circle_rotation%s",
   "textures": {
     "front": "regedt32:block/cntrafficsymbols/%s",
     "back": "regedt32:block/cntrafficsymbols/circle_backboard",
@@ -213,9 +213,14 @@ heightlimit_9d6
 heightlimit_9d7
 heightlimit_9d8
 heightlimit_9d9
-heightlimit_10""".split(b"\n")
+heightlimit_10
+prohibition
+no_u_turn
+no_left_turn
+no_right_turn
+no_parking""".split(b"\n")
 for i in BLOCKS:
- for j in(0,1,2,15,26):
-  with open(f"{i.decode()}_rotation{j}.json","wb")as f:f.write(EX1%(j,i))
+ for j in(b"0",b"1",b"2",b"15",b"26",b"26_down",b"26_up"):
+  with open(f"{i.decode()}_rotation{j.decode()}.json","wb")as f:f.write(EX1%(j,i))
  for j in(16,17,18,23):
   with open(f"{i.decode()}_rotation{j}.json","wb")as f:f.write(EX2%(j,i))

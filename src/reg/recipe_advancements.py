@@ -223,7 +223,12 @@ D={
  b"heightlimit_9d7": b"regedt32:cntrafficsymbols/speedlimit_high_special",
  b"heightlimit_9d8": b"regedt32:cntrafficsymbols/speedlimit_high_special",
  b"heightlimit_9d9": b"regedt32:cntrafficsymbols/speedlimit_high_special",
- b"heightlimit_10": b"regedt32:cntrafficsymbols/speedlimit_high_special"
+ b"heightlimit_10": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"prohibition": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"no_u_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"no_left_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"no_right_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"no_parking": b"regedt32:cntrafficsymbols/speedlimit_high_special"
 }
 for k,v in D.items():
  s=v.replace(b":",b"/").split(b"/")[-1]

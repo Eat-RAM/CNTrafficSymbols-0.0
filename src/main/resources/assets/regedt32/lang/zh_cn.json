@@ -197,5 +197,11 @@
   "block.regedt32.cntrafficsymbols.heightlimit_9d7": "限制高度9.7m",
   "block.regedt32.cntrafficsymbols.heightlimit_9d8": "限制高度9.8m",
   "block.regedt32.cntrafficsymbols.heightlimit_9d9": "限制高度9.9m",
-  "block.regedt32.cntrafficsymbols.heightlimit_10": "限制高度10m"
+  "block.regedt32.cntrafficsymbols.heightlimit_10": "限制高度10m",
+  "block.regedt32.cntrafficsymbols.prohibition": "禁令",
+  "block.regedt32.cntrafficsymbols.no_u_turn": "禁止掉头",
+  "block.regedt32.cntrafficsymbols.no_left_turn": "禁止左转",
+  "block.regedt32.cntrafficsymbols.no_right_turn": "禁止右转",
+  "block.regedt32.cntrafficsymbols.no_left_turn": "禁止左转",
+  "block.regedt32.cntrafficsymbols.no_parking": "禁止停车",
 }

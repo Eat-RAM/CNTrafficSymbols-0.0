@@ -2,6 +2,7 @@
   "values": [
     "#regedt32:cntrafficsymbols/speedlimit",
     "#regedt32:cntrafficsymbols/lift_speedlimit",
-    "#regedt32:cntrafficsymbols/heightlimit"
+    "#regedt32:cntrafficsymbols/heightlimit",
+    "#regedt32:cntrafficsymbols/prohibition"
   ]
 }

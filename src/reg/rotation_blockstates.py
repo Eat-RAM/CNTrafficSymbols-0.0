@@ -72,17 +72,43 @@ EX=b"""{
       "y": 90
     },
     "facing=sse_nnw": {"model": "regedt32:block/cntrafficsymbols/%s_rotation23"},
-    "facing=wall_north": {
+    "facing=wall_north,attachment=none": {
       "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
       "y": 180
     },
-    "facing=wall_east": {
+    "facing=wall_east,attachment=none": {
       "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
       "y": 270
     },
-    "facing=wall_south": {"model": "regedt32:block/cntrafficsymbols/%s_rotation26"},
-    "facing=wall_west": {
+    "facing=wall_south,attachment=none": {"model": "regedt32:block/cntrafficsymbols/%s_rotation26"},
+    "facing=wall_west,attachment=none": {
       "model": "regedt32:block/cntrafficsymbols/%s_rotation26",
+      "y": 90
+    },
+    "facing=wall_north,attachment=down": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_down",
+      "y": 180
+    },
+    "facing=wall_east,attachment=down": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_down",
+      "y": 270
+    },
+    "facing=wall_south,attachment=down": {"model": "regedt32:block/cntrafficsymbols/%s_rotation26_down"},
+    "facing=wall_west,attachment=down": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_down",
+      "y": 90
+    },
+    "facing=wall_north,attachment=up": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_up",
+      "y": 180
+    },
+    "facing=wall_east,attachment=up": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_up",
+      "y": 270
+    },
+    "facing=wall_south,attachment=up": {"model": "regedt32:block/cntrafficsymbols/%s_rotation26_up"},
+    "facing=wall_west,attachment=up": {
+      "model": "regedt32:block/cntrafficsymbols/%s_rotation26_up",
       "y": 90
     }
   }
@@ -286,6 +312,11 @@ heightlimit_9d6
 heightlimit_9d7
 heightlimit_9d8
 heightlimit_9d9
-heightlimit_10""".split(b"\n")
+heightlimit_10
+prohibition
+no_u_turn
+no_left_turn
+no_right_turn
+no_parking""".split(b"\n")
 for i in BLOCKS:
- with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*28))
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*36))
