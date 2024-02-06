@@ -2,6 +2,7 @@ package rege.pegui.cntrafficsymbols;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.MapColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -11,6 +12,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
+import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
 import rege.pegui.cntrafficsymbols.struct.Attachment3;
 import rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing;
 import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
@@ -630,12 +632,40 @@ public class SelfWork{
 		public static final Block NO_PARKING=
 		new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
 		.strength(9f,36f));
+		public static final Block HIGHWAY_1HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_2HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_3HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_4HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_5HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_6HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_7HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_8HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
+		public static final Block HIGHWAY_9HM=
+		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
+		.mapColor(MapColor.GREEN));
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]SPEEDLIMIT_LOW_BLOCKS;
 	private static final Block[]LIFT_SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]HEIGHTLIMIT_BLOCKS;
 	private static final Block[]PROHIBITION_BLOCKS;
+	private static final Block[]HIGHWAY_HM_BLOCKS;
 	public static class Items{
 		public static final Item SPEEDLIMIT_HIGH_3=
 		new BlockItem(Blocks.SPEEDLIMIT_HIGH_3,new Item.Settings().maxCount(64));
@@ -1047,12 +1077,31 @@ public class SelfWork{
 		new BlockItem(Blocks.NO_RIGHT_TURN,new Item.Settings().maxCount(64));
 		public static final Item NO_PARKING=
 		new BlockItem(Blocks.NO_PARKING,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_1HM=
+		new BlockItem(Blocks.HIGHWAY_1HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_2HM=
+		new BlockItem(Blocks.HIGHWAY_2HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_3HM=
+		new BlockItem(Blocks.HIGHWAY_3HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_4HM=
+		new BlockItem(Blocks.HIGHWAY_4HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_5HM=
+		new BlockItem(Blocks.HIGHWAY_5HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_6HM=
+		new BlockItem(Blocks.HIGHWAY_6HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_7HM=
+		new BlockItem(Blocks.HIGHWAY_7HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_8HM=
+		new BlockItem(Blocks.HIGHWAY_8HM,new Item.Settings().maxCount(64));
+		public static final Item HIGHWAY_9HM=
+		new BlockItem(Blocks.HIGHWAY_9HM,new Item.Settings().maxCount(64));
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
 	private static final Item[]LIFT_SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]HEIGHTLIMIT_ITEMS;
 	private static final Item[]PROHIBITION_ITEMS;
+	private static final Item[]HIGHWAY_HM_ITEMS;
 	private static final ItemGroup ITEM_GROUP;
 	static{
 		SPEEDLIMIT_HIGH_BLOCKS=new Block[]{Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL};
@@ -1060,11 +1109,13 @@ public class SelfWork{
 		LIFT_SPEEDLIMIT_HIGH_BLOCKS=new Block[]{Blocks.LIFT_SPEEDLIMIT_HIGH_3,Blocks.LIFT_SPEEDLIMIT_HIGH_5,Blocks.LIFT_SPEEDLIMIT_HIGH_10,Blocks.LIFT_SPEEDLIMIT_HIGH_15,Blocks.LIFT_SPEEDLIMIT_HIGH_20,Blocks.LIFT_SPEEDLIMIT_HIGH_25,Blocks.LIFT_SPEEDLIMIT_HIGH_30,Blocks.LIFT_SPEEDLIMIT_HIGH_35,Blocks.LIFT_SPEEDLIMIT_HIGH_40,Blocks.LIFT_SPEEDLIMIT_HIGH_45,Blocks.LIFT_SPEEDLIMIT_HIGH_50,Blocks.LIFT_SPEEDLIMIT_HIGH_55,Blocks.LIFT_SPEEDLIMIT_HIGH_60,Blocks.LIFT_SPEEDLIMIT_HIGH_65,Blocks.LIFT_SPEEDLIMIT_HIGH_70,Blocks.LIFT_SPEEDLIMIT_HIGH_75,Blocks.LIFT_SPEEDLIMIT_HIGH_80,Blocks.LIFT_SPEEDLIMIT_HIGH_85,Blocks.LIFT_SPEEDLIMIT_HIGH_90,Blocks.LIFT_SPEEDLIMIT_HIGH_95,Blocks.LIFT_SPEEDLIMIT_HIGH_100,Blocks.LIFT_SPEEDLIMIT_HIGH_105,Blocks.LIFT_SPEEDLIMIT_HIGH_110,Blocks.LIFT_SPEEDLIMIT_HIGH_115,Blocks.LIFT_SPEEDLIMIT_HIGH_120,Blocks.LIFT_SPEEDLIMIT_HIGH_125,Blocks.LIFT_SPEEDLIMIT_HIGH_130,Blocks.LIFT_SPEEDLIMIT_HIGH_135,Blocks.LIFT_SPEEDLIMIT_HIGH_140,Blocks.LIFT_SPEEDLIMIT_HIGH_145,Blocks.LIFT_SPEEDLIMIT_HIGH_150,Blocks.LIFT_SPEEDLIMIT_HIGH_SPECIAL};
 		HEIGHTLIMIT_BLOCKS=new Block[]{Blocks.HEIGHTLIMIT_SPECIAL,Blocks.HEIGHTLIMIT_0D1,Blocks.HEIGHTLIMIT_0D2,Blocks.HEIGHTLIMIT_0D3,Blocks.HEIGHTLIMIT_0D4,Blocks.HEIGHTLIMIT_0D5,Blocks.HEIGHTLIMIT_0D6,Blocks.HEIGHTLIMIT_0D7,Blocks.HEIGHTLIMIT_0D8,Blocks.HEIGHTLIMIT_0D9,Blocks.HEIGHTLIMIT_1,Blocks.HEIGHTLIMIT_1D1,Blocks.HEIGHTLIMIT_1D2,Blocks.HEIGHTLIMIT_1D3,Blocks.HEIGHTLIMIT_1D4,Blocks.HEIGHTLIMIT_1D5,Blocks.HEIGHTLIMIT_1D6,Blocks.HEIGHTLIMIT_1D7,Blocks.HEIGHTLIMIT_1D8,Blocks.HEIGHTLIMIT_1D9,Blocks.HEIGHTLIMIT_2,Blocks.HEIGHTLIMIT_2D1,Blocks.HEIGHTLIMIT_2D2,Blocks.HEIGHTLIMIT_2D3,Blocks.HEIGHTLIMIT_2D4,Blocks.HEIGHTLIMIT_2D5,Blocks.HEIGHTLIMIT_2D6,Blocks.HEIGHTLIMIT_2D7,Blocks.HEIGHTLIMIT_2D8,Blocks.HEIGHTLIMIT_2D9,Blocks.HEIGHTLIMIT_3,Blocks.HEIGHTLIMIT_3D1,Blocks.HEIGHTLIMIT_3D2,Blocks.HEIGHTLIMIT_3D3,Blocks.HEIGHTLIMIT_3D4,Blocks.HEIGHTLIMIT_3D5,Blocks.HEIGHTLIMIT_3D6,Blocks.HEIGHTLIMIT_3D7,Blocks.HEIGHTLIMIT_3D8,Blocks.HEIGHTLIMIT_3D9,Blocks.HEIGHTLIMIT_4,Blocks.HEIGHTLIMIT_4D1,Blocks.HEIGHTLIMIT_4D2,Blocks.HEIGHTLIMIT_4D3,Blocks.HEIGHTLIMIT_4D4,Blocks.HEIGHTLIMIT_4D5,Blocks.HEIGHTLIMIT_4D6,Blocks.HEIGHTLIMIT_4D7,Blocks.HEIGHTLIMIT_4D8,Blocks.HEIGHTLIMIT_4D9,Blocks.HEIGHTLIMIT_5,Blocks.HEIGHTLIMIT_5D1,Blocks.HEIGHTLIMIT_5D2,Blocks.HEIGHTLIMIT_5D3,Blocks.HEIGHTLIMIT_5D4,Blocks.HEIGHTLIMIT_5D5,Blocks.HEIGHTLIMIT_5D6,Blocks.HEIGHTLIMIT_5D7,Blocks.HEIGHTLIMIT_5D8,Blocks.HEIGHTLIMIT_5D9,Blocks.HEIGHTLIMIT_6,Blocks.HEIGHTLIMIT_6D1,Blocks.HEIGHTLIMIT_6D2,Blocks.HEIGHTLIMIT_6D3,Blocks.HEIGHTLIMIT_6D4,Blocks.HEIGHTLIMIT_6D5,Blocks.HEIGHTLIMIT_6D6,Blocks.HEIGHTLIMIT_6D7,Blocks.HEIGHTLIMIT_6D8,Blocks.HEIGHTLIMIT_6D9,Blocks.HEIGHTLIMIT_7,Blocks.HEIGHTLIMIT_7D1,Blocks.HEIGHTLIMIT_7D2,Blocks.HEIGHTLIMIT_7D3,Blocks.HEIGHTLIMIT_7D4,Blocks.HEIGHTLIMIT_7D5,Blocks.HEIGHTLIMIT_7D6,Blocks.HEIGHTLIMIT_7D7,Blocks.HEIGHTLIMIT_7D8,Blocks.HEIGHTLIMIT_7D9,Blocks.HEIGHTLIMIT_8,Blocks.HEIGHTLIMIT_8D1,Blocks.HEIGHTLIMIT_8D2,Blocks.HEIGHTLIMIT_8D3,Blocks.HEIGHTLIMIT_8D4,Blocks.HEIGHTLIMIT_8D5,Blocks.HEIGHTLIMIT_8D6,Blocks.HEIGHTLIMIT_8D7,Blocks.HEIGHTLIMIT_8D8,Blocks.HEIGHTLIMIT_8D9,Blocks.HEIGHTLIMIT_9,Blocks.HEIGHTLIMIT_9D1,Blocks.HEIGHTLIMIT_9D2,Blocks.HEIGHTLIMIT_9D3,Blocks.HEIGHTLIMIT_9D4,Blocks.HEIGHTLIMIT_9D5,Blocks.HEIGHTLIMIT_9D6,Blocks.HEIGHTLIMIT_9D7,Blocks.HEIGHTLIMIT_9D8,Blocks.HEIGHTLIMIT_9D9,Blocks.HEIGHTLIMIT_10};
 		PROHIBITION_BLOCKS=new Block[]{Blocks.PROHIBITION,Blocks.NO_U_TURN,Blocks.NO_LEFT_TURN,Blocks.NO_RIGHT_TURN,Blocks.NO_PARKING};
+		HIGHWAY_HM_BLOCKS=new Block[]{Blocks.HIGHWAY_1HM,Blocks.HIGHWAY_2HM,Blocks.HIGHWAY_3HM,Blocks.HIGHWAY_4HM,Blocks.HIGHWAY_5HM,Blocks.HIGHWAY_6HM,Blocks.HIGHWAY_7HM,Blocks.HIGHWAY_8HM,Blocks.HIGHWAY_9HM};
 		SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL};
 		SPEEDLIMIT_LOW_ITEMS=new Item[]{Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 		LIFT_SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.LIFT_SPEEDLIMIT_HIGH_3,Items.LIFT_SPEEDLIMIT_HIGH_5,Items.LIFT_SPEEDLIMIT_HIGH_10,Items.LIFT_SPEEDLIMIT_HIGH_15,Items.LIFT_SPEEDLIMIT_HIGH_20,Items.LIFT_SPEEDLIMIT_HIGH_25,Items.LIFT_SPEEDLIMIT_HIGH_30,Items.LIFT_SPEEDLIMIT_HIGH_35,Items.LIFT_SPEEDLIMIT_HIGH_40,Items.LIFT_SPEEDLIMIT_HIGH_45,Items.LIFT_SPEEDLIMIT_HIGH_50,Items.LIFT_SPEEDLIMIT_HIGH_55,Items.LIFT_SPEEDLIMIT_HIGH_60,Items.LIFT_SPEEDLIMIT_HIGH_65,Items.LIFT_SPEEDLIMIT_HIGH_70,Items.LIFT_SPEEDLIMIT_HIGH_75,Items.LIFT_SPEEDLIMIT_HIGH_80,Items.LIFT_SPEEDLIMIT_HIGH_85,Items.LIFT_SPEEDLIMIT_HIGH_90,Items.LIFT_SPEEDLIMIT_HIGH_95,Items.LIFT_SPEEDLIMIT_HIGH_100,Items.LIFT_SPEEDLIMIT_HIGH_105,Items.LIFT_SPEEDLIMIT_HIGH_110,Items.LIFT_SPEEDLIMIT_HIGH_115,Items.LIFT_SPEEDLIMIT_HIGH_120,Items.LIFT_SPEEDLIMIT_HIGH_125,Items.LIFT_SPEEDLIMIT_HIGH_130,Items.LIFT_SPEEDLIMIT_HIGH_135,Items.LIFT_SPEEDLIMIT_HIGH_140,Items.LIFT_SPEEDLIMIT_HIGH_145,Items.LIFT_SPEEDLIMIT_HIGH_150,Items.LIFT_SPEEDLIMIT_HIGH_SPECIAL};
 		HEIGHTLIMIT_ITEMS=new Item[]{Items.HEIGHTLIMIT_SPECIAL,Items.HEIGHTLIMIT_0D1,Items.HEIGHTLIMIT_0D2,Items.HEIGHTLIMIT_0D3,Items.HEIGHTLIMIT_0D4,Items.HEIGHTLIMIT_0D5,Items.HEIGHTLIMIT_0D6,Items.HEIGHTLIMIT_0D7,Items.HEIGHTLIMIT_0D8,Items.HEIGHTLIMIT_0D9,Items.HEIGHTLIMIT_1,Items.HEIGHTLIMIT_1D1,Items.HEIGHTLIMIT_1D2,Items.HEIGHTLIMIT_1D3,Items.HEIGHTLIMIT_1D4,Items.HEIGHTLIMIT_1D5,Items.HEIGHTLIMIT_1D6,Items.HEIGHTLIMIT_1D7,Items.HEIGHTLIMIT_1D8,Items.HEIGHTLIMIT_1D9,Items.HEIGHTLIMIT_2,Items.HEIGHTLIMIT_2D1,Items.HEIGHTLIMIT_2D2,Items.HEIGHTLIMIT_2D3,Items.HEIGHTLIMIT_2D4,Items.HEIGHTLIMIT_2D5,Items.HEIGHTLIMIT_2D6,Items.HEIGHTLIMIT_2D7,Items.HEIGHTLIMIT_2D8,Items.HEIGHTLIMIT_2D9,Items.HEIGHTLIMIT_3,Items.HEIGHTLIMIT_3D1,Items.HEIGHTLIMIT_3D2,Items.HEIGHTLIMIT_3D3,Items.HEIGHTLIMIT_3D4,Items.HEIGHTLIMIT_3D5,Items.HEIGHTLIMIT_3D6,Items.HEIGHTLIMIT_3D7,Items.HEIGHTLIMIT_3D8,Items.HEIGHTLIMIT_3D9,Items.HEIGHTLIMIT_4,Items.HEIGHTLIMIT_4D1,Items.HEIGHTLIMIT_4D2,Items.HEIGHTLIMIT_4D3,Items.HEIGHTLIMIT_4D4,Items.HEIGHTLIMIT_4D5,Items.HEIGHTLIMIT_4D6,Items.HEIGHTLIMIT_4D7,Items.HEIGHTLIMIT_4D8,Items.HEIGHTLIMIT_4D9,Items.HEIGHTLIMIT_5,Items.HEIGHTLIMIT_5D1,Items.HEIGHTLIMIT_5D2,Items.HEIGHTLIMIT_5D3,Items.HEIGHTLIMIT_5D4,Items.HEIGHTLIMIT_5D5,Items.HEIGHTLIMIT_5D6,Items.HEIGHTLIMIT_5D7,Items.HEIGHTLIMIT_5D8,Items.HEIGHTLIMIT_5D9,Items.HEIGHTLIMIT_6,Items.HEIGHTLIMIT_6D1,Items.HEIGHTLIMIT_6D2,Items.HEIGHTLIMIT_6D3,Items.HEIGHTLIMIT_6D4,Items.HEIGHTLIMIT_6D5,Items.HEIGHTLIMIT_6D6,Items.HEIGHTLIMIT_6D7,Items.HEIGHTLIMIT_6D8,Items.HEIGHTLIMIT_6D9,Items.HEIGHTLIMIT_7,Items.HEIGHTLIMIT_7D1,Items.HEIGHTLIMIT_7D2,Items.HEIGHTLIMIT_7D3,Items.HEIGHTLIMIT_7D4,Items.HEIGHTLIMIT_7D5,Items.HEIGHTLIMIT_7D6,Items.HEIGHTLIMIT_7D7,Items.HEIGHTLIMIT_7D8,Items.HEIGHTLIMIT_7D9,Items.HEIGHTLIMIT_8,Items.HEIGHTLIMIT_8D1,Items.HEIGHTLIMIT_8D2,Items.HEIGHTLIMIT_8D3,Items.HEIGHTLIMIT_8D4,Items.HEIGHTLIMIT_8D5,Items.HEIGHTLIMIT_8D6,Items.HEIGHTLIMIT_8D7,Items.HEIGHTLIMIT_8D8,Items.HEIGHTLIMIT_8D9,Items.HEIGHTLIMIT_9,Items.HEIGHTLIMIT_9D1,Items.HEIGHTLIMIT_9D2,Items.HEIGHTLIMIT_9D3,Items.HEIGHTLIMIT_9D4,Items.HEIGHTLIMIT_9D5,Items.HEIGHTLIMIT_9D6,Items.HEIGHTLIMIT_9D7,Items.HEIGHTLIMIT_9D8,Items.HEIGHTLIMIT_9D9,Items.HEIGHTLIMIT_10};
 		PROHIBITION_ITEMS=new Item[]{Items.PROHIBITION,Items.NO_U_TURN,Items.NO_LEFT_TURN,Items.NO_RIGHT_TURN,Items.NO_PARKING};
+		HIGHWAY_HM_ITEMS=new Item[]{Items.HIGHWAY_1HM,Items.HIGHWAY_2HM,Items.HIGHWAY_3HM,Items.HIGHWAY_4HM,Items.HIGHWAY_5HM,Items.HIGHWAY_6HM,Items.HIGHWAY_7HM,Items.HIGHWAY_8HM,Items.HIGHWAY_9HM};
 		ITEM_GROUP=FabricItemGroup.builder()
 	 .icon(()->new ItemStack(Items.SPEEDLIMIT_HIGH_120))
 	 .displayName(Text.literal("CNTrafficSymbols"))
@@ -1076,6 +1127,7 @@ public class SelfWork{
 			e.add(Items.CIRCLE_BACKBOARD);
 			for(Item i:HEIGHTLIMIT_ITEMS){e.add(i);}
 			for(Item i:PROHIBITION_ITEMS){e.add(i);}
+			for(Item i:HIGHWAY_HM_ITEMS){e.add(i);}
 	 })
 	 .build();
 	}
@@ -1105,6 +1157,11 @@ public class SelfWork{
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/no_left_turn"),Blocks.NO_LEFT_TURN);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/no_right_turn"),Blocks.NO_RIGHT_TURN);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/no_parking"),Blocks.NO_PARKING);
+		for(int i=0;i<9;i++){
+			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_BLOCKS[i]);
+			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_ITEMS[i]);
+		}
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_high_3"),Items.SPEEDLIMIT_HIGH_3);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_low_3"),Items.SPEEDLIMIT_LOW_3);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_high_special"),Items.SPEEDLIMIT_HIGH_SPECIAL);

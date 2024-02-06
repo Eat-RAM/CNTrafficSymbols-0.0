@@ -202,6 +202,14 @@
   "block.regedt32.cntrafficsymbols.no_u_turn": "禁止掉头",
   "block.regedt32.cntrafficsymbols.no_left_turn": "禁止左转",
   "block.regedt32.cntrafficsymbols.no_right_turn": "禁止右转",
-  "block.regedt32.cntrafficsymbols.no_left_turn": "禁止左转",
   "block.regedt32.cntrafficsymbols.no_parking": "禁止停车",
+  "block.regedt32.cntrafficsymbols.highway_1hm": "高速1百米",
+  "block.regedt32.cntrafficsymbols.highway_2hm": "高速2百米",
+  "block.regedt32.cntrafficsymbols.highway_3hm": "高速3百米",
+  "block.regedt32.cntrafficsymbols.highway_4hm": "高速4百米",
+  "block.regedt32.cntrafficsymbols.highway_5hm": "高速5百米",
+  "block.regedt32.cntrafficsymbols.highway_6hm": "高速6百米",
+  "block.regedt32.cntrafficsymbols.highway_7hm": "高速7百米",
+  "block.regedt32.cntrafficsymbols.highway_8hm": "高速8百米",
+  "block.regedt32.cntrafficsymbols.highway_9hm": "高速9百米"
 }

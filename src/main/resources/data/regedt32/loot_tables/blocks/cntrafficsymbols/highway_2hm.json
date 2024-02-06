@@ -1,0 +1,121 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "north_south"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "nne_ssw"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "northeast_southwest"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "ene_wsw"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "east_west"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "ese_wnw"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "northwest_southeast"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "regedt32:cntrafficsymbols/highway_2hm",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {"facing": "sse_nnw"}
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            },
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            }
+          ],
+          "name": "regedt32:cntrafficsymbols/highway_2hm"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "regedt32:cntrafficsymbols/highway_2hm"
+}
