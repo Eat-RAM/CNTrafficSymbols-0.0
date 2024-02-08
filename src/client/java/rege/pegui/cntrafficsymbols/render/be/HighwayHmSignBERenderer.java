@@ -1,13 +1,10 @@
 package rege.pegui.cntrafficsymbols.render.be;
 import static rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing.FACING;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.font.TextRenderer.TextLayerType;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RotationAxis;
@@ -24,8 +21,7 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 	}
 	@Override public void render(HighwayHmSignBlockEntity ett,float tickDelta,
 	MatrixStack matrices,VertexConsumerProvider vcs,int light,int overlay){
-		Text tx=ett.getCustomName();
-		if(tx==null)return;
+		Text tx=ett.getCustomName();if(tx==null)return;
 		BlockState st=ett.getCachedState();
 		matrices.push();
 		setAngles(matrices,st.get(FACING).isWall()?(26-st.get(FACING).id)*90f:
@@ -40,23 +36,24 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 		if(st.get(FACING).isWall())matrices.translate(0f,-.3125f,-.4375f);
 	}
 	void renderText(BlockPos pos,Text tx,MatrixStack matrices,
-	VertexConsumerProvider vcs,int light,int lineHeight,int lineWidth,boolean front){
-		matrices.push();
-		this.setTextAngles(matrices,front,TEXT_OFFSET);
+	VertexConsumerProvider vcs,int light,int lineHeight,int lineWidth,
+	boolean front){
+		matrices.push();setTextAngles(matrices,front,TEXT_OFFSET);
 		int i=16777215;
 		int j=4*lineHeight/2;
 		int k;
 		int l;
 		k=i;
 		l=light;
-		OrderedText odt=tx.asOrderedText();
-		tr.draw(odt,(float)(-tr.getWidth(odt)/2),(float)j,k,false,matrices.peek().getPositionMatrix(),vcs,TextLayerType.POLYGON_OFFSET,0,l);
+		net.minecraft.text.OrderedText odt=tx.asOrderedText();
+		tr.draw(odt,(float)(-tr.getWidth(odt)/2),(float)j,k,false,matrices.peek()
+		.getPositionMatrix(),vcs,TextRenderer.TextLayerType.POLYGON_OFFSET,0,l);
 		matrices.pop();
 	}
 
 	private void setTextAngles(MatrixStack matrices,boolean front,Vec3d translation){
 		if(!front)matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
-		float f=0.0078125F;
+		float f=.0078125f;
 		matrices.translate(translation.x,translation.y,translation.z);
 		matrices.scale(f,-f,f);
 	}

@@ -13,6 +13,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
+import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
 import rege.pegui.cntrafficsymbols.struct.Attachment3;
 import rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing;
@@ -22,6 +23,9 @@ import
 rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRegistry;
 import
 rege.rege.minecraftmod.number_id_revival.state.numberid.ItemNumberIDRegistry;
+import static net.minecraft.block.Blocks.AIR;
+import static net.minecraft.block.Blocks.WATER;
+import static net.minecraft.state.property.Properties.WATERLOGGED;
 public class SelfWork{
 	public static class Blocks{
 		public static final Block SPEEDLIMIT_HIGH_3=
@@ -1108,8 +1112,8 @@ public class SelfWork{
 		public static final Item YELLOW_FLOOR_LINE_EIGHTH=
 		new AliasedBlockItem(Blocks.FLOOR_LINE_EIGHTHS,
 		new Item.Settings().maxCount(64)){
-                        @Override public Block getBlock(){return Blocks.FLOOR_LINE_EIGHTHS;}
-                };
+			@Override public Block getBlock(){return Blocks.FLOOR_LINE_EIGHTHS;}
+		};
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1204,12 +1208,17 @@ public class SelfWork{
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+						.with(DoubleFaceFacing.FACING,j);
 						BlockNumberIDRegistry.INSTANCE.register(12200,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12200,d);
-						st=st.with(net.minecraft.state.property.Properties.WATERLOGGED,true);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12200,d);
+						st=st.with(WATERLOGGED,true);
 						BlockNumberIDRegistry.INSTANCE.register(12200,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12200,~d);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12200,~d);
 						d++;
 					}
 				}
@@ -1220,12 +1229,17 @@ public class SelfWork{
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+						.with(DoubleFaceFacing.FACING,j);
 						BlockNumberIDRegistry.INSTANCE.register(12201,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
-						st=st.with(net.minecraft.state.property.Properties.WATERLOGGED,true);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12201,d);
+						st=st.with(WATERLOGGED,true);
 						BlockNumberIDRegistry.INSTANCE.register(12201,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12201,~d);
 						d++;
 					}
 					d+=32;
@@ -1235,12 +1249,17 @@ public class SelfWork{
 			d=0;
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					BlockState st=Blocks.CIRCLE_BACKBOARD.getDefaultState().with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+					BlockState st=Blocks.CIRCLE_BACKBOARD.getDefaultState()
+					.with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
 					BlockNumberIDRegistry.INSTANCE.register(12203,d,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
-					st=st.with(net.minecraft.state.property.Properties.WATERLOGGED,true);
+					BlockNumberIDRecognitionRegistry.INSTANCE
+					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
+					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
+					st=st.with(WATERLOGGED,true);
 					BlockNumberIDRegistry.INSTANCE.register(12203,~d,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
+					BlockNumberIDRecognitionRegistry.INSTANCE
+					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
+					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
 					d++;
 				}
 				d+=4;
@@ -1250,12 +1269,17 @@ public class SelfWork{
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+						.with(DoubleFaceFacing.FACING,j);
 						BlockNumberIDRegistry.INSTANCE.register(12204,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12204,d);
-						st=st.with(net.minecraft.state.property.Properties.WATERLOGGED,true);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12204,d);
+						st=st.with(WATERLOGGED,true);
 						BlockNumberIDRegistry.INSTANCE.register(12204,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12204,~d);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12204,~d);
 						d++;
 					}
 					d+=27;
@@ -1267,17 +1291,73 @@ public class SelfWork{
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+						.with(DoubleFaceFacing.FACING,j);
 						BlockNumberIDRegistry.INSTANCE.register(12205,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12205,d);
-						st=st.with(net.minecraft.state.property.Properties.WATERLOGGED,true);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12205,d);
+						st=st.with(WATERLOGGED,true);
 						BlockNumberIDRegistry.INSTANCE.register(12205,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE.register(k.getRegistryEntry().registryKey().getValue(),new BlockProperties().mergeFromBlockState(st),12205,~d);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12205,~d);
 						d++;
 					}
 					d+=128-tab.length;
 				}
 				d+=512;
+			}
+			tab=HIGHWAY_HM_BLOCKS;
+			d=0;
+			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+					for(Block k:tab){
+						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+						.with(DoubleFaceFacing.FACING,j);
+						BlockNumberIDRegistry.INSTANCE.register(12206,d,st);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12206,d);
+						st=st.with(WATERLOGGED,true);
+						BlockNumberIDRegistry.INSTANCE.register(12206,~d,st);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(k.getRegistryEntry().registryKey().getValue(),
+						new BlockProperties().mergeFromBlockState(st),12206,~d);
+						d++;
+					}
+					d+=16-tab.length;
+				}
+				d+=64;
+			}
+			BlockNumberIDRegistry.INSTANCE.register(12207,0,AIR.getDefaultState());
+			BlockNumberIDRegistry.INSTANCE.register(12207,8192,AIR.getDefaultState());
+			BlockNumberIDRegistry.INSTANCE.register(12207,-1,WATER.getDefaultState());
+			BlockNumberIDRegistry.INSTANCE
+			.register(12207,-8193,WATER.getDefaultState());
+			for(d=1;d<6561;d++){
+				BlockState st=FloorLineEighthBlock
+				.from3Pow(Blocks.FLOOR_LINE_EIGHTHS.getDefaultState(),d);
+				BlockNumberIDRegistry.INSTANCE.register(12207,d,st);
+				BlockNumberIDRecognitionRegistry.INSTANCE
+				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d);
+				st=st.with(WATERLOGGED,true);
+				BlockNumberIDRegistry.INSTANCE.register(12207,~d,st);
+				BlockNumberIDRecognitionRegistry.INSTANCE
+				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~d);
+				st=st.with(net.minecraft.state.property.Properties.HORIZONTAL_AXIS,
+				net.minecraft.util.math.Direction.Axis.Z);
+				BlockNumberIDRegistry.INSTANCE.register(12207,~(d|8192),st);
+				BlockNumberIDRecognitionRegistry.INSTANCE
+				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~(d|8192));
+				st=st.with(WATERLOGGED,false);
+				BlockNumberIDRegistry.INSTANCE.register(12207,d|8192,st);
+				BlockNumberIDRecognitionRegistry.INSTANCE
+				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d|8192);
 			}
 			Item[]tab2={Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL,Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 			d=0;
@@ -1305,6 +1385,15 @@ public class SelfWork{
 				ItemNumberIDRegistry.INSTANCE.register(12205,d,i);
 				d++;
 			}
+			tab2=HIGHWAY_HM_ITEMS;
+			for(Item i:tab2){
+				ItemNumberIDRegistry.INSTANCE.register(12206,d,i);
+				d++;
+			}
+			ItemNumberIDRegistry.INSTANCE
+			.register(12207,1,Items.WHITE_FLOOR_LINE_EIGHTH);
+			ItemNumberIDRegistry.INSTANCE
+			.register(12207,2,Items.YELLOW_FLOOR_LINE_EIGHTH);
 		}catch(NoClassDefFoundError e){}
 	}
 }

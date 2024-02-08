@@ -3,12 +3,10 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity;
 public class HighwayHmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider{
@@ -36,8 +34,8 @@ implements net.minecraft.block.BlockEntityProvider{
 	getCollisionShape(BlockState st,BlockView v, BlockPos p,ShapeContext c){
 		return net.minecraft.util.shape.VoxelShapes.empty();
 	}
-	@Override public void
-	onPlaced(World w,BlockPos p,BlockState st,LivingEntity pl,ItemStack itm){
+	@Override public void onPlaced(net.minecraft.world.World w,BlockPos p,
+	BlockState st,net.minecraft.entity.LivingEntity pl,ItemStack itm){
 		if(w.isClient){
 			w.getBlockEntity(p,HighwayHmSignBlockEntity.TYPE)
 			.ifPresent(be->be.setCustomName(itm.hasCustomName()?itm.getName():null));

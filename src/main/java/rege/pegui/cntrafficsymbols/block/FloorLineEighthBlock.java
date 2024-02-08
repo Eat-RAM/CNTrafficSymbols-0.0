@@ -6,13 +6,11 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -47,24 +45,18 @@ implements net.minecraft.block.Waterloggable{
 		st.get(SLICES).intValue()+1;
 	}
 	public static BlockState from3Pow(BlockState st,int pow){
-		pow--;
-		st=st.with(SLICES,pow%16);
-		pow/=16;
-		st=st.with(SLICES16,pow%10);
-		pow/=10;
+		pow--;st=st.with(SLICES,pow%16);pow/=16;st=st.with(SLICES16,pow%10);pow/=10;
 		return st.with(SLICES160,pow%41);
 	}
 	public FloorLineEighthBlock(Item itm1,Item itm2,Settings s){
-		super(s);
-		this.itm1=itm1;
-		this.itm2=itm2;
+		super(s);this.itm1=itm1;this.itm2=itm2;
 		setDefaultState(getDefaultState().with(SLICES160,0).with(SLICES16,0)
 		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X).with(WATERLOGGED,false));
 	}
 	@Override public VoxelShape
-	getOutlineShape(BlockState st,BlockView v,BlockPos p,ShapeContext c){
-		VoxelShape res=net.minecraft.util.shape.VoxelShapes.empty();
-		int r=to3Pow(st);
+ getOutlineShape(BlockState st,BlockView v,BlockPos p,
+ net.minecraft.block.ShapeContext c){
+		VoxelShape res=net.minecraft.util.shape.VoxelShapes.empty();int r=to3Pow(st);
 		if(st.get(HORIZONTAL_AXIS)==Direction.Axis.X){
 			if(r%3!=0)res=union(res,L0X);
 			r/=3;
@@ -101,11 +93,13 @@ implements net.minecraft.block.Waterloggable{
 		return res;
 	}
 	@Override public void
-	onStateReplaced(BlockState st,World w,BlockPos p,BlockState nst,boolean mved){
-		if(!st.isOf(nst.getBlock())){
-			byte i1=0;
-			byte i2=0;
-			int r=to3Pow(st);
+	afterBreak(World w,net.minecraft.entity.player.PlayerEntity player,BlockPos p,
+	BlockState st,@org.jetbrains.annotations.Nullable
+	net.minecraft.block.entity.BlockEntity ett,ItemStack tool){
+		super.afterBreak(w,player,p,st,ett,tool);
+		if((w instanceof ServerWorld)&&
+		getDroppedStacks(st,(ServerWorld)w,p,ett,player,tool).isEmpty()){
+			byte i1=0;byte i2=0;int r=to3Pow(st);
 			for(int i=0;i<8;i++){
 				switch(r%3){
 					case 1:i1++;break;
@@ -115,7 +109,6 @@ implements net.minecraft.block.Waterloggable{
 			}
 			ItemScatterer.spawn(w,p.getX(),p.getY(),p.getZ(),new ItemStack(itm1,i1));
 			ItemScatterer.spawn(w,p.getX(),p.getY(),p.getZ(),new ItemStack(itm2,i2));
-			super.onStateReplaced(st,w,p,nst,mved);
 		}
 	}
 	@Override protected void
@@ -123,47 +116,35 @@ implements net.minecraft.block.Waterloggable{
 		bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS,WATERLOGGED);
 	}
 	@Override public BlockState getPlacementState(ItemPlacementContext ctx){
-		BlockState st=ctx.getWorld().getBlockState(ctx.getBlockPos());
-		byte repl=1;
+		BlockState st=ctx.getWorld().getBlockState(ctx.getBlockPos());byte repl=1;
 		if(ctx.getStack().isOf(itm2)){repl++;}else if(!ctx.getStack().isOf(itm1)){
 		throw new IllegalStateException("Unexpected item "+ctx.getStack().getItem());
 		}
 		if(st.isOf(this)){
-			Direction d=ctx.getSide();
-			BlockPos p=ctx.getBlockPos();
-			net.minecraft.util.math.Vec3d v=ctx.getHitPos();
-			int l=0;
+			Direction d=ctx.getSide();BlockPos p=ctx.getBlockPos();
+			net.minecraft.util.math.Vec3d v=ctx.getHitPos();int l=0;
 			if(d.getAxis().isVertical()){
 				l=(int)(((st.get(HORIZONTAL_AXIS)==Direction.Axis.X)?
 				v.z-p.getZ():(v.x-p.getX()))*8);
 			}else{
 				switch(d){
 					case NORTH:{
-						double c=v.z-p.getZ();
-						l=((int)c)-((c%.125==0)?1:0);
-						break;
+						double c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
 					}
 					case SOUTH:{
-						double c=v.z-p.getZ();
-						l=(int)c;
-						break;
+						double c=v.z-p.getZ();l=(int)c;break;
 					}
 					case WEST:{
-						double c=v.x-p.getX();
-						l=((int)c)-((c%.125==0)?1:0);
-						break;
+						double c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
 					}
 					case EAST:{
-						double c=v.x-p.getX();
-						l=(int)c;
-						break;
+						double c=v.x-p.getX();l=(int)c;break;
 					}
 					default:assert false;
 				}
 			}
 			if(l<0){l=0;}else if(l>7){l=7;}
-			int base=1;
-			for(int i=0;i<l;i++)base*=3;
+			int base=1;for(int i=0;i<l;i++)base*=3;
 			return from3Pow(st,base*repl+to3Pow(st));
 		}
 		if(ctx.getHorizontalPlayerFacing().getAxis()==Direction.Axis.X){
@@ -195,46 +176,34 @@ implements net.minecraft.block.Waterloggable{
 	}
 	@Override public boolean canReplace(BlockState st,ItemPlacementContext ctx){
 		if(!(ctx.getStack().isOf(itm1)||ctx.getStack().isOf(itm2)))return false;
-		Direction d=ctx.getSide();
-		BlockPos p=ctx.getBlockPos();
-		net.minecraft.util.math.Vec3d v=ctx.getHitPos();
-		int l=0;
+		Direction d=ctx.getSide();BlockPos p=ctx.getBlockPos();
+		net.minecraft.util.math.Vec3d v=ctx.getHitPos();int l=0;
 		if(d.getAxis().isVertical()){
 			l=(int)(((st.get(HORIZONTAL_AXIS)==Direction.Axis.X)?
 			v.z-p.getZ():(v.x-p.getX()))*8);
 		}else if(d.getAxis()==st.get(HORIZONTAL_AXIS)){return false;}else{
 			switch(d){
 				case NORTH:{
-					double c=v.z-p.getZ();
-					l=((int)c)-((c%.125==0)?1:0);
-					break;
+					double c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
 				}
 				case SOUTH:{
-					double c=v.z-p.getZ();
-					l=(int)c;
-					break;
+					double c=v.z-p.getZ();l=(int)c;break;
 				}
 				case WEST:{
-					double c=v.x-p.getX();
-					l=((int)c)-((c%.125==0)?1:0);
-					break;
+					double c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
 				}
 				case EAST:{
-					double c=v.x-p.getX();
-					l=(int)c;
-					break;
+					double c=v.x-p.getX();l=(int)c;break;
 				}
 				default:assert false;
 			}
 		}
 		if(l<0){l=0;}else if(l>7){l=7;}
-		int s=to3Pow(st);
-		for(int i=0;i<l;i++){
-			s/=3;
-		}
+		int s=to3Pow(st);for(int i=0;i<l;i++)s/=3;
 		return s%3==0;
 	}
-	@Override public BlockState rotate(BlockState st,BlockRotation rtt){
+	@Override public BlockState
+	rotate(BlockState st,net.minecraft.util.BlockRotation rtt){
 		boolean shouldReverse=false;
 		switch(rtt){
 			case CLOCKWISE_90:{
@@ -243,8 +212,7 @@ implements net.minecraft.block.Waterloggable{
 				break;
 			}
 			case CLOCKWISE_180:{
-				shouldReverse=true;
-				break;
+				shouldReverse=true;break;
 			}
 			case COUNTERCLOCKWISE_90:{
 				shouldReverse=st.get(HORIZONTAL_AXIS)==Direction.Axis.Z;st=
@@ -259,7 +227,8 @@ implements net.minecraft.block.Waterloggable{
 		}
 		return st;
 	}
-	@Override public BlockState mirror(BlockState st,BlockMirror mirror){
+	@Override public BlockState
+	mirror(BlockState st,net.minecraft.util.BlockMirror mirror){
 		switch(mirror){
 			case FRONT_BACK:if(st.get(HORIZONTAL_AXIS)==Direction.Axis.X)return st;break;
 			case LEFT_RIGHT:if(st.get(HORIZONTAL_AXIS)==Direction.Axis.Z)return st;break;
