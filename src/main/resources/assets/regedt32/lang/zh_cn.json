@@ -211,5 +211,9 @@
   "block.regedt32.cntrafficsymbols.highway_6hm": "高速6百米",
   "block.regedt32.cntrafficsymbols.highway_7hm": "高速7百米",
   "block.regedt32.cntrafficsymbols.highway_8hm": "高速8百米",
-  "block.regedt32.cntrafficsymbols.highway_9hm": "高速9百米"
+  "block.regedt32.cntrafficsymbols.highway_9hm": "高速9百米",
+  "block.regedt32.cntrafficsymbols.highway_hm": "高速百米",
+  "block.regedt32.cntrafficsymbols.floor_line_eighths": "实线",
+  "item.regedt32.cntrafficsymbols.white_floor_line_eighth": "白色实线",
+  "item.regedt32.cntrafficsymbols.yellow_floor_line_eighth": "黄色实线"
 }

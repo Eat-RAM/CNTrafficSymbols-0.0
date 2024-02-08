@@ -28,8 +28,8 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 		if(tx==null)return;
 		BlockState st=ett.getCachedState();
 		matrices.push();
-		setAngles(matrices,st.get(FACING).isWall()?(st.get(FACING).id-24)*90f:
-		((st.get(FACING).id%16)*22.5f),st);
+		setAngles(matrices,st.get(FACING).isWall()?(26-st.get(FACING).id)*90f:
+		(((32-st.get(FACING).id)%16)*22.5f),st);
 		renderText(ett.getPos(),tx,matrices,vcs,light,8,90,true);
 		if(!st.get(FACING).isSingle())renderText(ett.getPos(),tx,matrices,vcs,light,8,90,false);
 		matrices.pop();

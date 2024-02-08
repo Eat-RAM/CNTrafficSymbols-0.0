@@ -3,6 +3,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MapColor;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -659,6 +660,10 @@ public class SelfWork{
 		public static final Block HIGHWAY_9HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
 		.mapColor(MapColor.GREEN));
+		public static final Block FLOOR_LINE_EIGHTHS=
+		new rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock(
+			Items.WHITE_FLOOR_LINE_EIGHTH,Items.YELLOW_FLOOR_LINE_EIGHTH,
+			Block.Settings.create().strength(4f,4f));
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]SPEEDLIMIT_LOW_BLOCKS;
@@ -1095,6 +1100,16 @@ public class SelfWork{
 		new BlockItem(Blocks.HIGHWAY_8HM,new Item.Settings().maxCount(64));
 		public static final Item HIGHWAY_9HM=
 		new BlockItem(Blocks.HIGHWAY_9HM,new Item.Settings().maxCount(64));
+		public static final Item WHITE_FLOOR_LINE_EIGHTH=
+		new AliasedBlockItem(Blocks.FLOOR_LINE_EIGHTHS,
+		new Item.Settings().maxCount(64)){
+			@Override public Block getBlock(){return Blocks.FLOOR_LINE_EIGHTHS;}
+		};
+		public static final Item YELLOW_FLOOR_LINE_EIGHTH=
+		new AliasedBlockItem(Blocks.FLOOR_LINE_EIGHTHS,
+		new Item.Settings().maxCount(64)){
+                        @Override public Block getBlock(){return Blocks.FLOOR_LINE_EIGHTHS;}
+                };
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1128,6 +1143,8 @@ public class SelfWork{
 			for(Item i:HEIGHTLIMIT_ITEMS){e.add(i);}
 			for(Item i:PROHIBITION_ITEMS){e.add(i);}
 			for(Item i:HIGHWAY_HM_ITEMS){e.add(i);}
+			e.add(Items.WHITE_FLOOR_LINE_EIGHTH);
+			e.add(Items.YELLOW_FLOOR_LINE_EIGHTH);
 	 })
 	 .build();
 	}
@@ -1161,7 +1178,9 @@ public class SelfWork{
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_BLOCKS[i]);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_ITEMS[i]);
 		}
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/floor_line_eighths"),Blocks.FLOOR_LINE_EIGHTHS);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity.TYPE);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_high_3"),Items.SPEEDLIMIT_HIGH_3);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_low_3"),Items.SPEEDLIMIT_LOW_3);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_high_special"),Items.SPEEDLIMIT_HIGH_SPECIAL);
@@ -1176,6 +1195,8 @@ public class SelfWork{
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/no_left_turn"),Items.NO_LEFT_TURN);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/no_right_turn"),Items.NO_RIGHT_TURN);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/no_parking"),Items.NO_PARKING);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/white_floor_line_eighth"),Items.WHITE_FLOOR_LINE_EIGHTH);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/yellow_floor_line_eighth"),Items.YELLOW_FLOOR_LINE_EIGHTH);
 		Registry.register(Registries.ITEM_GROUP,new Identifier("regedt32","cntrafficsymbols"),ITEM_GROUP);
 		try{
 			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};

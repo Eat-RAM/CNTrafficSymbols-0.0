@@ -206,6 +206,15 @@ prohibition
 no_u_turn
 no_left_turn
 no_right_turn
-no_parking""".split(b"\n")
+no_parking
+highway_1hm
+highway_2hm
+highway_3hm
+highway_4hm
+highway_5hm
+highway_6hm
+highway_7hm
+highway_8hm
+highway_9hm""".split(b"\n")
 for i in BLOCKS:
  with open(f"{i.decode()}.json","wb")as f:f.write(EX%i)
