@@ -70,7 +70,7 @@
       "from": [6.5, 0, 7],
       "to": [9.5, 12, 9],
       "faces": {
-        "down": {"uv": [6.5, 7, 9.5, 9], "texture": "#side"},
+        "down": {"uv": [6.5, 7, 9.5, 9], "texture": "#side", "cullface": "down"},
         "up": {"uv": [6.5, 7, 9.5, 9], "texture": "#side"}
       }
     },

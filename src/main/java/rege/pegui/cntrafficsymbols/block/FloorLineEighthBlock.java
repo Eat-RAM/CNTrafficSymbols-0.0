@@ -54,8 +54,8 @@ implements net.minecraft.block.Waterloggable{
 		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X).with(WATERLOGGED,false));
 	}
 	@Override public VoxelShape
- getOutlineShape(BlockState st,BlockView v,BlockPos p,
- net.minecraft.block.ShapeContext c){
+	getOutlineShape(BlockState st,BlockView v,BlockPos p,
+	net.minecraft.block.ShapeContext c){
 		VoxelShape res=net.minecraft.util.shape.VoxelShapes.empty();int r=to3Pow(st);
 		if(st.get(HORIZONTAL_AXIS)==Direction.Axis.X){
 			if(r%3!=0)res=union(res,L0X);
@@ -211,9 +211,7 @@ implements net.minecraft.block.Waterloggable{
 				st.with(HORIZONTAL_AXIS,shouldReverse?Direction.Axis.Z:Direction.Axis.X);
 				break;
 			}
-			case CLOCKWISE_180:{
-				shouldReverse=true;break;
-			}
+			case CLOCKWISE_180:shouldReverse=true;break;
 			case COUNTERCLOCKWISE_90:{
 				shouldReverse=st.get(HORIZONTAL_AXIS)==Direction.Axis.Z;st=
 				st.with(HORIZONTAL_AXIS,shouldReverse?Direction.Axis.X:Direction.Axis.Z);

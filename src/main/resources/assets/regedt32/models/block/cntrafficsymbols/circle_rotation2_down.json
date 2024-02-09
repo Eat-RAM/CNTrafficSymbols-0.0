@@ -79,7 +79,7 @@
       "to": [9.5, 12, 9],
       "rotation": {"origin": [8, 8, 8], "axis": "y", "angle": -45},
       "faces": {
-        "down": {"uv": [6.5, 8, 9.5, 9], "texture": "#side"},
+        "down": {"uv": [6.5, 8, 9.5, 9], "texture": "#side", "cullface": "down"},
         "up": {"uv": [6.5, 8, 9.5, 9], "texture": "#side"}
       }
     },
