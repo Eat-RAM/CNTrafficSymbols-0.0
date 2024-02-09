@@ -1,4 +1,5 @@
 {
+  "replace": false,
   "values": [
     "#regedt32:cntrafficsymbols/circle_vertical_symbols",
     "regedt32:cntrafficsymbols/circle_backboard",

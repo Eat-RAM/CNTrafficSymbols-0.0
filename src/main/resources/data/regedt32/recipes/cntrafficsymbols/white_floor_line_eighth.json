@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {"item": "minecraft:black_concrete"},
+    "W": {"item": "minecraft:white_concrete"}
+  },
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BWB"
+  ],
+  "result": {
+    "count": 8,
+    "item": "regedt32:cntrafficsymbols/white_floor_line_eighth"
+  },
+  "show_notification": true
+}

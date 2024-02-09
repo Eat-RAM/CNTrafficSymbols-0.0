@@ -228,7 +228,9 @@ D={
  b"no_u_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
  b"no_left_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
  b"no_right_turn": b"regedt32:cntrafficsymbols/speedlimit_high_special",
- b"no_parking": b"regedt32:cntrafficsymbols/speedlimit_high_special"
+ b"no_parking": b"regedt32:cntrafficsymbols/speedlimit_high_special",
+ b"white_floor_line_eighth": b"minecraft:white_concrete",
+ b"yellow_floor_line_eighth": b"minecraft:yellow_concrete"
 }
 for k,v in D.items():
  s=v.replace(b":",b"/").split(b"/")[-1]

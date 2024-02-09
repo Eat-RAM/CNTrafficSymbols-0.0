@@ -15,6 +15,16 @@ implements net.minecraft.block.BlockEntityProvider{
 	public static final VoxelShape SHAPE0E=cuboid(0,.375,.375,.0625,.625,.625);
 	public static final VoxelShape SHAPE0S=cuboid(.375,.375,0,.625,.625,.0625);
 	public static final VoxelShape SHAPE0W=cuboid(.9375,.375,.375,1,.625,.625);
+	public static final VoxelShape SHAPE1=cuboid(.375,0,.375,.625,.25,.625);
+	public static final VoxelShape SHAPE1N=cuboid(.375,0,.9375,.625,.25,1);
+	public static final VoxelShape SHAPE1E=cuboid(0,0,.375,.0625,.25,.625);
+	public static final VoxelShape SHAPE1S=cuboid(.375,0,0,.625,.25,.0625);
+	public static final VoxelShape SHAPE1W=cuboid(.9375,0,.375,1,.25,.625);
+	public static final VoxelShape SHAPE2=cuboid(.375,.75,.375,.625,1,.625);
+	public static final VoxelShape SHAPE2N=cuboid(.375,.75,.9375,.625,1,1);
+	public static final VoxelShape SHAPE2E=cuboid(0,.75,.375,.0625,1,.625);
+	public static final VoxelShape SHAPE2S=cuboid(.375,.75,0,.625,1,.0625);
+	public static final VoxelShape SHAPE2W=cuboid(.9375,.75,.375,1,1,.625);
 	public HighwayHmSignBlock(Settings s){super(s);}
 	@Override public BlockEntity createBlockEntity(BlockPos p,BlockState st){
 		return new HighwayHmSignBlockEntity(p,st);
@@ -22,11 +32,32 @@ implements net.minecraft.block.BlockEntityProvider{
 	@Override public VoxelShape
 	getOutlineShape(BlockState st,BlockView v,BlockPos p,ShapeContext c){
 		int f=st.get(rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing.FACING).id;
+		int i=st.get(rege.pegui.cntrafficsymbols.struct.Attachment3.ATTACHMENT).id;
 		switch(f){
-			case 24:return SHAPE0N;
-			case 25:return SHAPE0E;
-			case 26:return SHAPE0S;
-			case 27:return SHAPE0W;
+			case 24:switch(i){
+				case 1:return SHAPE1N;
+				case 2:return SHAPE2N;
+				default:return SHAPE0N;
+			}
+			case 25:switch(i){
+				case 1:return SHAPE1E;
+				case 2:return SHAPE2E;
+				default:return SHAPE0E;
+			}
+			case 26:switch(i){
+				case 1:return SHAPE1S;
+				case 2:return SHAPE2S;
+				default:return SHAPE0S;
+			}
+			case 27:switch(i){
+				case 1:return SHAPE1W;
+				case 2:return SHAPE2W;
+				default:return SHAPE0W;
+			}
+		}
+		switch(i){
+			case 1:return SHAPE1;
+			case 2:return SHAPE2;
 			default:return SHAPE0;
 		}
 	}

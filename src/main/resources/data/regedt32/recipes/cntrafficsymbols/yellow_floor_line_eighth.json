@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {"item": "minecraft:black_concrete"},
+    "Y": {"item": "minecraft:yellow_concrete"}
+  },
+  "pattern": [
+    "BBB",
+    "BBB",
+    "BYB"
+  ],
+  "result": {
+    "count": 8,
+    "item": "regedt32:cntrafficsymbols/yellow_floor_line_eighth"
+  },
+  "show_notification": true
+}
