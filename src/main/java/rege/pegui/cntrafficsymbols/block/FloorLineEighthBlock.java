@@ -4,6 +4,8 @@ import static net.minecraft.state.property.Properties.HORIZONTAL_AXIS;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
+import static
+rege.pegui.cntrafficsymbols.Main.getHardcodedFloorLineEighthsLootEnabled;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
@@ -98,7 +100,9 @@ implements net.minecraft.block.Waterloggable{
 	net.minecraft.block.entity.BlockEntity ett,ItemStack tool){
 		super.afterBreak(w,player,p,st,ett,tool);
 		if((w instanceof ServerWorld)&&
-		getDroppedStacks(st,(ServerWorld)w,p,ett,player,tool).isEmpty()){
+		(Boolean.TRUE.equals(getHardcodedFloorLineEighthsLootEnabled())||
+		(getHardcodedFloorLineEighthsLootEnabled()==null&&
+		getDroppedStacks(st,(ServerWorld)w,p,ett,player,tool).isEmpty()))){
 			byte i1=0;byte i2=0;int r=to3Pow(st);
 			for(int i=0;i<8;i++){
 				switch(r%3){
@@ -127,19 +131,12 @@ implements net.minecraft.block.Waterloggable{
 				l=(int)(((st.get(HORIZONTAL_AXIS)==Direction.Axis.X)?
 				v.z-p.getZ():(v.x-p.getX()))*8);
 			}else{
+				double c;
 				switch(d){
-					case NORTH:{
-						double c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
-					}
-					case SOUTH:{
-						double c=v.z-p.getZ();l=(int)c;break;
-					}
-					case WEST:{
-						double c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
-					}
-					case EAST:{
-						double c=v.x-p.getX();l=(int)c;break;
-					}
+					case NORTH:c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
+					case SOUTH:c=v.z-p.getZ();l=(int)c;break;
+					case WEST:c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
+					case EAST:c=v.x-p.getX();l=(int)c;break;
 					default:assert false;
 				}
 			}
@@ -150,17 +147,18 @@ implements net.minecraft.block.Waterloggable{
 		if(ctx.getHorizontalPlayerFacing().getAxis()==Direction.Axis.X){
 			int l=(int)((ctx.getHitPos().z-ctx.getBlockPos().getZ())*8);
 			if(l<0){l=0;}else if(l>7){l=7;}
-			int base=1;
-			for(int i=0;i<l;i++)base*=3;
-			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld().getFluidState(ctx
-			.getBlockPos()).getFluid()==WATER).with(HORIZONTAL_AXIS,Direction.Axis.X),base*repl);
+			int base=1;for(int i=0;i<l;i++)base*=3;
+			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld()
+			.getFluidState(ctx.getBlockPos()).getFluid()==WATER)
+			.with(HORIZONTAL_AXIS,Direction.Axis.X),base*repl);
 		}else{
 			int l=(int)((ctx.getHitPos().x-ctx.getBlockPos().getX())*8);
 			if(l<0){l=0;}else if(l>7){l=7;}
 			int base=1;
 			for(int i=0;i<l;i++)base*=3;
-			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld().getFluidState(ctx
-			.getBlockPos()).getFluid()==WATER).with(HORIZONTAL_AXIS,Direction.Axis.Z),base*repl);
+			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld()
+			.getFluidState(ctx.getBlockPos()).getFluid()==WATER)
+			.with(HORIZONTAL_AXIS,Direction.Axis.Z),base*repl);
 		}
 	}
 	@Override public BlockState getStateForNeighborUpdate(BlockState st,
@@ -182,19 +180,12 @@ implements net.minecraft.block.Waterloggable{
 			l=(int)(((st.get(HORIZONTAL_AXIS)==Direction.Axis.X)?
 			v.z-p.getZ():(v.x-p.getX()))*8);
 		}else if(d.getAxis()==st.get(HORIZONTAL_AXIS)){return false;}else{
+			double c;
 			switch(d){
-				case NORTH:{
-					double c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
-				}
-				case SOUTH:{
-					double c=v.z-p.getZ();l=(int)c;break;
-				}
-				case WEST:{
-					double c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
-				}
-				case EAST:{
-					double c=v.x-p.getX();l=(int)c;break;
-				}
+				case NORTH:c=v.z-p.getZ();l=((int)c)-((c%.125==0)?1:0);break;
+				case SOUTH:c=v.z-p.getZ();l=(int)c;break;
+				case WEST:c=v.x-p.getX();l=((int)c)-((c%.125==0)?1:0);break;
+				case EAST:c=v.x-p.getX();l=(int)c;break;
 				default:assert false;
 			}
 		}
