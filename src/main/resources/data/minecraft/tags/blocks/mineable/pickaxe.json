@@ -4,6 +4,8 @@
     "#regedt32:cntrafficsymbols/circle_vertical_symbols",
     "regedt32:cntrafficsymbols/circle_backboard",
     "#regedt32:cntrafficsymbols/highway_hm",
-    "regedt32:cntrafficsymbols/floor_line_eighths"
+    "regedt32:cntrafficsymbols/floor_line_eighths",
+    "regedt32:cntrafficsymbols/highway_km",
+    "#regedt32:cntrafficsymbols/distance_detection"
   ]
 }

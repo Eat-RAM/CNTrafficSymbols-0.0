@@ -470,6 +470,7 @@ highway_5hm
 highway_6hm
 highway_7hm
 highway_8hm
-highway_9hm""".split(b"\n")
+highway_9hm
+highway_km""".split(b"\n")
 for i in BLOCKS:
  with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*84))

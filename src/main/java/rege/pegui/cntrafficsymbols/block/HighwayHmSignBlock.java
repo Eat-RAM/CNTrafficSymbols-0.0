@@ -80,7 +80,7 @@ implements net.minecraft.block.BlockEntityProvider{
 		return (be instanceof HighwayHmSignBlockEntity)?
 		new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols.struct
 		.DoubleFaceFacing.FACING).isSingle()?1:2)
-		.setCustomName(((HighwayHmSignBlockEntity)be).getName()):
+		.setCustomName(((HighwayHmSignBlockEntity)be).getCustomName()):
 		super.getPickStack(v,p,st);
 	}
 }

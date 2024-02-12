@@ -1,6 +1,11 @@
-EX=b"""{
+EX1=b"""{
   "parent": "minecraft:item/generated",
   "textures": {"layer0": "regedt32:block/cntrafficsymbols/%s"}
+}
+""".replace(b"\n",b"\r\n")
+EX2=b"""{
+  "parent": "minecraft:item/generated",
+  "textures": {"layer0": "regedt32:item/cntrafficsymbols/%s"}
 }
 """.replace(b"\n",b"\r\n")
 BLOCKS=b"""\
@@ -215,6 +220,21 @@ highway_5hm
 highway_6hm
 highway_7hm
 highway_8hm
-highway_9hm""".split(b"\n")
+highway_9hm
+highway_km
+distance_detection_0m_left
+distance_detection_0m_right
+distance_detection_50m_left
+distance_detection_50m_right
+distance_detection_100m_left
+distance_detection_100m_right
+distance_detection_200m_left
+distance_detection_200m_right""".split(b"\n")
+ITEMS=b"""\
+iron_plate
+white_floor_line_eighth
+yellow_floor_line_eighth""".split(b"\n")
 for i in BLOCKS:
- with open(f"{i.decode()}.json","wb")as f:f.write(EX%i)
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX1%i)
+for i in ITEMS:
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX2%i)

@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
 import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
+import rege.pegui.cntrafficsymbols.block.WideBoardBlock;
 import rege.pegui.cntrafficsymbols.struct.Attachment3;
 import rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing;
 import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
@@ -664,10 +665,31 @@ public class SelfWork{
 		public static final Block HIGHWAY_9HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
 		.mapColor(MapColor.GREEN));
-		public static final Block FLOOR_LINE_EIGHTHS=
-		new rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock(
-			Items.WHITE_FLOOR_LINE_EIGHTH,Items.YELLOW_FLOOR_LINE_EIGHTH,
-			Block.Settings.create().strength(4f,4f));
+		public static final FloorLineEighthBlock FLOOR_LINE_EIGHTHS=
+		new FloorLineEighthBlock(Block.Settings.create().strength(4f,4f));
+		public static final Block HIGHWAY_KM=
+		new rege.pegui.cntrafficsymbols.block.HighwayKmSignBlock(Block.Settings
+		.create().nonOpaque().strength(7f,28f).mapColor(MapColor.GREEN));
+		public static final WideBoardBlock DISTANCE_DETECTION_0M_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_0M_RIGHT=
+		new WideBoardBlock(DISTANCE_DETECTION_0M_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_50M_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_50M_RIGHT=
+		new WideBoardBlock(DISTANCE_DETECTION_50M_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_100M_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_100M_RIGHT=
+		new WideBoardBlock(DISTANCE_DETECTION_100M_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_200M_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock DISTANCE_DETECTION_200M_RIGHT=
+		new WideBoardBlock(DISTANCE_DETECTION_200M_LEFT,
+		Block.Settings.create().strength(21f,84f));
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]SPEEDLIMIT_LOW_BLOCKS;
@@ -1114,6 +1136,24 @@ public class SelfWork{
 		new Item.Settings().maxCount(64)){
 			@Override public Block getBlock(){return Blocks.FLOOR_LINE_EIGHTHS;}
 		};
+		public static final Item HIGHWAY_KM=
+		new BlockItem(Blocks.HIGHWAY_KM,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_0M_LEFT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_0M_LEFT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_0M_RIGHT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_0M_RIGHT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_50M_LEFT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_50M_LEFT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_50M_RIGHT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_50M_RIGHT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_100M_LEFT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_100M_LEFT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_100M_RIGHT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_100M_RIGHT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_200M_LEFT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_200M_LEFT,new Item.Settings().maxCount(64));
+		public static final Item DISTANCE_DETECTION_200M_RIGHT=new BlockItem(Blocks
+		.DISTANCE_DETECTION_200M_RIGHT,new Item.Settings().maxCount(64));
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1149,6 +1189,15 @@ public class SelfWork{
 			for(Item i:HIGHWAY_HM_ITEMS){e.add(i);}
 			e.add(Items.WHITE_FLOOR_LINE_EIGHTH);
 			e.add(Items.YELLOW_FLOOR_LINE_EIGHTH);
+			e.add(Items.HIGHWAY_KM);
+			e.add(Items.DISTANCE_DETECTION_0M_LEFT);
+			e.add(Items.DISTANCE_DETECTION_0M_RIGHT);
+			e.add(Items.DISTANCE_DETECTION_50M_LEFT);
+			e.add(Items.DISTANCE_DETECTION_50M_RIGHT);
+			e.add(Items.DISTANCE_DETECTION_100M_LEFT);
+			e.add(Items.DISTANCE_DETECTION_100M_RIGHT);
+			e.add(Items.DISTANCE_DETECTION_200M_LEFT);
+			e.add(Items.DISTANCE_DETECTION_200M_RIGHT);
 	 })
 	 .build();
 	}
@@ -1182,7 +1231,34 @@ public class SelfWork{
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_BLOCKS[i]);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),HIGHWAY_HM_ITEMS[i]);
 		}
+		Blocks.FLOOR_LINE_EIGHTHS.setItm1(Items.WHITE_FLOOR_LINE_EIGHTH);
+		Blocks.FLOOR_LINE_EIGHTHS.setItm2(Items.YELLOW_FLOOR_LINE_EIGHTH);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/floor_line_eighths"),Blocks.FLOOR_LINE_EIGHTHS);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_km"),Blocks.HIGHWAY_KM);
+		Blocks.DISTANCE_DETECTION_0M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_0M_LEFT);
+		Blocks.DISTANCE_DETECTION_0M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_0M_RIGHT);
+		Blocks.DISTANCE_DETECTION_0M_LEFT.freezeArr();
+		Blocks.DISTANCE_DETECTION_0M_RIGHT.freezeArr();
+		Blocks.DISTANCE_DETECTION_50M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_50M_LEFT);
+		Blocks.DISTANCE_DETECTION_50M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_50M_RIGHT);
+		Blocks.DISTANCE_DETECTION_50M_LEFT.freezeArr();
+		Blocks.DISTANCE_DETECTION_50M_RIGHT.freezeArr();
+		Blocks.DISTANCE_DETECTION_100M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_100M_LEFT);
+		Blocks.DISTANCE_DETECTION_100M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_100M_RIGHT);
+		Blocks.DISTANCE_DETECTION_100M_LEFT.freezeArr();
+		Blocks.DISTANCE_DETECTION_100M_RIGHT.freezeArr();
+		Blocks.DISTANCE_DETECTION_200M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_200M_LEFT);
+		Blocks.DISTANCE_DETECTION_200M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_200M_RIGHT);
+		Blocks.DISTANCE_DETECTION_200M_LEFT.freezeArr();
+		Blocks.DISTANCE_DETECTION_200M_RIGHT.freezeArr();
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_left"),Blocks.DISTANCE_DETECTION_0M_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_right"),Blocks.DISTANCE_DETECTION_0M_RIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_50m_left"),Blocks.DISTANCE_DETECTION_50M_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_50m_right"),Blocks.DISTANCE_DETECTION_50M_RIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_100m_left"),Blocks.DISTANCE_DETECTION_100M_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_100m_right"),Blocks.DISTANCE_DETECTION_100M_RIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_200m_left"),Blocks.DISTANCE_DETECTION_200M_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_200m_right"),Blocks.DISTANCE_DETECTION_200M_RIGHT);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity.TYPE);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/speedlimit_high_3"),Items.SPEEDLIMIT_HIGH_3);
@@ -1201,6 +1277,15 @@ public class SelfWork{
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/no_parking"),Items.NO_PARKING);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/white_floor_line_eighth"),Items.WHITE_FLOOR_LINE_EIGHTH);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/yellow_floor_line_eighth"),Items.YELLOW_FLOOR_LINE_EIGHTH);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_km"),Items.HIGHWAY_KM);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_left"),Items.DISTANCE_DETECTION_0M_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_right"),Items.DISTANCE_DETECTION_0M_RIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_50m_left"),Items.DISTANCE_DETECTION_50M_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_50m_right"),Items.DISTANCE_DETECTION_50M_RIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_100m_left"),Items.DISTANCE_DETECTION_100M_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_100m_right"),Items.DISTANCE_DETECTION_100M_RIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_200m_left"),Items.DISTANCE_DETECTION_200M_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/distance_detection_200m_right"),Items.DISTANCE_DETECTION_200M_RIGHT);
 		Registry.register(Registries.ITEM_GROUP,new Identifier("regedt32","cntrafficsymbols"),ITEM_GROUP);
 		try{
 			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};

@@ -51,7 +51,8 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 		.getPositionMatrix(),vcs,TextRenderer.TextLayerType.POLYGON_OFFSET,0,light);
 		matrices.pop();
 	}
-	private void setTextAngles(MatrixStack matrices,boolean front,Vec3d translation){
+	private void
+	setTextAngles(MatrixStack matrices,boolean front,Vec3d translation){
 		if(!front)matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
 		float f=.0078125f;
 		matrices.translate(translation.x,translation.y,translation.z);

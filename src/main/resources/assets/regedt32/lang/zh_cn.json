@@ -215,5 +215,14 @@
   "block.regedt32.cntrafficsymbols.highway_hm": "高速百米",
   "block.regedt32.cntrafficsymbols.floor_line_eighths": "实线",
   "item.regedt32.cntrafficsymbols.white_floor_line_eighth": "白色实线",
-  "item.regedt32.cntrafficsymbols.yellow_floor_line_eighth": "黄色实线"
+  "item.regedt32.cntrafficsymbols.yellow_floor_line_eighth": "黄色实线",
+  "block.regedt32.cntrafficsymbols.highway_km": "高速千米",
+  "block.regedt32.cntrafficsymbols.distance_detection_0m_left": "车距确认0m(左)",
+  "block.regedt32.cntrafficsymbols.distance_detection_0m_right": "车距确认0m(右)",
+  "block.regedt32.cntrafficsymbols.distance_detection_50m_left": "车距确认50m(左)",
+  "block.regedt32.cntrafficsymbols.distance_detection_50m_right": "车距确认50m(右)",
+  "block.regedt32.cntrafficsymbols.distance_detection_100m_left": "车距确认100m(左)",
+  "block.regedt32.cntrafficsymbols.distance_detection_100m_right": "车距确认100m(右)",
+  "block.regedt32.cntrafficsymbols.distance_detection_200m_left": "车距确认200m(左)",
+  "block.regedt32.cntrafficsymbols.distance_detection_200m_right": "车距确认200m(右)"
 }

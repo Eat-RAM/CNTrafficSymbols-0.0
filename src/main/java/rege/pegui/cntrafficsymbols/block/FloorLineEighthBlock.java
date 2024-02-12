@@ -6,8 +6,13 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
 import static
 rege.pegui.cntrafficsymbols.Main.getHardcodedFloorLineEighthsLootEnabled;
+import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -19,8 +24,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-public class FloorLineEighthBlock extends Block
-implements net.minecraft.block.Waterloggable{
+import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
+public class FloorLineEighthBlock extends Block implements Waterloggable{
 	public static final IntProperty SLICES160=IntProperty.of("slices160",0,40);
 	public static final IntProperty SLICES16=IntProperty.of("slices16",0,9);
 	public static final IntProperty SLICES=IntProperty.of("slices",0,15);
@@ -40,8 +46,8 @@ implements net.minecraft.block.Waterloggable{
 	public static final VoxelShape L5Z=cuboid(.625,0,0,.75,.03125,1);
 	public static final VoxelShape L6Z=cuboid(.75,0,0,.875,.03125,1);
 	public static final VoxelShape L7Z=cuboid(.875,0,0,1,.03125,1);
-	private final Item itm1;
-	private final Item itm2;
+	private Item itm1;
+	private Item itm2;
 	public static int to3Pow(BlockState st){
 		return st.get(SLICES160).intValue()*160+(st.get(SLICES16).intValue()*16)+
 		st.get(SLICES).intValue()+1;
@@ -52,8 +58,17 @@ implements net.minecraft.block.Waterloggable{
 	}
 	public FloorLineEighthBlock(Item itm1,Item itm2,Settings s){
 		super(s);this.itm1=itm1;this.itm2=itm2;
-		setDefaultState(getDefaultState().with(SLICES160,0).with(SLICES16,0)
-		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X).with(WATERLOGGED,false));
+		BlockState st=getDefaultState().with(SLICES160,0).with(SLICES16,0)
+		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X);
+		if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
+		setDefaultState(st);
+	}
+	public FloorLineEighthBlock(Settings s){
+		super(s);
+		BlockState st=getDefaultState().with(SLICES160,0).with(SLICES16,0)
+		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X);
+		if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
+		setDefaultState(st);
 	}
 	@Override public VoxelShape
 	getOutlineShape(BlockState st,BlockView v,BlockPos p,
@@ -117,7 +132,9 @@ implements net.minecraft.block.Waterloggable{
 	}
 	@Override protected void
 	appendProperties(net.minecraft.state.StateManager.Builder<Block,BlockState>bd){
-		bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS,WATERLOGGED);
+		if(getWaterloggedProperty()){
+			bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS,WATERLOGGED);
+		}else{bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS);}
 	}
 	@Override public BlockState getPlacementState(ItemPlacementContext ctx){
 		BlockState st=ctx.getWorld().getBlockState(ctx.getBlockPos());byte repl=1;
@@ -148,29 +165,32 @@ implements net.minecraft.block.Waterloggable{
 			int l=(int)((ctx.getHitPos().z-ctx.getBlockPos().getZ())*8);
 			if(l<0){l=0;}else if(l>7){l=7;}
 			int base=1;for(int i=0;i<l;i++)base*=3;
-			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld()
-			.getFluidState(ctx.getBlockPos()).getFluid()==WATER)
+			BlockState sst=from3Pow(getDefaultState()
 			.with(HORIZONTAL_AXIS,Direction.Axis.X),base*repl);
+			if(getWaterloggedProperty())sst=sst.with(WATERLOGGED,ctx.getWorld()
+			.getFluidState(ctx.getBlockPos()).getFluid()==WATER);
+			return sst;
 		}else{
 			int l=(int)((ctx.getHitPos().x-ctx.getBlockPos().getX())*8);
 			if(l<0){l=0;}else if(l>7){l=7;}
 			int base=1;
 			for(int i=0;i<l;i++)base*=3;
-			return from3Pow(getDefaultState().with(WATERLOGGED,ctx.getWorld()
-			.getFluidState(ctx.getBlockPos()).getFluid()==WATER)
+			BlockState sst=from3Pow(getDefaultState()
 			.with(HORIZONTAL_AXIS,Direction.Axis.Z),base*repl);
+			if(getWaterloggedProperty())sst=sst.with(WATERLOGGED,ctx.getWorld()
+			.getFluidState(ctx.getBlockPos()).getFluid()==WATER);
+			return sst;
 		}
 	}
 	@Override public BlockState getStateForNeighborUpdate(BlockState st,
-	Direction d,BlockState nst,net.minecraft.world.WorldAccess w,BlockPos p,
-	BlockPos np){
-		if(st.get(WATERLOGGED).booleanValue())w
+	Direction d,BlockState nst,WorldAccess w,BlockPos p,BlockPos np){
+		if(getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())w
 		.scheduleFluidTick(p,WATER,WATER.getTickRate(w));
 		return super.getStateForNeighborUpdate(st,d,nst,w,p,np);
 	}
-	@Override public net.minecraft.fluid.FluidState getFluidState(BlockState st){
-		return st.get(WATERLOGGED).booleanValue()?WATER.getStill(false):
-		super.getFluidState(st);
+	@Override public FluidState getFluidState(BlockState st){
+		return(getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())?
+		WATER.getStill(false):super.getFluidState(st);
 	}
 	@Override public boolean canReplace(BlockState st,ItemPlacementContext ctx){
 		if(!(ctx.getStack().isOf(itm1)||ctx.getStack().isOf(itm2)))return false;
@@ -225,5 +245,28 @@ implements net.minecraft.block.Waterloggable{
 		}
 		int ns=0;int r=to3Pow(st);for(int i=0;i<8;i++){ns*=3;ns+=r%3;r/=3;}
 		return from3Pow(st,ns);
+	}
+	@Override public boolean canFillWithFluid(PlayerEntity pl,BlockView v,
+	BlockPos p,BlockState st,Fluid fl){
+		return getWaterloggedProperty()&&
+		Waterloggable.super.canFillWithFluid(pl,v,p,st,fl);
+	}
+	@Override public boolean
+	tryFillWithFluid(WorldAccess w,BlockPos p,BlockState st,FluidState fst){
+		return getWaterloggedProperty()&&
+		Waterloggable.super.tryFillWithFluid(w,p,st,fst);
+	}
+	@Override public ItemStack
+	tryDrainFluid(PlayerEntity pl,WorldAccess w,BlockPos p,BlockState st){
+		return getWaterloggedProperty()?Waterloggable.super.tryDrainFluid(pl,w,p,st):
+		ItemStack.EMPTY;
+	}
+	@Nullable public Item setItm1(@Nullable Item v){
+		Item r=itm1;if(r==null)itm1=v;
+		return v;
+	}
+	@Nullable public Item setItm2(@Nullable Item v){
+		Item r=itm2;if(r==null)itm2=v;
+		return v;
 	}
 }

@@ -1,0 +1,8 @@
+{
+  "values": [
+    "regedt32:cntrafficsymbols/distance_detection_0m_right",
+    "regedt32:cntrafficsymbols/distance_detection_50m_right",
+    "regedt32:cntrafficsymbols/distance_detection_100m_right",
+    "regedt32:cntrafficsymbols/distance_detection_200m_right"
+  ]
+}
