@@ -224,5 +224,18 @@
   "block.regedt32.cntrafficsymbols.distance_detection_100m_left": "车距确认100m(左)",
   "block.regedt32.cntrafficsymbols.distance_detection_100m_right": "车距确认100m(右)",
   "block.regedt32.cntrafficsymbols.distance_detection_200m_left": "车距确认200m(左)",
-  "block.regedt32.cntrafficsymbols.distance_detection_200m_right": "车距确认200m(右)"
+  "block.regedt32.cntrafficsymbols.distance_detection_200m_right": "车距确认200m(右)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_name": "高速出口距离信息(名称)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_left_single": "高速出口距离信息(左,单个)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_middle_single": "高速出口距离信息(中,单个)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_right_single": "高速出口距离信息(右,单个)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_left_top": "高速出口距离信息(左,顶部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_middle_top": "高速出口距离信息(中,顶部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_right_top": "高速出口距离信息(右,顶部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_left_middle": "高速出口距离信息(左,中部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_middle_middle": "高速出口距离信息(中,中部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_right_middle": "高速出口距离信息(右,中部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_left_bottom": "高速出口距离信息(左,底部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_middle_bottom": "高速出口距离信息(中,底部)",
+  "block.regedt32.cntrafficsymbols.highway_exit_distance_info_right_bottom": "高速出口距离信息(右,底部)"
 }

@@ -26,9 +26,8 @@ implements net.minecraft.block.BlockEntityProvider{
 	public static final VoxelShape SHAPE2S=cuboid(.375,.75,0,.625,1,.0625);
 	public static final VoxelShape SHAPE2W=cuboid(.9375,.75,.375,1,1,.625);
 	public HighwayHmSignBlock(Settings s){super(s);}
-	@Override public BlockEntity createBlockEntity(BlockPos p,BlockState st){
-		return new HighwayHmSignBlockEntity(p,st);
-	}
+	@Override public BlockEntity createBlockEntity(BlockPos p,
+	BlockState st){return new HighwayHmSignBlockEntity(p,st);}
 	@Override public VoxelShape
 	getOutlineShape(BlockState st,BlockView v,BlockPos p,ShapeContext c){
 		int f=st.get(rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing.FACING).id;

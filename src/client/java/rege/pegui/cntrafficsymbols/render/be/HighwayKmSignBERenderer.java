@@ -16,7 +16,7 @@ import rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity;
 public class HighwayKmSignBERenderer
 implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 <HighwayKmSignBlockEntity>{
-	private static final Vec3d TEXT_OFFSET=new Vec3d(0,.125,.075);
+	private static final Vec3d TEXT_OFFSET=new Vec3d(0,.25,.075);
 	private static final Vec3d INT_OFFSET=new Vec3d(0,.625,.075);
 	public static final float UP_OFFSET=.25f;
 	public static final float DOWN_OFFSET=-.25f;
@@ -59,7 +59,7 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 	private void
 	setTextAngles(MatrixStack matrices,boolean front,Vec3d translation){
 		if(!front)matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
-		float f=.0078125f;
+		float f=.01171875f;
 		matrices.translate(translation.x,translation.y,translation.z);
 		matrices.scale(f,-f,f);
 	}

@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=south": {"model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_standing"},
+    "facing=west": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_standing",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_standing",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_standing",
+      "y": 270
+    },
+    "facing=north_south": {"model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_double"},
+    "facing=east_west": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_double",
+      "y": 90
+    },
+    "facing=wall_north": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_wall",
+      "y": 180
+    },
+    "facing=wall_east": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_wall",
+      "y": 270
+    },
+    "facing=wall_south": {"model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_wall"},
+    "facing=wall_west": {
+      "model": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_right_bottom_wall",
+      "y": 90
+    }
+  }
+}

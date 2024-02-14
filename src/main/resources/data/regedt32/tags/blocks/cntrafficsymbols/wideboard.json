@@ -1,5 +1,6 @@
 {
   "values": [
-    "#regedt32:cntrafficsymbols/distance_detection"
+    "#regedt32:cntrafficsymbols/distance_detection",
+    "#regedt32:cntrafficsymbols/highway_exit_distance_info"
   ]
 }

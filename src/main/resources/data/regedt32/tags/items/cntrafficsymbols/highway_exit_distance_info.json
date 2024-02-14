@@ -1,0 +1,7 @@
+{
+  "values": [
+    "#regedt32:cntrafficsymbols/highway_exit_distance_info_left",
+    "#regedt32:cntrafficsymbols/highway_exit_distance_info_middle",
+    "#regedt32:cntrafficsymbols/highway_exit_distance_info_right"
+  ]
+}

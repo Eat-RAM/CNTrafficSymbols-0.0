@@ -6,6 +6,7 @@
     "#regedt32:cntrafficsymbols/highway_hm",
     "regedt32:cntrafficsymbols/floor_line_eighths",
     "regedt32:cntrafficsymbols/highway_km",
-    "#regedt32:cntrafficsymbols/distance_detection"
+    "#regedt32:cntrafficsymbols/distance_detection",
+    "#regedt32:cntrafficsymbols/highway_exit_distance_info"
   ]
 }

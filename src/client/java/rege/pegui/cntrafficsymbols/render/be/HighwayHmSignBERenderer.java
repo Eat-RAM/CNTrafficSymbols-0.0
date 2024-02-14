@@ -15,7 +15,7 @@ import rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity;
 public class HighwayHmSignBERenderer
 implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 <HighwayHmSignBlockEntity>{
-	private static final Vec3d TEXT_OFFSET=new Vec3d(0,.25,.075);
+	private static final Vec3d TEXT_OFFSET=new Vec3d(0,.171875,.075);
 	public static final float UP_OFFSET=.375f;
 	public static final float DOWN_OFFSET=-.375f;
 	private final TextRenderer tr;
@@ -45,7 +45,7 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 	VertexConsumerProvider vcs,int light,int lineHeight,int lineWidth,
 	boolean front){
 		matrices.push();setTextAngles(matrices,front,TEXT_OFFSET);
-		int i=16777215;int j=4*lineHeight/2;
+		int i=36912;int j=4*lineHeight/2;
 		net.minecraft.text.OrderedText odt=tx.asOrderedText();
 		tr.draw(odt,(float)(-tr.getWidth(odt)/2),(float)j,i,false,matrices.peek()
 		.getPositionMatrix(),vcs,TextRenderer.TextLayerType.POLYGON_OFFSET,0,light);
@@ -54,7 +54,7 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 	private void
 	setTextAngles(MatrixStack matrices,boolean front,Vec3d translation){
 		if(!front)matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
-		float f=.0078125f;
+		float f=.00390625f;
 		matrices.translate(translation.x,translation.y,translation.z);
 		matrices.scale(f,-f,f);
 	}
