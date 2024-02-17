@@ -109,10 +109,9 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 		}
 		return res;
 	}
-	@Override public void
-	afterBreak(World w,net.minecraft.entity.player.PlayerEntity player,BlockPos p,
-	BlockState st,@org.jetbrains.annotations.Nullable
-	net.minecraft.block.entity.BlockEntity ett,ItemStack tool){
+	@Override public void afterBreak(World w,net.minecraft.entity.player
+	.PlayerEntity player,BlockPos p,BlockState st,@Nullable net.minecraft.block
+	.entity.BlockEntity ett,ItemStack tool){
 		super.afterBreak(w,player,p,st,ett,tool);
 		if((w instanceof ServerWorld)&&
 		(Boolean.TRUE.equals(getHardcodedFloorLineEighthsLootEnabled())||
@@ -130,11 +129,25 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 			ItemScatterer.spawn(w,p.getX(),p.getY(),p.getZ(),new ItemStack(itm2,i2));
 		}
 	}
-	@Override protected void
-	appendProperties(net.minecraft.state.StateManager.Builder<Block,BlockState>bd){
-		if(getWaterloggedProperty()){
-			bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS,WATERLOGGED);
-		}else{bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS);}
+	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
+		int pow=to3Pow(st);byte s1=0;byte s2=0;for(byte i=0;i<(byte)8;i++){
+			switch(pow%3){
+				case 1:s1++;break;
+				case 2:s2++;break;
+			}
+			pow/=3;
+		}
+		if(s1==(byte)0){
+			if(s2==(byte)0)assert false;
+			return new ItemStack(itm2);
+		}
+		if(s2==(byte)0)return new ItemStack(itm1);
+		return new ItemStack((Math.random()<.5)?itm1:itm2);
+	}
+	@Override protected void appendProperties(net.minecraft.state.StateManager
+	.Builder<Block,BlockState>bd){
+		bd.add(SLICES,SLICES16,SLICES160,HORIZONTAL_AXIS);
+		if(getWaterloggedProperty())bd.add(WATERLOGGED);
 	}
 	@Override public BlockState getPlacementState(ItemPlacementContext ctx){
 		BlockState st=ctx.getWorld().getBlockState(ctx.getBlockPos());byte repl=1;

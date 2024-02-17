@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_bottom",
+    "top": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_top",
+    "north": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_north",
+    "south": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_south",
+    "west": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_west",
+    "east": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_east",
+    "particle": "regedt32:block/cntrafficsymbols/barricade_50cm_edge_1m_height_north"
+  },
+  "elements": [
+    {
+      "from": [8, 0, 8],
+      "to": [16, 1, 16],
+      "faces": {
+        "down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#bottom"},
+        "north": {"uv": [0, 15, 8, 16], "texture": "#north"},
+        "south": {"uv": [0, 15, 8, 16], "texture": "#south", "cullface": "south"},
+        "west": {"uv": [0, 15, 8, 16], "texture": "#west"},
+        "east": {"uv": [0, 15, 8, 16], "texture": "#east", "cullface": "east"}
+      }
+    },
+    {
+      "from": [9, 1, 9],
+      "to": [15, 16, 15],
+      "faces": {
+        "up": {"uv": [0, 0, 6, 6], "texture": "#top", "cullface": "up"},
+        "north": {"uv": [1, 0, 7, 15], "texture": "#north"},
+        "south": {"uv": [1, 0, 7, 15], "texture": "#south"},
+        "west": {"uv": [1, 0, 7, 15], "texture": "#west"},
+        "east": {"uv": [1, 0, 7, 15], "texture": "#east"}
+      }
+    }
+  ]
+}

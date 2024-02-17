@@ -12,12 +12,15 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
 import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoLeftBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoMiddleBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoRightBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
+import rege.pegui.cntrafficsymbols.block.SquareQuarterDefaulted3Block;
 import rege.pegui.cntrafficsymbols.block.WideBoardBlock;
 import rege.pegui.cntrafficsymbols.struct.Attachment3;
 import rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing;
@@ -31,6 +34,11 @@ import static net.minecraft.block.Blocks.AIR;
 import static net.minecraft.block.Blocks.WATER;
 import static net.minecraft.item.Items.LIGHT_GRAY_STAINED_GLASS_PANE;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
+import static net.minecraft.util.shape.VoxelShapes.cuboid;
+import static net.minecraft.util.shape.VoxelShapes.union;
+import static
+rege.pegui.cntrafficsymbols.Main.getHardcodedBarricades1LootEnabled;
+import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 public class SelfWork{
 	public static class Blocks{
 		public static final Block SPEEDLIMIT_HIGH_3=
@@ -644,36 +652,47 @@ public class SelfWork{
 		.strength(9f,36f));
 		public static final Block HIGHWAY_1HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_2HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_3HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_4HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_5HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_6HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_7HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_8HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final Block HIGHWAY_9HM=
 		new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f,4f)
-		.mapColor(MapColor.GREEN));
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.CYAN:MapColor.GREEN)));
 		public static final FloorLineEighthBlock FLOOR_LINE_EIGHTHS=
 		new FloorLineEighthBlock(Block.Settings.create().strength(4f,4f));
 		public static final Block HIGHWAY_KM=
 		new rege.pegui.cntrafficsymbols.block.HighwayKmSignBlock(Block.Settings
-		.create().nonOpaque().strength(7f,28f).mapColor(MapColor.GREEN));
+		.create().nonOpaque().strength(7f,28f).mapColor(st->
+		((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())?MapColor.CYAN
+		:MapColor.GREEN)));
 		public static final WideBoardBlock DISTANCE_DETECTION_0M_LEFT=
 		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
 		public static final WideBoardBlock DISTANCE_DETECTION_0M_RIGHT=
@@ -735,6 +754,106 @@ public class SelfWork{
 		);
 		public static final WideBoardBlock HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM=
 		new HighwayExitDistanceInfoRightBlock(HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM,
+		Block.Settings.create().strength(21f,84f));
+		public static final SquareQuarterDefaulted3Block BARRICADES_1=
+		new SquareQuarterDefaulted3Block(Block.Settings.create().strength(9f,10.5f)
+		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
+		?MapColor.PURPLE:MapColor.ORANGE))){
+			public static final VoxelShape NW1=
+			union(cuboid(0,0,0,.5,.0625,.5),cuboid(.0625,.0625,.0625,.4375,.75,.4375));
+			public static final VoxelShape NW2=
+			union(cuboid(0,0,0,.5,.0625,.5),cuboid(.0625,.0625,.0625,.4375,1,.4375));
+			public static final VoxelShape NE1=
+			union(cuboid(.5,0,0,1,.0625,.5),cuboid(.5625,.0625,.0625,.9375,.75,.4375));
+			public static final VoxelShape NE2=
+			union(cuboid(.5,0,0,1,.0625,.5),cuboid(.5625,.0625,.0625,.9375,1,.4375));
+			public static final VoxelShape SW1=
+			union(cuboid(0,0,.5,.5,.0625,1),cuboid(.0625,.0625,.5625,.4375,.75,.9375));
+			public static final VoxelShape SW2=
+			union(cuboid(0,0,.5,.5,.0625,1),cuboid(.0625,.0625,.5625,.4375,1,.9375));
+			public static final VoxelShape SE1=
+			union(cuboid(.5,0,.5,1,.0625,1),cuboid(.5625,.0625,.5625,.9375,.75,.9375));
+			public static final VoxelShape SE2=
+			union(cuboid(.5,0,.5,1,.0625,1),cuboid(.5625,.0625,.5625,.9375,1,.9375));
+			public static final VoxelShape W=
+			union(cuboid(0,0,0,1,.125,1),cuboid(.125,.125,.125,.875,1,.875));
+			@Override public VoxelShape
+			getOutlineShape(BlockState st,net.minecraft.world.BlockView v,BlockPos p,
+			net.minecraft.block.ShapeContext c){
+				boolean w=false;VoxelShape r=net.minecraft.util.shape.VoxelShapes.empty();
+				switch(st.get(NORTHWEST).intValue()){
+					case 1:w=true;r=union(r,NW1);break;
+					case 2:w=true;r=union(r,NW2);break;
+				}
+				switch(st.get(NORTHEAST).intValue()){
+					case 1:w=true;r=union(r,NE1);break;
+					case 2:w=true;r=union(r,NE2);break;
+				}
+				switch(st.get(SOUTHWEST).intValue()){
+					case 1:w=true;r=union(r,SW1);break;
+					case 2:w=true;r=union(r,SW2);break;
+				}
+				switch(st.get(SOUTHEAST).intValue()){
+					case 1:w=true;r=union(r,SE1);break;
+					case 2:w=true;r=union(r,SE2);break;
+				}
+				return w?r:W;
+			}
+			@Override public boolean shouldHardcodedDrop(net.minecraft.world.World w,net
+			.minecraft.entity.player.PlayerEntity pl,BlockPos p,BlockState st,net
+			.minecraft.block.entity.BlockEntity ett,ItemStack tool){
+				return Boolean.TRUE.equals(getHardcodedBarricades1LootEnabled())||
+				(getHardcodedBarricades1LootEnabled()==null&&getDroppedStacks(st,(net
+				.minecraft.server.world.ServerWorld)w,p,ett,pl,tool).isEmpty());
+			}
+		};
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERLEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_UPPERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERRIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_UPPERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_CENTER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_RIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERLEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_LOWERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERRIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT1_LOWERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERLEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_UPPERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERRIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_UPPERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_LEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_CENTER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_RIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_LEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERLEFT=
+		new WideBoardBlock(Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWER=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_LOWERLEFT,
+		Block.Settings.create().strength(21f,84f));
+		public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERRIGHT=
+		new WideBoardBlock(KEEP_SPACE_VARIANT2_LOWERLEFT,
 		Block.Settings.create().strength(21f,84f));
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
@@ -1236,6 +1355,75 @@ public class SelfWork{
 		public static final Item HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM=
 		new BlockItem(Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM,
 		new Item.Settings().maxCount(64));
+		public static final Item BARRICADE_50CM_EDGE_75CM_HEIGHT=
+		new AliasedBlockItem(Blocks.BARRICADES_1,
+		new Item.Settings().maxCount(64)){
+			@Override public Block getBlock(){return Blocks.BARRICADES_1;}
+		};
+		public static final Item BARRICADE_50CM_EDGE_1M_HEIGHT=
+		new AliasedBlockItem(Blocks.BARRICADES_1,
+		new Item.Settings().maxCount(64)){
+			@Override public Block getBlock(){return Blocks.BARRICADES_1;}
+		};
+		public static final Item BARRICADE_1M_EDGE_1M_HEIGHT=
+		new AliasedBlockItem(Blocks.BARRICADES_1,
+		new Item.Settings().maxCount(64)){
+			@Override public Block getBlock(){return Blocks.BARRICADES_1;}
+		};
+		public static final Item KEEP_SPACE_VARIANT1_UPPERLEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_UPPER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_UPPER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_UPPERRIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_LEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_LEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_CENTER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_CENTER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_RIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_RIGHT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_LOWERLEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_LOWER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_LOWER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT1_LOWERRIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_UPPERLEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_UPPER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_UPPER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_UPPERRIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_LEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_LEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_CENTER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_CENTER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_RIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_RIGHT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_LOWERLEFT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_LOWER=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_LOWER,
+		new Item.Settings().maxCount(64));
+		public static final Item KEEP_SPACE_VARIANT2_LOWERRIGHT=
+		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT,
+		new Item.Settings().maxCount(64));
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1280,39 +1468,40 @@ public class SelfWork{
 			e.add(Items.DISTANCE_DETECTION_100M_RIGHT);
 			e.add(Items.DISTANCE_DETECTION_200M_LEFT);
 			e.add(Items.DISTANCE_DETECTION_200M_RIGHT);
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER0")));
+			e.add(Items.BARRICADE_1M_EDGE_1M_HEIGHT);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP);
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER1")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER2")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER3")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER4")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER5")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER6")));
+			e.add(Items.KEEP_SPACE_VARIANT1_UPPERLEFT);
+			e.add(Items.KEEP_SPACE_VARIANT1_UPPER);
+			e.add(Items.KEEP_SPACE_VARIANT1_UPPERRIGHT);
+			e.add(Items.KEEP_SPACE_VARIANT2_UPPERLEFT);
+			e.add(Items.KEEP_SPACE_VARIANT2_UPPER);
+			e.add(Items.KEEP_SPACE_VARIANT2_UPPERRIGHT);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_MIDDLE);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_MIDDLE);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_MIDDLE);
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER7")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER8")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER9")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER10")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER11")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER12")));
+			e.add(Items.KEEP_SPACE_VARIANT1_LEFT);
+			e.add(Items.KEEP_SPACE_VARIANT1_CENTER);
+			e.add(Items.KEEP_SPACE_VARIANT1_RIGHT);
+			e.add(Items.KEEP_SPACE_VARIANT2_LEFT);
+			e.add(Items.KEEP_SPACE_VARIANT2_CENTER);
+			e.add(Items.KEEP_SPACE_VARIANT2_RIGHT);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER13")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER14")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER15")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER16")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER17")));
-			e.add(new ItemStack(LIGHT_GRAY_STAINED_GLASS_PANE).setCustomName(Text.literal("PLACEHOLDER18")));
+			e.add(Items.KEEP_SPACE_VARIANT1_LOWERLEFT);
+			e.add(Items.KEEP_SPACE_VARIANT1_LOWER);
+			e.add(Items.KEEP_SPACE_VARIANT1_LOWERRIGHT);
+			e.add(Items.KEEP_SPACE_VARIANT2_LOWERLEFT);
+			e.add(Items.KEEP_SPACE_VARIANT2_LOWER);
+			e.add(Items.KEEP_SPACE_VARIANT2_LOWERRIGHT);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE);
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
-	 })
-	 .build();
+			e.add(Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
+			e.add(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
+	 }).build();
 	}
 	public static void doit(){
 		for(int i=1;i<31;i++){
@@ -1346,6 +1535,9 @@ public class SelfWork{
 		}
 		Blocks.FLOOR_LINE_EIGHTHS.setItm1(Items.WHITE_FLOOR_LINE_EIGHTH);
 		Blocks.FLOOR_LINE_EIGHTHS.setItm2(Items.YELLOW_FLOOR_LINE_EIGHTH);
+		Blocks.BARRICADES_1.setItm0(Items.BARRICADE_1M_EDGE_1M_HEIGHT);
+		Blocks.BARRICADES_1.setItm1(Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
+		Blocks.BARRICADES_1.setItm2(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/floor_line_eighths"),Blocks.FLOOR_LINE_EIGHTHS);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_km"),Blocks.HIGHWAY_KM);
 		Blocks.DISTANCE_DETECTION_0M_LEFT.addToArr(Blocks.DISTANCE_DETECTION_0M_LEFT);
@@ -1388,6 +1580,42 @@ public class SelfWork{
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM.freezeArr();
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM.freezeArr();
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT);
+		Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_UPPER);
+		Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT);
+		Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_UPPER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_LEFT);
+		Blocks.KEEP_SPACE_VARIANT1_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_CENTER);
+		Blocks.KEEP_SPACE_VARIANT1_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_RIGHT);
+		Blocks.KEEP_SPACE_VARIANT1_LEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_CENTER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_RIGHT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT);
+		Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_LOWER);
+		Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT);
+		Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_LOWER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT);
+		Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_UPPER);
+		Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT);
+		Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_UPPER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_LEFT);
+		Blocks.KEEP_SPACE_VARIANT2_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_CENTER);
+		Blocks.KEEP_SPACE_VARIANT2_LEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_RIGHT);
+		Blocks.KEEP_SPACE_VARIANT2_LEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_CENTER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_RIGHT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT);
+		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_LOWER);
+		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.addToArr(Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
+		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_LOWER.freezeArr();
+		Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT.freezeArr();
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_left"),Blocks.DISTANCE_DETECTION_0M_LEFT);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_right"),Blocks.DISTANCE_DETECTION_0M_RIGHT);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_50m_left"),Blocks.DISTANCE_DETECTION_50M_LEFT);
@@ -1408,6 +1636,25 @@ public class SelfWork{
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_left_bottom"),Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_middle_bottom"),Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_right_bottom"),Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/barricades_1"),Blocks.BARRICADES_1);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upperleft"),Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upper"),Blocks.KEEP_SPACE_VARIANT1_UPPER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upperright"),Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_left"),Blocks.KEEP_SPACE_VARIANT1_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_center"),Blocks.KEEP_SPACE_VARIANT1_CENTER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_right"),Blocks.KEEP_SPACE_VARIANT1_RIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lowerleft"),Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lower"),Blocks.KEEP_SPACE_VARIANT1_LOWER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lowerright"),Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upperleft"),Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upper"),Blocks.KEEP_SPACE_VARIANT2_UPPER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upperright"),Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_left"),Blocks.KEEP_SPACE_VARIANT2_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_center"),Blocks.KEEP_SPACE_VARIANT2_CENTER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_right"),Blocks.KEEP_SPACE_VARIANT2_RIGHT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerleft"),Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lower"),Blocks.KEEP_SPACE_VARIANT2_LOWER);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerright"),Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_name"),rege.pegui.cntrafficsymbols.be.HighwayExitDistanceInfoNameBlockEntity.TYPE);
@@ -1449,6 +1696,27 @@ public class SelfWork{
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_left_bottom"),Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_middle_bottom"),Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_right_bottom"),Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/barricade_50cm_edge_75cm_height"),Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/barricade_50cm_edge_1m_height"),Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/barricade_1m_edge_1m_height"),Items.BARRICADE_1M_EDGE_1M_HEIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upperleft"),Items.KEEP_SPACE_VARIANT1_UPPERLEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upper"),Items.KEEP_SPACE_VARIANT1_UPPER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_upperright"),Items.KEEP_SPACE_VARIANT1_UPPERRIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_left"),Items.KEEP_SPACE_VARIANT1_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_center"),Items.KEEP_SPACE_VARIANT1_CENTER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_right"),Items.KEEP_SPACE_VARIANT1_RIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lowerleft"),Items.KEEP_SPACE_VARIANT1_LOWERLEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lower"),Items.KEEP_SPACE_VARIANT1_LOWER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant1_lowerright"),Items.KEEP_SPACE_VARIANT1_LOWERRIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upperleft"),Items.KEEP_SPACE_VARIANT2_UPPERLEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upper"),Items.KEEP_SPACE_VARIANT2_UPPER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_upperright"),Items.KEEP_SPACE_VARIANT2_UPPERRIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_left"),Items.KEEP_SPACE_VARIANT2_LEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_center"),Items.KEEP_SPACE_VARIANT2_CENTER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_right"),Items.KEEP_SPACE_VARIANT2_RIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerleft"),Items.KEEP_SPACE_VARIANT2_LOWERLEFT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lower"),Items.KEEP_SPACE_VARIANT2_LOWER);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerright"),Items.KEEP_SPACE_VARIANT2_LOWERRIGHT);
 		Registry.register(Registries.ITEM_GROUP,new Identifier("regedt32","cntrafficsymbols"),ITEM_GROUP);
 		try{
 			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};
@@ -1462,11 +1730,13 @@ public class SelfWork{
 						BlockNumberIDRecognitionRegistry.INSTANCE
 						.register(k.getRegistryEntry().registryKey().getValue(),
 						new BlockProperties().mergeFromBlockState(st),12200,d);
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12200,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12200,~d);
+						if(getWaterloggedProperty()){
+							st=st.with(WATERLOGGED,true);
+							BlockNumberIDRegistry.INSTANCE.register(12200,~d,st);
+							BlockNumberIDRecognitionRegistry.INSTANCE
+							.register(k.getRegistryEntry().registryKey().getValue(),
+							new BlockProperties().mergeFromBlockState(st),12200,~d);
+						}
 						d++;
 					}
 				}
@@ -1483,11 +1753,13 @@ public class SelfWork{
 						BlockNumberIDRecognitionRegistry.INSTANCE
 						.register(k.getRegistryEntry().registryKey().getValue(),
 						new BlockProperties().mergeFromBlockState(st),12201,d);
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12201,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12201,~d);
+						if(getWaterloggedProperty()){
+							st=st.with(WATERLOGGED,true);
+							BlockNumberIDRegistry.INSTANCE.register(12201,~d,st);
+							BlockNumberIDRecognitionRegistry.INSTANCE
+							.register(k.getRegistryEntry().registryKey().getValue(),
+							new BlockProperties().mergeFromBlockState(st),12201,~d);
+						}
 						d++;
 					}
 					d+=32;
@@ -1503,11 +1775,13 @@ public class SelfWork{
 					BlockNumberIDRecognitionRegistry.INSTANCE
 					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
 					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
-					st=st.with(WATERLOGGED,true);
-					BlockNumberIDRegistry.INSTANCE.register(12203,~d,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE
-					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
+					if(getWaterloggedProperty()){
+						st=st.with(WATERLOGGED,true);
+						BlockNumberIDRegistry.INSTANCE.register(12203,~d,st);
+						BlockNumberIDRecognitionRegistry.INSTANCE
+						.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
+						.getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
+					}
 					d++;
 				}
 				d+=4;
@@ -1523,11 +1797,13 @@ public class SelfWork{
 						BlockNumberIDRecognitionRegistry.INSTANCE
 						.register(k.getRegistryEntry().registryKey().getValue(),
 						new BlockProperties().mergeFromBlockState(st),12204,d);
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12204,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12204,~d);
+						if(getWaterloggedProperty()){
+							st=st.with(WATERLOGGED,true);
+							BlockNumberIDRegistry.INSTANCE.register(12204,~d,st);
+							BlockNumberIDRecognitionRegistry.INSTANCE
+							.register(k.getRegistryEntry().registryKey().getValue(),
+							new BlockProperties().mergeFromBlockState(st),12204,~d);
+						}
 						d++;
 					}
 					d+=27;
@@ -1545,11 +1821,13 @@ public class SelfWork{
 						BlockNumberIDRecognitionRegistry.INSTANCE
 						.register(k.getRegistryEntry().registryKey().getValue(),
 						new BlockProperties().mergeFromBlockState(st),12205,d);
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12205,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12205,~d);
+						if(getWaterloggedProperty()){
+							st=st.with(WATERLOGGED,true);
+							BlockNumberIDRegistry.INSTANCE.register(12205,~d,st);
+							BlockNumberIDRecognitionRegistry.INSTANCE
+							.register(k.getRegistryEntry().registryKey().getValue(),
+							new BlockProperties().mergeFromBlockState(st),12205,~d);
+						}
 						d++;
 					}
 					d+=128-tab.length;
@@ -1567,11 +1845,13 @@ public class SelfWork{
 						BlockNumberIDRecognitionRegistry.INSTANCE
 						.register(k.getRegistryEntry().registryKey().getValue(),
 						new BlockProperties().mergeFromBlockState(st),12206,d);
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12206,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12206,~d);
+						if(getWaterloggedProperty()){
+							st=st.with(WATERLOGGED,true);
+							BlockNumberIDRegistry.INSTANCE.register(12206,~d,st);
+							BlockNumberIDRecognitionRegistry.INSTANCE
+							.register(k.getRegistryEntry().registryKey().getValue(),
+							new BlockProperties().mergeFromBlockState(st),12206,~d);
+						}
 						d++;
 					}
 					d+=16-tab.length;
@@ -1580,9 +1860,11 @@ public class SelfWork{
 			}
 			BlockNumberIDRegistry.INSTANCE.register(12207,0,AIR.getDefaultState());
 			BlockNumberIDRegistry.INSTANCE.register(12207,8192,AIR.getDefaultState());
-			BlockNumberIDRegistry.INSTANCE.register(12207,-1,WATER.getDefaultState());
-			BlockNumberIDRegistry.INSTANCE
-			.register(12207,-8193,WATER.getDefaultState());
+			if(getWaterloggedProperty()){
+				BlockNumberIDRegistry.INSTANCE.register(12207,-1,WATER.getDefaultState());
+				BlockNumberIDRegistry.INSTANCE
+				.register(12207,-8193,WATER.getDefaultState());
+			}
 			for(d=1;d<6561;d++){
 				BlockState st=FloorLineEighthBlock
 				.from3Pow(Blocks.FLOOR_LINE_EIGHTHS.getDefaultState(),d);
@@ -1590,22 +1872,26 @@ public class SelfWork{
 				BlockNumberIDRecognitionRegistry.INSTANCE
 				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
 				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d);
-				st=st.with(WATERLOGGED,true);
-				BlockNumberIDRegistry.INSTANCE.register(12207,~d,st);
-				BlockNumberIDRecognitionRegistry.INSTANCE
-				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~d);
+				if(getWaterloggedProperty()){
+					st=st.with(WATERLOGGED,true);
+					BlockNumberIDRegistry.INSTANCE.register(12207,~d,st);
+					BlockNumberIDRecognitionRegistry.INSTANCE
+					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~d);
+				}
 				st=st.with(net.minecraft.state.property.Properties.HORIZONTAL_AXIS,
 				net.minecraft.util.math.Direction.Axis.Z);
 				BlockNumberIDRegistry.INSTANCE.register(12207,~(d|8192),st);
 				BlockNumberIDRecognitionRegistry.INSTANCE
 				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
 				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~(d|8192));
-				st=st.with(WATERLOGGED,false);
-				BlockNumberIDRegistry.INSTANCE.register(12207,d|8192,st);
-				BlockNumberIDRecognitionRegistry.INSTANCE
-				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d|8192);
+				if(getWaterloggedProperty()){
+					st=st.with(WATERLOGGED,false);
+					BlockNumberIDRegistry.INSTANCE.register(12207,d|8192,st);
+					BlockNumberIDRecognitionRegistry.INSTANCE
+					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d|8192);
+				}
 			}
 			Item[]tab2={Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL,Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 			d=0;

@@ -5,8 +5,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 @Mixin(net.minecraft.item.BucketItem.class)
 public abstract class CNTrafficSymbolsMixin1{
-	@Inject(method = "placeFluid(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/hit/BlockHitResult;)Z", at = @At(value = "HEAD"), cancellable = true)
-	private void
+	@Inject(method="placeFluid(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/hit/BlockHitResult;)Z",
+	at=@At(value="HEAD"),cancellable=true) private void
 	injectPlaceFluid(@Nullable net.minecraft.entity.player.PlayerEntity player,
 	net.minecraft.world.World world,net.minecraft.util.math.BlockPos pos,
 	@Nullable net.minecraft.util.hit.BlockHitResult hitResult,
@@ -17,9 +17,10 @@ public abstract class CNTrafficSymbolsMixin1{
 		(net.minecraft.item.BucketItem)(Object)this){
 			net.minecraft.block.Block b=world.getBlockState(pos).getBlock();
 			if((b instanceof rege.pegui.cntrafficsymbols.block.DoubleFaceFacingBlock)||
-			(b instanceof rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock)||
-			(b instanceof rege.pegui.cntrafficsymbols.block.WideBoardBlock))
-			info.setReturnValue(false);
+			(b instanceof rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock)||(b
+			instanceof rege.pegui.cntrafficsymbols.block.WideBoardBlock)||(b instanceof
+			rege.pegui.cntrafficsymbols.block.SquareQuarterDefaulted3Block))info
+			.setReturnValue(false);
 		}
 	}
 }
