@@ -1,8 +1,7 @@
 import json
 p=lambda l0,l1,l2,l3,l4,l5,l6,l7:l7*2187+l6*729+l5*243+l4*81+l3*27+l2*9+l1*3+l0
 def q(x):
- x-=1
- return x%16,(x//16)%10,(x//160)%41
+ x-=1;return x%16,(x//16)%10,(x//160)%41
 TUPS={}
 for l0 in(0,1,2):
  for l1 in(0,1,2):
@@ -28,17 +27,12 @@ for i in TUPS:
    "y":90,"uvlock":True
   }
   continue
- fc=0
- obj={"elements":[],"textures":{}}
- l=0
- deltal=0
- ct=0
+ fc=0;obj={"elements":[],"textures":{}};l=0;deltal=0;ct=0
  while l<8:
   if ct==i[l+deltal]:
    deltal+=1
    if l+deltal<8:continue
-  shouldCullBefore=(not l)or i[l-1]
-  shouldCullAfter=l+deltal>=8 or i[l+deltal]
+  shouldCullBefore=(not l)or i[l-1];shouldCullAfter=l+deltal>=8 or i[l+deltal]
   l+=deltal
   if ct and l:
    if ct==1:obj["textures"]["a1"]="regedt32:block/cntrafficsymbols/white_floor_line_eighths"
@@ -67,9 +61,8 @@ for i in TUPS:
     if shouldCullAfter:del obj["elements"][-1]["faces"]["south"]
     else:del obj["elements"][-1]["faces"]["south"]["cullface"]
   if l<8:
-   deltal=0
-   ct=i[l]
- with open(f"floor_line_eighths_{''.join(str(x) for x in i)}.json","w")as f:json.dump(obj,f)
+   deltal=0;ct=i[l]
+ with open(f"floor_line_eighths_{''.join(str(x) for x in i)}.json","w")as f:json.dump(obj,f,indent=2)
  lobj["variants"][f"axis=x,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
   "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i)}"
  }
@@ -77,5 +70,6 @@ for i in TUPS:
   "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i)}",
   "y":270,"uvlock":True
  }
-with open("../../../blockstates/cntrafficsymbols/floor_line_eighths.json","w")as f:
- json.dump(lobj,f)
+with open("../../../blockstates/cntrafficsymbols/floor_line_eighths.json",
+          "w")as f:
+ json.dump(lobj,f,indent=2)

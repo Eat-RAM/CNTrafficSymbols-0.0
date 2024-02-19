@@ -1,4 +1,5 @@
 package rege.pegui.cntrafficsymbols;
+import java.util.List;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -16,6 +17,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
 import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
+import rege.pegui.cntrafficsymbols.block.Full1CylindricalRodBlock;
+import rege.pegui.cntrafficsymbols.block.Half1CylindricalRodBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoLeftBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoMiddleBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoRightBlock;
@@ -32,7 +35,6 @@ import
 rege.rege.minecraftmod.number_id_revival.state.numberid.ItemNumberIDRegistry;
 import static net.minecraft.block.Blocks.AIR;
 import static net.minecraft.block.Blocks.WATER;
-import static net.minecraft.item.Items.LIGHT_GRAY_STAINED_GLASS_PANE;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
@@ -40,6 +42,9 @@ import static
 rege.pegui.cntrafficsymbols.Main.getHardcodedBarricades1LootEnabled;
 import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 public class SelfWork{
+	public static final List<String>COLORS_MC16=List.of("white","orange",
+	"magenta","light_blue","yellow","lime","pink","gray","light_gray","cyan",
+	"purple","blue","brown","green","red","black");
 	public static class Blocks{
 		public static final Block SPEEDLIMIT_HIGH_3=
 		new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
@@ -855,6 +860,70 @@ public class SelfWork{
 		public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERRIGHT=
 		new WideBoardBlock(KEEP_SPACE_VARIANT2_LOWERLEFT,
 		Block.Settings.create().strength(21f,84f));
+		public static final Block WHITE_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block ORANGE_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block MAGENTA_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIGHT_BLUE_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block YELLOW_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIME_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block PINK_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block GRAY_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIGHT_GRAY_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block CYAN_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block PURPLE_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BLUE_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BROWN_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block GREEN_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block RED_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BLACK_HALF1_CYLINDRICAL_ROD=
+		new Half1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block WHITE_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block ORANGE_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block MAGENTA_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIGHT_BLUE_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block YELLOW_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIME_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block PINK_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block GRAY_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block LIGHT_GRAY_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block CYAN_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block PURPLE_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BLUE_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BROWN_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block GREEN_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block RED_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block BLACK_FULL1_CYLINDRICAL_ROD=
+		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]SPEEDLIMIT_LOW_BLOCKS;
@@ -862,6 +931,8 @@ public class SelfWork{
 	private static final Block[]HEIGHTLIMIT_BLOCKS;
 	private static final Block[]PROHIBITION_BLOCKS;
 	private static final Block[]HIGHWAY_HM_BLOCKS;
+	private static final Block[]HALF1_CYLINDRICAL_ROD_BLOCKS;
+	private static final Block[]FULL1_CYLINDRICAL_ROD_BLOCKS;
 	public static class Items{
 		public static final Item SPEEDLIMIT_HIGH_3=
 		new BlockItem(Blocks.SPEEDLIMIT_HIGH_3,new Item.Settings().maxCount(64));
@@ -1424,6 +1495,102 @@ public class SelfWork{
 		public static final Item KEEP_SPACE_VARIANT2_LOWERRIGHT=
 		new BlockItem(Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT,
 		new Item.Settings().maxCount(64));
+		public static final Item WHITE_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.WHITE_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item ORANGE_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.ORANGE_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.MAGENTA_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item YELLOW_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.YELLOW_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIME_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIME_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item PINK_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.PINK_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item GRAY_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.GRAY_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item CYAN_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.CYAN_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item PURPLE_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.PURPLE_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BLUE_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BLUE_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BROWN_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BROWN_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item GREEN_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.GREEN_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item RED_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.RED_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BLACK_HALF1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BLACK_HALF1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item WHITE_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.WHITE_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item ORANGE_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.ORANGE_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.MAGENTA_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item YELLOW_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.YELLOW_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIME_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIME_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item PINK_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.PINK_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item GRAY_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.GRAY_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item CYAN_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.CYAN_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item PURPLE_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.PURPLE_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BLUE_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BLUE_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BROWN_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BROWN_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item GREEN_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.GREEN_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item RED_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.RED_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
+		public static final Item BLACK_FULL1_CYLINDRICAL_ROD=
+		new BlockItem(Blocks.BLACK_FULL1_CYLINDRICAL_ROD,
+		new Item.Settings().maxCount(64));
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1431,6 +1598,8 @@ public class SelfWork{
 	private static final Item[]HEIGHTLIMIT_ITEMS;
 	private static final Item[]PROHIBITION_ITEMS;
 	private static final Item[]HIGHWAY_HM_ITEMS;
+	private static final Item[]HALF1_CYLINDRICAL_ROD_ITEMS;
+	private static final Item[]FULL1_CYLINDRICAL_ROD_ITEMS;
 	private static final ItemGroup ITEM_GROUP;
 	static{
 		SPEEDLIMIT_HIGH_BLOCKS=new Block[]{Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL};
@@ -1439,24 +1608,28 @@ public class SelfWork{
 		HEIGHTLIMIT_BLOCKS=new Block[]{Blocks.HEIGHTLIMIT_SPECIAL,Blocks.HEIGHTLIMIT_0D1,Blocks.HEIGHTLIMIT_0D2,Blocks.HEIGHTLIMIT_0D3,Blocks.HEIGHTLIMIT_0D4,Blocks.HEIGHTLIMIT_0D5,Blocks.HEIGHTLIMIT_0D6,Blocks.HEIGHTLIMIT_0D7,Blocks.HEIGHTLIMIT_0D8,Blocks.HEIGHTLIMIT_0D9,Blocks.HEIGHTLIMIT_1,Blocks.HEIGHTLIMIT_1D1,Blocks.HEIGHTLIMIT_1D2,Blocks.HEIGHTLIMIT_1D3,Blocks.HEIGHTLIMIT_1D4,Blocks.HEIGHTLIMIT_1D5,Blocks.HEIGHTLIMIT_1D6,Blocks.HEIGHTLIMIT_1D7,Blocks.HEIGHTLIMIT_1D8,Blocks.HEIGHTLIMIT_1D9,Blocks.HEIGHTLIMIT_2,Blocks.HEIGHTLIMIT_2D1,Blocks.HEIGHTLIMIT_2D2,Blocks.HEIGHTLIMIT_2D3,Blocks.HEIGHTLIMIT_2D4,Blocks.HEIGHTLIMIT_2D5,Blocks.HEIGHTLIMIT_2D6,Blocks.HEIGHTLIMIT_2D7,Blocks.HEIGHTLIMIT_2D8,Blocks.HEIGHTLIMIT_2D9,Blocks.HEIGHTLIMIT_3,Blocks.HEIGHTLIMIT_3D1,Blocks.HEIGHTLIMIT_3D2,Blocks.HEIGHTLIMIT_3D3,Blocks.HEIGHTLIMIT_3D4,Blocks.HEIGHTLIMIT_3D5,Blocks.HEIGHTLIMIT_3D6,Blocks.HEIGHTLIMIT_3D7,Blocks.HEIGHTLIMIT_3D8,Blocks.HEIGHTLIMIT_3D9,Blocks.HEIGHTLIMIT_4,Blocks.HEIGHTLIMIT_4D1,Blocks.HEIGHTLIMIT_4D2,Blocks.HEIGHTLIMIT_4D3,Blocks.HEIGHTLIMIT_4D4,Blocks.HEIGHTLIMIT_4D5,Blocks.HEIGHTLIMIT_4D6,Blocks.HEIGHTLIMIT_4D7,Blocks.HEIGHTLIMIT_4D8,Blocks.HEIGHTLIMIT_4D9,Blocks.HEIGHTLIMIT_5,Blocks.HEIGHTLIMIT_5D1,Blocks.HEIGHTLIMIT_5D2,Blocks.HEIGHTLIMIT_5D3,Blocks.HEIGHTLIMIT_5D4,Blocks.HEIGHTLIMIT_5D5,Blocks.HEIGHTLIMIT_5D6,Blocks.HEIGHTLIMIT_5D7,Blocks.HEIGHTLIMIT_5D8,Blocks.HEIGHTLIMIT_5D9,Blocks.HEIGHTLIMIT_6,Blocks.HEIGHTLIMIT_6D1,Blocks.HEIGHTLIMIT_6D2,Blocks.HEIGHTLIMIT_6D3,Blocks.HEIGHTLIMIT_6D4,Blocks.HEIGHTLIMIT_6D5,Blocks.HEIGHTLIMIT_6D6,Blocks.HEIGHTLIMIT_6D7,Blocks.HEIGHTLIMIT_6D8,Blocks.HEIGHTLIMIT_6D9,Blocks.HEIGHTLIMIT_7,Blocks.HEIGHTLIMIT_7D1,Blocks.HEIGHTLIMIT_7D2,Blocks.HEIGHTLIMIT_7D3,Blocks.HEIGHTLIMIT_7D4,Blocks.HEIGHTLIMIT_7D5,Blocks.HEIGHTLIMIT_7D6,Blocks.HEIGHTLIMIT_7D7,Blocks.HEIGHTLIMIT_7D8,Blocks.HEIGHTLIMIT_7D9,Blocks.HEIGHTLIMIT_8,Blocks.HEIGHTLIMIT_8D1,Blocks.HEIGHTLIMIT_8D2,Blocks.HEIGHTLIMIT_8D3,Blocks.HEIGHTLIMIT_8D4,Blocks.HEIGHTLIMIT_8D5,Blocks.HEIGHTLIMIT_8D6,Blocks.HEIGHTLIMIT_8D7,Blocks.HEIGHTLIMIT_8D8,Blocks.HEIGHTLIMIT_8D9,Blocks.HEIGHTLIMIT_9,Blocks.HEIGHTLIMIT_9D1,Blocks.HEIGHTLIMIT_9D2,Blocks.HEIGHTLIMIT_9D3,Blocks.HEIGHTLIMIT_9D4,Blocks.HEIGHTLIMIT_9D5,Blocks.HEIGHTLIMIT_9D6,Blocks.HEIGHTLIMIT_9D7,Blocks.HEIGHTLIMIT_9D8,Blocks.HEIGHTLIMIT_9D9,Blocks.HEIGHTLIMIT_10};
 		PROHIBITION_BLOCKS=new Block[]{Blocks.PROHIBITION,Blocks.NO_U_TURN,Blocks.NO_LEFT_TURN,Blocks.NO_RIGHT_TURN,Blocks.NO_PARKING};
 		HIGHWAY_HM_BLOCKS=new Block[]{Blocks.HIGHWAY_1HM,Blocks.HIGHWAY_2HM,Blocks.HIGHWAY_3HM,Blocks.HIGHWAY_4HM,Blocks.HIGHWAY_5HM,Blocks.HIGHWAY_6HM,Blocks.HIGHWAY_7HM,Blocks.HIGHWAY_8HM,Blocks.HIGHWAY_9HM};
+		HALF1_CYLINDRICAL_ROD_BLOCKS=new Block[]{Blocks.WHITE_HALF1_CYLINDRICAL_ROD,Blocks.ORANGE_HALF1_CYLINDRICAL_ROD,Blocks.MAGENTA_HALF1_CYLINDRICAL_ROD,Blocks.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,Blocks.YELLOW_HALF1_CYLINDRICAL_ROD,Blocks.LIME_HALF1_CYLINDRICAL_ROD,Blocks.PINK_HALF1_CYLINDRICAL_ROD,Blocks.GRAY_HALF1_CYLINDRICAL_ROD,Blocks.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,Blocks.CYAN_HALF1_CYLINDRICAL_ROD,Blocks.PURPLE_HALF1_CYLINDRICAL_ROD,Blocks.BLUE_HALF1_CYLINDRICAL_ROD,Blocks.BROWN_HALF1_CYLINDRICAL_ROD,Blocks.GREEN_HALF1_CYLINDRICAL_ROD,Blocks.RED_HALF1_CYLINDRICAL_ROD,Blocks.BLACK_HALF1_CYLINDRICAL_ROD};
+		FULL1_CYLINDRICAL_ROD_BLOCKS=new Block[]{Blocks.WHITE_FULL1_CYLINDRICAL_ROD,Blocks.ORANGE_FULL1_CYLINDRICAL_ROD,Blocks.MAGENTA_FULL1_CYLINDRICAL_ROD,Blocks.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,Blocks.YELLOW_FULL1_CYLINDRICAL_ROD,Blocks.LIME_FULL1_CYLINDRICAL_ROD,Blocks.PINK_FULL1_CYLINDRICAL_ROD,Blocks.GRAY_FULL1_CYLINDRICAL_ROD,Blocks.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,Blocks.CYAN_FULL1_CYLINDRICAL_ROD,Blocks.PURPLE_FULL1_CYLINDRICAL_ROD,Blocks.BLUE_FULL1_CYLINDRICAL_ROD,Blocks.BROWN_FULL1_CYLINDRICAL_ROD,Blocks.GREEN_FULL1_CYLINDRICAL_ROD,Blocks.RED_FULL1_CYLINDRICAL_ROD,Blocks.BLACK_FULL1_CYLINDRICAL_ROD};
 		SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL};
 		SPEEDLIMIT_LOW_ITEMS=new Item[]{Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 		LIFT_SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.LIFT_SPEEDLIMIT_HIGH_3,Items.LIFT_SPEEDLIMIT_HIGH_5,Items.LIFT_SPEEDLIMIT_HIGH_10,Items.LIFT_SPEEDLIMIT_HIGH_15,Items.LIFT_SPEEDLIMIT_HIGH_20,Items.LIFT_SPEEDLIMIT_HIGH_25,Items.LIFT_SPEEDLIMIT_HIGH_30,Items.LIFT_SPEEDLIMIT_HIGH_35,Items.LIFT_SPEEDLIMIT_HIGH_40,Items.LIFT_SPEEDLIMIT_HIGH_45,Items.LIFT_SPEEDLIMIT_HIGH_50,Items.LIFT_SPEEDLIMIT_HIGH_55,Items.LIFT_SPEEDLIMIT_HIGH_60,Items.LIFT_SPEEDLIMIT_HIGH_65,Items.LIFT_SPEEDLIMIT_HIGH_70,Items.LIFT_SPEEDLIMIT_HIGH_75,Items.LIFT_SPEEDLIMIT_HIGH_80,Items.LIFT_SPEEDLIMIT_HIGH_85,Items.LIFT_SPEEDLIMIT_HIGH_90,Items.LIFT_SPEEDLIMIT_HIGH_95,Items.LIFT_SPEEDLIMIT_HIGH_100,Items.LIFT_SPEEDLIMIT_HIGH_105,Items.LIFT_SPEEDLIMIT_HIGH_110,Items.LIFT_SPEEDLIMIT_HIGH_115,Items.LIFT_SPEEDLIMIT_HIGH_120,Items.LIFT_SPEEDLIMIT_HIGH_125,Items.LIFT_SPEEDLIMIT_HIGH_130,Items.LIFT_SPEEDLIMIT_HIGH_135,Items.LIFT_SPEEDLIMIT_HIGH_140,Items.LIFT_SPEEDLIMIT_HIGH_145,Items.LIFT_SPEEDLIMIT_HIGH_150,Items.LIFT_SPEEDLIMIT_HIGH_SPECIAL};
 		HEIGHTLIMIT_ITEMS=new Item[]{Items.HEIGHTLIMIT_SPECIAL,Items.HEIGHTLIMIT_0D1,Items.HEIGHTLIMIT_0D2,Items.HEIGHTLIMIT_0D3,Items.HEIGHTLIMIT_0D4,Items.HEIGHTLIMIT_0D5,Items.HEIGHTLIMIT_0D6,Items.HEIGHTLIMIT_0D7,Items.HEIGHTLIMIT_0D8,Items.HEIGHTLIMIT_0D9,Items.HEIGHTLIMIT_1,Items.HEIGHTLIMIT_1D1,Items.HEIGHTLIMIT_1D2,Items.HEIGHTLIMIT_1D3,Items.HEIGHTLIMIT_1D4,Items.HEIGHTLIMIT_1D5,Items.HEIGHTLIMIT_1D6,Items.HEIGHTLIMIT_1D7,Items.HEIGHTLIMIT_1D8,Items.HEIGHTLIMIT_1D9,Items.HEIGHTLIMIT_2,Items.HEIGHTLIMIT_2D1,Items.HEIGHTLIMIT_2D2,Items.HEIGHTLIMIT_2D3,Items.HEIGHTLIMIT_2D4,Items.HEIGHTLIMIT_2D5,Items.HEIGHTLIMIT_2D6,Items.HEIGHTLIMIT_2D7,Items.HEIGHTLIMIT_2D8,Items.HEIGHTLIMIT_2D9,Items.HEIGHTLIMIT_3,Items.HEIGHTLIMIT_3D1,Items.HEIGHTLIMIT_3D2,Items.HEIGHTLIMIT_3D3,Items.HEIGHTLIMIT_3D4,Items.HEIGHTLIMIT_3D5,Items.HEIGHTLIMIT_3D6,Items.HEIGHTLIMIT_3D7,Items.HEIGHTLIMIT_3D8,Items.HEIGHTLIMIT_3D9,Items.HEIGHTLIMIT_4,Items.HEIGHTLIMIT_4D1,Items.HEIGHTLIMIT_4D2,Items.HEIGHTLIMIT_4D3,Items.HEIGHTLIMIT_4D4,Items.HEIGHTLIMIT_4D5,Items.HEIGHTLIMIT_4D6,Items.HEIGHTLIMIT_4D7,Items.HEIGHTLIMIT_4D8,Items.HEIGHTLIMIT_4D9,Items.HEIGHTLIMIT_5,Items.HEIGHTLIMIT_5D1,Items.HEIGHTLIMIT_5D2,Items.HEIGHTLIMIT_5D3,Items.HEIGHTLIMIT_5D4,Items.HEIGHTLIMIT_5D5,Items.HEIGHTLIMIT_5D6,Items.HEIGHTLIMIT_5D7,Items.HEIGHTLIMIT_5D8,Items.HEIGHTLIMIT_5D9,Items.HEIGHTLIMIT_6,Items.HEIGHTLIMIT_6D1,Items.HEIGHTLIMIT_6D2,Items.HEIGHTLIMIT_6D3,Items.HEIGHTLIMIT_6D4,Items.HEIGHTLIMIT_6D5,Items.HEIGHTLIMIT_6D6,Items.HEIGHTLIMIT_6D7,Items.HEIGHTLIMIT_6D8,Items.HEIGHTLIMIT_6D9,Items.HEIGHTLIMIT_7,Items.HEIGHTLIMIT_7D1,Items.HEIGHTLIMIT_7D2,Items.HEIGHTLIMIT_7D3,Items.HEIGHTLIMIT_7D4,Items.HEIGHTLIMIT_7D5,Items.HEIGHTLIMIT_7D6,Items.HEIGHTLIMIT_7D7,Items.HEIGHTLIMIT_7D8,Items.HEIGHTLIMIT_7D9,Items.HEIGHTLIMIT_8,Items.HEIGHTLIMIT_8D1,Items.HEIGHTLIMIT_8D2,Items.HEIGHTLIMIT_8D3,Items.HEIGHTLIMIT_8D4,Items.HEIGHTLIMIT_8D5,Items.HEIGHTLIMIT_8D6,Items.HEIGHTLIMIT_8D7,Items.HEIGHTLIMIT_8D8,Items.HEIGHTLIMIT_8D9,Items.HEIGHTLIMIT_9,Items.HEIGHTLIMIT_9D1,Items.HEIGHTLIMIT_9D2,Items.HEIGHTLIMIT_9D3,Items.HEIGHTLIMIT_9D4,Items.HEIGHTLIMIT_9D5,Items.HEIGHTLIMIT_9D6,Items.HEIGHTLIMIT_9D7,Items.HEIGHTLIMIT_9D8,Items.HEIGHTLIMIT_9D9,Items.HEIGHTLIMIT_10};
 		PROHIBITION_ITEMS=new Item[]{Items.PROHIBITION,Items.NO_U_TURN,Items.NO_LEFT_TURN,Items.NO_RIGHT_TURN,Items.NO_PARKING};
 		HIGHWAY_HM_ITEMS=new Item[]{Items.HIGHWAY_1HM,Items.HIGHWAY_2HM,Items.HIGHWAY_3HM,Items.HIGHWAY_4HM,Items.HIGHWAY_5HM,Items.HIGHWAY_6HM,Items.HIGHWAY_7HM,Items.HIGHWAY_8HM,Items.HIGHWAY_9HM};
-		ITEM_GROUP=FabricItemGroup.builder()
-	 .icon(()->new ItemStack(Items.SPEEDLIMIT_HIGH_120))
-	 .displayName(Text.literal("CNTrafficSymbols"))
-	 .entries((c,e)->{
-	 	for(Item i:SPEEDLIMIT_HIGH_ITEMS){e.add(i);}
-	 	for(Item i:SPEEDLIMIT_LOW_ITEMS){e.add(i);}
-			for(Item i:LIFT_SPEEDLIMIT_HIGH_ITEMS){e.add(i);}
+		HALF1_CYLINDRICAL_ROD_ITEMS=new Item[]{Items.WHITE_HALF1_CYLINDRICAL_ROD,Items.ORANGE_HALF1_CYLINDRICAL_ROD,Items.MAGENTA_HALF1_CYLINDRICAL_ROD,Items.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,Items.YELLOW_HALF1_CYLINDRICAL_ROD,Items.LIME_HALF1_CYLINDRICAL_ROD,Items.PINK_HALF1_CYLINDRICAL_ROD,Items.GRAY_HALF1_CYLINDRICAL_ROD,Items.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,Items.CYAN_HALF1_CYLINDRICAL_ROD,Items.PURPLE_HALF1_CYLINDRICAL_ROD,Items.BLUE_HALF1_CYLINDRICAL_ROD,Items.BROWN_HALF1_CYLINDRICAL_ROD,Items.GREEN_HALF1_CYLINDRICAL_ROD,Items.RED_HALF1_CYLINDRICAL_ROD,Items.BLACK_HALF1_CYLINDRICAL_ROD};
+		FULL1_CYLINDRICAL_ROD_ITEMS=new Item[]{Items.WHITE_FULL1_CYLINDRICAL_ROD,Items.ORANGE_FULL1_CYLINDRICAL_ROD,Items.MAGENTA_FULL1_CYLINDRICAL_ROD,Items.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,Items.YELLOW_FULL1_CYLINDRICAL_ROD,Items.LIME_FULL1_CYLINDRICAL_ROD,Items.PINK_FULL1_CYLINDRICAL_ROD,Items.GRAY_FULL1_CYLINDRICAL_ROD,Items.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,Items.CYAN_FULL1_CYLINDRICAL_ROD,Items.PURPLE_FULL1_CYLINDRICAL_ROD,Items.BLUE_FULL1_CYLINDRICAL_ROD,Items.BROWN_FULL1_CYLINDRICAL_ROD,Items.GREEN_FULL1_CYLINDRICAL_ROD,Items.RED_FULL1_CYLINDRICAL_ROD,Items.BLACK_FULL1_CYLINDRICAL_ROD};
+		ITEM_GROUP=FabricItemGroup.builder().icon(()->new ItemStack(Items
+		.SPEEDLIMIT_HIGH_120)).displayName(Text
+		.translatableWithFallback("itemGroup.regedt32.cntrafficsymbols",
+		"CNTrafficSymbols")).entries((c,e)->{
+	 	for(Item i:SPEEDLIMIT_HIGH_ITEMS)e.add(i);
+	 	for(Item i:SPEEDLIMIT_LOW_ITEMS)e.add(i);
+			for(Item i:LIFT_SPEEDLIMIT_HIGH_ITEMS)e.add(i);
 	 	e.add(Items.IRON_PLATE);
 			e.add(Items.CIRCLE_BACKBOARD);
-			for(Item i:HEIGHTLIMIT_ITEMS){e.add(i);}
-			for(Item i:PROHIBITION_ITEMS){e.add(i);}
-			for(Item i:HIGHWAY_HM_ITEMS){e.add(i);}
+			for(Item i:HEIGHTLIMIT_ITEMS)e.add(i);
+			for(Item i:PROHIBITION_ITEMS)e.add(i);
+			for(Item i:HIGHWAY_HM_ITEMS)e.add(i);
 			e.add(Items.WHITE_FLOOR_LINE_EIGHTH);
 			e.add(Items.YELLOW_FLOOR_LINE_EIGHTH);
 			e.add(Items.HIGHWAY_KM);
@@ -1501,6 +1674,8 @@ public class SelfWork{
 			e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
 			e.add(Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
 			e.add(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
+			for(Item i:HALF1_CYLINDRICAL_ROD_ITEMS)e.add(i);
+			for(Item i:FULL1_CYLINDRICAL_ROD_ITEMS)e.add(i);
 	 }).build();
 	}
 	public static void doit(){
@@ -1655,6 +1830,12 @@ public class SelfWork{
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerleft"),Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lower"),Blocks.KEEP_SPACE_VARIANT2_LOWER);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerright"),Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
+		for(int i=0;i<16;i++){
+			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
+			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
+			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_ITEMS[i]);
+			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_ITEMS[i]);
+		}
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_exit_distance_info_name"),rege.pegui.cntrafficsymbols.be.HighwayExitDistanceInfoNameBlockEntity.TYPE);

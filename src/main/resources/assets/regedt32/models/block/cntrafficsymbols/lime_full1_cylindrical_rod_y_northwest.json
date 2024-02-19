@@ -1,0 +1,4 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/full1_cylindrical_rod_y_northwest",
+  "textures": {"side": "regedt32:block/cntrafficsymbols/lime_full1_cylindrical_rod"}
+}

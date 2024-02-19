@@ -26,7 +26,7 @@ implements net.minecraft.block.BlockEntityProvider{
 		BlockEntity be=v.getBlockEntity(p);
 		return (be instanceof HighwayExitDistanceInfoKmBlockEntity)?
 		new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols.struct
-		.DoubleFaceFacing.FACING).isSingle()?1:2)
+		.DoubleFaceFacing90.FACING).isSingle()?1:2)
 		.setCustomName(((HighwayExitDistanceInfoKmBlockEntity)be).getCustomName()):
 		super.getPickStack(v,p,st);
 	}
