@@ -3,7 +3,6 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.ActionResult;
@@ -161,7 +160,7 @@ implements net.minecraft.block.BlockEntityProvider{
 		super.getPickStack(v,p,st);
 	}
 	@Override public ActionResult onUse(BlockState st,World w,BlockPos p,
-	PlayerEntity pl,Hand hand,BlockHitResult hit){
+	net.minecraft.entity.player.PlayerEntity pl,Hand hand,BlockHitResult hit){
 		BlockEntity ett=w.getBlockEntity(p);
 		if(!(ett instanceof HighwayKmSignBlockEntity))return ActionResult.PASS;
 		HighwayKmSignBlockEntity sett=(HighwayKmSignBlockEntity)ett;

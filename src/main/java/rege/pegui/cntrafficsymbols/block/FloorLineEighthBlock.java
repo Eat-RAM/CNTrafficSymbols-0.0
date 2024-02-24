@@ -9,10 +9,6 @@ rege.pegui.cntrafficsymbols.Main.getHardcodedFloorLineEighthsLootEnabled;
 import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Waterloggable;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -23,10 +19,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
-public class FloorLineEighthBlock extends Block implements Waterloggable{
+public class FloorLineEighthBlock extends Block
+implements ManagedWaterloggable{
 	public static final IntProperty SLICES160=IntProperty.of("slices160",0,40);
 	public static final IntProperty SLICES16=IntProperty.of("slices16",0,9);
 	public static final IntProperty SLICES=IntProperty.of("slices",0,15);
@@ -48,31 +43,26 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 	public static final VoxelShape L7Z=cuboid(.875,0,0,1,.03125,1);
 	private Item itm1;
 	private Item itm2;
-	public static int to3Pow(BlockState st){
-		return st.get(SLICES160).intValue()*160+(st.get(SLICES16).intValue()*16)+
-		st.get(SLICES).intValue()+1;
-	}
+	public static int to3Pow(BlockState st){return st.get(SLICES160).intValue()*
+	160+(st.get(SLICES16).intValue()*16)+st.get(SLICES).intValue()+1;}
 	public static BlockState from3Pow(BlockState st,int pow){
 		pow--;st=st.with(SLICES,pow%16);pow/=16;st=st.with(SLICES16,pow%10);pow/=10;
 		return st.with(SLICES160,pow%41);
 	}
 	public FloorLineEighthBlock(Item itm1,Item itm2,Settings s){
-		super(s);this.itm1=itm1;this.itm2=itm2;
-		BlockState st=getDefaultState().with(SLICES160,0).with(SLICES16,0)
-		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X);
-		if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
+		super(s);this.itm1=itm1;this.itm2=itm2;BlockState st=getDefaultState()
+		.with(SLICES160,0).with(SLICES16,0).with(SLICES,0).with(HORIZONTAL_AXIS,
+		Direction.Axis.X);if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
 		setDefaultState(st);
 	}
 	public FloorLineEighthBlock(Settings s){
-		super(s);
-		BlockState st=getDefaultState().with(SLICES160,0).with(SLICES16,0)
+		super(s);BlockState st=getDefaultState().with(SLICES160,0).with(SLICES16,0)
 		.with(SLICES,0).with(HORIZONTAL_AXIS,Direction.Axis.X);
 		if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
 		setDefaultState(st);
 	}
-	@Override public VoxelShape
-	getOutlineShape(BlockState st,BlockView v,BlockPos p,
-	net.minecraft.block.ShapeContext c){
+	@Override public VoxelShape getOutlineShape(BlockState st,BlockView v,BlockPos
+	p,net.minecraft.block.ShapeContext c){
 		VoxelShape res=net.minecraft.util.shape.VoxelShapes.empty();int r=to3Pow(st);
 		if(st.get(HORIZONTAL_AXIS)==Direction.Axis.X){
 			if(r%3!=0)res=union(res,L0X);
@@ -109,9 +99,9 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 		}
 		return res;
 	}
-	@Override public void afterBreak(World w,net.minecraft.entity.player
-	.PlayerEntity player,BlockPos p,BlockState st,@Nullable net.minecraft.block
-	.entity.BlockEntity ett,ItemStack tool){
+	@Override public void afterBreak(net.minecraft.world.World w,net.minecraft
+	.entity.player.PlayerEntity player,BlockPos p,BlockState st,@Nullable net
+	.minecraft.block.entity.BlockEntity ett,ItemStack tool){
 		super.afterBreak(w,player,p,st,ett,tool);
 		if((w instanceof ServerWorld)&&
 		(Boolean.TRUE.equals(getHardcodedFloorLineEighthsLootEnabled())||
@@ -195,13 +185,13 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 			return sst;
 		}
 	}
-	@Override public BlockState getStateForNeighborUpdate(BlockState st,
-	Direction d,BlockState nst,WorldAccess w,BlockPos p,BlockPos np){
+	@Override public BlockState getStateForNeighborUpdate(BlockState st,Direction
+	d,BlockState nst,net.minecraft.world.WorldAccess w,BlockPos p,BlockPos np){
 		if(getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())w
 		.scheduleFluidTick(p,WATER,WATER.getTickRate(w));
 		return super.getStateForNeighborUpdate(st,d,nst,w,p,np);
 	}
-	@Override public FluidState getFluidState(BlockState st){
+	@Override public net.minecraft.fluid.FluidState getFluidState(BlockState st){
 		return(getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())?
 		WATER.getStill(false):super.getFluidState(st);
 	}
@@ -228,8 +218,7 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 	}
 	@Override public BlockState
 	rotate(BlockState st,net.minecraft.util.BlockRotation rtt){
-		boolean shouldReverse=false;
-		switch(rtt){
+		boolean shouldReverse=false;switch(rtt){
 			case CLOCKWISE_90:{
 				shouldReverse=st.get(HORIZONTAL_AXIS)==Direction.Axis.X;st=
 				st.with(HORIZONTAL_AXIS,shouldReverse?Direction.Axis.Z:Direction.Axis.X);
@@ -258,21 +247,6 @@ public class FloorLineEighthBlock extends Block implements Waterloggable{
 		}
 		int ns=0;int r=to3Pow(st);for(int i=0;i<8;i++){ns*=3;ns+=r%3;r/=3;}
 		return from3Pow(st,ns);
-	}
-	@Override public boolean canFillWithFluid(PlayerEntity pl,BlockView v,
-	BlockPos p,BlockState st,Fluid fl){
-		return getWaterloggedProperty()&&
-		Waterloggable.super.canFillWithFluid(pl,v,p,st,fl);
-	}
-	@Override public boolean
-	tryFillWithFluid(WorldAccess w,BlockPos p,BlockState st,FluidState fst){
-		return getWaterloggedProperty()&&
-		Waterloggable.super.tryFillWithFluid(w,p,st,fst);
-	}
-	@Override public ItemStack
-	tryDrainFluid(PlayerEntity pl,WorldAccess w,BlockPos p,BlockState st){
-		return getWaterloggedProperty()?Waterloggable.super.tryDrainFluid(pl,w,p,st):
-		ItemStack.EMPTY;
 	}
 	@Nullable public Item setItm1(@Nullable Item v){
 		Item r=itm1;if(r==null)itm1=v;

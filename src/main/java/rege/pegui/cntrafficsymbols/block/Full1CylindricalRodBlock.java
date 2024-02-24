@@ -1,36 +1,32 @@
 package rege.pegui.cntrafficsymbols.block;
-import static net.minecraft.fluid.Fluids.WATER;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 import static rege.pegui.cntrafficsymbols.helper.RangeUtil.closedRangeTo;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager.Builder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import rege.pegui.cntrafficsymbols.struct.AxisPosition9;
 public class Full1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 	private static final VoxelShape[]SHAPES_BY_ID={X_CENTER,X_UPPER,X_UPPERSOUTH,
 	X_SOUTH,X_LOWERSOUTH,X_LOWER,X_LOWERNORTH,X_NORTH,X_UPPERNORTH,Y_CENTER,
-	Y_NORTH,Y_NORTHEAST,Y_EAST,Y_SOUTHEAST,Y_SOUTH,Y_SOUTHWEST,Y_WEST,Y_NORTHEAST,
+	Y_NORTH,Y_NORTHEAST,Y_EAST,Y_SOUTHEAST,Y_SOUTH,Y_SOUTHWEST,Y_WEST,Y_NORTHWEST,
 	Z_CENTER,Z_UPPER,Z_UPPEREAST,Z_EAST,Z_LOWEREAST,Z_LOWER,Z_LOWERWEST,Z_WEST,
 	Z_UPPERWEST};
 	public Full1CylindricalRodBlock(Settings s){
 		super(s);setDefaultState(getDefaultState().with(AxisPosition9.POSITION,
 		AxisPosition9.Y_CENTER));
 	}
-	@Override protected void appendProperties(Builder<Block,BlockState>bd){
+	@Override protected void appendProperties(net.minecraft.state.StateManager
+	.Builder<net.minecraft.block.Block,BlockState>bd){
 		bd.add(AxisPosition9.POSITION);
 		if(getWaterloggedProperty())bd.add(WATERLOGGED);
 	}
-	@Override public VoxelShape
-	getOutlineShape(BlockState st,BlockView v,BlockPos p,ShapeContext c){
+	@Override public VoxelShape getOutlineShape(BlockState st,net.minecraft.world
+	.BlockView v,BlockPos p,net.minecraft.block.ShapeContext c){
 		return SHAPES_BY_ID[st.get(AxisPosition9.POSITION).id];
 	}
-	@Override public BlockState getPlacementState(ItemPlacementContext ctx){
+	@Override public BlockState
+	getPlacementState(net.minecraft.item.ItemPlacementContext ctx){
 		BlockState st=getDefaultState();
 		double rx=ctx.getHitPos().x-ctx.getBlockPos().getX();
 		double ry=ctx.getHitPos().y-ctx.getBlockPos().getY();
@@ -126,7 +122,8 @@ public class Full1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 			}
 		}
 		if(getWaterloggedProperty())st=st.with(WATERLOGGED,ctx.getWorld()
-		.getFluidState(ctx.getBlockPos()).getFluid()==WATER);
+		.getFluidState(ctx.getBlockPos()).getFluid()==net.minecraft.fluid.Fluids
+		.WATER);
 		return st.with(AxisPosition9.POSITION,rp);
 	}
 }

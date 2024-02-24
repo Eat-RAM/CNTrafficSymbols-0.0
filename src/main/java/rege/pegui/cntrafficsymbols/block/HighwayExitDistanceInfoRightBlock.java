@@ -15,18 +15,24 @@ implements net.minecraft.block.BlockEntityProvider{
 	BlockState st,net.minecraft.entity.LivingEntity pl,ItemStack itm){
 		if(w.isClient){
 			w.getBlockEntity(p,HighwayExitDistanceInfoKmBlockEntity.TYPE)
-			.ifPresent(be->be.setKm(itm.hasCustomName()?Float.parseFloat(itm.getName()
-			.getString()):0f));
+			.ifPresent(be->{
+				if(itm.hasCustomName()){
+					try{be.setKm(Float.parseFloat(itm.getName().getString()));}
+					catch(NumberFormatException e){}
+				}
+			});
 		}else if(itm.hasCustomName()){
 			w.getBlockEntity(p,HighwayExitDistanceInfoKmBlockEntity.TYPE)
-			.ifPresent(be->be.setKm(Float.parseFloat(itm.getName().getString())));
+			.ifPresent(be->{
+				try{be.setKm(Float.parseFloat(itm.getName().getString()));}
+				catch(NumberFormatException e){}
+			});
 		}
 	}
 	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
-		BlockEntity be=v.getBlockEntity(p);
-		return (be instanceof HighwayExitDistanceInfoKmBlockEntity)?
-		new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols.struct
-		.DoubleFaceFacing90.FACING).isSingle()?1:2)
+		BlockEntity be=v.getBlockEntity(p);return(be instanceof
+		HighwayExitDistanceInfoKmBlockEntity)?new ItemStack(asItem(),st.get(rege
+		.pegui.cntrafficsymbols.struct.DoubleFaceFacing90.FACING).isSingle()?1:2)
 		.setCustomName(((HighwayExitDistanceInfoKmBlockEntity)be).getCustomName()):
 		super.getPickStack(v,p,st);
 	}

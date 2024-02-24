@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import rege.pegui.cntrafficsymbols.block.CircleStandingSymbolBlock;
+import rege.pegui.cntrafficsymbols.block.DottedTPBlock;
 import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 import rege.pegui.cntrafficsymbols.block.Full1CylindricalRodBlock;
 import rege.pegui.cntrafficsymbols.block.Half1CylindricalRodBlock;
@@ -23,6 +24,8 @@ import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoLeftBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoMiddleBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoRightBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
+import rege.pegui.cntrafficsymbols.block.LinedTPBlock;
+import rege.pegui.cntrafficsymbols.block.RodWithLampBlock;
 import rege.pegui.cntrafficsymbols.block.SquareQuarterDefaulted3Block;
 import rege.pegui.cntrafficsymbols.block.WideBoardBlock;
 import rege.pegui.cntrafficsymbols.struct.Attachment3;
@@ -924,6 +927,508 @@ public class SelfWork{
 		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
 		public static final Block BLACK_FULL1_CYLINDRICAL_ROD=
 		new Full1CylindricalRodBlock(Block.Settings.create().strength(5f,20f));
+		public static final Block WHITE_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block ORANGE_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block MAGENTA_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block LIGHT_BLUE_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block YELLOW_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block LIME_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block PINK_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block GRAY_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block LIGHT_GRAY_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block CYAN_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block PURPLE_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block BLUE_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block BROWN_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block GREEN_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block RED_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block BLACK_ROD_WITH_LAMP=new RodWithLampBlock(Block
+		.Settings.create().strength(5f,20f).luminance(RodWithLampBlock.LUMINANCE));
+		public static final Block FULL_SQUARE_BACKBOARD=
+		new rege.pegui.cntrafficsymbols.block
+		.DoubleFaceFacingBlock(Block.Settings.create().strength(21f,84f)){
+			public static final VoxelShape SHAPE_DEFAULT=
+			cuboid(.3125,0,.3125,.6875,1,.6875);
+			@Override public VoxelShape getOutlineShape(BlockState st,net.minecraft
+			.world.BlockView v,BlockPos p,net.minecraft.block.ShapeContext c){
+				switch(st.get(DoubleFaceFacing.FACING).id){
+					case 0:return WideBoardBlock.SHAPE0;
+					case 4:return WideBoardBlock.SHAPE1;
+					case 8:return WideBoardBlock.SHAPE2;
+					case 12:return WideBoardBlock.SHAPE3;
+					case 16:return WideBoardBlock.SHAPE4;
+					case 20:return WideBoardBlock.SHAPE5;
+					case 24:return WideBoardBlock.SHAPE6;
+					case 25:return WideBoardBlock.SHAPE7;
+					case 26:return WideBoardBlock.SHAPE8;
+					case 27:return WideBoardBlock.SHAPE9;
+					default:return SHAPE_DEFAULT;
+				}
+			}
+		};
+		public static final Block WHITE_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED4_TP=new DottedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED5_TP=new DottedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED6_TP=new DottedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED7_TP=new DottedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED8_TP=new DottedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED9_TP=new DottedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_DOTTED10_TP=new DottedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED4_TP=new LinedTPBlock((byte)4,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED5_TP=new LinedTPBlock((byte)5,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED6_TP=new LinedTPBlock((byte)6,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED7_TP=new LinedTPBlock((byte)7,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED8_TP=new LinedTPBlock((byte)8,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED9_TP=new LinedTPBlock((byte)9,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block WHITE_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block ORANGE_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block MAGENTA_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_BLUE_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block YELLOW_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIME_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PINK_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GRAY_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block LIGHT_GRAY_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block CYAN_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block PURPLE_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLUE_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BROWN_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block GREEN_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block RED_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
+		public static final Block BLACK_LINED10_TP=new LinedTPBlock((byte)10,
+		Block.Settings.create().strength(.9f).requiresTool());
 	}
 	private static final Block[]SPEEDLIMIT_HIGH_BLOCKS;
 	private static final Block[]SPEEDLIMIT_LOW_BLOCKS;
@@ -933,6 +1438,9 @@ public class SelfWork{
 	private static final Block[]HIGHWAY_HM_BLOCKS;
 	private static final Block[]HALF1_CYLINDRICAL_ROD_BLOCKS;
 	private static final Block[]FULL1_CYLINDRICAL_ROD_BLOCKS;
+	private static final Block[]ROD_WITH_LAMP_BLOCKS;
+	private static final Block[][]DOTTED_TP_BLOCKS;
+	private static final Block[][]LINED_TP_BLOCKS;
 	public static class Items{
 		public static final Item SPEEDLIMIT_HIGH_3=
 		new BlockItem(Blocks.SPEEDLIMIT_HIGH_3,new Item.Settings().maxCount(64));
@@ -1591,6 +2099,488 @@ public class SelfWork{
 		public static final Item BLACK_FULL1_CYLINDRICAL_ROD=
 		new BlockItem(Blocks.BLACK_FULL1_CYLINDRICAL_ROD,
 		new Item.Settings().maxCount(64));
+		public static final Item WHITE_ROD_WITH_LAMP=new BlockItem(Blocks
+		.WHITE_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_ROD_WITH_LAMP=new BlockItem(Blocks
+		.ORANGE_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_ROD_WITH_LAMP=new BlockItem(Blocks
+		.MAGENTA_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_ROD_WITH_LAMP=new BlockItem(Blocks
+		.LIGHT_BLUE_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_ROD_WITH_LAMP=new BlockItem(Blocks
+		.YELLOW_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item LIME_ROD_WITH_LAMP=new BlockItem(Blocks
+		.LIME_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item PINK_ROD_WITH_LAMP=new BlockItem(Blocks
+		.PINK_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_ROD_WITH_LAMP=new BlockItem(Blocks
+		.GRAY_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_ROD_WITH_LAMP=new BlockItem(Blocks
+		.LIGHT_GRAY_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_ROD_WITH_LAMP=new BlockItem(Blocks
+		.CYAN_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_ROD_WITH_LAMP=new BlockItem(Blocks
+		.PURPLE_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_ROD_WITH_LAMP=new BlockItem(Blocks
+		.BLUE_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_ROD_WITH_LAMP=new BlockItem(Blocks
+		.BROWN_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_ROD_WITH_LAMP=new BlockItem(Blocks
+		.GREEN_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item RED_ROD_WITH_LAMP=new BlockItem(Blocks
+		.RED_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_ROD_WITH_LAMP=new BlockItem(Blocks
+		.BLACK_ROD_WITH_LAMP,new Item.Settings().maxCount(64));
+		public static final Item FULL_SQUARE_BACKBOARD=
+		new BlockItem(Blocks.FULL_SQUARE_BACKBOARD,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED4_TP=
+		new BlockItem(Blocks.WHITE_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED4_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED4_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED4_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED4_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED4_TP=
+		new BlockItem(Blocks.LIME_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED4_TP=
+		new BlockItem(Blocks.PINK_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED4_TP=
+		new BlockItem(Blocks.GRAY_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED4_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED4_TP=
+		new BlockItem(Blocks.CYAN_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED4_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED4_TP=
+		new BlockItem(Blocks.BLUE_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED4_TP=
+		new BlockItem(Blocks.BROWN_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED4_TP=
+		new BlockItem(Blocks.GREEN_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED4_TP=
+		new BlockItem(Blocks.RED_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED4_TP=
+		new BlockItem(Blocks.BLACK_DOTTED4_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED5_TP=
+		new BlockItem(Blocks.WHITE_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED5_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED5_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED5_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED5_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED5_TP=
+		new BlockItem(Blocks.LIME_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED5_TP=
+		new BlockItem(Blocks.PINK_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED5_TP=
+		new BlockItem(Blocks.GRAY_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED5_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED5_TP=
+		new BlockItem(Blocks.CYAN_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED5_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED5_TP=
+		new BlockItem(Blocks.BLUE_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED5_TP=
+		new BlockItem(Blocks.BROWN_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED5_TP=
+		new BlockItem(Blocks.GREEN_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED5_TP=
+		new BlockItem(Blocks.RED_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED5_TP=
+		new BlockItem(Blocks.BLACK_DOTTED5_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED6_TP=
+		new BlockItem(Blocks.WHITE_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED6_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED6_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED6_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED6_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED6_TP=
+		new BlockItem(Blocks.LIME_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED6_TP=
+		new BlockItem(Blocks.PINK_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED6_TP=
+		new BlockItem(Blocks.GRAY_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED6_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED6_TP=
+		new BlockItem(Blocks.CYAN_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED6_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED6_TP=
+		new BlockItem(Blocks.BLUE_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED6_TP=
+		new BlockItem(Blocks.BROWN_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED6_TP=
+		new BlockItem(Blocks.GREEN_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED6_TP=
+		new BlockItem(Blocks.RED_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED6_TP=
+		new BlockItem(Blocks.BLACK_DOTTED6_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED7_TP=
+		new BlockItem(Blocks.WHITE_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED7_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED7_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED7_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED7_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED7_TP=
+		new BlockItem(Blocks.LIME_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED7_TP=
+		new BlockItem(Blocks.PINK_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED7_TP=
+		new BlockItem(Blocks.GRAY_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED7_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED7_TP=
+		new BlockItem(Blocks.CYAN_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED7_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED7_TP=
+		new BlockItem(Blocks.BLUE_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED7_TP=
+		new BlockItem(Blocks.BROWN_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED7_TP=
+		new BlockItem(Blocks.GREEN_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED7_TP=
+		new BlockItem(Blocks.RED_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED7_TP=
+		new BlockItem(Blocks.BLACK_DOTTED7_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED8_TP=
+		new BlockItem(Blocks.WHITE_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED8_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED8_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED8_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED8_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED8_TP=
+		new BlockItem(Blocks.LIME_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED8_TP=
+		new BlockItem(Blocks.PINK_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED8_TP=
+		new BlockItem(Blocks.GRAY_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED8_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED8_TP=
+		new BlockItem(Blocks.CYAN_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED8_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED8_TP=
+		new BlockItem(Blocks.BLUE_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED8_TP=
+		new BlockItem(Blocks.BROWN_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED8_TP=
+		new BlockItem(Blocks.GREEN_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED8_TP=
+		new BlockItem(Blocks.RED_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED8_TP=
+		new BlockItem(Blocks.BLACK_DOTTED8_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED9_TP=
+		new BlockItem(Blocks.WHITE_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED9_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED9_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED9_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED9_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED9_TP=
+		new BlockItem(Blocks.LIME_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED9_TP=
+		new BlockItem(Blocks.PINK_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED9_TP=
+		new BlockItem(Blocks.GRAY_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED9_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED9_TP=
+		new BlockItem(Blocks.CYAN_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED9_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED9_TP=
+		new BlockItem(Blocks.BLUE_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED9_TP=
+		new BlockItem(Blocks.BROWN_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED9_TP=
+		new BlockItem(Blocks.GREEN_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED9_TP=
+		new BlockItem(Blocks.RED_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED9_TP=
+		new BlockItem(Blocks.BLACK_DOTTED9_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_DOTTED10_TP=
+		new BlockItem(Blocks.WHITE_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_DOTTED10_TP=
+		new BlockItem(Blocks.ORANGE_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_DOTTED10_TP=
+		new BlockItem(Blocks.MAGENTA_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_DOTTED10_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_DOTTED10_TP=
+		new BlockItem(Blocks.YELLOW_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_DOTTED10_TP=
+		new BlockItem(Blocks.LIME_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_DOTTED10_TP=
+		new BlockItem(Blocks.PINK_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_DOTTED10_TP=
+		new BlockItem(Blocks.GRAY_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_DOTTED10_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_DOTTED10_TP=
+		new BlockItem(Blocks.CYAN_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_DOTTED10_TP=
+		new BlockItem(Blocks.PURPLE_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_DOTTED10_TP=
+		new BlockItem(Blocks.BLUE_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_DOTTED10_TP=
+		new BlockItem(Blocks.BROWN_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_DOTTED10_TP=
+		new BlockItem(Blocks.GREEN_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_DOTTED10_TP=
+		new BlockItem(Blocks.RED_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_DOTTED10_TP=
+		new BlockItem(Blocks.BLACK_DOTTED10_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED4_TP=
+		new BlockItem(Blocks.WHITE_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED4_TP=
+		new BlockItem(Blocks.ORANGE_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED4_TP=
+		new BlockItem(Blocks.MAGENTA_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED4_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED4_TP=
+		new BlockItem(Blocks.YELLOW_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED4_TP=
+		new BlockItem(Blocks.LIME_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED4_TP=
+		new BlockItem(Blocks.PINK_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED4_TP=
+		new BlockItem(Blocks.GRAY_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED4_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED4_TP=
+		new BlockItem(Blocks.CYAN_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED4_TP=
+		new BlockItem(Blocks.PURPLE_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED4_TP=
+		new BlockItem(Blocks.BLUE_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED4_TP=
+		new BlockItem(Blocks.BROWN_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED4_TP=
+		new BlockItem(Blocks.GREEN_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED4_TP=
+		new BlockItem(Blocks.RED_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED4_TP=
+		new BlockItem(Blocks.BLACK_LINED4_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED5_TP=
+		new BlockItem(Blocks.WHITE_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED5_TP=
+		new BlockItem(Blocks.ORANGE_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED5_TP=
+		new BlockItem(Blocks.MAGENTA_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED5_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED5_TP=
+		new BlockItem(Blocks.YELLOW_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED5_TP=
+		new BlockItem(Blocks.LIME_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED5_TP=
+		new BlockItem(Blocks.PINK_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED5_TP=
+		new BlockItem(Blocks.GRAY_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED5_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED5_TP=
+		new BlockItem(Blocks.CYAN_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED5_TP=
+		new BlockItem(Blocks.PURPLE_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED5_TP=
+		new BlockItem(Blocks.BLUE_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED5_TP=
+		new BlockItem(Blocks.BROWN_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED5_TP=
+		new BlockItem(Blocks.GREEN_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED5_TP=
+		new BlockItem(Blocks.RED_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED5_TP=
+		new BlockItem(Blocks.BLACK_LINED5_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED6_TP=
+		new BlockItem(Blocks.WHITE_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED6_TP=
+		new BlockItem(Blocks.ORANGE_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED6_TP=
+		new BlockItem(Blocks.MAGENTA_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED6_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED6_TP=
+		new BlockItem(Blocks.YELLOW_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED6_TP=
+		new BlockItem(Blocks.LIME_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED6_TP=
+		new BlockItem(Blocks.PINK_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED6_TP=
+		new BlockItem(Blocks.GRAY_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED6_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED6_TP=
+		new BlockItem(Blocks.CYAN_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED6_TP=
+		new BlockItem(Blocks.PURPLE_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED6_TP=
+		new BlockItem(Blocks.BLUE_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED6_TP=
+		new BlockItem(Blocks.BROWN_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED6_TP=
+		new BlockItem(Blocks.GREEN_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED6_TP=
+		new BlockItem(Blocks.RED_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED6_TP=
+		new BlockItem(Blocks.BLACK_LINED6_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED7_TP=
+		new BlockItem(Blocks.WHITE_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED7_TP=
+		new BlockItem(Blocks.ORANGE_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED7_TP=
+		new BlockItem(Blocks.MAGENTA_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED7_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED7_TP=
+		new BlockItem(Blocks.YELLOW_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED7_TP=
+		new BlockItem(Blocks.LIME_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED7_TP=
+		new BlockItem(Blocks.PINK_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED7_TP=
+		new BlockItem(Blocks.GRAY_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED7_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED7_TP=
+		new BlockItem(Blocks.CYAN_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED7_TP=
+		new BlockItem(Blocks.PURPLE_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED7_TP=
+		new BlockItem(Blocks.BLUE_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED7_TP=
+		new BlockItem(Blocks.BROWN_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED7_TP=
+		new BlockItem(Blocks.GREEN_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED7_TP=
+		new BlockItem(Blocks.RED_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED7_TP=
+		new BlockItem(Blocks.BLACK_LINED7_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED8_TP=
+		new BlockItem(Blocks.WHITE_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED8_TP=
+		new BlockItem(Blocks.ORANGE_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED8_TP=
+		new BlockItem(Blocks.MAGENTA_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED8_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED8_TP=
+		new BlockItem(Blocks.YELLOW_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED8_TP=
+		new BlockItem(Blocks.LIME_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED8_TP=
+		new BlockItem(Blocks.PINK_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED8_TP=
+		new BlockItem(Blocks.GRAY_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED8_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED8_TP=
+		new BlockItem(Blocks.CYAN_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED8_TP=
+		new BlockItem(Blocks.PURPLE_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED8_TP=
+		new BlockItem(Blocks.BLUE_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED8_TP=
+		new BlockItem(Blocks.BROWN_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED8_TP=
+		new BlockItem(Blocks.GREEN_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED8_TP=
+		new BlockItem(Blocks.RED_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED8_TP=
+		new BlockItem(Blocks.BLACK_LINED8_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED9_TP=
+		new BlockItem(Blocks.WHITE_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED9_TP=
+		new BlockItem(Blocks.ORANGE_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED9_TP=
+		new BlockItem(Blocks.MAGENTA_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED9_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED9_TP=
+		new BlockItem(Blocks.YELLOW_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED9_TP=
+		new BlockItem(Blocks.LIME_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED9_TP=
+		new BlockItem(Blocks.PINK_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED9_TP=
+		new BlockItem(Blocks.GRAY_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED9_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED9_TP=
+		new BlockItem(Blocks.CYAN_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED9_TP=
+		new BlockItem(Blocks.PURPLE_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED9_TP=
+		new BlockItem(Blocks.BLUE_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED9_TP=
+		new BlockItem(Blocks.BROWN_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED9_TP=
+		new BlockItem(Blocks.GREEN_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED9_TP=
+		new BlockItem(Blocks.RED_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED9_TP=
+		new BlockItem(Blocks.BLACK_LINED9_TP,new Item.Settings().maxCount(64));
+		public static final Item WHITE_LINED10_TP=
+		new BlockItem(Blocks.WHITE_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item ORANGE_LINED10_TP=
+		new BlockItem(Blocks.ORANGE_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item MAGENTA_LINED10_TP=
+		new BlockItem(Blocks.MAGENTA_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_BLUE_LINED10_TP=
+		new BlockItem(Blocks.LIGHT_BLUE_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item YELLOW_LINED10_TP=
+		new BlockItem(Blocks.YELLOW_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIME_LINED10_TP=
+		new BlockItem(Blocks.LIME_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item PINK_LINED10_TP=
+		new BlockItem(Blocks.PINK_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item GRAY_LINED10_TP=
+		new BlockItem(Blocks.GRAY_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item LIGHT_GRAY_LINED10_TP=
+		new BlockItem(Blocks.LIGHT_GRAY_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item CYAN_LINED10_TP=
+		new BlockItem(Blocks.CYAN_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item PURPLE_LINED10_TP=
+		new BlockItem(Blocks.PURPLE_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BLUE_LINED10_TP=
+		new BlockItem(Blocks.BLUE_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BROWN_LINED10_TP=
+		new BlockItem(Blocks.BROWN_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item GREEN_LINED10_TP=
+		new BlockItem(Blocks.GREEN_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item RED_LINED10_TP=
+		new BlockItem(Blocks.RED_LINED10_TP,new Item.Settings().maxCount(64));
+		public static final Item BLACK_LINED10_TP=
+		new BlockItem(Blocks.BLACK_LINED10_TP,new Item.Settings().maxCount(64));
 	}
 	private static final Item[]SPEEDLIMIT_HIGH_ITEMS;
 	private static final Item[]SPEEDLIMIT_LOW_ITEMS;
@@ -1600,6 +2590,9 @@ public class SelfWork{
 	private static final Item[]HIGHWAY_HM_ITEMS;
 	private static final Item[]HALF1_CYLINDRICAL_ROD_ITEMS;
 	private static final Item[]FULL1_CYLINDRICAL_ROD_ITEMS;
+	private static final Item[]ROD_WITH_LAMP_ITEMS;
+	private static final Item[][]DOTTED_TP_ITEMS;
+	private static final Item[][]LINED_TP_ITEMS;
 	private static final ItemGroup ITEM_GROUP;
 	static{
 		SPEEDLIMIT_HIGH_BLOCKS=new Block[]{Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL};
@@ -1610,6 +2603,9 @@ public class SelfWork{
 		HIGHWAY_HM_BLOCKS=new Block[]{Blocks.HIGHWAY_1HM,Blocks.HIGHWAY_2HM,Blocks.HIGHWAY_3HM,Blocks.HIGHWAY_4HM,Blocks.HIGHWAY_5HM,Blocks.HIGHWAY_6HM,Blocks.HIGHWAY_7HM,Blocks.HIGHWAY_8HM,Blocks.HIGHWAY_9HM};
 		HALF1_CYLINDRICAL_ROD_BLOCKS=new Block[]{Blocks.WHITE_HALF1_CYLINDRICAL_ROD,Blocks.ORANGE_HALF1_CYLINDRICAL_ROD,Blocks.MAGENTA_HALF1_CYLINDRICAL_ROD,Blocks.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,Blocks.YELLOW_HALF1_CYLINDRICAL_ROD,Blocks.LIME_HALF1_CYLINDRICAL_ROD,Blocks.PINK_HALF1_CYLINDRICAL_ROD,Blocks.GRAY_HALF1_CYLINDRICAL_ROD,Blocks.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,Blocks.CYAN_HALF1_CYLINDRICAL_ROD,Blocks.PURPLE_HALF1_CYLINDRICAL_ROD,Blocks.BLUE_HALF1_CYLINDRICAL_ROD,Blocks.BROWN_HALF1_CYLINDRICAL_ROD,Blocks.GREEN_HALF1_CYLINDRICAL_ROD,Blocks.RED_HALF1_CYLINDRICAL_ROD,Blocks.BLACK_HALF1_CYLINDRICAL_ROD};
 		FULL1_CYLINDRICAL_ROD_BLOCKS=new Block[]{Blocks.WHITE_FULL1_CYLINDRICAL_ROD,Blocks.ORANGE_FULL1_CYLINDRICAL_ROD,Blocks.MAGENTA_FULL1_CYLINDRICAL_ROD,Blocks.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,Blocks.YELLOW_FULL1_CYLINDRICAL_ROD,Blocks.LIME_FULL1_CYLINDRICAL_ROD,Blocks.PINK_FULL1_CYLINDRICAL_ROD,Blocks.GRAY_FULL1_CYLINDRICAL_ROD,Blocks.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,Blocks.CYAN_FULL1_CYLINDRICAL_ROD,Blocks.PURPLE_FULL1_CYLINDRICAL_ROD,Blocks.BLUE_FULL1_CYLINDRICAL_ROD,Blocks.BROWN_FULL1_CYLINDRICAL_ROD,Blocks.GREEN_FULL1_CYLINDRICAL_ROD,Blocks.RED_FULL1_CYLINDRICAL_ROD,Blocks.BLACK_FULL1_CYLINDRICAL_ROD};
+		ROD_WITH_LAMP_BLOCKS=new Block[]{Blocks.WHITE_ROD_WITH_LAMP,Blocks.ORANGE_ROD_WITH_LAMP,Blocks.MAGENTA_ROD_WITH_LAMP,Blocks.LIGHT_BLUE_ROD_WITH_LAMP,Blocks.YELLOW_ROD_WITH_LAMP,Blocks.LIME_ROD_WITH_LAMP,Blocks.PINK_ROD_WITH_LAMP,Blocks.GRAY_ROD_WITH_LAMP,Blocks.LIGHT_GRAY_ROD_WITH_LAMP,Blocks.CYAN_ROD_WITH_LAMP,Blocks.PURPLE_ROD_WITH_LAMP,Blocks.BLUE_ROD_WITH_LAMP,Blocks.BROWN_ROD_WITH_LAMP,Blocks.GREEN_ROD_WITH_LAMP,Blocks.RED_ROD_WITH_LAMP,Blocks.BLACK_ROD_WITH_LAMP};
+		DOTTED_TP_BLOCKS=new Block[][]{new Block[0],new Block[0],new Block[0],new Block[0],new Block[]{Blocks.WHITE_DOTTED4_TP,Blocks.ORANGE_DOTTED4_TP,Blocks.MAGENTA_DOTTED4_TP,Blocks.LIGHT_BLUE_DOTTED4_TP,Blocks.YELLOW_DOTTED4_TP,Blocks.LIME_DOTTED4_TP,Blocks.PINK_DOTTED4_TP,Blocks.GRAY_DOTTED4_TP,Blocks.LIGHT_GRAY_DOTTED4_TP,Blocks.CYAN_DOTTED4_TP,Blocks.PURPLE_DOTTED4_TP,Blocks.BLUE_DOTTED4_TP,Blocks.BROWN_DOTTED4_TP,Blocks.GREEN_DOTTED4_TP,Blocks.RED_DOTTED4_TP,Blocks.BLACK_DOTTED4_TP},new Block[]{Blocks.WHITE_DOTTED5_TP,Blocks.ORANGE_DOTTED5_TP,Blocks.MAGENTA_DOTTED5_TP,Blocks.LIGHT_BLUE_DOTTED5_TP,Blocks.YELLOW_DOTTED5_TP,Blocks.LIME_DOTTED5_TP,Blocks.PINK_DOTTED5_TP,Blocks.GRAY_DOTTED5_TP,Blocks.LIGHT_GRAY_DOTTED5_TP,Blocks.CYAN_DOTTED5_TP,Blocks.PURPLE_DOTTED5_TP,Blocks.BLUE_DOTTED5_TP,Blocks.BROWN_DOTTED5_TP,Blocks.GREEN_DOTTED5_TP,Blocks.RED_DOTTED5_TP,Blocks.BLACK_DOTTED5_TP},new Block[]{Blocks.WHITE_DOTTED6_TP,Blocks.ORANGE_DOTTED6_TP,Blocks.MAGENTA_DOTTED6_TP,Blocks.LIGHT_BLUE_DOTTED6_TP,Blocks.YELLOW_DOTTED6_TP,Blocks.LIME_DOTTED6_TP,Blocks.PINK_DOTTED6_TP,Blocks.GRAY_DOTTED6_TP,Blocks.LIGHT_GRAY_DOTTED6_TP,Blocks.CYAN_DOTTED6_TP,Blocks.PURPLE_DOTTED6_TP,Blocks.BLUE_DOTTED6_TP,Blocks.BROWN_DOTTED6_TP,Blocks.GREEN_DOTTED6_TP,Blocks.RED_DOTTED6_TP,Blocks.BLACK_DOTTED6_TP},new Block[]{Blocks.WHITE_DOTTED7_TP,Blocks.ORANGE_DOTTED7_TP,Blocks.MAGENTA_DOTTED7_TP,Blocks.LIGHT_BLUE_DOTTED7_TP,Blocks.YELLOW_DOTTED7_TP,Blocks.LIME_DOTTED7_TP,Blocks.PINK_DOTTED7_TP,Blocks.GRAY_DOTTED7_TP,Blocks.LIGHT_GRAY_DOTTED7_TP,Blocks.CYAN_DOTTED7_TP,Blocks.PURPLE_DOTTED7_TP,Blocks.BLUE_DOTTED7_TP,Blocks.BROWN_DOTTED7_TP,Blocks.GREEN_DOTTED7_TP,Blocks.RED_DOTTED7_TP,Blocks.BLACK_DOTTED7_TP},new Block[]{Blocks.WHITE_DOTTED8_TP,Blocks.ORANGE_DOTTED8_TP,Blocks.MAGENTA_DOTTED8_TP,Blocks.LIGHT_BLUE_DOTTED8_TP,Blocks.YELLOW_DOTTED8_TP,Blocks.LIME_DOTTED8_TP,Blocks.PINK_DOTTED8_TP,Blocks.GRAY_DOTTED8_TP,Blocks.LIGHT_GRAY_DOTTED8_TP,Blocks.CYAN_DOTTED8_TP,Blocks.PURPLE_DOTTED8_TP,Blocks.BLUE_DOTTED8_TP,Blocks.BROWN_DOTTED8_TP,Blocks.GREEN_DOTTED8_TP,Blocks.RED_DOTTED8_TP,Blocks.BLACK_DOTTED8_TP},new Block[]{Blocks.WHITE_DOTTED9_TP,Blocks.ORANGE_DOTTED9_TP,Blocks.MAGENTA_DOTTED9_TP,Blocks.LIGHT_BLUE_DOTTED9_TP,Blocks.YELLOW_DOTTED9_TP,Blocks.LIME_DOTTED9_TP,Blocks.PINK_DOTTED9_TP,Blocks.GRAY_DOTTED9_TP,Blocks.LIGHT_GRAY_DOTTED9_TP,Blocks.CYAN_DOTTED9_TP,Blocks.PURPLE_DOTTED9_TP,Blocks.BLUE_DOTTED9_TP,Blocks.BROWN_DOTTED9_TP,Blocks.GREEN_DOTTED9_TP,Blocks.RED_DOTTED9_TP,Blocks.BLACK_DOTTED9_TP},new Block[]{Blocks.WHITE_DOTTED10_TP,Blocks.ORANGE_DOTTED10_TP,Blocks.MAGENTA_DOTTED10_TP,Blocks.LIGHT_BLUE_DOTTED10_TP,Blocks.YELLOW_DOTTED10_TP,Blocks.LIME_DOTTED10_TP,Blocks.PINK_DOTTED10_TP,Blocks.GRAY_DOTTED10_TP,Blocks.LIGHT_GRAY_DOTTED10_TP,Blocks.CYAN_DOTTED10_TP,Blocks.PURPLE_DOTTED10_TP,Blocks.BLUE_DOTTED10_TP,Blocks.BROWN_DOTTED10_TP,Blocks.GREEN_DOTTED10_TP,Blocks.RED_DOTTED10_TP,Blocks.BLACK_DOTTED10_TP}};
+		LINED_TP_BLOCKS=new Block[][]{new Block[0],new Block[0],new Block[0],new Block[0],new Block[]{Blocks.WHITE_LINED4_TP,Blocks.ORANGE_LINED4_TP,Blocks.MAGENTA_LINED4_TP,Blocks.LIGHT_BLUE_LINED4_TP,Blocks.YELLOW_LINED4_TP,Blocks.LIME_LINED4_TP,Blocks.PINK_LINED4_TP,Blocks.GRAY_LINED4_TP,Blocks.LIGHT_GRAY_LINED4_TP,Blocks.CYAN_LINED4_TP,Blocks.PURPLE_LINED4_TP,Blocks.BLUE_LINED4_TP,Blocks.BROWN_LINED4_TP,Blocks.GREEN_LINED4_TP,Blocks.RED_LINED4_TP,Blocks.BLACK_LINED4_TP},new Block[]{Blocks.WHITE_LINED5_TP,Blocks.ORANGE_LINED5_TP,Blocks.MAGENTA_LINED5_TP,Blocks.LIGHT_BLUE_LINED5_TP,Blocks.YELLOW_LINED5_TP,Blocks.LIME_LINED5_TP,Blocks.PINK_LINED5_TP,Blocks.GRAY_LINED5_TP,Blocks.LIGHT_GRAY_LINED5_TP,Blocks.CYAN_LINED5_TP,Blocks.PURPLE_LINED5_TP,Blocks.BLUE_LINED5_TP,Blocks.BROWN_LINED5_TP,Blocks.GREEN_LINED5_TP,Blocks.RED_LINED5_TP,Blocks.BLACK_LINED5_TP},new Block[]{Blocks.WHITE_LINED6_TP,Blocks.ORANGE_LINED6_TP,Blocks.MAGENTA_LINED6_TP,Blocks.LIGHT_BLUE_LINED6_TP,Blocks.YELLOW_LINED6_TP,Blocks.LIME_LINED6_TP,Blocks.PINK_LINED6_TP,Blocks.GRAY_LINED6_TP,Blocks.LIGHT_GRAY_LINED6_TP,Blocks.CYAN_LINED6_TP,Blocks.PURPLE_LINED6_TP,Blocks.BLUE_LINED6_TP,Blocks.BROWN_LINED6_TP,Blocks.GREEN_LINED6_TP,Blocks.RED_LINED6_TP,Blocks.BLACK_LINED6_TP},new Block[]{Blocks.WHITE_LINED7_TP,Blocks.ORANGE_LINED7_TP,Blocks.MAGENTA_LINED7_TP,Blocks.LIGHT_BLUE_LINED7_TP,Blocks.YELLOW_LINED7_TP,Blocks.LIME_LINED7_TP,Blocks.PINK_LINED7_TP,Blocks.GRAY_LINED7_TP,Blocks.LIGHT_GRAY_LINED7_TP,Blocks.CYAN_LINED7_TP,Blocks.PURPLE_LINED7_TP,Blocks.BLUE_LINED7_TP,Blocks.BROWN_LINED7_TP,Blocks.GREEN_LINED7_TP,Blocks.RED_LINED7_TP,Blocks.BLACK_LINED7_TP},new Block[]{Blocks.WHITE_LINED8_TP,Blocks.ORANGE_LINED8_TP,Blocks.MAGENTA_LINED8_TP,Blocks.LIGHT_BLUE_LINED8_TP,Blocks.YELLOW_LINED8_TP,Blocks.LIME_LINED8_TP,Blocks.PINK_LINED8_TP,Blocks.GRAY_LINED8_TP,Blocks.LIGHT_GRAY_LINED8_TP,Blocks.CYAN_LINED8_TP,Blocks.PURPLE_LINED8_TP,Blocks.BLUE_LINED8_TP,Blocks.BROWN_LINED8_TP,Blocks.GREEN_LINED8_TP,Blocks.RED_LINED8_TP,Blocks.BLACK_LINED8_TP},new Block[]{Blocks.WHITE_LINED9_TP,Blocks.ORANGE_LINED9_TP,Blocks.MAGENTA_LINED9_TP,Blocks.LIGHT_BLUE_LINED9_TP,Blocks.YELLOW_LINED9_TP,Blocks.LIME_LINED9_TP,Blocks.PINK_LINED9_TP,Blocks.GRAY_LINED9_TP,Blocks.LIGHT_GRAY_LINED9_TP,Blocks.CYAN_LINED9_TP,Blocks.PURPLE_LINED9_TP,Blocks.BLUE_LINED9_TP,Blocks.BROWN_LINED9_TP,Blocks.GREEN_LINED9_TP,Blocks.RED_LINED9_TP,Blocks.BLACK_LINED9_TP},new Block[]{Blocks.WHITE_LINED10_TP,Blocks.ORANGE_LINED10_TP,Blocks.MAGENTA_LINED10_TP,Blocks.LIGHT_BLUE_LINED10_TP,Blocks.YELLOW_LINED10_TP,Blocks.LIME_LINED10_TP,Blocks.PINK_LINED10_TP,Blocks.GRAY_LINED10_TP,Blocks.LIGHT_GRAY_LINED10_TP,Blocks.CYAN_LINED10_TP,Blocks.PURPLE_LINED10_TP,Blocks.BLUE_LINED10_TP,Blocks.BROWN_LINED10_TP,Blocks.GREEN_LINED10_TP,Blocks.RED_LINED10_TP,Blocks.BLACK_LINED10_TP}};
 		SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL};
 		SPEEDLIMIT_LOW_ITEMS=new Item[]{Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 		LIFT_SPEEDLIMIT_HIGH_ITEMS=new Item[]{Items.LIFT_SPEEDLIMIT_HIGH_3,Items.LIFT_SPEEDLIMIT_HIGH_5,Items.LIFT_SPEEDLIMIT_HIGH_10,Items.LIFT_SPEEDLIMIT_HIGH_15,Items.LIFT_SPEEDLIMIT_HIGH_20,Items.LIFT_SPEEDLIMIT_HIGH_25,Items.LIFT_SPEEDLIMIT_HIGH_30,Items.LIFT_SPEEDLIMIT_HIGH_35,Items.LIFT_SPEEDLIMIT_HIGH_40,Items.LIFT_SPEEDLIMIT_HIGH_45,Items.LIFT_SPEEDLIMIT_HIGH_50,Items.LIFT_SPEEDLIMIT_HIGH_55,Items.LIFT_SPEEDLIMIT_HIGH_60,Items.LIFT_SPEEDLIMIT_HIGH_65,Items.LIFT_SPEEDLIMIT_HIGH_70,Items.LIFT_SPEEDLIMIT_HIGH_75,Items.LIFT_SPEEDLIMIT_HIGH_80,Items.LIFT_SPEEDLIMIT_HIGH_85,Items.LIFT_SPEEDLIMIT_HIGH_90,Items.LIFT_SPEEDLIMIT_HIGH_95,Items.LIFT_SPEEDLIMIT_HIGH_100,Items.LIFT_SPEEDLIMIT_HIGH_105,Items.LIFT_SPEEDLIMIT_HIGH_110,Items.LIFT_SPEEDLIMIT_HIGH_115,Items.LIFT_SPEEDLIMIT_HIGH_120,Items.LIFT_SPEEDLIMIT_HIGH_125,Items.LIFT_SPEEDLIMIT_HIGH_130,Items.LIFT_SPEEDLIMIT_HIGH_135,Items.LIFT_SPEEDLIMIT_HIGH_140,Items.LIFT_SPEEDLIMIT_HIGH_145,Items.LIFT_SPEEDLIMIT_HIGH_150,Items.LIFT_SPEEDLIMIT_HIGH_SPECIAL};
@@ -1618,6 +2614,9 @@ public class SelfWork{
 		HIGHWAY_HM_ITEMS=new Item[]{Items.HIGHWAY_1HM,Items.HIGHWAY_2HM,Items.HIGHWAY_3HM,Items.HIGHWAY_4HM,Items.HIGHWAY_5HM,Items.HIGHWAY_6HM,Items.HIGHWAY_7HM,Items.HIGHWAY_8HM,Items.HIGHWAY_9HM};
 		HALF1_CYLINDRICAL_ROD_ITEMS=new Item[]{Items.WHITE_HALF1_CYLINDRICAL_ROD,Items.ORANGE_HALF1_CYLINDRICAL_ROD,Items.MAGENTA_HALF1_CYLINDRICAL_ROD,Items.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,Items.YELLOW_HALF1_CYLINDRICAL_ROD,Items.LIME_HALF1_CYLINDRICAL_ROD,Items.PINK_HALF1_CYLINDRICAL_ROD,Items.GRAY_HALF1_CYLINDRICAL_ROD,Items.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,Items.CYAN_HALF1_CYLINDRICAL_ROD,Items.PURPLE_HALF1_CYLINDRICAL_ROD,Items.BLUE_HALF1_CYLINDRICAL_ROD,Items.BROWN_HALF1_CYLINDRICAL_ROD,Items.GREEN_HALF1_CYLINDRICAL_ROD,Items.RED_HALF1_CYLINDRICAL_ROD,Items.BLACK_HALF1_CYLINDRICAL_ROD};
 		FULL1_CYLINDRICAL_ROD_ITEMS=new Item[]{Items.WHITE_FULL1_CYLINDRICAL_ROD,Items.ORANGE_FULL1_CYLINDRICAL_ROD,Items.MAGENTA_FULL1_CYLINDRICAL_ROD,Items.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,Items.YELLOW_FULL1_CYLINDRICAL_ROD,Items.LIME_FULL1_CYLINDRICAL_ROD,Items.PINK_FULL1_CYLINDRICAL_ROD,Items.GRAY_FULL1_CYLINDRICAL_ROD,Items.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,Items.CYAN_FULL1_CYLINDRICAL_ROD,Items.PURPLE_FULL1_CYLINDRICAL_ROD,Items.BLUE_FULL1_CYLINDRICAL_ROD,Items.BROWN_FULL1_CYLINDRICAL_ROD,Items.GREEN_FULL1_CYLINDRICAL_ROD,Items.RED_FULL1_CYLINDRICAL_ROD,Items.BLACK_FULL1_CYLINDRICAL_ROD};
+		ROD_WITH_LAMP_ITEMS=new Item[]{Items.WHITE_ROD_WITH_LAMP,Items.ORANGE_ROD_WITH_LAMP,Items.MAGENTA_ROD_WITH_LAMP,Items.LIGHT_BLUE_ROD_WITH_LAMP,Items.YELLOW_ROD_WITH_LAMP,Items.LIME_ROD_WITH_LAMP,Items.PINK_ROD_WITH_LAMP,Items.GRAY_ROD_WITH_LAMP,Items.LIGHT_GRAY_ROD_WITH_LAMP,Items.CYAN_ROD_WITH_LAMP,Items.PURPLE_ROD_WITH_LAMP,Items.BLUE_ROD_WITH_LAMP,Items.BROWN_ROD_WITH_LAMP,Items.GREEN_ROD_WITH_LAMP,Items.RED_ROD_WITH_LAMP,Items.BLACK_ROD_WITH_LAMP};
+		DOTTED_TP_ITEMS=new Item[][]{new Item[0],new Item[0],new Item[0],new Item[0],new Item[]{Items.WHITE_DOTTED4_TP,Items.ORANGE_DOTTED4_TP,Items.MAGENTA_DOTTED4_TP,Items.LIGHT_BLUE_DOTTED4_TP,Items.YELLOW_DOTTED4_TP,Items.LIME_DOTTED4_TP,Items.PINK_DOTTED4_TP,Items.GRAY_DOTTED4_TP,Items.LIGHT_GRAY_DOTTED4_TP,Items.CYAN_DOTTED4_TP,Items.PURPLE_DOTTED4_TP,Items.BLUE_DOTTED4_TP,Items.BROWN_DOTTED4_TP,Items.GREEN_DOTTED4_TP,Items.RED_DOTTED4_TP,Items.BLACK_DOTTED4_TP},new Item[]{Items.WHITE_DOTTED5_TP,Items.ORANGE_DOTTED5_TP,Items.MAGENTA_DOTTED5_TP,Items.LIGHT_BLUE_DOTTED5_TP,Items.YELLOW_DOTTED5_TP,Items.LIME_DOTTED5_TP,Items.PINK_DOTTED5_TP,Items.GRAY_DOTTED5_TP,Items.LIGHT_GRAY_DOTTED5_TP,Items.CYAN_DOTTED5_TP,Items.PURPLE_DOTTED5_TP,Items.BLUE_DOTTED5_TP,Items.BROWN_DOTTED5_TP,Items.GREEN_DOTTED5_TP,Items.RED_DOTTED5_TP,Items.BLACK_DOTTED5_TP},new Item[]{Items.WHITE_DOTTED6_TP,Items.ORANGE_DOTTED6_TP,Items.MAGENTA_DOTTED6_TP,Items.LIGHT_BLUE_DOTTED6_TP,Items.YELLOW_DOTTED6_TP,Items.LIME_DOTTED6_TP,Items.PINK_DOTTED6_TP,Items.GRAY_DOTTED6_TP,Items.LIGHT_GRAY_DOTTED6_TP,Items.CYAN_DOTTED6_TP,Items.PURPLE_DOTTED6_TP,Items.BLUE_DOTTED6_TP,Items.BROWN_DOTTED6_TP,Items.GREEN_DOTTED6_TP,Items.RED_DOTTED6_TP,Items.BLACK_DOTTED6_TP},new Item[]{Items.WHITE_DOTTED7_TP,Items.ORANGE_DOTTED7_TP,Items.MAGENTA_DOTTED7_TP,Items.LIGHT_BLUE_DOTTED7_TP,Items.YELLOW_DOTTED7_TP,Items.LIME_DOTTED7_TP,Items.PINK_DOTTED7_TP,Items.GRAY_DOTTED7_TP,Items.LIGHT_GRAY_DOTTED7_TP,Items.CYAN_DOTTED7_TP,Items.PURPLE_DOTTED7_TP,Items.BLUE_DOTTED7_TP,Items.BROWN_DOTTED7_TP,Items.GREEN_DOTTED7_TP,Items.RED_DOTTED7_TP,Items.BLACK_DOTTED7_TP},new Item[]{Items.WHITE_DOTTED8_TP,Items.ORANGE_DOTTED8_TP,Items.MAGENTA_DOTTED8_TP,Items.LIGHT_BLUE_DOTTED8_TP,Items.YELLOW_DOTTED8_TP,Items.LIME_DOTTED8_TP,Items.PINK_DOTTED8_TP,Items.GRAY_DOTTED8_TP,Items.LIGHT_GRAY_DOTTED8_TP,Items.CYAN_DOTTED8_TP,Items.PURPLE_DOTTED8_TP,Items.BLUE_DOTTED8_TP,Items.BROWN_DOTTED8_TP,Items.GREEN_DOTTED8_TP,Items.RED_DOTTED8_TP,Items.BLACK_DOTTED8_TP},new Item[]{Items.WHITE_DOTTED9_TP,Items.ORANGE_DOTTED9_TP,Items.MAGENTA_DOTTED9_TP,Items.LIGHT_BLUE_DOTTED9_TP,Items.YELLOW_DOTTED9_TP,Items.LIME_DOTTED9_TP,Items.PINK_DOTTED9_TP,Items.GRAY_DOTTED9_TP,Items.LIGHT_GRAY_DOTTED9_TP,Items.CYAN_DOTTED9_TP,Items.PURPLE_DOTTED9_TP,Items.BLUE_DOTTED9_TP,Items.BROWN_DOTTED9_TP,Items.GREEN_DOTTED9_TP,Items.RED_DOTTED9_TP,Items.BLACK_DOTTED9_TP},new Item[]{Items.WHITE_DOTTED10_TP,Items.ORANGE_DOTTED10_TP,Items.MAGENTA_DOTTED10_TP,Items.LIGHT_BLUE_DOTTED10_TP,Items.YELLOW_DOTTED10_TP,Items.LIME_DOTTED10_TP,Items.PINK_DOTTED10_TP,Items.GRAY_DOTTED10_TP,Items.LIGHT_GRAY_DOTTED10_TP,Items.CYAN_DOTTED10_TP,Items.PURPLE_DOTTED10_TP,Items.BLUE_DOTTED10_TP,Items.BROWN_DOTTED10_TP,Items.GREEN_DOTTED10_TP,Items.RED_DOTTED10_TP,Items.BLACK_DOTTED10_TP}};
+		LINED_TP_ITEMS=new Item[][]{new Item[0],new Item[0],new Item[0],new Item[0],new Item[]{Items.WHITE_LINED4_TP,Items.ORANGE_LINED4_TP,Items.MAGENTA_LINED4_TP,Items.LIGHT_BLUE_LINED4_TP,Items.YELLOW_LINED4_TP,Items.LIME_LINED4_TP,Items.PINK_LINED4_TP,Items.GRAY_LINED4_TP,Items.LIGHT_GRAY_LINED4_TP,Items.CYAN_LINED4_TP,Items.PURPLE_LINED4_TP,Items.BLUE_LINED4_TP,Items.BROWN_LINED4_TP,Items.GREEN_LINED4_TP,Items.RED_LINED4_TP,Items.BLACK_LINED4_TP},new Item[]{Items.WHITE_LINED5_TP,Items.ORANGE_LINED5_TP,Items.MAGENTA_LINED5_TP,Items.LIGHT_BLUE_LINED5_TP,Items.YELLOW_LINED5_TP,Items.LIME_LINED5_TP,Items.PINK_LINED5_TP,Items.GRAY_LINED5_TP,Items.LIGHT_GRAY_LINED5_TP,Items.CYAN_LINED5_TP,Items.PURPLE_LINED5_TP,Items.BLUE_LINED5_TP,Items.BROWN_LINED5_TP,Items.GREEN_LINED5_TP,Items.RED_LINED5_TP,Items.BLACK_LINED5_TP},new Item[]{Items.WHITE_LINED6_TP,Items.ORANGE_LINED6_TP,Items.MAGENTA_LINED6_TP,Items.LIGHT_BLUE_LINED6_TP,Items.YELLOW_LINED6_TP,Items.LIME_LINED6_TP,Items.PINK_LINED6_TP,Items.GRAY_LINED6_TP,Items.LIGHT_GRAY_LINED6_TP,Items.CYAN_LINED6_TP,Items.PURPLE_LINED6_TP,Items.BLUE_LINED6_TP,Items.BROWN_LINED6_TP,Items.GREEN_LINED6_TP,Items.RED_LINED6_TP,Items.BLACK_LINED6_TP},new Item[]{Items.WHITE_LINED7_TP,Items.ORANGE_LINED7_TP,Items.MAGENTA_LINED7_TP,Items.LIGHT_BLUE_LINED7_TP,Items.YELLOW_LINED7_TP,Items.LIME_LINED7_TP,Items.PINK_LINED7_TP,Items.GRAY_LINED7_TP,Items.LIGHT_GRAY_LINED7_TP,Items.CYAN_LINED7_TP,Items.PURPLE_LINED7_TP,Items.BLUE_LINED7_TP,Items.BROWN_LINED7_TP,Items.GREEN_LINED7_TP,Items.RED_LINED7_TP,Items.BLACK_LINED7_TP},new Item[]{Items.WHITE_LINED8_TP,Items.ORANGE_LINED8_TP,Items.MAGENTA_LINED8_TP,Items.LIGHT_BLUE_LINED8_TP,Items.YELLOW_LINED8_TP,Items.LIME_LINED8_TP,Items.PINK_LINED8_TP,Items.GRAY_LINED8_TP,Items.LIGHT_GRAY_LINED8_TP,Items.CYAN_LINED8_TP,Items.PURPLE_LINED8_TP,Items.BLUE_LINED8_TP,Items.BROWN_LINED8_TP,Items.GREEN_LINED8_TP,Items.RED_LINED8_TP,Items.BLACK_LINED8_TP},new Item[]{Items.WHITE_LINED9_TP,Items.ORANGE_LINED9_TP,Items.MAGENTA_LINED9_TP,Items.LIGHT_BLUE_LINED9_TP,Items.YELLOW_LINED9_TP,Items.LIME_LINED9_TP,Items.PINK_LINED9_TP,Items.GRAY_LINED9_TP,Items.LIGHT_GRAY_LINED9_TP,Items.CYAN_LINED9_TP,Items.PURPLE_LINED9_TP,Items.BLUE_LINED9_TP,Items.BROWN_LINED9_TP,Items.GREEN_LINED9_TP,Items.RED_LINED9_TP,Items.BLACK_LINED9_TP},new Item[]{Items.WHITE_LINED10_TP,Items.ORANGE_LINED10_TP,Items.MAGENTA_LINED10_TP,Items.LIGHT_BLUE_LINED10_TP,Items.YELLOW_LINED10_TP,Items.LIME_LINED10_TP,Items.PINK_LINED10_TP,Items.GRAY_LINED10_TP,Items.LIGHT_GRAY_LINED10_TP,Items.CYAN_LINED10_TP,Items.PURPLE_LINED10_TP,Items.BLUE_LINED10_TP,Items.BROWN_LINED10_TP,Items.GREEN_LINED10_TP,Items.RED_LINED10_TP,Items.BLACK_LINED10_TP}};
 		ITEM_GROUP=FabricItemGroup.builder().icon(()->new ItemStack(Items
 		.SPEEDLIMIT_HIGH_120)).displayName(Text
 		.translatableWithFallback("itemGroup.regedt32.cntrafficsymbols",
@@ -1676,6 +2675,9 @@ public class SelfWork{
 			e.add(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
 			for(Item i:HALF1_CYLINDRICAL_ROD_ITEMS)e.add(i);
 			for(Item i:FULL1_CYLINDRICAL_ROD_ITEMS)e.add(i);
+			e.add(Items.FULL_SQUARE_BACKBOARD);
+			for(Item[]i:DOTTED_TP_ITEMS)for(Item j:i)e.add(j);
+			for(Item[]i:LINED_TP_ITEMS)for(Item j:i)e.add(j);
 	 }).build();
 	}
 	public static void doit(){
@@ -1833,8 +2835,18 @@ public class SelfWork{
 		for(int i=0;i<16;i++){
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
+			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_ITEMS[i]);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_ITEMS[i]);
+		}
+		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/full_square_backboard"),Blocks.FULL_SQUARE_BACKBOARD);
+		for(int i=4;i<11;i++){
+			for(int j=0;j<16;j++){
+				Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(j)+"_dotted"+Integer.toString(i)+"_tp"),DOTTED_TP_BLOCKS[i][j]);
+				Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(j)+"_lined"+Integer.toString(i)+"_tp"),LINED_TP_BLOCKS[i][j]);
+				Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(j)+"_dotted"+Integer.toString(i)+"_tp"),DOTTED_TP_ITEMS[i][j]);
+				Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(j)+"_lined"+Integer.toString(i)+"_tp"),LINED_TP_ITEMS[i][j]);
+			}
 		}
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be.HighwayHmSignBlockEntity.TYPE);
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32","cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity.TYPE);
@@ -1898,6 +2910,7 @@ public class SelfWork{
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerleft"),Items.KEEP_SPACE_VARIANT2_LOWERLEFT);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lower"),Items.KEEP_SPACE_VARIANT2_LOWER);
 		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/keep_space_variant2_lowerright"),Items.KEEP_SPACE_VARIANT2_LOWERRIGHT);
+		Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/full_square_backboard"),Items.FULL_SQUARE_BACKBOARD);
 		Registry.register(Registries.ITEM_GROUP,new Identifier("regedt32","cntrafficsymbols"),ITEM_GROUP);
 		try{
 			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};

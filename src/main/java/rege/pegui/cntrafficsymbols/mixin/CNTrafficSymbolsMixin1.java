@@ -16,10 +16,7 @@ public abstract class CNTrafficSymbolsMixin1{
 		net.minecraft.item.Items.WATER_BUCKET==
 		(net.minecraft.item.BucketItem)(Object)this){
 			net.minecraft.block.Block b=world.getBlockState(pos).getBlock();
-			if((b instanceof rege.pegui.cntrafficsymbols.block.DoubleFaceFacingBlock)||
-			(b instanceof rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock)||(b
-			instanceof rege.pegui.cntrafficsymbols.block.WideBoardBlock)||(b instanceof
-			rege.pegui.cntrafficsymbols.block.SquareQuarterDefaulted3Block))info
+			if(b instanceof rege.pegui.cntrafficsymbols.block.ManagedWaterloggable)info
 			.setReturnValue(false);
 		}
 	}

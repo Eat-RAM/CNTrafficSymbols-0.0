@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "bottom=true": {"model": "regedt32:block/cntrafficsymbols/brown_dotted8_tp_bottom"},
+    "bottom=false": {"model": "regedt32:block/cntrafficsymbols/brown_dotted8_tp_up"}
+  }
+}

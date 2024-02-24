@@ -1,16 +1,10 @@
 package rege.pegui.cntrafficsymbols.block;
-import static net.minecraft.fluid.Fluids.WATER;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 import static rege.pegui.cntrafficsymbols.helper.RangeUtil.closedRangeTo;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager.Builder;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import rege.pegui.cntrafficsymbols.struct.FacePosition9;
 public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 	private static final VoxelShape[]SHAPES_BY_ID={WEST_CENTER,
@@ -18,9 +12,9 @@ public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 	WEST_LOWERNORTH,WEST_NORTH,WEST_UPPERNORTH,EAST_CENTER,EAST_UPPER,
 	EAST_UPPERSOUTH,EAST_SOUTH,EAST_LOWERSOUTH,EAST_LOWER,EAST_LOWERNORTH,
 	EAST_NORTH,EAST_UPPERNORTH,DOWN_CENTER,DOWN_NORTH,DOWN_NORTHEAST,DOWN_EAST,
-	DOWN_SOUTHEAST,DOWN_SOUTH,DOWN_SOUTHWEST,DOWN_WEST,DOWN_NORTHEAST,UP_CENTER,
+	DOWN_SOUTHEAST,DOWN_SOUTH,DOWN_SOUTHWEST,DOWN_WEST,DOWN_NORTHWEST,UP_CENTER,
 	UP_NORTH,UP_NORTHEAST,UP_EAST,UP_SOUTHEAST,UP_SOUTH,UP_SOUTHWEST,UP_WEST,
-	UP_NORTHEAST,NORTH_CENTER,NORTH_UPPER,NORTH_UPPEREAST,NORTH_EAST,
+	UP_NORTHWEST,NORTH_CENTER,NORTH_UPPER,NORTH_UPPEREAST,NORTH_EAST,
 	NORTH_LOWEREAST,NORTH_LOWER,NORTH_LOWERWEST,NORTH_WEST,NORTH_UPPERWEST,
 	SOUTH_CENTER,SOUTH_UPPER,SOUTH_UPPEREAST,SOUTH_EAST,SOUTH_LOWEREAST,
 	SOUTH_LOWER,SOUTH_LOWERWEST,SOUTH_WEST,SOUTH_UPPERWEST};
@@ -28,15 +22,17 @@ public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 		super(s);setDefaultState(getDefaultState().with(FacePosition9.POSITION,
 		FacePosition9.DOWN_CENTER));
 	}
-	@Override protected void appendProperties(Builder<Block,BlockState>bd){
+	@Override protected void appendProperties(net.minecraft.state.StateManager
+	.Builder<net.minecraft.block.Block,BlockState>bd){
 		bd.add(FacePosition9.POSITION);
 		if(getWaterloggedProperty())bd.add(WATERLOGGED);
 	}
-	@Override public VoxelShape
-	getOutlineShape(BlockState st,BlockView v,BlockPos p,ShapeContext c){
+	@Override public VoxelShape getOutlineShape(BlockState st,net.minecraft.world
+	.BlockView v,BlockPos p,net.minecraft.block.ShapeContext c){
 		return SHAPES_BY_ID[st.get(FacePosition9.POSITION).id];
 	}
-	@Override public BlockState getPlacementState(ItemPlacementContext ctx){
+	@Override public BlockState
+	getPlacementState(net.minecraft.item.ItemPlacementContext ctx){
 		BlockState st=getDefaultState();
 		double rx=ctx.getHitPos().x-ctx.getBlockPos().getX();
 		double ry=ctx.getHitPos().y-ctx.getBlockPos().getY();
@@ -219,7 +215,8 @@ public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock{
 			}
 		}
 		if(getWaterloggedProperty())st=st.with(WATERLOGGED,ctx.getWorld()
-		.getFluidState(ctx.getBlockPos()).getFluid()==WATER);
+		.getFluidState(ctx.getBlockPos()).getFluid()==net.minecraft.fluid.Fluids
+		.WATER);
 		return st.with(FacePosition9.POSITION,rp);
 	}
 }
