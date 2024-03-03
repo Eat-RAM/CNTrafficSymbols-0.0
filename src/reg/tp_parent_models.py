@@ -57,8 +57,7 @@ def gen_boxes(startx:float,startz:float,lengthx:float,lengthz:float,sepx:float,
    if b.as_integer_ratio()[1]==1:b=int(b)
    if c.as_integer_ratio()[1]==1:c=int(c)
    if d.as_integer_ratio()[1]==1:d=int(d)
-   res.append((a,b,c,d))
-   z+=sepz
+   res.append((a,b,c,d));z+=sepz
   x+=sepx
  return res
 BOXES:Dict[str,List[Tuple[
@@ -80,8 +79,7 @@ BOXES:Dict[str,List[Tuple[
  "lined10_tp_x":gen_boxes(.046875,.046875,.90625,.0625,0.,.09375,1,10)
 }
 for k,v in BOXES.items():
- a=deepcopy(BASE_BOTTOM)
- b=deepcopy(BASE_UP)
+ a=deepcopy(BASE_BOTTOM);b=deepcopy(BASE_UP)
  for i in v:
   getattr(a["elements"],"append")({
    "from":[i[0],1,i[1]],"to":[i[2],1.5,i[3]],"faces":{

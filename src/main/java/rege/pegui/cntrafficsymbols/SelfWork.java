@@ -2678,7 +2678,7 @@ public class SelfWork{
 			e.add(Items.FULL_SQUARE_BACKBOARD);
 			for(Item[]i:DOTTED_TP_ITEMS)for(Item j:i)e.add(j);
 			for(Item[]i:LINED_TP_ITEMS)for(Item j:i)e.add(j);
-	 }).build();
+		}).build();
 	}
 	public static void doit(){
 		for(int i=1;i<31;i++){
