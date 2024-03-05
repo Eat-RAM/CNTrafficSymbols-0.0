@@ -71,5 +71,4 @@ for i in TUPS:
   "y":270,"uvlock":True
  }
 with open("../../../blockstates/cntrafficsymbols/floor_line_eighths.json",
-          "w")as f:
- json.dump(lobj,f,indent=2)
+          "w")as f:json.dump(lobj,f,indent=2)

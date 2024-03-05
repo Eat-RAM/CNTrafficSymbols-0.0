@@ -1,4 +1,4 @@
-EX=b"""
+EX=b"""\
 {
   "parent": "regedt32:block/cntrafficsymbols/%s_%s_cylindrical_rod_%s"
 }
