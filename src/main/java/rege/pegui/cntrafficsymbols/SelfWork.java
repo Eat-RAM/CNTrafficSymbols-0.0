@@ -2675,6 +2675,7 @@ public class SelfWork{
 			e.add(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
 			for(Item i:HALF1_CYLINDRICAL_ROD_ITEMS)e.add(i);
 			for(Item i:FULL1_CYLINDRICAL_ROD_ITEMS)e.add(i);
+			for(Item i:ROD_WITH_LAMP_ITEMS)e.add(i);
 			e.add(Items.FULL_SQUARE_BACKBOARD);
 			for(Item[]i:DOTTED_TP_ITEMS)for(Item j:i)e.add(j);
 			for(Item[]i:LINED_TP_ITEMS)for(Item j:i)e.add(j);
@@ -2835,9 +2836,10 @@ public class SelfWork{
 		for(int i=0;i<16;i++){
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
 			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
-			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),);
+			Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),ROD_WITH_LAMP_BLOCKS[i]);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),HALF1_CYLINDRICAL_ROD_ITEMS[i]);
 			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),FULL1_CYLINDRICAL_ROD_ITEMS[i]);
+			Registry.register(Registries.ITEM,new Identifier("regedt32","cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),ROD_WITH_LAMP_ITEMS[i]);
 		}
 		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/full_square_backboard"),Blocks.FULL_SQUARE_BACKBOARD);
 		for(int i=4;i<11;i++){
@@ -2936,8 +2938,7 @@ public class SelfWork{
 				}
 				d+=256;
 			}
-			tab=LIFT_SPEEDLIMIT_HIGH_BLOCKS;
-			d=0;
+			tab=LIFT_SPEEDLIMIT_HIGH_BLOCKS;d=0;
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
@@ -2980,8 +2981,7 @@ public class SelfWork{
 				}
 				d+=4;
 			}
-			tab=HEIGHTLIMIT_BLOCKS;
-			d=0;
+			tab=HEIGHTLIMIT_BLOCKS;d=0;
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
@@ -3004,8 +3004,7 @@ public class SelfWork{
 				}
 				d+=512;
 			}
-			tab=PROHIBITION_BLOCKS;
-			d=0;
+			tab=PROHIBITION_BLOCKS;d=0;
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
@@ -3028,8 +3027,7 @@ public class SelfWork{
 				}
 				d+=512;
 			}
-			tab=HIGHWAY_HM_BLOCKS;
-			d=0;
+			tab=HIGHWAY_HM_BLOCKS;d=0;
 			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
 				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
 					for(Block k:tab){
@@ -3090,33 +3088,23 @@ public class SelfWork{
 			Item[]tab2={Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL,Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
 			d=0;
 			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12200,d,i);
-				d++;
+				ItemNumberIDRegistry.INSTANCE.register(12200,d,i);d++;
 			}
 			tab2=LIFT_SPEEDLIMIT_HIGH_ITEMS;
 			d=0;
 			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12201,d,i);
-				d++;
+				ItemNumberIDRegistry.INSTANCE.register(12201,d,i);d++;
 			}
 			ItemNumberIDRegistry.INSTANCE.register(12202,0,Items.IRON_PLATE);
 			ItemNumberIDRegistry.INSTANCE.register(12203,0,Items.CIRCLE_BACKBOARD);
-			tab2=HEIGHTLIMIT_ITEMS;
-			d=0;
-			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12204,d,i);
-				d++;
+			tab2=HEIGHTLIMIT_ITEMS;d=0;for(Item i:tab2){
+				ItemNumberIDRegistry.INSTANCE.register(12204,d,i);d++;
 			}
-			tab2=PROHIBITION_ITEMS;
-			d=0;
-			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12205,d,i);
-				d++;
+			tab2=PROHIBITION_ITEMS;d=0;for(Item i:tab2){
+				ItemNumberIDRegistry.INSTANCE.register(12205,d,i);d++;
 			}
-			tab2=HIGHWAY_HM_ITEMS;
-			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12206,d,i);
-				d++;
+			tab2=HIGHWAY_HM_ITEMS;d=0;for(Item i:tab2){
+				ItemNumberIDRegistry.INSTANCE.register(12206,d,i);d++;
 			}
 			ItemNumberIDRegistry.INSTANCE
 			.register(12207,1,Items.WHITE_FLOOR_LINE_EIGHTH);
