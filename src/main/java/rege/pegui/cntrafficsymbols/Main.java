@@ -1,6 +1,5 @@
 package rege.pegui.cntrafficsymbols;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
@@ -35,7 +34,7 @@ public class Main implements net.fabricmc.api.ModInitializer{
 		Boolean r=hardcodedBarricades1LootEnabled;
 		hardcodedBarricades1LootEnabled=newVal;return r;
 	}
-	public static void readProperties()throws IOException{
+	public static void readProperties(	)throws IOException{
 		Properties ppts=new Properties();
 		FileInputStream f=new FileInputStream("config/cntrafficsymbols.properties");
 		ppts.load(f);
@@ -58,7 +57,9 @@ public class Main implements net.fabricmc.api.ModInitializer{
 			LOGGER.info("Overriding property value waterlogged_property with "
 			+waterloggedProperty);
 		}else{
-			LOGGER.info("No property waterlogged_property found. Use default value \"true\".");
+			LOGGER.info(
+				"No property waterlogged_property found. Use default value \"true\"."
+			);
 		}
 		if(ppts.containsKey("hardcoded_barricades_1_loot_enabled")){
 			try{
@@ -66,9 +67,14 @@ public class Main implements net.fabricmc.api.ModInitializer{
 				.getProperty("hardcoded_barricades_1_loot_enabled").strip()
 				.toLowerCase(),new String[]{"true","yes","always"},
 				new String[]{"false","no","never"},new String[]{"null","auto"});
-				LOGGER.info("Overriding property value hardcoded_barricades_1_loot_enabled with "+Objects.toString(hardcodedBarricades1LootEnabled));
+				LOGGER
+				.info("Overriding property value hardcoded_barricades_1_loot_enabled with "
+				+Objects.toString(hardcodedBarricades1LootEnabled));
 			}catch(IllegalArgumentException e){
-				LOGGER.warn("Invalid config property value of hardcoded_barricades_1_loot_enabled: "+e.getMessage());
+				LOGGER.warn(
+					"Invalid config property value of hardcoded_barricades_1_loot_enabled: "+
+					e.getMessage()
+				);
 			}
 		}else{
 			LOGGER.info("No property hardcoded_barricades_1_loot_enabled found. Use defalt value \"auto\".");
@@ -76,7 +82,7 @@ public class Main implements net.fabricmc.api.ModInitializer{
 	}
 	@Override public void onInitialize(){
 		try{readProperties();}
-		catch(FileNotFoundException e){
+		catch(java.io.FileNotFoundException e){
 			LOGGER.info("No cntrafficsymbols.properties found. Use default config.");
 		}catch(IOException e){e.printStackTrace();}
 		SelfWork.doit();
