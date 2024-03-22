@@ -296,7 +296,7 @@ implements ManagedWaterloggable{
 	}
 	@Override public BlockRenderType
 	getRenderType(BlockState st){return BlockRenderType.MODEL;}
-	@Override @org.jetbrains.annotations.Nullable public <T extends BlockEntity>
+	@Override @org.jetbrains.annotations.Nullable public<T extends BlockEntity>
 	BlockEntityTicker<T> getTicker(World w,BlockState st,BlockEntityType<T>type){
 		return!w.isClient?validateTicker(type,RodWithLampBlockEntity.TYPE,(world,p,
 		state,t)->t.tick(world,p,state)):null;

@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 10,
+  "ingredient": {"item": "minecraft:orange_concrete"},
+  "result": "regedt32:cntrafficsymbols/orange_lined4_tp"
+}

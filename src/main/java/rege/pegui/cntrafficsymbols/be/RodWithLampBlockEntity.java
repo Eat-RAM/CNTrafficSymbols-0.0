@@ -8,10 +8,18 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import rege.pegui.cntrafficsymbols.SelfWork.Blocks;
 public class RodWithLampBlockEntity extends net.minecraft.block.entity
 .BlockEntity implements net.minecraft.util.Nameable{
 	public static final BlockEntityType<RodWithLampBlockEntity>TYPE=
-	FabricBlockEntityTypeBuilder.create(RodWithLampBlockEntity::new).build();
+	FabricBlockEntityTypeBuilder.create(RodWithLampBlockEntity::new,Blocks
+	.WHITE_ROD_WITH_LAMP,Blocks.ORANGE_ROD_WITH_LAMP,Blocks.MAGENTA_ROD_WITH_LAMP,
+	Blocks.LIGHT_BLUE_ROD_WITH_LAMP,Blocks.YELLOW_ROD_WITH_LAMP,Blocks
+	.LIME_ROD_WITH_LAMP,Blocks.PINK_ROD_WITH_LAMP,Blocks.GRAY_ROD_WITH_LAMP,Blocks
+	.LIGHT_GRAY_ROD_WITH_LAMP,Blocks.CYAN_ROD_WITH_LAMP,Blocks
+	.PURPLE_ROD_WITH_LAMP,Blocks.BLUE_ROD_WITH_LAMP,Blocks.BROWN_ROD_WITH_LAMP,
+	Blocks.GREEN_ROD_WITH_LAMP,Blocks.RED_ROD_WITH_LAMP,Blocks
+	.BLACK_ROD_WITH_LAMP).build();
 	public static final Integer OVERALL_DURATION=Integer.valueOf(23999);
 	public static int canonicalizeDuration(int duration){
 		return((((duration&0b111111111111111000000000000000)>>15)%24000)<<15)|

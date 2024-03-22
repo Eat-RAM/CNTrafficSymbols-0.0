@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 10,
+  "ingredient": {"item": "minecraft:purple_concrete"},
+  "result": "regedt32:cntrafficsymbols/purple_dotted9_tp"
+}

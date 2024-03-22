@@ -2868,7 +2868,9 @@ public class SelfWork{
 		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.freezeArr();
 		Blocks.KEEP_SPACE_VARIANT2_LOWER.freezeArr();
 		Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT.freezeArr();
-		Registry.register(Registries.BLOCK,new Identifier("regedt32","cntrafficsymbols/distance_detection_0m_left"),Blocks.DISTANCE_DETECTION_0M_LEFT);
+		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		"cntrafficsymbols/distance_detection_0m_left"),
+		Blocks.DISTANCE_DETECTION_0M_LEFT);
 		Registry.register(Registries.BLOCK,new Identifier("regedt32",
 		"cntrafficsymbols/distance_detection_0m_right"),
 		Blocks.DISTANCE_DETECTION_0M_RIGHT);
@@ -3032,6 +3034,9 @@ public class SelfWork{
 		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_km"),rege.pegui
 		.cntrafficsymbols.be.HighwayExitDistanceInfoKmBlockEntity.TYPE);
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		"cntrafficsymbols/rod_with_lamp"),rege.pegui.cntrafficsymbols.be
+		.RodWithLampBlockEntity.TYPE);
 		Registry.register(Registries.ITEM,new Identifier("regedt32",
 		"cntrafficsymbols/speedlimit_high_3"),Items.SPEEDLIMIT_HIGH_3);
 		Registry.register(Registries.ITEM,new Identifier("regedt32",
