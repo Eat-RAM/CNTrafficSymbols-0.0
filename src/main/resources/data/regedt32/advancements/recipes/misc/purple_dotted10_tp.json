@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_purple_d_concrete": {
-      "conditions": {"items": [{"items": ["minecraft:purple_d_concrete"]}]},
+    "has_purple_concrete": {
+      "conditions": {"items": [{"items": ["minecraft:purple_concrete"]}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
@@ -13,7 +13,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_purple_d_concrete"
+      "has_purple_concrete"
     ]
   ],
   "rewards": {"recipes": ["regedt32:cntrafficsymbols/purple_dotted10_tp"]},

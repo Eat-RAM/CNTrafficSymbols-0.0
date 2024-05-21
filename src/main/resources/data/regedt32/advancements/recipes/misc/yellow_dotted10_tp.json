@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_yellow_d_concrete": {
-      "conditions": {"items": [{"items": ["minecraft:yellow_d_concrete"]}]},
+    "has_yellow_concrete": {
+      "conditions": {"items": [{"items": ["minecraft:yellow_concrete"]}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
@@ -13,7 +13,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_yellow_d_concrete"
+      "has_yellow_concrete"
     ]
   ],
   "rewards": {"recipes": ["regedt32:cntrafficsymbols/yellow_dotted10_tp"]},

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_d_concrete": {
-      "conditions": {"items": [{"items": ["minecraft:red_d_concrete"]}]},
+    "has_red_concrete": {
+      "conditions": {"items": [{"items": ["minecraft:red_concrete"]}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
@@ -13,7 +13,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_red_d_concrete"
+      "has_red_concrete"
     ]
   ],
   "rewards": {"recipes": ["regedt32:cntrafficsymbols/red_dotted10_tp"]},

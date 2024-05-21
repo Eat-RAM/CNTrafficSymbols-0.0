@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_gray_d_concrete": {
-      "conditions": {"items": [{"items": ["minecraft:gray_d_concrete"]}]},
+    "has_gray_concrete": {
+      "conditions": {"items": [{"items": ["minecraft:gray_concrete"]}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
@@ -13,7 +13,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_gray_d_concrete"
+      "has_gray_concrete"
     ]
   ],
   "rewards": {"recipes": ["regedt32:cntrafficsymbols/gray_dotted10_tp"]},
