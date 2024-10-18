@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import rege.pegui.cntrafficsymbols.block.StateOptimized;
+import rege.pegui.cntrafficsymbols.state.StateOptimizable;
 import rege.pegui.cntrafficsymbols.state.StateOptimizer;
 import java.util.*;
 import static rege.pegui.cntrafficsymbols.Main.getBlockstateOptimizations;
@@ -17,7 +17,7 @@ public abstract class Mixin2<O,S>{
 	@Shadow private Table<Property<?>,Comparable<?>,S>withTable;
 	@Inject(method="createWithTable",at=@At("HEAD"),cancellable=true)private void
 	injectCreateWithTable(CallbackInfo info){if(this
-	.owner instanceof StateOptimized&&getBlockstateOptimizations().contains(this
+	.owner instanceof StateOptimizable&&getBlockstateOptimizations().contains(this
 	.getClass())){State<?,?>TH=(State<?,?>)(Object)this;
 	StateOptimizer.add(TH);this.withTable=new Table<>(){
 		@Override public boolean contains(Object rowKey,

@@ -19,9 +19,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;import rege.pegui.cntrafficsymbols.state.StateOptimizable;
 public class FloorLineEighthBlock extends Block
-implements ManagedWaterloggable,StateOptimized{
+implements ManagedWaterloggable,StateOptimizable{
 	public static final IntProperty SLICES160=IntProperty.of("slices160",0,40);
 	public static final IntProperty SLICES16=IntProperty.of("slices16",0,9);
 	public static final IntProperty SLICES=IntProperty.of("slices",0,15);
@@ -220,7 +220,7 @@ implements ManagedWaterloggable,StateOptimized{
 	}
 	@Override public BlockState
 	rotate(BlockState st,net.minecraft.util.BlockRotation rtt){
-		boolean shouldReverse=false;switch(rtt){
+		boolean shouldReverse;switch(rtt){
 			case CLOCKWISE_90:{
 				shouldReverse=st.get(HORIZONTAL_AXIS)==Direction.Axis.X;st=
 				st.with(HORIZONTAL_AXIS,shouldReverse?Direction.Axis.Z:Direction.Axis.X);

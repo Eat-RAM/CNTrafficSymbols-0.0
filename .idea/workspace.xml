@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2934a45d-7f01-4980-acad-39c886b9fb62" name="更改" comment="" />
+    <list default="true" id="2934a45d-7f01-4980-acad-39c886b9fb62" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/block/FloorLineEighthBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/block/FloorLineEighthBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/block/StateOptimized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/state/StateOptimizable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/helper/RangeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/helper/RangeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/mixin/Mixin2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rege/pegui/cntrafficsymbols/mixin/Mixin2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/regedt32/icons/cntrafficsymbols.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/regedt32/textures/icon/cntrafficsymbols.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fabric.mod.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,27 +73,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.CNTrafficSymbols [runClient].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JDK&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rege/modsdev/pegui/CNTrafficSymbols/src/reg&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.35000002&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
-    &quot;应用程序.Minecraft Client.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.CNTrafficSymbols [runClient].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JDK": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/rege/modsdev/pegui/CNTrafficSymbols/src/reg",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.35000002",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Python",
+    "应用程序.Minecraft Client.executor": "Run"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;jdk.preference.JDK&quot;: [
-      &quot;21=/usr/lib/jvm/java-21-openjdk&quot;
+  "keyToStringList": {
+    "jdk.preference.JDK": [
+      "21=/usr/lib/jvm/java-21-openjdk"
     ]
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/assets/regedt32/textures" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.CNTrafficSymbols [runClient]">
     <configuration name="CNTrafficSymbols [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
