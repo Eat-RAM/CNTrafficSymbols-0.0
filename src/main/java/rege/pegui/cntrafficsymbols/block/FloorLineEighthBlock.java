@@ -250,11 +250,11 @@ implements ManagedWaterloggable,StateOptimized{
 		int ns=0;int r=to3Pow(st);for(int i=0;i<8;i++){ns*=3;ns+=r%3;r/=3;}
 		return from3Pow(st,ns);
 	}
-	@Nullable public Item setItm1(@Nullable Item v){
+	public@Nullable Item setItm1(@Nullable Item v){
 		Item r=itm1;if(r==null)itm1=v;
 		return v;
 	}
-	@Nullable public Item setItm2(@Nullable Item v){
+	public@Nullable Item setItm2(@Nullable Item v){
 		Item r=itm2;if(r==null)itm2=v;
 		return v;
 	}

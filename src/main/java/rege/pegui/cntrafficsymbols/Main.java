@@ -1,40 +1,43 @@
 package rege.pegui.cntrafficsymbols;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashSet;import java.util.Objects;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Properties;
-import org.jetbrains.annotations.NotNull;import org.jetbrains.annotations.Nullable;import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 public class Main implements net.fabricmc.api.ModInitializer{
 	public static final org.slf4j.Logger LOGGER=
 	org.slf4j.LoggerFactory.getLogger("cntrafficsymbols");
-	@Nullable private static Boolean hardcodedFloorLineEighthsLootEnabled=null;
+	private static@Nullable Boolean hardcodedFloorLineEighthsLootEnabled=null;
 	private static boolean waterloggedProperty=true;
-	@Nullable private static Boolean hardcodedBarricades1LootEnabled=null;
+	private static@Nullable Boolean hardcodedBarricades1LootEnabled=null;
 	private static final@NotNull HashSet<@NotNull Class<?>>
 	blockstateOptimizations=new HashSet<>();
-	@Nullable public static Boolean parseNullableBoolean(String s,String[]forTrue,
+	public static@Nullable Boolean parseNullableBoolean(String s,String[]forTrue,
 	String[]forFalse,String[]forNull)throws IllegalArgumentException{
 		for(String i:forTrue){if(s.equals(i))return Boolean.TRUE;}
 		for(String i:forFalse){if(s.equals(i))return Boolean.FALSE;}
 		for(String i:forNull){if(s.equals(i))return null;}
 		throw new IllegalArgumentException(s);
 	}
-	@Nullable public static Boolean getHardcodedFloorLineEighthsLootEnabled(){
+	public static@Nullable Boolean getHardcodedFloorLineEighthsLootEnabled(){
 		return hardcodedFloorLineEighthsLootEnabled;
 	}
 	public static boolean getWaterloggedProperty(){return waterloggedProperty;}
-	@Nullable public static Boolean getHardcodedBarricades1LootEnabled(){
+	public static@Nullable Boolean getHardcodedBarricades1LootEnabled(){
 		return hardcodedBarricades1LootEnabled;
 	}
 	public static@NotNull HashSet<@NotNull Class<?>>getBlockstateOptimizations(){
 		return new HashSet<>(blockstateOptimizations);
 	}
-	@Nullable public static Boolean
+	public static@Nullable Boolean
 	setHardcodedFloorLineEighthsLootEnabled(@Nullable Boolean newVal){
 		Boolean r=hardcodedFloorLineEighthsLootEnabled;
 		hardcodedFloorLineEighthsLootEnabled=newVal;return r;
 	}
-	@Nullable public static Boolean
+	public static@Nullable Boolean
 	setHardcodedBarricades1LootEnabled(@Nullable Boolean newVal){
 		Boolean r=hardcodedBarricades1LootEnabled;
 		hardcodedBarricades1LootEnabled=newVal;return r;
