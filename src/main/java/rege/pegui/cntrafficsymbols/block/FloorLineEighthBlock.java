@@ -21,7 +21,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 public class FloorLineEighthBlock extends Block
-implements ManagedWaterloggable{
+implements ManagedWaterloggable,StateOptimized{
 	public static final IntProperty SLICES160=IntProperty.of("slices160",0,40);
 	public static final IntProperty SLICES16=IntProperty.of("slices16",0,9);
 	public static final IntProperty SLICES=IntProperty.of("slices",0,15);
@@ -119,7 +119,9 @@ implements ManagedWaterloggable{
 			ItemScatterer.spawn(w,p.getX(),p.getY(),p.getZ(),new ItemStack(itm2,i2));
 		}
 	}
-	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
+
+	@Override public ItemStack getPickStack(net.minecraft.world.WorldView v,
+	BlockPos p,BlockState st){
 		int pow=to3Pow(st);byte s1=0;byte s2=0;for(byte i=0;i<(byte)8;i++){
 			switch(pow%3){
 				case 1:s1++;break;

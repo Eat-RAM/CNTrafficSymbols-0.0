@@ -1,15 +1,17 @@
 package rege.pegui.cntrafficsymbols;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Objects;
+import java.util.HashSet;import java.util.Objects;
 import java.util.Properties;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;import org.jetbrains.annotations.Nullable;import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 public class Main implements net.fabricmc.api.ModInitializer{
 	public static final org.slf4j.Logger LOGGER=
 	org.slf4j.LoggerFactory.getLogger("cntrafficsymbols");
 	@Nullable private static Boolean hardcodedFloorLineEighthsLootEnabled=null;
 	private static boolean waterloggedProperty=true;
 	@Nullable private static Boolean hardcodedBarricades1LootEnabled=null;
+	private static final@NotNull HashSet<@NotNull Class<?>>
+	blockstateOptimizations=new HashSet<>();
 	@Nullable public static Boolean parseNullableBoolean(String s,String[]forTrue,
 	String[]forFalse,String[]forNull)throws IllegalArgumentException{
 		for(String i:forTrue){if(s.equals(i))return Boolean.TRUE;}
@@ -24,6 +26,9 @@ public class Main implements net.fabricmc.api.ModInitializer{
 	@Nullable public static Boolean getHardcodedBarricades1LootEnabled(){
 		return hardcodedBarricades1LootEnabled;
 	}
+	public static@NotNull HashSet<@NotNull Class<?>>getBlockstateOptimizations(){
+		return new HashSet<>(blockstateOptimizations);
+	}
 	@Nullable public static Boolean
 	setHardcodedFloorLineEighthsLootEnabled(@Nullable Boolean newVal){
 		Boolean r=hardcodedFloorLineEighthsLootEnabled;
@@ -34,7 +39,7 @@ public class Main implements net.fabricmc.api.ModInitializer{
 		Boolean r=hardcodedBarricades1LootEnabled;
 		hardcodedBarricades1LootEnabled=newVal;return r;
 	}
-	public static void readProperties(	)throws IOException{
+	public static void readProperties()throws IOException{
 		Properties ppts=new Properties();
 		FileInputStream f=new FileInputStream("config/cntrafficsymbols.properties");
 		ppts.load(f);
@@ -79,10 +84,31 @@ public class Main implements net.fabricmc.api.ModInitializer{
 		}else{
 			LOGGER.info("No property hardcoded_barricades_1_loot_enabled found. Use defalt value \"auto\".");
 		}
+		if(ppts.containsKey("blockstate_optimizations")){
+			try{
+				for(String i:ppts
+				.getProperty("blockstate_optimizations").strip().split(";")){
+					blockstateOptimizations.add(Class.forName(i));
+				}
+				LOGGER.info("Overriding property value blockstate_optimizations with "
+				+blockstateOptimizations);
+			}catch(ClassNotFoundException e){
+				blockstateOptimizations.clear();
+				blockstateOptimizations.add(FloorLineEighthBlock.class);
+				LOGGER.warn(
+					"Invalid config property value of blockstate_optimizations: "+
+					e.getMessage()
+				);
+			}
+		}else{
+			blockstateOptimizations.add(FloorLineEighthBlock.class);
+			LOGGER.info("No property blockstate_optimizations found. Use defalt value \"rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock\".");
+		}
 	}
 	@Override public void onInitialize(){
 		try{readProperties();}
 		catch(java.io.FileNotFoundException e){
+			blockstateOptimizations.add(FloorLineEighthBlock.class);
 			LOGGER.info("No cntrafficsymbols.properties found. Use default config.");
 		}catch(IOException e){e.printStackTrace();}
 		SelfWork.doit();

@@ -28,16 +28,16 @@ import rege.pegui.cntrafficsymbols.block.LinedTPBlock;
 import rege.pegui.cntrafficsymbols.block.RodWithLampBlock;
 import rege.pegui.cntrafficsymbols.block.SquareQuarterDefaulted3Block;
 import rege.pegui.cntrafficsymbols.block.WideBoardBlock;
-import rege.pegui.cntrafficsymbols.struct.Attachment3;
+//import rege.pegui.cntrafficsymbols.struct.Attachment3;
 import rege.pegui.cntrafficsymbols.struct.DoubleFaceFacing;
-import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
-import rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRecognitionRegistry;
-import
-rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRegistry;
-import
-rege.rege.minecraftmod.number_id_revival.state.numberid.ItemNumberIDRegistry;
-import static net.minecraft.block.Blocks.AIR;
-import static net.minecraft.block.Blocks.WATER;
+//import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
+//import rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRecognitionRegistry;
+//import
+//rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRegistry;
+//import
+//rege.rege.minecraftmod.number_id_revival.state.numberid.ItemNumberIDRegistry;
+//import static net.minecraft.block.Blocks.AIR;
+//import static net.minecraft.block.Blocks.WATER;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
@@ -2683,65 +2683,65 @@ public class SelfWork{
 	}
 	public static void doit(){
 		for(int i=1;i<31;i++){
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/speedlimit_high_"+Integer.toString(i*5)),
 			SPEEDLIMIT_HIGH_BLOCKS[i]);
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/speedlimit_low_"+Integer.toString(i*5)),
 			SPEEDLIMIT_LOW_BLOCKS[i]);
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/lift_speedlimit_high_"+Integer.toString(i*5)),
 			LIFT_SPEEDLIMIT_HIGH_BLOCKS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/speedlimit_high_"+Integer.toString(i*5)),
 			SPEEDLIMIT_HIGH_ITEMS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/speedlimit_low_"+Integer.toString(i*5)),
 			SPEEDLIMIT_LOW_ITEMS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/lift_speedlimit_high_"+Integer.toString(i*5)),
 			LIFT_SPEEDLIMIT_HIGH_ITEMS[i]);
 		}
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_high_3"),Blocks.SPEEDLIMIT_HIGH_3);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_low_3"),Blocks.SPEEDLIMIT_LOW_3);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_high_special"),Blocks.SPEEDLIMIT_HIGH_SPECIAL);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_low_special"),Blocks.SPEEDLIMIT_LOW_SPECIAL);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/lift_speedlimit_high_3"),Blocks.LIFT_SPEEDLIMIT_HIGH_3);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/lift_speedlimit_high_special"),
 		Blocks.LIFT_SPEEDLIMIT_HIGH_SPECIAL);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/circle_backboard"),Blocks.CIRCLE_BACKBOARD);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/heightlimit_special"),Blocks.HEIGHTLIMIT_SPECIAL);
 		for(int i=1;i<101;i++){
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/heightlimit_"+((i%10!=0)?Integer.toString(i/10)+"d"+
 			Integer.toString(i%10):Integer.toString(i/10))),HEIGHTLIMIT_BLOCKS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/heightlimit_"+((i%10!=0)?Integer.toString(i/10)+"d"+
 			Integer.toString(i%10):Integer.toString(i/10))),HEIGHTLIMIT_ITEMS[i]);
 		}
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/prohibition"),Blocks.PROHIBITION);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/no_u_turn"),Blocks.NO_U_TURN);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/no_left_turn"),Blocks.NO_LEFT_TURN);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/no_right_turn"),Blocks.NO_RIGHT_TURN);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/no_parking"),Blocks.NO_PARKING);
 		for(int i=0;i<9;i++){
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),
 			HIGHWAY_HM_BLOCKS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/highway_"+Integer.toString(i+1)+"hm"),
 			HIGHWAY_HM_ITEMS[i]);
 		}
@@ -2750,9 +2750,9 @@ public class SelfWork{
 		Blocks.BARRICADES_1.setItm0(Items.BARRICADE_1M_EDGE_1M_HEIGHT);
 		Blocks.BARRICADES_1.setItm1(Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
 		Blocks.BARRICADES_1.setItm2(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/floor_line_eighths"),Blocks.FLOOR_LINE_EIGHTHS);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_km"),Blocks.HIGHWAY_KM);
 		Blocks.DISTANCE_DETECTION_0M_LEFT
 		.addToArr(Blocks.DISTANCE_DETECTION_0M_LEFT);
@@ -2868,534 +2868,534 @@ public class SelfWork{
 		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.freezeArr();
 		Blocks.KEEP_SPACE_VARIANT2_LOWER.freezeArr();
 		Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT.freezeArr();
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_0m_left"),
 		Blocks.DISTANCE_DETECTION_0M_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_0m_right"),
 		Blocks.DISTANCE_DETECTION_0M_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_50m_left"),
 		Blocks.DISTANCE_DETECTION_50M_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_50m_right"),
 		Blocks.DISTANCE_DETECTION_50M_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_100m_left"),
 		Blocks.DISTANCE_DETECTION_100M_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_100m_right"),
 		Blocks.DISTANCE_DETECTION_100M_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_200m_left"),
 		Blocks.DISTANCE_DETECTION_200M_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_200m_right"),
 		Blocks.DISTANCE_DETECTION_200M_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_single"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_single"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_single"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_top"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_top"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_top"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_middle"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_MIDDLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_middle"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_MIDDLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_middle"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_MIDDLE);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_bottom"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_bottom"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_bottom"),
 		Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/barricades_1"),Blocks.BARRICADES_1);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upperleft"),
 		Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upper"),
 		Blocks.KEEP_SPACE_VARIANT1_UPPER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upperright"),
 		Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_left"),
 		Blocks.KEEP_SPACE_VARIANT1_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_center"),
 		Blocks.KEEP_SPACE_VARIANT1_CENTER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_right"),
 		Blocks.KEEP_SPACE_VARIANT1_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lowerleft"),
 		Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lower"),
 		Blocks.KEEP_SPACE_VARIANT1_LOWER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lowerright"),
 		Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upperleft"),
 		Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upper"),
 		Blocks.KEEP_SPACE_VARIANT2_UPPER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upperright"),
 		Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_left"),
 		Blocks.KEEP_SPACE_VARIANT2_LEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_center"),
 		Blocks.KEEP_SPACE_VARIANT2_CENTER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_right"),
 		Blocks.KEEP_SPACE_VARIANT2_RIGHT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lowerleft"),
 		Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lower"),
 		Blocks.KEEP_SPACE_VARIANT2_LOWER);
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lowerright"),
 		Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
 		for(int i=0;i<16;i++){
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),
 			HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),
 			FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
-			Registry.register(Registries.BLOCK,new Identifier("regedt32",
+			Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),
 			ROD_WITH_LAMP_BLOCKS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_half1_cylindrical_rod"),
 			HALF1_CYLINDRICAL_ROD_ITEMS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_full1_cylindrical_rod"),
 			FULL1_CYLINDRICAL_ROD_ITEMS[i]);
-			Registry.register(Registries.ITEM,new Identifier("regedt32",
+			Registry.register(Registries.ITEM,Identifier.of("regedt32",
 			"cntrafficsymbols/"+COLORS_MC16.get(i)+"_rod_with_lamp"),
 			ROD_WITH_LAMP_ITEMS[i]);
 		}
-		Registry.register(Registries.BLOCK,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 		"cntrafficsymbols/full_square_backboard"),Blocks.FULL_SQUARE_BACKBOARD);
 		for(int i=4;i<11;i++){
 			for(int j=0;j<16;j++){
-				Registry.register(Registries.BLOCK,new Identifier("regedt32",
+				Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 				"cntrafficsymbols/"+COLORS_MC16.get(j)+"_dotted"+Integer.toString(i)+
 				"_tp"),DOTTED_TP_BLOCKS[i][j]);
-				Registry.register(Registries.BLOCK,new Identifier("regedt32",
+				Registry.register(Registries.BLOCK,Identifier.of("regedt32",
 				"cntrafficsymbols/"+COLORS_MC16.get(j)+"_lined"+Integer.toString(i)+
 				"_tp"),LINED_TP_BLOCKS[i][j]);
-				Registry.register(Registries.ITEM,new Identifier("regedt32",
+				Registry.register(Registries.ITEM,Identifier.of("regedt32",
 				"cntrafficsymbols/"+COLORS_MC16.get(j)+"_dotted"+Integer.toString(i)+
 				"_tp"),DOTTED_TP_ITEMS[i][j]);
-				Registry.register(Registries.ITEM,new Identifier("regedt32",
+				Registry.register(Registries.ITEM,Identifier.of("regedt32",
 				"cntrafficsymbols/"+COLORS_MC16.get(j)+"_lined"+Integer.toString(i)+
 				"_tp"),LINED_TP_ITEMS[i][j]);
 			}
 		}
-		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_hm"),rege.pegui.cntrafficsymbols.be
 		.HighwayHmSignBlockEntity.TYPE);
-		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_km"),rege.pegui.cntrafficsymbols.be
 		.HighwayKmSignBlockEntity.TYPE);
-		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_name"),rege.pegui
 		.cntrafficsymbols.be.HighwayExitDistanceInfoNameBlockEntity.TYPE);
-		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_km"),rege.pegui
 		.cntrafficsymbols.be.HighwayExitDistanceInfoKmBlockEntity.TYPE);
-		Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier("regedt32",
+		Registry.register(Registries.BLOCK_ENTITY_TYPE,Identifier.of("regedt32",
 		"cntrafficsymbols/rod_with_lamp"),rege.pegui.cntrafficsymbols.be
 		.RodWithLampBlockEntity.TYPE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_high_3"),Items.SPEEDLIMIT_HIGH_3);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_low_3"),Items.SPEEDLIMIT_LOW_3);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_high_special"),Items.SPEEDLIMIT_HIGH_SPECIAL);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/speedlimit_low_special"),Items.SPEEDLIMIT_LOW_SPECIAL);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/lift_speedlimit_high_3"),Items.LIFT_SPEEDLIMIT_HIGH_3);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/lift_speedlimit_high_special"),
 		Items.LIFT_SPEEDLIMIT_HIGH_SPECIAL);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/iron_plate"),Items.IRON_PLATE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/circle_backboard"),Items.CIRCLE_BACKBOARD);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/heightlimit_special"),Items.HEIGHTLIMIT_SPECIAL);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/prohibition"),Items.PROHIBITION);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/no_u_turn"),Items.NO_U_TURN);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/no_left_turn"),Items.NO_LEFT_TURN);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/no_right_turn"),Items.NO_RIGHT_TURN);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/no_parking"),Items.NO_PARKING);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/white_floor_line_eighth"),Items.WHITE_FLOOR_LINE_EIGHTH);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/yellow_floor_line_eighth"),Items.YELLOW_FLOOR_LINE_EIGHTH);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_km"),Items.HIGHWAY_KM);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_0m_left"),
 		Items.DISTANCE_DETECTION_0M_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_0m_right"),
 		Items.DISTANCE_DETECTION_0M_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_50m_left"),
 		Items.DISTANCE_DETECTION_50M_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_50m_right"),
 		Items.DISTANCE_DETECTION_50M_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_100m_left"),
 		Items.DISTANCE_DETECTION_100M_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_100m_right"),
 		Items.DISTANCE_DETECTION_100M_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_200m_left"),
 		Items.DISTANCE_DETECTION_200M_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/distance_detection_200m_right"),
 		Items.DISTANCE_DETECTION_200M_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_single"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_single"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_single"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_top"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_top"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_top"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_middle"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_MIDDLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_middle"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_MIDDLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_middle"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_MIDDLE);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_left_bottom"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_middle_bottom"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/highway_exit_distance_info_right_bottom"),
 		Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/barricade_50cm_edge_75cm_height"),
 		Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/barricade_50cm_edge_1m_height"),
 		Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/barricade_1m_edge_1m_height"),
 		Items.BARRICADE_1M_EDGE_1M_HEIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upperleft"),
 		Items.KEEP_SPACE_VARIANT1_UPPERLEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upper"),
 		Items.KEEP_SPACE_VARIANT1_UPPER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_upperright"),
 		Items.KEEP_SPACE_VARIANT1_UPPERRIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_left"),
 		Items.KEEP_SPACE_VARIANT1_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_center"),
 		Items.KEEP_SPACE_VARIANT1_CENTER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_right"),
 		Items.KEEP_SPACE_VARIANT1_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lowerleft"),
 		Items.KEEP_SPACE_VARIANT1_LOWERLEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lower"),
 		Items.KEEP_SPACE_VARIANT1_LOWER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant1_lowerright"),
 		Items.KEEP_SPACE_VARIANT1_LOWERRIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upperleft"),
 		Items.KEEP_SPACE_VARIANT2_UPPERLEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upper"),
 		Items.KEEP_SPACE_VARIANT2_UPPER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_upperright"),
 		Items.KEEP_SPACE_VARIANT2_UPPERRIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_left"),
 		Items.KEEP_SPACE_VARIANT2_LEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_center"),
 		Items.KEEP_SPACE_VARIANT2_CENTER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_right"),
 		Items.KEEP_SPACE_VARIANT2_RIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lowerleft"),
 		Items.KEEP_SPACE_VARIANT2_LOWERLEFT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lower"),
 		Items.KEEP_SPACE_VARIANT2_LOWER);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/keep_space_variant2_lowerright"),
 		Items.KEEP_SPACE_VARIANT2_LOWERRIGHT);
-		Registry.register(Registries.ITEM,new Identifier("regedt32",
+		Registry.register(Registries.ITEM,Identifier.of("regedt32",
 		"cntrafficsymbols/full_square_backboard"),
 		Items.FULL_SQUARE_BACKBOARD);
-		Registry.register(Registries.ITEM_GROUP,new Identifier("regedt32",
+		Registry.register(Registries.ITEM_GROUP,Identifier.of("regedt32",
 		"cntrafficsymbols"),ITEM_GROUP);
-		try{
-			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};
-			int d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
-						.with(DoubleFaceFacing.FACING,j);
-						BlockNumberIDRegistry.INSTANCE.register(12200,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12200,d);
-						if(getWaterloggedProperty()){
-							st=st.with(WATERLOGGED,true);
-							BlockNumberIDRegistry.INSTANCE.register(12200,~d,st);
-							BlockNumberIDRecognitionRegistry.INSTANCE
-							.register(k.getRegistryEntry().registryKey().getValue(),
-							new BlockProperties().mergeFromBlockState(st),12200,~d);
-						}
-						d++;
-					}
-				}
-				d+=256;
-			}
-			tab=LIFT_SPEEDLIMIT_HIGH_BLOCKS;d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
-						.with(DoubleFaceFacing.FACING,j);
-						BlockNumberIDRegistry.INSTANCE.register(12201,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12201,d);
-						if(getWaterloggedProperty()){
-							st=st.with(WATERLOGGED,true);
-							BlockNumberIDRegistry.INSTANCE.register(12201,~d,st);
-							BlockNumberIDRecognitionRegistry.INSTANCE
-							.register(k.getRegistryEntry().registryKey().getValue(),
-							new BlockProperties().mergeFromBlockState(st),12201,~d);
-						}
-						d++;
-					}
-					d+=32;
-				}
-				d+=256;
-			}
-			d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					BlockState st=Blocks.CIRCLE_BACKBOARD.getDefaultState()
-					.with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
-					BlockNumberIDRegistry.INSTANCE.register(12203,d,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE
-					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
-					if(getWaterloggedProperty()){
-						st=st.with(WATERLOGGED,true);
-						BlockNumberIDRegistry.INSTANCE.register(12203,~d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-						.getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
-					}
-					d++;
-				}
-				d+=4;
-			}
-			tab=HEIGHTLIMIT_BLOCKS;d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
-						.with(DoubleFaceFacing.FACING,j);
-						BlockNumberIDRegistry.INSTANCE.register(12204,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12204,d);
-						if(getWaterloggedProperty()){
-							st=st.with(WATERLOGGED,true);
-							BlockNumberIDRegistry.INSTANCE.register(12204,~d,st);
-							BlockNumberIDRecognitionRegistry.INSTANCE
-							.register(k.getRegistryEntry().registryKey().getValue(),
-							new BlockProperties().mergeFromBlockState(st),12204,~d);
-						}
-						d++;
-					}
-					d+=27;
-				}
-				d+=512;
-			}
-			tab=PROHIBITION_BLOCKS;d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
-						.with(DoubleFaceFacing.FACING,j);
-						BlockNumberIDRegistry.INSTANCE.register(12205,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12205,d);
-						if(getWaterloggedProperty()){
-							st=st.with(WATERLOGGED,true);
-							BlockNumberIDRegistry.INSTANCE.register(12205,~d,st);
-							BlockNumberIDRecognitionRegistry.INSTANCE
-							.register(k.getRegistryEntry().registryKey().getValue(),
-							new BlockProperties().mergeFromBlockState(st),12205,~d);
-						}
-						d++;
-					}
-					d+=128-tab.length;
-				}
-				d+=512;
-			}
-			tab=HIGHWAY_HM_BLOCKS;d=0;
-			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
-				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
-					for(Block k:tab){
-						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
-						.with(DoubleFaceFacing.FACING,j);
-						BlockNumberIDRegistry.INSTANCE.register(12206,d,st);
-						BlockNumberIDRecognitionRegistry.INSTANCE
-						.register(k.getRegistryEntry().registryKey().getValue(),
-						new BlockProperties().mergeFromBlockState(st),12206,d);
-						if(getWaterloggedProperty()){
-							st=st.with(WATERLOGGED,true);
-							BlockNumberIDRegistry.INSTANCE.register(12206,~d,st);
-							BlockNumberIDRecognitionRegistry.INSTANCE
-							.register(k.getRegistryEntry().registryKey().getValue(),
-							new BlockProperties().mergeFromBlockState(st),12206,~d);
-						}
-						d++;
-					}
-					d+=16-tab.length;
-				}
-				d+=64;
-			}
-			BlockNumberIDRegistry.INSTANCE.register(12207,0,AIR.getDefaultState());
-			BlockNumberIDRegistry.INSTANCE.register(12207,8192,AIR.getDefaultState());
-			if(getWaterloggedProperty()){
-				BlockNumberIDRegistry.INSTANCE.register(12207,-1,WATER.getDefaultState());
-				BlockNumberIDRegistry.INSTANCE
-				.register(12207,-8193,WATER.getDefaultState());
-			}
-			for(d=1;d<6561;d++){
-				BlockState st=FloorLineEighthBlock
-				.from3Pow(Blocks.FLOOR_LINE_EIGHTHS.getDefaultState(),d);
-				BlockNumberIDRegistry.INSTANCE.register(12207,d,st);
-				BlockNumberIDRecognitionRegistry.INSTANCE
-				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d);
-				if(getWaterloggedProperty()){
-					st=st.with(WATERLOGGED,true);
-					BlockNumberIDRegistry.INSTANCE.register(12207,~d,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE
-					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~d);
-				}
-				st=st.with(net.minecraft.state.property.Properties.HORIZONTAL_AXIS,
-				net.minecraft.util.math.Direction.Axis.Z);
-				BlockNumberIDRegistry.INSTANCE.register(12207,~(d|8192),st);
-				BlockNumberIDRecognitionRegistry.INSTANCE
-				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~(d|8192));
-				if(getWaterloggedProperty()){
-					st=st.with(WATERLOGGED,false);
-					BlockNumberIDRegistry.INSTANCE.register(12207,d|8192,st);
-					BlockNumberIDRecognitionRegistry.INSTANCE
-					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d|8192);
-				}
-			}
-			Item[]tab2={Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL,Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
-			d=0;
-			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12200,d,i);d++;
-			}
-			tab2=LIFT_SPEEDLIMIT_HIGH_ITEMS;
-			d=0;
-			for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12201,d,i);d++;
-			}
-			ItemNumberIDRegistry.INSTANCE.register(12202,0,Items.IRON_PLATE);
-			ItemNumberIDRegistry.INSTANCE.register(12203,0,Items.CIRCLE_BACKBOARD);
-			tab2=HEIGHTLIMIT_ITEMS;d=0;for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12204,d,i);d++;
-			}
-			tab2=PROHIBITION_ITEMS;d=0;for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12205,d,i);d++;
-			}
-			tab2=HIGHWAY_HM_ITEMS;d=0;for(Item i:tab2){
-				ItemNumberIDRegistry.INSTANCE.register(12206,d,i);d++;
-			}
-			ItemNumberIDRegistry.INSTANCE
-			.register(12207,1,Items.WHITE_FLOOR_LINE_EIGHTH);
-			ItemNumberIDRegistry.INSTANCE
-			.register(12207,2,Items.YELLOW_FLOOR_LINE_EIGHTH);
-		}catch(NoClassDefFoundError e){}
+//		try{
+//			Block[]tab={Blocks.SPEEDLIMIT_HIGH_3,Blocks.SPEEDLIMIT_HIGH_5,Blocks.SPEEDLIMIT_HIGH_10,Blocks.SPEEDLIMIT_HIGH_15,Blocks.SPEEDLIMIT_HIGH_20,Blocks.SPEEDLIMIT_HIGH_25,Blocks.SPEEDLIMIT_HIGH_30,Blocks.SPEEDLIMIT_HIGH_35,Blocks.SPEEDLIMIT_HIGH_40,Blocks.SPEEDLIMIT_HIGH_45,Blocks.SPEEDLIMIT_HIGH_50,Blocks.SPEEDLIMIT_HIGH_55,Blocks.SPEEDLIMIT_HIGH_60,Blocks.SPEEDLIMIT_HIGH_65,Blocks.SPEEDLIMIT_HIGH_70,Blocks.SPEEDLIMIT_HIGH_75,Blocks.SPEEDLIMIT_HIGH_80,Blocks.SPEEDLIMIT_HIGH_85,Blocks.SPEEDLIMIT_HIGH_90,Blocks.SPEEDLIMIT_HIGH_95,Blocks.SPEEDLIMIT_HIGH_100,Blocks.SPEEDLIMIT_HIGH_105,Blocks.SPEEDLIMIT_HIGH_110,Blocks.SPEEDLIMIT_HIGH_115,Blocks.SPEEDLIMIT_HIGH_120,Blocks.SPEEDLIMIT_HIGH_125,Blocks.SPEEDLIMIT_HIGH_130,Blocks.SPEEDLIMIT_HIGH_135,Blocks.SPEEDLIMIT_HIGH_140,Blocks.SPEEDLIMIT_HIGH_145,Blocks.SPEEDLIMIT_HIGH_150,Blocks.SPEEDLIMIT_HIGH_SPECIAL,Blocks.SPEEDLIMIT_LOW_3,Blocks.SPEEDLIMIT_LOW_5,Blocks.SPEEDLIMIT_LOW_10,Blocks.SPEEDLIMIT_LOW_15,Blocks.SPEEDLIMIT_LOW_20,Blocks.SPEEDLIMIT_LOW_25,Blocks.SPEEDLIMIT_LOW_30,Blocks.SPEEDLIMIT_LOW_35,Blocks.SPEEDLIMIT_LOW_40,Blocks.SPEEDLIMIT_LOW_45,Blocks.SPEEDLIMIT_LOW_50,Blocks.SPEEDLIMIT_LOW_55,Blocks.SPEEDLIMIT_LOW_60,Blocks.SPEEDLIMIT_LOW_65,Blocks.SPEEDLIMIT_LOW_70,Blocks.SPEEDLIMIT_LOW_75,Blocks.SPEEDLIMIT_LOW_80,Blocks.SPEEDLIMIT_LOW_85,Blocks.SPEEDLIMIT_LOW_90,Blocks.SPEEDLIMIT_LOW_95,Blocks.SPEEDLIMIT_LOW_100,Blocks.SPEEDLIMIT_LOW_105,Blocks.SPEEDLIMIT_LOW_110,Blocks.SPEEDLIMIT_LOW_115,Blocks.SPEEDLIMIT_LOW_120,Blocks.SPEEDLIMIT_LOW_125,Blocks.SPEEDLIMIT_LOW_130,Blocks.SPEEDLIMIT_LOW_135,Blocks.SPEEDLIMIT_LOW_140,Blocks.SPEEDLIMIT_LOW_145,Blocks.SPEEDLIMIT_LOW_150,Blocks.SPEEDLIMIT_LOW_SPECIAL};
+//			int d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					for(Block k:tab){
+//						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+//						.with(DoubleFaceFacing.FACING,j);
+//						BlockNumberIDRegistry.INSTANCE.register(12200,d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(k.getRegistryEntry().registryKey().getValue(),
+//						new BlockProperties().mergeFromBlockState(st),12200,d);
+//						if(getWaterloggedProperty()){
+//							st=st.with(WATERLOGGED,true);
+//							BlockNumberIDRegistry.INSTANCE.register(12200,~d,st);
+//							BlockNumberIDRecognitionRegistry.INSTANCE
+//							.register(k.getRegistryEntry().registryKey().getValue(),
+//							new BlockProperties().mergeFromBlockState(st),12200,~d);
+//						}
+//						d++;
+//					}
+//				}
+//				d+=256;
+//			}
+//			tab=LIFT_SPEEDLIMIT_HIGH_BLOCKS;d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					for(Block k:tab){
+//						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+//						.with(DoubleFaceFacing.FACING,j);
+//						BlockNumberIDRegistry.INSTANCE.register(12201,d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(k.getRegistryEntry().registryKey().getValue(),
+//						new BlockProperties().mergeFromBlockState(st),12201,d);
+//						if(getWaterloggedProperty()){
+//							st=st.with(WATERLOGGED,true);
+//							BlockNumberIDRegistry.INSTANCE.register(12201,~d,st);
+//							BlockNumberIDRecognitionRegistry.INSTANCE
+//							.register(k.getRegistryEntry().registryKey().getValue(),
+//							new BlockProperties().mergeFromBlockState(st),12201,~d);
+//						}
+//						d++;
+//					}
+//					d+=32;
+//				}
+//				d+=256;
+//			}
+//			d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					BlockState st=Blocks.CIRCLE_BACKBOARD.getDefaultState()
+//					.with(Attachment3.ATTACHMENT,i).with(DoubleFaceFacing.FACING,j);
+//					BlockNumberIDRegistry.INSTANCE.register(12203,d,st);
+//					BlockNumberIDRecognitionRegistry.INSTANCE
+//					.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
+//					.getValue(),new BlockProperties().mergeFromBlockState(st),12201,d);
+//					if(getWaterloggedProperty()){
+//						st=st.with(WATERLOGGED,true);
+//						BlockNumberIDRegistry.INSTANCE.register(12203,~d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
+//						.getValue(),new BlockProperties().mergeFromBlockState(st),12201,~d);
+//					}
+//					d++;
+//				}
+//				d+=4;
+//			}
+//			tab=HEIGHTLIMIT_BLOCKS;d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					for(Block k:tab){
+//						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+//						.with(DoubleFaceFacing.FACING,j);
+//						BlockNumberIDRegistry.INSTANCE.register(12204,d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(k.getRegistryEntry().registryKey().getValue(),
+//						new BlockProperties().mergeFromBlockState(st),12204,d);
+//						if(getWaterloggedProperty()){
+//							st=st.with(WATERLOGGED,true);
+//							BlockNumberIDRegistry.INSTANCE.register(12204,~d,st);
+//							BlockNumberIDRecognitionRegistry.INSTANCE
+//							.register(k.getRegistryEntry().registryKey().getValue(),
+//							new BlockProperties().mergeFromBlockState(st),12204,~d);
+//						}
+//						d++;
+//					}
+//					d+=27;
+//				}
+//				d+=512;
+//			}
+//			tab=PROHIBITION_BLOCKS;d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					for(Block k:tab){
+//						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+//						.with(DoubleFaceFacing.FACING,j);
+//						BlockNumberIDRegistry.INSTANCE.register(12205,d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(k.getRegistryEntry().registryKey().getValue(),
+//						new BlockProperties().mergeFromBlockState(st),12205,d);
+//						if(getWaterloggedProperty()){
+//							st=st.with(WATERLOGGED,true);
+//							BlockNumberIDRegistry.INSTANCE.register(12205,~d,st);
+//							BlockNumberIDRecognitionRegistry.INSTANCE
+//							.register(k.getRegistryEntry().registryKey().getValue(),
+//							new BlockProperties().mergeFromBlockState(st),12205,~d);
+//						}
+//						d++;
+//					}
+//					d+=128-tab.length;
+//				}
+//				d+=512;
+//			}
+//			tab=HIGHWAY_HM_BLOCKS;d=0;
+//			for(Attachment3 i:new Attachment3[]{Attachment3.NONE,Attachment3.DOWN,Attachment3.UP}){
+//				for(DoubleFaceFacing j:new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH,DoubleFaceFacing.SSW,DoubleFaceFacing.SOUTHWEST,DoubleFaceFacing.WSW,DoubleFaceFacing.WEST,DoubleFaceFacing.WNW,DoubleFaceFacing.NORTHWEST,DoubleFaceFacing.NNW,DoubleFaceFacing.NORTH,DoubleFaceFacing.NNE,DoubleFaceFacing.NORTHEAST,DoubleFaceFacing.ENE,DoubleFaceFacing.EAST,DoubleFaceFacing.ESE,DoubleFaceFacing.SOUTHEAST,DoubleFaceFacing.SSE,DoubleFaceFacing.NORTH_SOUTH,DoubleFaceFacing.NNE_SSW,DoubleFaceFacing.NORTHEAST_SOUTHWEST,DoubleFaceFacing.ENE_WSW,DoubleFaceFacing.EAST_WEST,DoubleFaceFacing.ESE_WNW,DoubleFaceFacing.NORTHWEST_SOUTHEAST,DoubleFaceFacing.SSE_NNW,DoubleFaceFacing.WALL_SOUTH,DoubleFaceFacing.WALL_EAST,DoubleFaceFacing.WALL_NORTH,DoubleFaceFacing.WALL_WEST}){
+//					for(Block k:tab){
+//						BlockState st=k.getDefaultState().with(Attachment3.ATTACHMENT,i)
+//						.with(DoubleFaceFacing.FACING,j);
+//						BlockNumberIDRegistry.INSTANCE.register(12206,d,st);
+//						BlockNumberIDRecognitionRegistry.INSTANCE
+//						.register(k.getRegistryEntry().registryKey().getValue(),
+//						new BlockProperties().mergeFromBlockState(st),12206,d);
+//						if(getWaterloggedProperty()){
+//							st=st.with(WATERLOGGED,true);
+//							BlockNumberIDRegistry.INSTANCE.register(12206,~d,st);
+//							BlockNumberIDRecognitionRegistry.INSTANCE
+//							.register(k.getRegistryEntry().registryKey().getValue(),
+//							new BlockProperties().mergeFromBlockState(st),12206,~d);
+//						}
+//						d++;
+//					}
+//					d+=16-tab.length;
+//				}
+//				d+=64;
+//			}
+//			BlockNumberIDRegistry.INSTANCE.register(12207,0,AIR.getDefaultState());
+//			BlockNumberIDRegistry.INSTANCE.register(12207,8192,AIR.getDefaultState());
+//			if(getWaterloggedProperty()){
+//				BlockNumberIDRegistry.INSTANCE.register(12207,-1,WATER.getDefaultState());
+//				BlockNumberIDRegistry.INSTANCE
+//				.register(12207,-8193,WATER.getDefaultState());
+//			}
+//			for(d=1;d<6561;d++){
+//				BlockState st=FloorLineEighthBlock
+//				.from3Pow(Blocks.FLOOR_LINE_EIGHTHS.getDefaultState(),d);
+//				BlockNumberIDRegistry.INSTANCE.register(12207,d,st);
+//				BlockNumberIDRecognitionRegistry.INSTANCE
+//				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+//				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d);
+//				if(getWaterloggedProperty()){
+//					st=st.with(WATERLOGGED,true);
+//					BlockNumberIDRegistry.INSTANCE.register(12207,~d,st);
+//					BlockNumberIDRecognitionRegistry.INSTANCE
+//					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+//					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~d);
+//				}
+//				st=st.with(net.minecraft.state.property.Properties.HORIZONTAL_AXIS,
+//				net.minecraft.util.math.Direction.Axis.Z);
+//				BlockNumberIDRegistry.INSTANCE.register(12207,~(d|8192),st);
+//				BlockNumberIDRecognitionRegistry.INSTANCE
+//				.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+//				.getValue(),new BlockProperties().mergeFromBlockState(st),12207,~(d|8192));
+//				if(getWaterloggedProperty()){
+//					st=st.with(WATERLOGGED,false);
+//					BlockNumberIDRegistry.INSTANCE.register(12207,d|8192,st);
+//					BlockNumberIDRecognitionRegistry.INSTANCE
+//					.register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
+//					.getValue(),new BlockProperties().mergeFromBlockState(st),12207,d|8192);
+//				}
+//			}
+//			Item[]tab2={Items.SPEEDLIMIT_HIGH_3,Items.SPEEDLIMIT_HIGH_5,Items.SPEEDLIMIT_HIGH_10,Items.SPEEDLIMIT_HIGH_15,Items.SPEEDLIMIT_HIGH_20,Items.SPEEDLIMIT_HIGH_25,Items.SPEEDLIMIT_HIGH_30,Items.SPEEDLIMIT_HIGH_35,Items.SPEEDLIMIT_HIGH_40,Items.SPEEDLIMIT_HIGH_45,Items.SPEEDLIMIT_HIGH_50,Items.SPEEDLIMIT_HIGH_55,Items.SPEEDLIMIT_HIGH_60,Items.SPEEDLIMIT_HIGH_65,Items.SPEEDLIMIT_HIGH_70,Items.SPEEDLIMIT_HIGH_75,Items.SPEEDLIMIT_HIGH_80,Items.SPEEDLIMIT_HIGH_85,Items.SPEEDLIMIT_HIGH_90,Items.SPEEDLIMIT_HIGH_95,Items.SPEEDLIMIT_HIGH_100,Items.SPEEDLIMIT_HIGH_105,Items.SPEEDLIMIT_HIGH_110,Items.SPEEDLIMIT_HIGH_115,Items.SPEEDLIMIT_HIGH_120,Items.SPEEDLIMIT_HIGH_125,Items.SPEEDLIMIT_HIGH_130,Items.SPEEDLIMIT_HIGH_135,Items.SPEEDLIMIT_HIGH_140,Items.SPEEDLIMIT_HIGH_145,Items.SPEEDLIMIT_HIGH_150,Items.SPEEDLIMIT_HIGH_SPECIAL,Items.SPEEDLIMIT_LOW_3,Items.SPEEDLIMIT_LOW_5,Items.SPEEDLIMIT_LOW_10,Items.SPEEDLIMIT_LOW_15,Items.SPEEDLIMIT_LOW_20,Items.SPEEDLIMIT_LOW_25,Items.SPEEDLIMIT_LOW_30,Items.SPEEDLIMIT_LOW_35,Items.SPEEDLIMIT_LOW_40,Items.SPEEDLIMIT_LOW_45,Items.SPEEDLIMIT_LOW_50,Items.SPEEDLIMIT_LOW_55,Items.SPEEDLIMIT_LOW_60,Items.SPEEDLIMIT_LOW_65,Items.SPEEDLIMIT_LOW_70,Items.SPEEDLIMIT_LOW_75,Items.SPEEDLIMIT_LOW_80,Items.SPEEDLIMIT_LOW_85,Items.SPEEDLIMIT_LOW_90,Items.SPEEDLIMIT_LOW_95,Items.SPEEDLIMIT_LOW_100,Items.SPEEDLIMIT_LOW_105,Items.SPEEDLIMIT_LOW_110,Items.SPEEDLIMIT_LOW_115,Items.SPEEDLIMIT_LOW_120,Items.SPEEDLIMIT_LOW_125,Items.SPEEDLIMIT_LOW_130,Items.SPEEDLIMIT_LOW_135,Items.SPEEDLIMIT_LOW_140,Items.SPEEDLIMIT_LOW_145,Items.SPEEDLIMIT_LOW_150,Items.SPEEDLIMIT_LOW_SPECIAL};
+//			d=0;
+//			for(Item i:tab2){
+//				ItemNumberIDRegistry.INSTANCE.register(12200,d,i);d++;
+//			}
+//			tab2=LIFT_SPEEDLIMIT_HIGH_ITEMS;
+//			d=0;
+//			for(Item i:tab2){
+//				ItemNumberIDRegistry.INSTANCE.register(12201,d,i);d++;
+//			}
+//			ItemNumberIDRegistry.INSTANCE.register(12202,0,Items.IRON_PLATE);
+//			ItemNumberIDRegistry.INSTANCE.register(12203,0,Items.CIRCLE_BACKBOARD);
+//			tab2=HEIGHTLIMIT_ITEMS;d=0;for(Item i:tab2){
+//				ItemNumberIDRegistry.INSTANCE.register(12204,d,i);d++;
+//			}
+//			tab2=PROHIBITION_ITEMS;d=0;for(Item i:tab2){
+//				ItemNumberIDRegistry.INSTANCE.register(12205,d,i);d++;
+//			}
+//			tab2=HIGHWAY_HM_ITEMS;d=0;for(Item i:tab2){
+//				ItemNumberIDRegistry.INSTANCE.register(12206,d,i);d++;
+//			}
+//			ItemNumberIDRegistry.INSTANCE
+//			.register(12207,1,Items.WHITE_FLOOR_LINE_EIGHTH);
+//			ItemNumberIDRegistry.INSTANCE
+//			.register(12207,2,Items.YELLOW_FLOOR_LINE_EIGHTH);
+//		}catch(NoClassDefFoundError e){}
 	}
 }

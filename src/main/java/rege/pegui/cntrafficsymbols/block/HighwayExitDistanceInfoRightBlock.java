@@ -1,9 +1,10 @@
 package rege.pegui.cntrafficsymbols.block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
 import rege.pegui.cntrafficsymbols.be.HighwayExitDistanceInfoKmBlockEntity;
 public class HighwayExitDistanceInfoRightBlock extends WideBoardBlock
 implements net.minecraft.block.BlockEntityProvider{
@@ -16,12 +17,12 @@ implements net.minecraft.block.BlockEntityProvider{
 		if(w.isClient){
 			w.getBlockEntity(p,HighwayExitDistanceInfoKmBlockEntity.TYPE)
 			.ifPresent(be->{
-				if(itm.hasCustomName()){
+				if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 					try{be.setKm(Float.parseFloat(itm.getName().getString()));}
 					catch(NumberFormatException e){}
 				}
 			});
-		}else if(itm.hasCustomName()){
+		}else if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 			w.getBlockEntity(p,HighwayExitDistanceInfoKmBlockEntity.TYPE)
 			.ifPresent(be->{
 				try{be.setKm(Float.parseFloat(itm.getName().getString()));}
@@ -29,11 +30,15 @@ implements net.minecraft.block.BlockEntityProvider{
 			});
 		}
 	}
-	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
-		BlockEntity be=v.getBlockEntity(p);return(be instanceof
-		HighwayExitDistanceInfoKmBlockEntity)?new ItemStack(asItem(),st.get(rege
-		.pegui.cntrafficsymbols.struct.DoubleFaceFacing90.FACING).isSingle()?1:2)
-		.setCustomName(((HighwayExitDistanceInfoKmBlockEntity)be).getCustomName()):
-		super.getPickStack(v,p,st);
+	@Override public ItemStack getPickStack(net.minecraft.world.WorldView v,
+	BlockPos p,BlockState st){
+		if(v.getBlockEntity(p)instanceof HighwayExitDistanceInfoKmBlockEntity be){
+			ItemStack itm=new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols
+			.struct.DoubleFaceFacing90.FACING).isSingle()?1:2);
+			itm.applyComponentsFrom(ComponentMap.builder().add(DataComponentTypes
+			.CUSTOM_NAME,be.getCustomName()).build());
+			return itm;
+		}
+		return super.getPickStack(v,p,st);
 	}
 }

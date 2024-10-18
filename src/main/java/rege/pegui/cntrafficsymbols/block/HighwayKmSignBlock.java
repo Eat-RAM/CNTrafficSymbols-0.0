@@ -3,10 +3,12 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -104,7 +106,7 @@ implements net.minecraft.block.BlockEntityProvider{
 	);
 	public static final TagKey<net.minecraft.item.Item>LOCKS_HIGHWAY_KM_SIGN=
 	TagKey.of(net.minecraft.registry.RegistryKeys.ITEM,
-	new net.minecraft.util.Identifier("regedt32",
+	net.minecraft.util.Identifier.of("regedt32",
 	"cntrafficsymbols/locks_highway_km_sign"));
 	public HighwayKmSignBlock(Settings s){super(s);}
 	@Override public BlockEntity createBlockEntity(BlockPos p,
@@ -145,38 +147,44 @@ implements net.minecraft.block.BlockEntityProvider{
 	BlockState st,net.minecraft.entity.LivingEntity pl,ItemStack itm){
 		if(w.isClient){
 			w.getBlockEntity(p,HighwayKmSignBlockEntity.TYPE)
-			.ifPresent(be->be.setCustomName(itm.hasCustomName()?itm.getName():null));
-		}else if(itm.hasCustomName()){
+			.ifPresent(be->be.setCustomName(itm.getComponents()
+			.contains(DataComponentTypes.CUSTOM_NAME)?itm.getName():null));
+		}else if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 			w.getBlockEntity(p,HighwayKmSignBlockEntity.TYPE)
 			.ifPresent(be->be.setCustomName(itm.getName()));
 		}
 	}
-	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
-		BlockEntity be=v.getBlockEntity(p);
-		return (be instanceof HighwayKmSignBlockEntity)?
-		new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols.struct
-		.DoubleFaceFacing.FACING).isSingle()?1:2)
-		.setCustomName(((HighwayKmSignBlockEntity)be).getCustomName()):
-		super.getPickStack(v,p,st);
+	@Override public ItemStack getPickStack(net.minecraft.world.WorldView v,
+	BlockPos p,BlockState st){
+		if(v.getBlockEntity(p)instanceof HighwayKmSignBlockEntity be){
+			ItemStack itm=new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols
+			.struct.DoubleFaceFacing90.FACING).isSingle()?1:2);
+			itm.applyComponentsFrom(ComponentMap.builder().add(DataComponentTypes
+			.CUSTOM_NAME,be.getCustomName()).build());
+			return itm;
+		}
+		return super.getPickStack(v,p,st);
 	}
-	@Override public ActionResult onUse(BlockState st,World w,BlockPos p,
-	net.minecraft.entity.player.PlayerEntity pl,Hand hand,BlockHitResult hit){
+	@Override public ItemActionResult onUseWithItem(ItemStack itm,BlockState st,
+	World w,BlockPos p,net.minecraft.entity.player.PlayerEntity pl,Hand hand,
+	BlockHitResult hit){
 		BlockEntity ett=w.getBlockEntity(p);
-		if(!(ett instanceof HighwayKmSignBlockEntity))return ActionResult.PASS;
+		if(!(ett instanceof HighwayKmSignBlockEntity))return ItemActionResult
+		.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		HighwayKmSignBlockEntity sett=(HighwayKmSignBlockEntity)ett;
-		ItemStack itm=pl.getStackInHand(hand);
-		if(itm.isEmpty()){
+		ItemStack itm2=pl.getStackInHand(hand);
+		if(itm2.isEmpty()){
 			int km=sett.getKm();
 			if(km>=0){
 				byte digit=(byte)(hit.getSide().getHorizontal());
 				if(digit==(byte)-1)digit=(byte)4;
 				short incr=1;for(byte i=0;i<digit;i++)incr*=10;
-				sett.setKm((km+incr)%100000);return ActionResult.success(w.isClient);
+				sett.setKm((km+incr)%100000);return ItemActionResult.success(w.isClient);
 			}
-		}else if(itm.isIn(LOCKS_HIGHWAY_KM_SIGN)){
+		}else if(itm2.isIn(LOCKS_HIGHWAY_KM_SIGN)){
 			int km=sett.getKm();
-			if(km>=0){sett.setKm(~km);return ActionResult.success(w.isClient);}
+			if(km>=0){sett.setKm(~km);return ItemActionResult.success(w.isClient);}
 		}
-		return ActionResult.PASS;
+		return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 }

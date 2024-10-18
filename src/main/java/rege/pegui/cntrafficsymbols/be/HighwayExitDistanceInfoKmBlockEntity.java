@@ -1,6 +1,6 @@
 package rege.pegui.cntrafficsymbols.be;
+import net.minecraft.registry.RegistryWrapper;
 import org.jetbrains.annotations.Nullable;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
@@ -21,7 +21,7 @@ implements net.minecraft.util.Nameable{
 		9.6f,9.7f,9.8f,9.9f,10f
 	};
 	public static final BlockEntityType<HighwayExitDistanceInfoKmBlockEntity>TYPE=
-	FabricBlockEntityTypeBuilder.create(HighwayExitDistanceInfoKmBlockEntity::new,
+	BlockEntityType.Builder.create(HighwayExitDistanceInfoKmBlockEntity::new,
 	Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE,
 	Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP,
 	Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM,
@@ -41,12 +41,14 @@ implements net.minecraft.util.Nameable{
 		}
 		km=Math.round(v);
 	}
-	@Override protected void writeNbt(NbtCompound nbt){
-		super.writeNbt(nbt);nbt.putFloat("km",km);
-		nbt.putString("CustomName",Text.Serializer.toJson(getName()));//transient
+	@Override protected void writeNbt(NbtCompound nbt,RegistryWrapper
+	.WrapperLookup rl){
+		super.writeNbt(nbt,rl);nbt.putFloat("km",km);
+		nbt.putString("CustomName",new Text.Serializer(rl).serialize(getName(),null,
+		null).toString());//transient
 	}
-	@Override public void readNbt(NbtCompound nbt){
-		super.readNbt(nbt);
+	@Override public void readNbt(NbtCompound nbt,RegistryWrapper.WrapperLookup rl){
+		super.readNbt(nbt,rl);
 		setKm(nbt.contains("km",NbtElement.FLOAT_TYPE)?nbt.getFloat("km"):0f);
 	}
 	@Override public net.minecraft.network.packet.Packet
@@ -54,5 +56,6 @@ implements net.minecraft.util.Nameable{
 		return net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket
 		.create(this);
 	}
-	@Override public NbtCompound toInitialChunkDataNbt(){return createNbt();}
+	@Override public NbtCompound toInitialChunkDataNbt(RegistryWrapper
+	.WrapperLookup rl){return createNbt(rl);}
 }

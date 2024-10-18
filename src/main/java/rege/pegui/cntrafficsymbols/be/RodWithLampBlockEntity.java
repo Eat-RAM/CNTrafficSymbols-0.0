@@ -1,10 +1,9 @@
 package rege.pegui.cntrafficsymbols.be;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.text.Text;
+import net.minecraft.registry.RegistryWrapper;import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -12,7 +11,7 @@ import rege.pegui.cntrafficsymbols.SelfWork.Blocks;
 public class RodWithLampBlockEntity extends net.minecraft.block.entity
 .BlockEntity implements net.minecraft.util.Nameable{
 	public static final BlockEntityType<RodWithLampBlockEntity>TYPE=
-	FabricBlockEntityTypeBuilder.create(RodWithLampBlockEntity::new,Blocks
+	BlockEntityType.Builder.create(RodWithLampBlockEntity::new,Blocks
 	.WHITE_ROD_WITH_LAMP,Blocks.ORANGE_ROD_WITH_LAMP,Blocks.MAGENTA_ROD_WITH_LAMP,
 	Blocks.LIGHT_BLUE_ROD_WITH_LAMP,Blocks.YELLOW_ROD_WITH_LAMP,Blocks
 	.LIME_ROD_WITH_LAMP,Blocks.PINK_ROD_WITH_LAMP,Blocks.GRAY_ROD_WITH_LAMP,Blocks
@@ -45,14 +44,17 @@ public class RodWithLampBlockEntity extends net.minecraft.block.entity
 	public void setDuration(@Nullable Integer durationCode){
 		duration=(durationCode!=null)?canonicalizeDuration(durationCode):null;
 	}
-	@Override protected void writeNbt(NbtCompound nbt){
-		super.writeNbt(nbt);if(duration!=null){
+	@Override protected void writeNbt(NbtCompound nbt,RegistryWrapper
+	.WrapperLookup rl){
+		super.writeNbt(nbt,rl);if(duration!=null){
 			nbt.putInt("Duration",duration.intValue());
-			nbt.putString("CustomName",Text.Serializer.toJson(getName()));//transient
+			nbt.putString("CustomName",new Text.Serializer(rl).serialize(getName(),null,
+			null).toString());//transient
 		}
 	}
-	@Override public void readNbt(NbtCompound nbt){
-		super.readNbt(nbt);if(nbt.contains("Duration",NbtElement.INT_TYPE)){
+	@Override public void readNbt(NbtCompound nbt,RegistryWrapper
+	.WrapperLookup rl){
+		super.readNbt(nbt,rl);if(nbt.contains("Duration",NbtElement.INT_TYPE)){
 			int a=canonicalizeDuration(nbt.getInt("Duration"));
 			duration=isOverall(a)?OVERALL_DURATION:Integer.valueOf(a);
 		}

@@ -3,6 +3,8 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -68,18 +70,22 @@ implements net.minecraft.block.BlockEntityProvider{
 	BlockState st,net.minecraft.entity.LivingEntity pl,ItemStack itm){
 		if(w.isClient){
 			w.getBlockEntity(p,HighwayHmSignBlockEntity.TYPE)
-			.ifPresent(be->be.setCustomName(itm.hasCustomName()?itm.getName():null));
-		}else if(itm.hasCustomName()){
+			.ifPresent(be->be.setCustomName(itm.getComponents()
+			.contains(DataComponentTypes.CUSTOM_NAME)?itm.getName():null));
+		}else if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 			w.getBlockEntity(p,HighwayHmSignBlockEntity.TYPE)
 			.ifPresent(be->be.setCustomName(itm.getName()));
 		}
 	}
-	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
-		BlockEntity be=v.getBlockEntity(p);
-		return (be instanceof HighwayHmSignBlockEntity)?
-		new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols.struct
-		.DoubleFaceFacing.FACING).isSingle()?1:2)
-		.setCustomName(((HighwayHmSignBlockEntity)be).getCustomName()):
-		super.getPickStack(v,p,st);
+	@Override public ItemStack getPickStack(net.minecraft.world.WorldView v,
+	BlockPos p,BlockState st){
+		if(v.getBlockEntity(p)instanceof HighwayHmSignBlockEntity be){
+			ItemStack itm=new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols
+			.struct.DoubleFaceFacing90.FACING).isSingle()?1:2);
+			itm.applyComponentsFrom(ComponentMap.builder().add(DataComponentTypes
+			.CUSTOM_NAME,be.getCustomName()).build());
+			return itm;
+		}
+		return super.getPickStack(v,p,st);
 	}
 }

@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_speedlimit_high_special": {
+      "conditions": {"items": [{"items": ["regedt32:cntrafficsymbols/speedlimit_high_special"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipe": "regedt32:cntrafficsymbols/heightlimit_1d4"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_speedlimit_high_special"
+    ]
+  ],
+  "rewards": {"recipes": ["regedt32:cntrafficsymbols/heightlimit_1d4"]},
+  "sends_telemetry_event": false
+}

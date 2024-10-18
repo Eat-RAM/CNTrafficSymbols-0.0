@@ -1,0 +1,9 @@
+{
+  "values": [
+    "regedt32:cntrafficsymbols/prohibition",
+    "regedt32:cntrafficsymbols/no_u_turn",
+    "regedt32:cntrafficsymbols/no_left_turn",
+    "regedt32:cntrafficsymbols/no_right_turn",
+    "regedt32:cntrafficsymbols/no_parking"
+  ]
+}

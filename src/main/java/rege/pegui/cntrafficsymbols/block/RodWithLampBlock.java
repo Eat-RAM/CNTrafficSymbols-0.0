@@ -1,17 +1,19 @@
 package rege.pegui.cntrafficsymbols.block;
 import java.util.List;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ItemActionResult;import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import rege.pegui.cntrafficsymbols.be.RodWithLampBlockEntity;
 import rege.pegui.cntrafficsymbols.struct.FacePosition9;
@@ -53,29 +55,37 @@ implements ManagedWaterloggable{
 	.with(COLOR,LightVisualColor.WHITE);
 	if(getWaterloggedProperty())st=st.with(WATERLOGGED,false);
 	setDefaultState(st);}
+	@Override protected MapCodec<?extends RodWithLampBlock>getCodec(){
+		return createCodec(RodWithLampBlock::new);
+	}
 	@Override public BlockEntity createBlockEntity(BlockPos p,
 	BlockState st){return new RodWithLampBlockEntity(p,st);}
 	@Override public void
 	onPlaced(World w,BlockPos p,BlockState st,LivingEntity pl,ItemStack itm){
 		if(w.isClient){
 			w.getBlockEntity(p,RodWithLampBlockEntity.TYPE).ifPresent(be->{
-				if(itm.hasCustomName()){
+				if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 					try{be.setDuration(Integer.valueOf(itm.getName().getString()));}
 					catch(NumberFormatException e){}
 				}
 			});
-		}else if(itm.hasCustomName()){
+		}else if(itm.getComponents().contains(DataComponentTypes.CUSTOM_NAME)){
 			w.getBlockEntity(p,RodWithLampBlockEntity.TYPE).ifPresent(be->{
 				try{be.setDuration(Integer.valueOf(itm.getName().getString()));}
 				catch(NumberFormatException e){}
 			});
 		}
 	}
-	@Override public ItemStack getPickStack(BlockView v,BlockPos p,BlockState st){
-		BlockEntity be=v.getBlockEntity(p);return(be instanceof
-		RodWithLampBlockEntity)?new ItemStack(asItem())
-		.setCustomName(((RodWithLampBlockEntity)be).getCustomName()):super
-		.getPickStack(v,p,st);
+	@Override public ItemStack getPickStack(net.minecraft.world.WorldView v,
+	BlockPos p,BlockState st){
+		if(v.getBlockEntity(p)instanceof RodWithLampBlockEntity be){
+			ItemStack itm=new ItemStack(this.asItem(),st.get(rege.pegui.cntrafficsymbols
+			.struct.DoubleFaceFacing90.FACING).isSingle()?1:2);
+			itm.applyComponentsFrom(ComponentMap.builder().add(DataComponentTypes
+			.CUSTOM_NAME,be.getCustomName()).build());
+			return itm;
+		}
+		return super.getPickStack(v,p,st);
 	}
 	@Override protected void appendProperties(net.minecraft.state.StateManager
 	.Builder<net.minecraft.block.Block,BlockState>bd){
@@ -274,14 +284,14 @@ implements ManagedWaterloggable{
 		.WATER);
 		return st.with(FacePosition9.POSITION,rp);
 	}
-	@Override public ActionResult onUse(BlockState st,World w,BlockPos p,
-	net.minecraft.entity.player.PlayerEntity pl,net.minecraft.util.Hand hand,
-	net.minecraft.util.hit.BlockHitResult hit){
+	@Override public ItemActionResult onUseWithItem(ItemStack itm,BlockState st,
+	World w,BlockPos p,net.minecraft.entity.player.PlayerEntity pl,net.minecraft
+	.util.Hand hand,net.minecraft.util.hit.BlockHitResult hit){
 		if(pl.getStackInHand(hand).isEmpty()){
 			w.setBlockState(p,st.cycle(COLOR),3);
-			return ActionResult.success(w.isClient);
+			return ItemActionResult.success(w.isClient);
 		}
-		return ActionResult.PASS;
+		return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 	@Override public BlockState getStateForNeighborUpdate(BlockState st,net
 	.minecraft.util.math.Direction d,BlockState nst,net.minecraft.world
