@@ -77,7 +77,7 @@ public class Main implements net.fabricmc.api.ModInitializer{
 				new String[]{"false","no","never"},new String[]{"null","auto"});
 				LOGGER
 				.info("Overriding property value hardcoded_barricades_1_loot_enabled with "
-				+Objects.toString(hardcodedBarricades1LootEnabled));
+				+hardcodedBarricades1LootEnabled);
 			}catch(IllegalArgumentException e){
 				LOGGER.warn(
 					"Invalid config property value of hardcoded_barricades_1_loot_enabled: "+
