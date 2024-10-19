@@ -48,7 +48,7 @@ implements net.minecraft.client.render.block.entity.BlockEntityRenderer
 		matrices.push();setTextAngles(st,matrices,front,TEXT_OFFSET);
 		int i=16777215;int j=4*lineHeight/2;
 		net.minecraft.text.OrderedText odt=tx.asOrderedText();
-		tr.draw(odt,(float)(-tr.getWidth(odt)/1.75),(float)j,i,false,matrices.peek()
+		tr.draw(odt,(float)(6-tr.getWidth(odt)/1.25),(float)j,i,false,matrices.peek()
 		.getPositionMatrix(),vcs,TextRenderer.TextLayerType.POLYGON_OFFSET,0,light);
 		matrices.pop();
 	}

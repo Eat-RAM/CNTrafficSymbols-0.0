@@ -9,7 +9,7 @@ rege.pegui.cntrafficsymbols.Main.getHardcodedFloorLineEighthsLootEnabled;
 import static rege.pegui.cntrafficsymbols.Main.getWaterloggedProperty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -19,9 +19,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.Nullable;import rege.pegui.cntrafficsymbols.state.StateOptimizable;
+import org.jetbrains.annotations.Nullable;
 public class FloorLineEighthBlock extends Block
-implements ManagedWaterloggable,StateOptimizable{
+implements ManagedWaterloggable,rege.pegui.cntrafficsymbols.state
+.StateOptimizable{
 	public static final IntProperty SLICES160=IntProperty.of("slices160",0,40);
 	public static final IntProperty SLICES16=IntProperty.of("slices16",0,9);
 	public static final IntProperty SLICES=IntProperty.of("slices",0,15);
@@ -257,5 +258,14 @@ implements ManagedWaterloggable,StateOptimizable{
 	public@Nullable Item setItm2(@Nullable Item v){
 		Item r=itm2;if(r==null)itm2=v;
 		return v;
+	}
+	@Override public float calcBlockBreakingDelta(BlockState st,PlayerEntity
+	pl,BlockView v,BlockPos p){
+		int pow=to3Pow(st);byte s=0;for(byte i=0;i<(byte)8;i++){
+			if(pow%3!=0)s++;
+			pow/=3;
+		}
+		return(s>1)?super.calcBlockBreakingDelta(st,pl,v,p)/((s+1)*0.5f):super
+		.calcBlockBreakingDelta(st,pl,v,p);
 	}
 }

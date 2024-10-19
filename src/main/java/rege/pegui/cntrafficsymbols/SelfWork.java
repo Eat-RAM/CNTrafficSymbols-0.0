@@ -695,7 +695,7 @@ public class SelfWork{
 		.mapColor(st->((getWaterloggedProperty()&&st.get(WATERLOGGED).booleanValue())
 		?MapColor.CYAN:MapColor.GREEN)));
 		public static final FloorLineEighthBlock FLOOR_LINE_EIGHTHS=
-		new FloorLineEighthBlock(Block.Settings.create().strength(4f,4f));
+		new FloorLineEighthBlock(Block.Settings.create().strength(2f,4f));
 		public static final Block HIGHWAY_KM=
 		new rege.pegui.cntrafficsymbols.block.HighwayKmSignBlock(Block.Settings
 		.create().nonOpaque().strength(7f,28f).mapColor(st->

@@ -42,6 +42,16 @@ public class Main implements net.fabricmc.api.ModInitializer{
 		Boolean r=hardcodedBarricades1LootEnabled;
 		hardcodedBarricades1LootEnabled=newVal;return r;
 	}
+	public static@NotNull HashSet<@NotNull Class<?>>
+	setBlockstateOptimizations(@NotNull Iterable<@NotNull Class<?>>newVal){
+		HashSet<Class<?>>r=new HashSet<>(blockstateOptimizations);
+		blockstateOptimizations.clear();
+		for(Class<?>i:newVal)blockstateOptimizations.add(i);
+		return r;
+	}
+	public static void addDefaultBlockstateOptimizations(){
+		blockstateOptimizations.add(FloorLineEighthBlock.class);
+	}
 	public static void readProperties()throws IOException{
 		Properties ppts=new Properties();
 		FileInputStream f=new FileInputStream("config/cntrafficsymbols.properties");
@@ -97,21 +107,21 @@ public class Main implements net.fabricmc.api.ModInitializer{
 				+blockstateOptimizations);
 			}catch(ClassNotFoundException e){
 				blockstateOptimizations.clear();
-				blockstateOptimizations.add(FloorLineEighthBlock.class);
+				addDefaultBlockstateOptimizations();
 				LOGGER.warn(
 					"Invalid config property value of blockstate_optimizations: "+
 					e.getMessage()
 				);
 			}
 		}else{
-			blockstateOptimizations.add(FloorLineEighthBlock.class);
+			addDefaultBlockstateOptimizations();
 			LOGGER.info("No property blockstate_optimizations found. Use defalt value \"rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock\".");
 		}
 	}
 	@Override public void onInitialize(){
 		try{readProperties();}
 		catch(java.io.FileNotFoundException e){
-			blockstateOptimizations.add(FloorLineEighthBlock.class);
+			addDefaultBlockstateOptimizations();
 			LOGGER.info("No cntrafficsymbols.properties found. Use default config.");
 		}catch(IOException e){e.printStackTrace();}
 		SelfWork.doit();
