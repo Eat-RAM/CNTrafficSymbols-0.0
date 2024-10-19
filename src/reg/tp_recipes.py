@@ -1,8 +1,10 @@
 EX=b"""{
   "type": "minecraft:stonecutting",
-  "count": 10,
   "ingredient": {"item": "minecraft:%s_concrete"},
-  "result": "regedt32:cntrafficsymbols/%s_%s%d_tp"
+  "result": {
+    "id": "regedt32:cntrafficsymbols/%s_%s%d_tp",
+    "count": 10
+  }
 }
 """.replace(b"\n",b"\r\n")
 COLORS=("white","orange","magenta","light_blue","yellow","lime","pink","gray",

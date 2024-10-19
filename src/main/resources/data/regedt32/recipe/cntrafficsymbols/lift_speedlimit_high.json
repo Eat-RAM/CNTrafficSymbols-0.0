@@ -11,6 +11,6 @@
     "E",
     "B"
   ],
-  "result": {"item": "regedt32:cntrafficsymbols/lift_speedlimit_high_special"},
+  "result": {"id": "regedt32:cntrafficsymbols/lift_speedlimit_high_special"},
   "show_notification": true
 }

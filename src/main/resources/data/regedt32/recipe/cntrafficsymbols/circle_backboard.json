@@ -10,6 +10,6 @@
     "III",
     " L "
   ],
-  "result": {"item": "regedt32:cntrafficsymbols/circle_backboard"},
+  "result": {"id": "regedt32:cntrafficsymbols/circle_backboard"},
   "show_notification": true
 }

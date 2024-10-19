@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:iron_ingot"
-  },
-  "result": "regedt32:cntrafficsymbols/iron_plate"
+  "ingredient": {"item": "minecraft:iron_ingot"},
+  "result": {
+    "id": "regedt32:cntrafficsymbols/iron_plate",
+    "count": 2
+  }
 }

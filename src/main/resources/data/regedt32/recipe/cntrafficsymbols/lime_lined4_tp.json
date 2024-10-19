@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 10,
   "ingredient": {"item": "minecraft:lime_concrete"},
-  "result": "regedt32:cntrafficsymbols/lime_lined4_tp"
+  "result": {
+    "id": "regedt32:cntrafficsymbols/lime_lined4_tp",
+    "count": 10
+  }
 }

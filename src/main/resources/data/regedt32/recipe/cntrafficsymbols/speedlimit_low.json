@@ -11,6 +11,6 @@
     "E",
     "B"
   ],
-  "result": {"item": "regedt32:cntrafficsymbols/speedlimit_low_special"},
+  "result": {"id": "regedt32:cntrafficsymbols/speedlimit_low_special"},
   "show_notification": true
 }

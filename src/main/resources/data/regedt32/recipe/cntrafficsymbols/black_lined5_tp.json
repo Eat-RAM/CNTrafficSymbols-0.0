@@ -1,6 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 10,
   "ingredient": {"item": "minecraft:black_concrete"},
-  "result": "regedt32:cntrafficsymbols/black_lined5_tp"
+  "result": {
+    "id": "regedt32:cntrafficsymbols/black_lined5_tp",
+    "count": 10
+  }
 }
