@@ -61,7 +61,7 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
     @Override
     public Text getName() {
         return (this.duration == null) ? Text.translatable(
-            "block.regedt32.cntrafficsymbols.rod_with_lamp"
+            "block.cntrafficsymbols_0d0.rod_with_lamp"
         ) : Text.literal(this.duration.toString());
     }
 

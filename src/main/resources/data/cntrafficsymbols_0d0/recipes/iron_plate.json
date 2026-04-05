@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 18,
   "ingredient": {"item": "minecraft:iron_block"},
-  "result": {
-    "id": "cntrafficsymbols_0d0:iron_plate",
-    "count": 18
-  }
+  "result": "cntrafficsymbols_0d0:iron_plate"
 }

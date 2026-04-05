@@ -30,7 +30,7 @@ public class HighwayKmSignBlockEntity
     @Override
     public Text getName() {
         return (this.customName == null) ?
-               Text.translatable("block.regedt32.cntrafficsymbols.highway_km")
+               Text.translatable("block.cntrafficsymbols_0d0.highway_km")
                : this.customName;
     }
 

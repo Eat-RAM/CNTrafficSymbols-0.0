@@ -32,7 +32,7 @@ public class HighwayHmSignBlockEntity extends BlockEntity implements Nameable {
     @Override
     public Text getName() {
         return (this.customName == null) ?
-               Text.translatable("block.regedt32.cntrafficsymbols.highway_hm")
+               Text.translatable("block.cntrafficsymbols_0d0.highway_hm")
                : this.customName;
     }
 

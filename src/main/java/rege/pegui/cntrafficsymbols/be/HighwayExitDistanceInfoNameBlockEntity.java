@@ -38,7 +38,7 @@ implements Nameable {
     @Override
     public Text getName() {
         return (this.customName == null) ? Text.translatable(
-            "block.regedt32.cntrafficsymbols.highway_exit_distance_info_name"
+            "block.cntrafficsymbols_0d0.highway_exit_distance_info_name"
         ) : this.customName;
     }
 

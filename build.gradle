@@ -80,9 +80,9 @@ jar {
 }
 
 task extraJar(type: Jar) {
-	from sourceSets.main.output
+	from zipTree(remapJar.archiveFile)
 	from extraResourcesPath
-	dependsOn compileJava
+	dependsOn remapJar
 	archiveClassifier = 'full'
 }
 
