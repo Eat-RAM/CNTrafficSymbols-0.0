@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 10,
   "ingredient": {"item": "minecraft:magenta_concrete"},
-  "result": {
-    "id": "regedt32:cntrafficsymbols/magenta_lined5_tp",
-    "count": 10
-  }
+  "result": "regedt32:cntrafficsymbols/magenta_lined5_tp"
 }

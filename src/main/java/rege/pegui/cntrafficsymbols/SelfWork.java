@@ -1005,28 +1005,17 @@ public class SelfWork {
                 public VoxelShape getOutlineShape(BlockState st, net.minecraft
                     .world.BlockView v, BlockPos p, net.minecraft.block.ShapeContext c) {
                     switch (st.get(DoubleFaceFacing.FACING).id) {
-                        case 0:
-                            return WideBoardBlock.SHAPE0;
-                        case 4:
-                            return WideBoardBlock.SHAPE1;
-                        case 8:
-                            return WideBoardBlock.SHAPE2;
-                        case 12:
-                            return WideBoardBlock.SHAPE3;
-                        case 16:
-                            return WideBoardBlock.SHAPE4;
-                        case 20:
-                            return WideBoardBlock.SHAPE5;
-                        case 24:
-                            return WideBoardBlock.SHAPE6;
-                        case 25:
-                            return WideBoardBlock.SHAPE7;
-                        case 26:
-                            return WideBoardBlock.SHAPE8;
-                        case 27:
-                            return WideBoardBlock.SHAPE9;
-                        default:
-                            return SHAPE_DEFAULT;
+                        case 0: return WideBoardBlock.SHAPE0;
+                        case 4: return WideBoardBlock.SHAPE1;
+                        case 8: return WideBoardBlock.SHAPE2;
+                        case 12: return WideBoardBlock.SHAPE3;
+                        case 16: return WideBoardBlock.SHAPE4;
+                        case 20: return WideBoardBlock.SHAPE5;
+                        case 24: return WideBoardBlock.SHAPE6;
+                        case 25: return WideBoardBlock.SHAPE7;
+                        case 26: return WideBoardBlock.SHAPE8;
+                        case 27: return WideBoardBlock.SHAPE9;
+                        default: return SHAPE_DEFAULT;
                     }
                 }
             };
@@ -2791,10 +2780,10 @@ public class SelfWork {
         for (int i = 1; i < 101; i++) {
             Registry.register(Registries.BLOCK, new Identifier("regedt32",
                                                                "cntrafficsymbols/heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
-                                                                                                                  Integer.toString(i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_BLOCKS[i]);
+                                                                                                                  (i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_BLOCKS[i]);
             Registry.register(Registries.ITEM, new Identifier("regedt32",
                                                               "cntrafficsymbols/heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
-                                                                                                                 Integer.toString(i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_ITEMS[i]);
+                                                                                                                 (i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_ITEMS[i]);
         }
         Registry.register(Registries.BLOCK, new Identifier("regedt32",
                                                            "cntrafficsymbols/prohibition"), Blocks.PROHIBITION);
@@ -2808,10 +2797,10 @@ public class SelfWork {
                                                            "cntrafficsymbols/no_parking"), Blocks.NO_PARKING);
         for (int i = 0; i < 9; i++) {
             Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/highway_" + Integer.toString(i + 1) + "hm"),
+                                                               "cntrafficsymbols/highway_" + (i + 1) + "hm"),
                               HIGHWAY_HM_BLOCKS[i]);
             Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/highway_" + Integer.toString(i + 1) + "hm"),
+                                                              "cntrafficsymbols/highway_" + (i + 1) + "hm"),
                               HIGHWAY_HM_ITEMS[i]);
         }
         Blocks.FLOOR_LINE_EIGHTHS.setItm1(Items.WHITE_FLOOR_LINE_EIGHTH);

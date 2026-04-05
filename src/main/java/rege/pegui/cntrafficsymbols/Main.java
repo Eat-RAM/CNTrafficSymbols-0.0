@@ -3,10 +3,10 @@ package rege.pegui.cntrafficsymbols;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Properties;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -16,23 +16,30 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class Main implements ModInitializer {
     public static final Logger LOGGER = getLogger("cntrafficsymbols_0d0");
-    private static @Nullable Boolean hardcodedFloorLineEighthsLootEnabled = null;
+    private static @Nullable Boolean hardcodedFloorLineEighthsLootEnabled =
+    null;
     private static boolean waterloggedProperty = true;
     private static @Nullable Boolean hardcodedBarricades1LootEnabled = null;
     private static final @NotNull HashSet<@NotNull Class<?>>
-        blockstateOptimizations = new HashSet<>();
+    blockstateOptimizations = new HashSet<>();
 
     public static @Nullable Boolean parseNullableBoolean(
         String s, String[] forTrue, String[] forFalse, String[] forNull
     ) throws IllegalArgumentException {
         for (String i : forTrue) {
-            if (s.equals(i)) return Boolean.TRUE;
+            if (s.equals(i)) {
+                return Boolean.TRUE;
+            }
         }
         for (String i : forFalse) {
-            if (s.equals(i)) return Boolean.FALSE;
+            if (s.equals(i)) {
+                return Boolean.FALSE;
+            }
         }
         for (String i : forNull) {
-            if (s.equals(i)) return null;
+            if (s.equals(i)) {
+                return null;
+            }
         }
         throw new IllegalArgumentException(s);
     }
@@ -71,25 +78,34 @@ public class Main implements ModInitializer {
     setBlockstateOptimizations(@NotNull Iterable<@NotNull Class<?>> newVal) {
         HashSet<Class<?>> r = new HashSet<>(blockstateOptimizations);
         blockstateOptimizations.clear();
-        for (Class<?> i : newVal) blockstateOptimizations.add(i);
+        for (Class<?> i : newVal) {
+            blockstateOptimizations.add(i);
+        }
         return r;
     }
 
     public static void addDefaultBlockstateOptimizations() {
-        blockstateOptimizations.add(FloorLineEighthBlock.class);
+        if (!FabricLoader.getInstance().isModLoaded("ferritecore")) {
+            blockstateOptimizations.add(FloorLineEighthBlock.class);
+        }
     }
 
     public static void readProperties() throws IOException {
         Properties ppts = new Properties();
-        FileInputStream f = new FileInputStream("config/cntrafficsymbols_0d0.properties");
+        FileInputStream f =
+        new FileInputStream("config/cntrafficsymbols_0d0.properties");
         ppts.load(f);
         if (ppts.containsKey("hardcoded_floor_line_eighths_loot_enabled")) {
             try {
-                hardcodedFloorLineEighthsLootEnabled = parseNullableBoolean(ppts
-                                                                                .getProperty("hardcoded_floor_line_eighths_loot_enabled").strip()
-                                                                                .toLowerCase(), new String[]{"true", "yes", "always"},
-                                                                            new String[]{"false", "no", "never"}, new String[]{"null", "auto"});
-                LOGGER.info("Overriding property value hardcoded_floor_line_eighths_loot_enabled with " + Objects.toString(hardcodedFloorLineEighthsLootEnabled));
+                hardcodedFloorLineEighthsLootEnabled = parseNullableBoolean(
+                    ppts.getProperty(
+                        "hardcoded_floor_line_eighths_loot_enabled"
+                    ).strip().toLowerCase(),
+                    new String[]{"true", "yes", "always"},
+                    new String[]{"false", "no", "never"},
+                    new String[]{"null", "auto"}
+                );
+                LOGGER.info("Overriding property value hardcoded_floor_line_eighths_loot_enabled with " + hardcodedFloorLineEighthsLootEnabled);
             } catch (IllegalArgumentException e) {
                 LOGGER.warn("Invalid config property value of hardcoded_floor_line_eighths_loot_enabled: " + e.getMessage());
             }
@@ -97,8 +113,9 @@ public class Main implements ModInitializer {
             LOGGER.info("No property hardcoded_floor_line_eighths_loot_enabled found. Use defalt value \"auto\".");
         }
         if (ppts.containsKey("waterlogged_property")) {
-            waterloggedProperty = Boolean.parseBoolean(ppts
-                                                           .getProperty("waterlogged_property").strip().toUpperCase());
+            waterloggedProperty = Boolean.parseBoolean(
+                ppts.getProperty("waterlogged_property").strip().toUpperCase()
+            );
             LOGGER.info("Overriding property value waterlogged_property with "
                         + waterloggedProperty);
         } else {
@@ -108,13 +125,14 @@ public class Main implements ModInitializer {
         }
         if (ppts.containsKey("hardcoded_barricades_1_loot_enabled")) {
             try {
-                hardcodedBarricades1LootEnabled = parseNullableBoolean(ppts
-                                                                           .getProperty("hardcoded_barricades_1_loot_enabled").strip()
-                                                                           .toLowerCase(), new String[]{"true", "yes", "always"},
-                                                                       new String[]{"false", "no", "never"}, new String[]{"null", "auto"});
-                LOGGER
-                    .info("Overriding property value hardcoded_barricades_1_loot_enabled with "
-                          + hardcodedBarricades1LootEnabled);
+                hardcodedBarricades1LootEnabled = parseNullableBoolean(
+                    ppts.getProperty("hardcoded_barricades_1_loot_enabled")
+                    .strip().toLowerCase(),
+                    new String[]{"true", "yes", "always"},
+                    new String[]{"false", "no", "never"},
+                    new String[]{"null", "auto"}
+                );
+                LOGGER.info("Overriding property value hardcoded_barricades_1_loot_enabled with " + hardcodedBarricades1LootEnabled);
             } catch (IllegalArgumentException e) {
                 LOGGER.warn(
                     "Invalid config property value of hardcoded_barricades_1_loot_enabled: " +
@@ -126,12 +144,14 @@ public class Main implements ModInitializer {
         }
         if (ppts.containsKey("blockstate_optimizations")) {
             try {
-                for (String i : ppts
-                    .getProperty("blockstate_optimizations").strip().split(";")) {
+                for (String i : ppts.getProperty("blockstate_optimizations")
+                                .strip().split(";")) {
                     blockstateOptimizations.add(Class.forName(i));
                 }
-                LOGGER.info("Overriding property value blockstate_optimizations with "
-                            + blockstateOptimizations);
+                LOGGER.info(
+                    "Overriding property value blockstate_optimizations with "
+                    + blockstateOptimizations
+                );
             } catch (ClassNotFoundException e) {
                 blockstateOptimizations.clear();
                 addDefaultBlockstateOptimizations();
@@ -152,7 +172,9 @@ public class Main implements ModInitializer {
             readProperties();
         } catch (java.io.FileNotFoundException e) {
             addDefaultBlockstateOptimizations();
-            LOGGER.info("No cntrafficsymbols_0d0.properties found. Use default config.");
+            LOGGER.info(
+                "No cntrafficsymbols_0d0.properties found. Use default config."
+            );
         } catch (IOException e) {
             e.printStackTrace();
         }

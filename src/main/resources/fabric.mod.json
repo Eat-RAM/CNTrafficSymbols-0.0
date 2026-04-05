@@ -26,7 +26,11 @@
       }
     }
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0",
+    "issues": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0/issues",
+    "sources": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0/tree/1.20.4"
+  },
   "license": "GPL-v2-or-later",
   "icon": "assets/regedt32/textures/icon/cntrafficsymbols.png",
   "environment": "*",

@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 10,
   "ingredient": {"item": "minecraft:light_gray_concrete"},
-  "result": {
-    "id": "regedt32:cntrafficsymbols/light_gray_dotted9_tp",
-    "count": 10
-  }
+  "result": "regedt32:cntrafficsymbols/light_gray_dotted9_tp"
 }

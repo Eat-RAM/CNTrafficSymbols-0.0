@@ -472,4 +472,9 @@ implements ManagedWaterloggable, StateOptimizable {
     public boolean getWaterloggedProperty() {
         return Main.getWaterloggedProperty();
     }
+
+    @Override
+    public boolean stateOptimizationEnabled() {
+        return Main.getBlockstateOptimizations().contains(this.getClass());
+    }
 }
