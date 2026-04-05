@@ -1,5 +1,6 @@
 {
   "values": [
+    "#regedt32:cntrafficsymbols/locks_highway_km_sign",
     "regedt32:cntrafficsymbols/iron_plate",
     "minecraft:honeycomb"
   ]

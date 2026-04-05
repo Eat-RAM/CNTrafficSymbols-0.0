@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"cntrafficsymbols" {
+		"cntrafficsymbols_0.0" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -46,6 +46,7 @@ dependencies {
 	//modImplementation files("nbtutils-0.0.1a1.jar")
 	//modImplementation files("nbtutils_bridge_mc-0.0.1-a1.jar")
 	//modImplementation files("number_id_revival-0.0.1-a1.jar")
+	modImplementation files("cntrafficsymbols_core-0.0.2-b2.jar")
 }
 
 processResources {
@@ -57,7 +58,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 16
+	it.options.release = 17
 }
 
 java {
@@ -66,8 +67,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_16
-	targetCompatibility = JavaVersion.VERSION_16
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {

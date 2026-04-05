@@ -1,67 +1,107 @@
 package rege.pegui.cntrafficsymbols.be;
+
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.registry.RegistryWrapper;import net.minecraft.text.Text;
+import net.minecraft.text.Text;
+import net.minecraft.util.Nameable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import rege.pegui.cntrafficsymbols.SelfWork.Blocks;
-public class RodWithLampBlockEntity extends net.minecraft.block.entity
-.BlockEntity implements net.minecraft.util.Nameable{
-	public static final BlockEntityType<RodWithLampBlockEntity>TYPE=
-	BlockEntityType.Builder.create(RodWithLampBlockEntity::new,Blocks
-	.WHITE_ROD_WITH_LAMP,Blocks.ORANGE_ROD_WITH_LAMP,Blocks.MAGENTA_ROD_WITH_LAMP,
-	Blocks.LIGHT_BLUE_ROD_WITH_LAMP,Blocks.YELLOW_ROD_WITH_LAMP,Blocks
-	.LIME_ROD_WITH_LAMP,Blocks.PINK_ROD_WITH_LAMP,Blocks.GRAY_ROD_WITH_LAMP,Blocks
-	.LIGHT_GRAY_ROD_WITH_LAMP,Blocks.CYAN_ROD_WITH_LAMP,Blocks
-	.PURPLE_ROD_WITH_LAMP,Blocks.BLUE_ROD_WITH_LAMP,Blocks.BROWN_ROD_WITH_LAMP,
-	Blocks.GREEN_ROD_WITH_LAMP,Blocks.RED_ROD_WITH_LAMP,Blocks
-	.BLACK_ROD_WITH_LAMP).build();
-	public static final Integer OVERALL_DURATION=Integer.valueOf(23999);
-	public static int canonicalizeDuration(int duration){
-		return((((duration&0b111111111111111000000000000000)>>15)%24000)<<15)|
-		((duration&0b111111111111111)%24000);
-	}
-	public static boolean isOverall(int duration){
-		duration=canonicalizeDuration(duration);
-		return duration==23999||((duration>>15)-(duration&0b111111111111111))==1;
-	}
-	public static boolean shouldLit(int duration,short daytime){
-		if(isOverall(duration))return true;
-		duration=canonicalizeDuration(duration);daytime%=24000;
-		int start=duration>>15;int end=duration&0b111111111111111;return(end>=start)?
-		start<=daytime&&daytime<=end:(daytime>=start||daytime<=end);
-	}
-	public RodWithLampBlockEntity(BlockPos p,BlockState st){super(TYPE,p,st);}
-	@Nullable private Integer duration;
-	@Override public Text getName(){return(duration==null)?Text
-	.translatable("block.regedt32.cntrafficsymbols.rod_with_lamp"):Text
- .literal(duration.toString());}
-	@Override @Nullable public Text getCustomName(){return(duration!=null)?Text
-	.literal(duration.toString()):null;}
-	public void setDuration(@Nullable Integer durationCode){
-		duration=(durationCode!=null)?canonicalizeDuration(durationCode):null;
-	}
-	@Override protected void writeNbt(NbtCompound nbt,RegistryWrapper
-	.WrapperLookup rl){
-		super.writeNbt(nbt,rl);if(duration!=null){
-			nbt.putInt("Duration",duration.intValue());
-			nbt.putString("CustomName",new Text.Serializer(rl).serialize(getName(),null,
-			null).toString());//transient
-		}
-	}
-	@Override public void readNbt(NbtCompound nbt,RegistryWrapper
-	.WrapperLookup rl){
-		super.readNbt(nbt,rl);if(nbt.contains("Duration",NbtElement.INT_TYPE)){
-			int a=canonicalizeDuration(nbt.getInt("Duration"));
-			duration=isOverall(a)?OVERALL_DURATION:Integer.valueOf(a);
-		}
-	}
-	public void tick(World w,BlockPos p,BlockState st){
-		w.setBlockState(p,st.withIfExists(net.minecraft.state.property.Properties
-		.LIT,duration!=null&&shouldLit(duration.intValue(),(short)(w.getTimeOfDay()
-		%24000))),3);
-	}
+
+import static net.minecraft.state.property.Properties.LIT;
+
+public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
+    public static final BlockEntityType<RodWithLampBlockEntity> TYPE =
+    BlockEntityType.Builder.create(
+        RodWithLampBlockEntity::new, Blocks.WHITE_ROD_WITH_LAMP,
+        Blocks.ORANGE_ROD_WITH_LAMP, Blocks.MAGENTA_ROD_WITH_LAMP,
+        Blocks.LIGHT_BLUE_ROD_WITH_LAMP, Blocks.YELLOW_ROD_WITH_LAMP,
+        Blocks.LIME_ROD_WITH_LAMP, Blocks.PINK_ROD_WITH_LAMP,
+        Blocks.GRAY_ROD_WITH_LAMP, Blocks.LIGHT_GRAY_ROD_WITH_LAMP,
+        Blocks.CYAN_ROD_WITH_LAMP, Blocks.PURPLE_ROD_WITH_LAMP,
+        Blocks.BLUE_ROD_WITH_LAMP, Blocks.BROWN_ROD_WITH_LAMP,
+        Blocks.GREEN_ROD_WITH_LAMP, Blocks.RED_ROD_WITH_LAMP,
+        Blocks.BLACK_ROD_WITH_LAMP
+    ).build();
+    public static final Integer OVERALL_DURATION = Integer.valueOf(23999);
+
+    public static int canonicalizeDuration(int duration) {
+        return ((((duration & 0b111111111111111000000000000000) >> 15) % 24000)
+                << 15) | ((duration & 0b111111111111111) % 24000);
+    }
+
+    public static boolean isOverall(int duration) {
+        duration = canonicalizeDuration(duration);
+        return duration == 23999 ||
+               ((duration >> 15) - (duration & 0b111111111111111)) == 1;
+    }
+
+    public static boolean shouldLit(int duration, short daytime) {
+        if (isOverall(duration)) {
+            return true;
+        }
+        duration = canonicalizeDuration(duration);
+        daytime %= 24000;
+        int start = duration >> 15;
+        int end = duration & 0b111111111111111;
+        return (end >= start) ? start <= daytime && daytime <= end :
+               (daytime >= start || daytime <= end);
+    }
+
+    public RodWithLampBlockEntity(BlockPos p, BlockState st) {
+        super(TYPE, p, st);
+    }
+
+    private @Nullable Integer duration;
+
+    @Override
+    public Text getName() {
+        return (this.duration == null) ? Text.translatable(
+            "block.regedt32.cntrafficsymbols.rod_with_lamp"
+        ) : Text.literal(this.duration.toString());
+    }
+
+    @Override
+    public @Nullable Text getCustomName() {
+        return (this.duration != null) ?
+               Text.literal(this.duration.toString()) : null;
+    }
+
+    public void setDuration(@Nullable Integer durationCode) {
+        this.duration = (durationCode != null) ?
+                        canonicalizeDuration(durationCode) : null;
+    }
+
+    @Override
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        if (this.duration != null) {
+            nbt.putInt("Duration", this.duration.intValue());
+            nbt.putString("CustomName", Text.Serialization.toJsonString(
+                this.getName()
+            ));//transient
+        }
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+        if (nbt.contains("Duration", NbtElement.INT_TYPE)) {
+            int a = canonicalizeDuration(nbt.getInt("Duration"));
+            this.duration = isOverall(a) ? OVERALL_DURATION :
+                            Integer.valueOf(a);
+        }
+    }
+
+    public void tick(World w, BlockPos p, BlockState st) {
+        w.setBlockState(p, st.withIfExists(
+            LIT, this.duration != null && shouldLit(
+                this.duration.intValue(), (short)(w.getTimeOfDay() % 24000)
+            )
+        ), 3);
+    }
 }

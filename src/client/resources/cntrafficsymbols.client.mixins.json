@@ -1,7 +1,0 @@
-{
-	"required": true,
-	"package": "rege.pegui.cntrafficsymbols.mixin.client",
-	"compatibilityLevel": "JAVA_16",
-	"client": ["CNTrafficSymbolsMixin"],
-	"injectors": {"defaultRequire": 1}
-}

@@ -12,3 +12,4 @@ __pycache__/
 !gradle-wrapper.jar
 *.pyc
 *.pyo
+cntrafficsymbols_core-*.jar
