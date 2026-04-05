@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ public class Main implements ModInitializer {
     private static @Nullable Boolean hardcodedBarricades1LootEnabled = null;
     private static final @NotNull HashSet<@NotNull Class<?>>
     blockstateOptimizations = new HashSet<>();
+    private static boolean preferLegacyIdentifiers = false;
 
     public static @Nullable Boolean parseNullableBoolean(
         String s, String[] forTrue, String[] forFalse, String[] forNull
@@ -44,20 +46,29 @@ public class Main implements ModInitializer {
         throw new IllegalArgumentException(s);
     }
 
+    @Contract(pure = true)
     public static @Nullable Boolean getHardcodedFloorLineEighthsLootEnabled() {
         return hardcodedFloorLineEighthsLootEnabled;
     }
 
+    @Contract(pure = true)
     public static boolean getWaterloggedProperty() {
         return waterloggedProperty;
     }
 
+    @Contract(pure = true)
     public static @Nullable Boolean getHardcodedBarricades1LootEnabled() {
         return hardcodedBarricades1LootEnabled;
     }
 
+    @Contract("-> new")
     public static @NotNull HashSet<@NotNull Class<?>> getBlockstateOptimizations() {
         return new HashSet<>(blockstateOptimizations);
+    }
+
+    @Contract(pure = true)
+    public static boolean getPreferLegacyIdentifiers() {
+        return preferLegacyIdentifiers;
     }
 
     public static @Nullable Boolean
@@ -163,6 +174,19 @@ public class Main implements ModInitializer {
         } else {
             addDefaultBlockstateOptimizations();
             LOGGER.info("No property blockstate_optimizations found. Use defalt value \"rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock\".");
+        }
+        if (ppts.containsKey("prefer_legacy_identifiers")) {
+            preferLegacyIdentifiers = Boolean.parseBoolean(ppts.getProperty(
+                "prefer_legacy_identifiers"
+            ).strip().toUpperCase());
+            LOGGER.info(
+                "Overriding property value prefer_legacy_identifiers with " +
+                preferLegacyIdentifiers
+            );
+        } else {
+            LOGGER.info(
+                "No property prefer_legacy_identifiers found. Use default value \"false\"."
+            );
         }
     }
 

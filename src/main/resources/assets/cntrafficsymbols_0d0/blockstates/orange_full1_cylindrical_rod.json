@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "position=y_center": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_center"},
+    "position=y_south": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_south"},
+    "position=y_southeast": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_southeast"},
+    "position=y_east": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_east"},
+    "position=y_northeast": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_northeast"},
+    "position=y_north": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_north"},
+    "position=y_northwest": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_northwest"},
+    "position=y_west": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_west"},
+    "position=y_southwest": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_y_southwest"},
+    "position=z_center": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_center"},
+    "position=z_upper": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_upper"},
+    "position=z_uppereast": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_uppereast"},
+    "position=z_east": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_east"},
+    "position=z_lowereast": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lowereast"},
+    "position=z_lower": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lower"},
+    "position=z_lowerwest": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lowerwest"},
+    "position=z_west": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_west"},
+    "position=z_upperwest": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_upperwest"},
+    "position=x_center": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_center", "y": 90},
+    "position=x_upper": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_upper", "y": 90},
+    "position=x_uppersouth": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_uppereast", "y": 90},
+    "position=x_south": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_east", "y": 90},
+    "position=x_lowersouth": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lowereast", "y": 90},
+    "position=x_lower": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lower", "y": 90},
+    "position=x_lowernorth": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_lowerwest", "y": 90},
+    "position=x_north": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_west", "y": 90},
+    "position=x_uppernorth": {"model": "cntrafficsymbols_0d0:block/orange_full1_cylindrical_rod_z_upperwest", "y": 90}
+  }
+}

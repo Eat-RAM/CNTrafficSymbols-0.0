@@ -1,6 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 10,
-  "ingredient": {"item": "minecraft:yellow_concrete"},
-  "result": "regedt32:cntrafficsymbols/yellow_lined8_tp"
-}

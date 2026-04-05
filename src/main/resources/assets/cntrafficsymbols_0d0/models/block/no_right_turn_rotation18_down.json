@@ -1,0 +1,7 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/circle_rotation18_down",
+  "textures": {
+    "front": "cntrafficsymbols_0d0:block/no_right_turn",
+    "side": "cntrafficsymbols_0d0:block/circle_backboard"
+  }
+}

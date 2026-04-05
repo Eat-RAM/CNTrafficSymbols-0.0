@@ -1,17 +1,17 @@
 EX1=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/highway_hm_rotation%s",
+  "parent": "cntrafficsymbols_0d0:block/highway_hm_rotation%s",
   "textures": {
-    "front": "regedt32:block/cntrafficsymbols/highway_%dhm",
-    "back": "regedt32:block/cntrafficsymbols/highway_hm_backboard",
-    "side": "regedt32:block/cntrafficsymbols/highway_hm_backboard"
+    "front": "cntrafficsymbols_0d0:block/highway_%dhm",
+    "back": "cntrafficsymbols_0d0:block/highway_hm_backboard",
+    "side": "cntrafficsymbols_0d0:block/highway_hm_backboard"
   }
 }
 """.replace(b"\n",b"\r\n")
 EX2=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/highway_hm_rotation%s",
+  "parent": "cntrafficsymbols_0d0:block/highway_hm_rotation%s",
   "textures": {
-    "front": "regedt32:block/cntrafficsymbols/highway_%dhm",
-    "side": "regedt32:block/cntrafficsymbols/highway_hm_backboard"
+    "front": "cntrafficsymbols_0d0:block/highway_%dhm",
+    "side": "cntrafficsymbols_0d0:block/highway_hm_backboard"
   }
 }
 """.replace(b"\n",b"\r\n")

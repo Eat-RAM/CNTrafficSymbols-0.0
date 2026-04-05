@@ -1,0 +1,7 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/highway_hm_rotation17_down",
+  "textures": {
+    "front": "cntrafficsymbols_0d0:block/highway_1hm",
+    "side": "cntrafficsymbols_0d0:block/highway_hm_backboard"
+  }
+}

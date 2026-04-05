@@ -1,0 +1,4 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/lined8_tp_x_up",
+  "textures": {"this": "minecraft:block/light_blue_concrete"}
+}

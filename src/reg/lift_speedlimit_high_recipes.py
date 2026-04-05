@@ -2,9 +2,9 @@ EX=b"""{
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "tag": "regedt32:cntrafficsymbols/black_circle_black_text"
+    "tag": "cntrafficsymbols_0d0:black_circle_black_text"
   },
-  "result": "regedt32:cntrafficsymbols/lift_speedlimit_high_%s"
+  "result": "cntrafficsymbols_0d0:lift_speedlimit_high_%s"
 }
 """.replace(b"\n",b"\r\n")
 for i in b"3 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 \

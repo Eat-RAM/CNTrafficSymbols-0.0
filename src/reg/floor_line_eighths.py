@@ -19,11 +19,11 @@ for i in TUPS:
  qp=q(p(*i))
  if TUPS[i]:
   lobj["variants"][f"axis=x,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
-   "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i[::-1])}",
+   "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i[::-1])}",
    "y":180,"uvlock":True
   }
   lobj["variants"][f"axis=z,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
-   "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i[::-1])}",
+   "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i[::-1])}",
    "y":90,"uvlock":True
   }
   continue
@@ -35,8 +35,8 @@ for i in TUPS:
   shouldCullBefore=(not l)or i[l-1];shouldCullAfter=l+deltal>=8 or i[l+deltal]
   l+=deltal
   if ct and l:
-   if ct==1:obj["textures"]["a1"]="regedt32:block/cntrafficsymbols/white_floor_line_eighths"
-   else:obj["textures"]["a2"]="regedt32:block/cntrafficsymbols/yellow_floor_line_eighths"
+   if ct==1:obj["textures"]["a1"]="cntrafficsymbols_0d0:block/white_floor_line_eighths"
+   else:obj["textures"]["a2"]="cntrafficsymbols_0d0:block/yellow_floor_line_eighths"
    obj["elements"].append({
     "from":[0,0,(l-deltal)*2],
     "to":[16,0.5,l*2],
@@ -64,10 +64,10 @@ for i in TUPS:
    deltal=0;ct=i[l]
  with open(f"floor_line_eighths_{''.join(str(x) for x in i)}.json","w")as f:json.dump(obj,f,indent=2)
  lobj["variants"][f"axis=x,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
-  "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i)}"
+  "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i)}"
  }
  lobj["variants"][f"axis=z,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
-  "model":f"regedt32:block/cntrafficsymbols/floor_line_eighths_{''.join(str(x) for x in i)}",
+  "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i)}",
   "y":270,"uvlock":True
  }
 with open("../../../blockstates/cntrafficsymbols/floor_line_eighths.json",

@@ -1,21 +1,21 @@
 EX1=b"""{
   "variants": {
-    "bottom=true": {"model": "regedt32:block/cntrafficsymbols/%s_%s_bottom"},
-    "bottom=false": {"model": "regedt32:block/cntrafficsymbols/%s_%s_up"}
+    "bottom=true": {"model": "cntrafficsymbols_0d0:block/%s_%s_bottom"},
+    "bottom=false": {"model": "cntrafficsymbols_0d0:block/%s_%s_up"}
   }
 }
 """.replace(b"\n",b"\r\n")
 EX2=b"""{
   "variants": {
-    "axis=x,bottom=true": {"model": "regedt32:block/cntrafficsymbols/%s_%s_x_bottom"},
-    "axis=x,bottom=false": {"model": "regedt32:block/cntrafficsymbols/%s_%s_x_up"},
+    "axis=x,bottom=true": {"model": "cntrafficsymbols_0d0:block/%s_%s_x_bottom"},
+    "axis=x,bottom=false": {"model": "cntrafficsymbols_0d0:block/%s_%s_x_up"},
     "axis=z,bottom=true": {
-      "model": "regedt32:block/cntrafficsymbols/%s_%s_x_bottom",
+      "model": "cntrafficsymbols_0d0:block/%s_%s_x_bottom",
       "y": 90,
       "uvlock": true
     },
     "axis=z,bottom=false": {
-      "model": "regedt32:block/cntrafficsymbols/%s_%s_x_up",
+      "model": "cntrafficsymbols_0d0:block/%s_%s_x_up",
       "y": 90,
       "uvlock": true
     }

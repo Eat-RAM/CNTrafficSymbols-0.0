@@ -23,6 +23,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
+import org.jetbrains.annotations.Contract;
 import rege.pegui.cntrafficsymbols.block.DottedTPBlock;
 import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 import rege.pegui.cntrafficsymbols.block.Full1CylindricalRodBlock;
@@ -42,6 +43,8 @@ import
 
 import static net.minecraft.block.Blocks.AIR;
 import static net.minecraft.block.Blocks.WATER;*/
+import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds.commitAndGet;
+import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds.push;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.union;
@@ -1914,6 +1917,7 @@ public class SelfWork {
             new AliasedBlockItem(Blocks.FLOOR_LINE_EIGHTHS,
                                  new Item.Settings().maxCount(64)) {
                 @Override
+                @Contract(pure = true)
                 public Block getBlock() {
                     return Blocks.FLOOR_LINE_EIGHTHS;
                 }
@@ -1922,6 +1926,7 @@ public class SelfWork {
             new AliasedBlockItem(Blocks.FLOOR_LINE_EIGHTHS,
                                  new Item.Settings().maxCount(64)) {
                 @Override
+                @Contract(pure = true)
                 public Block getBlock() {
                     return Blocks.FLOOR_LINE_EIGHTHS;
                 }
@@ -1984,6 +1989,7 @@ public class SelfWork {
             new AliasedBlockItem(Blocks.BARRICADES_1,
                                  new Item.Settings().maxCount(64)) {
                 @Override
+                @Contract(pure = true)
                 public Block getBlock() {
                     return Blocks.BARRICADES_1;
                 }
@@ -1992,6 +1998,7 @@ public class SelfWork {
             new AliasedBlockItem(Blocks.BARRICADES_1,
                                  new Item.Settings().maxCount(64)) {
                 @Override
+                @Contract(pure = true)
                 public Block getBlock() {
                     return Blocks.BARRICADES_1;
                 }
@@ -2674,10 +2681,8 @@ public class SelfWork {
         ROD_WITH_LAMP_ITEMS = new Item[]{Items.WHITE_ROD_WITH_LAMP, Items.ORANGE_ROD_WITH_LAMP, Items.MAGENTA_ROD_WITH_LAMP, Items.LIGHT_BLUE_ROD_WITH_LAMP, Items.YELLOW_ROD_WITH_LAMP, Items.LIME_ROD_WITH_LAMP, Items.PINK_ROD_WITH_LAMP, Items.GRAY_ROD_WITH_LAMP, Items.LIGHT_GRAY_ROD_WITH_LAMP, Items.CYAN_ROD_WITH_LAMP, Items.PURPLE_ROD_WITH_LAMP, Items.BLUE_ROD_WITH_LAMP, Items.BROWN_ROD_WITH_LAMP, Items.GREEN_ROD_WITH_LAMP, Items.RED_ROD_WITH_LAMP, Items.BLACK_ROD_WITH_LAMP};
         DOTTED_TP_ITEMS = new Item[][]{new Item[0], new Item[0], new Item[0], new Item[0], new Item[]{Items.WHITE_DOTTED4_TP, Items.ORANGE_DOTTED4_TP, Items.MAGENTA_DOTTED4_TP, Items.LIGHT_BLUE_DOTTED4_TP, Items.YELLOW_DOTTED4_TP, Items.LIME_DOTTED4_TP, Items.PINK_DOTTED4_TP, Items.GRAY_DOTTED4_TP, Items.LIGHT_GRAY_DOTTED4_TP, Items.CYAN_DOTTED4_TP, Items.PURPLE_DOTTED4_TP, Items.BLUE_DOTTED4_TP, Items.BROWN_DOTTED4_TP, Items.GREEN_DOTTED4_TP, Items.RED_DOTTED4_TP, Items.BLACK_DOTTED4_TP}, new Item[]{Items.WHITE_DOTTED5_TP, Items.ORANGE_DOTTED5_TP, Items.MAGENTA_DOTTED5_TP, Items.LIGHT_BLUE_DOTTED5_TP, Items.YELLOW_DOTTED5_TP, Items.LIME_DOTTED5_TP, Items.PINK_DOTTED5_TP, Items.GRAY_DOTTED5_TP, Items.LIGHT_GRAY_DOTTED5_TP, Items.CYAN_DOTTED5_TP, Items.PURPLE_DOTTED5_TP, Items.BLUE_DOTTED5_TP, Items.BROWN_DOTTED5_TP, Items.GREEN_DOTTED5_TP, Items.RED_DOTTED5_TP, Items.BLACK_DOTTED5_TP}, new Item[]{Items.WHITE_DOTTED6_TP, Items.ORANGE_DOTTED6_TP, Items.MAGENTA_DOTTED6_TP, Items.LIGHT_BLUE_DOTTED6_TP, Items.YELLOW_DOTTED6_TP, Items.LIME_DOTTED6_TP, Items.PINK_DOTTED6_TP, Items.GRAY_DOTTED6_TP, Items.LIGHT_GRAY_DOTTED6_TP, Items.CYAN_DOTTED6_TP, Items.PURPLE_DOTTED6_TP, Items.BLUE_DOTTED6_TP, Items.BROWN_DOTTED6_TP, Items.GREEN_DOTTED6_TP, Items.RED_DOTTED6_TP, Items.BLACK_DOTTED6_TP}, new Item[]{Items.WHITE_DOTTED7_TP, Items.ORANGE_DOTTED7_TP, Items.MAGENTA_DOTTED7_TP, Items.LIGHT_BLUE_DOTTED7_TP, Items.YELLOW_DOTTED7_TP, Items.LIME_DOTTED7_TP, Items.PINK_DOTTED7_TP, Items.GRAY_DOTTED7_TP, Items.LIGHT_GRAY_DOTTED7_TP, Items.CYAN_DOTTED7_TP, Items.PURPLE_DOTTED7_TP, Items.BLUE_DOTTED7_TP, Items.BROWN_DOTTED7_TP, Items.GREEN_DOTTED7_TP, Items.RED_DOTTED7_TP, Items.BLACK_DOTTED7_TP}, new Item[]{Items.WHITE_DOTTED8_TP, Items.ORANGE_DOTTED8_TP, Items.MAGENTA_DOTTED8_TP, Items.LIGHT_BLUE_DOTTED8_TP, Items.YELLOW_DOTTED8_TP, Items.LIME_DOTTED8_TP, Items.PINK_DOTTED8_TP, Items.GRAY_DOTTED8_TP, Items.LIGHT_GRAY_DOTTED8_TP, Items.CYAN_DOTTED8_TP, Items.PURPLE_DOTTED8_TP, Items.BLUE_DOTTED8_TP, Items.BROWN_DOTTED8_TP, Items.GREEN_DOTTED8_TP, Items.RED_DOTTED8_TP, Items.BLACK_DOTTED8_TP}, new Item[]{Items.WHITE_DOTTED9_TP, Items.ORANGE_DOTTED9_TP, Items.MAGENTA_DOTTED9_TP, Items.LIGHT_BLUE_DOTTED9_TP, Items.YELLOW_DOTTED9_TP, Items.LIME_DOTTED9_TP, Items.PINK_DOTTED9_TP, Items.GRAY_DOTTED9_TP, Items.LIGHT_GRAY_DOTTED9_TP, Items.CYAN_DOTTED9_TP, Items.PURPLE_DOTTED9_TP, Items.BLUE_DOTTED9_TP, Items.BROWN_DOTTED9_TP, Items.GREEN_DOTTED9_TP, Items.RED_DOTTED9_TP, Items.BLACK_DOTTED9_TP}, new Item[]{Items.WHITE_DOTTED10_TP, Items.ORANGE_DOTTED10_TP, Items.MAGENTA_DOTTED10_TP, Items.LIGHT_BLUE_DOTTED10_TP, Items.YELLOW_DOTTED10_TP, Items.LIME_DOTTED10_TP, Items.PINK_DOTTED10_TP, Items.GRAY_DOTTED10_TP, Items.LIGHT_GRAY_DOTTED10_TP, Items.CYAN_DOTTED10_TP, Items.PURPLE_DOTTED10_TP, Items.BLUE_DOTTED10_TP, Items.BROWN_DOTTED10_TP, Items.GREEN_DOTTED10_TP, Items.RED_DOTTED10_TP, Items.BLACK_DOTTED10_TP}};
         LINED_TP_ITEMS = new Item[][]{new Item[0], new Item[0], new Item[0], new Item[0], new Item[]{Items.WHITE_LINED4_TP, Items.ORANGE_LINED4_TP, Items.MAGENTA_LINED4_TP, Items.LIGHT_BLUE_LINED4_TP, Items.YELLOW_LINED4_TP, Items.LIME_LINED4_TP, Items.PINK_LINED4_TP, Items.GRAY_LINED4_TP, Items.LIGHT_GRAY_LINED4_TP, Items.CYAN_LINED4_TP, Items.PURPLE_LINED4_TP, Items.BLUE_LINED4_TP, Items.BROWN_LINED4_TP, Items.GREEN_LINED4_TP, Items.RED_LINED4_TP, Items.BLACK_LINED4_TP}, new Item[]{Items.WHITE_LINED5_TP, Items.ORANGE_LINED5_TP, Items.MAGENTA_LINED5_TP, Items.LIGHT_BLUE_LINED5_TP, Items.YELLOW_LINED5_TP, Items.LIME_LINED5_TP, Items.PINK_LINED5_TP, Items.GRAY_LINED5_TP, Items.LIGHT_GRAY_LINED5_TP, Items.CYAN_LINED5_TP, Items.PURPLE_LINED5_TP, Items.BLUE_LINED5_TP, Items.BROWN_LINED5_TP, Items.GREEN_LINED5_TP, Items.RED_LINED5_TP, Items.BLACK_LINED5_TP}, new Item[]{Items.WHITE_LINED6_TP, Items.ORANGE_LINED6_TP, Items.MAGENTA_LINED6_TP, Items.LIGHT_BLUE_LINED6_TP, Items.YELLOW_LINED6_TP, Items.LIME_LINED6_TP, Items.PINK_LINED6_TP, Items.GRAY_LINED6_TP, Items.LIGHT_GRAY_LINED6_TP, Items.CYAN_LINED6_TP, Items.PURPLE_LINED6_TP, Items.BLUE_LINED6_TP, Items.BROWN_LINED6_TP, Items.GREEN_LINED6_TP, Items.RED_LINED6_TP, Items.BLACK_LINED6_TP}, new Item[]{Items.WHITE_LINED7_TP, Items.ORANGE_LINED7_TP, Items.MAGENTA_LINED7_TP, Items.LIGHT_BLUE_LINED7_TP, Items.YELLOW_LINED7_TP, Items.LIME_LINED7_TP, Items.PINK_LINED7_TP, Items.GRAY_LINED7_TP, Items.LIGHT_GRAY_LINED7_TP, Items.CYAN_LINED7_TP, Items.PURPLE_LINED7_TP, Items.BLUE_LINED7_TP, Items.BROWN_LINED7_TP, Items.GREEN_LINED7_TP, Items.RED_LINED7_TP, Items.BLACK_LINED7_TP}, new Item[]{Items.WHITE_LINED8_TP, Items.ORANGE_LINED8_TP, Items.MAGENTA_LINED8_TP, Items.LIGHT_BLUE_LINED8_TP, Items.YELLOW_LINED8_TP, Items.LIME_LINED8_TP, Items.PINK_LINED8_TP, Items.GRAY_LINED8_TP, Items.LIGHT_GRAY_LINED8_TP, Items.CYAN_LINED8_TP, Items.PURPLE_LINED8_TP, Items.BLUE_LINED8_TP, Items.BROWN_LINED8_TP, Items.GREEN_LINED8_TP, Items.RED_LINED8_TP, Items.BLACK_LINED8_TP}, new Item[]{Items.WHITE_LINED9_TP, Items.ORANGE_LINED9_TP, Items.MAGENTA_LINED9_TP, Items.LIGHT_BLUE_LINED9_TP, Items.YELLOW_LINED9_TP, Items.LIME_LINED9_TP, Items.PINK_LINED9_TP, Items.GRAY_LINED9_TP, Items.LIGHT_GRAY_LINED9_TP, Items.CYAN_LINED9_TP, Items.PURPLE_LINED9_TP, Items.BLUE_LINED9_TP, Items.BROWN_LINED9_TP, Items.GREEN_LINED9_TP, Items.RED_LINED9_TP, Items.BLACK_LINED9_TP}, new Item[]{Items.WHITE_LINED10_TP, Items.ORANGE_LINED10_TP, Items.MAGENTA_LINED10_TP, Items.LIGHT_BLUE_LINED10_TP, Items.YELLOW_LINED10_TP, Items.LIME_LINED10_TP, Items.PINK_LINED10_TP, Items.GRAY_LINED10_TP, Items.LIGHT_GRAY_LINED10_TP, Items.CYAN_LINED10_TP, Items.PURPLE_LINED10_TP, Items.BLUE_LINED10_TP, Items.BROWN_LINED10_TP, Items.GREEN_LINED10_TP, Items.RED_LINED10_TP, Items.BLACK_LINED10_TP}};
-        ITEM_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(Items
-                                                                            .SPEEDLIMIT_HIGH_120)).displayName(Text
-                                                                                                                   .translatableWithFallback("itemGroup.regedt32.cntrafficsymbols",
-                                                                                                                                             "CNTrafficSymbols")).entries((c, e) -> {
+        ITEM_GROUP = FabricItemGroup.builder().icon(() -> new ItemStack(Items.SPEEDLIMIT_HIGH_120)).displayName(Text.translatableWithFallback("itemGroup.regedt32.cntrafficsymbols",
+                                                                                                                                             "CNTrafficSymbols 0.0")).entries((c, e) -> {
             for (Item i : SPEEDLIMIT_HIGH_ITEMS) e.add(i);
             for (Item i : SPEEDLIMIT_LOW_ITEMS) e.add(i);
             for (Item i : LIFT_SPEEDLIMIT_HIGH_ITEMS) e.add(i);
@@ -2741,66 +2746,43 @@ public class SelfWork {
 
     public static void doit() {
         for (int i = 1; i < 31; i++) {
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/speedlimit_high_" + Integer.toString(i * 5)),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_high_" + Integer.toString(i * 5)),
                               SPEEDLIMIT_HIGH_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/speedlimit_low_" + Integer.toString(i * 5)),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_low_" + Integer.toString(i * 5)),
                               SPEEDLIMIT_LOW_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/lift_speedlimit_high_" + Integer.toString(i * 5)),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "lift_speedlimit_high_" + Integer.toString(i * 5)),
                               LIFT_SPEEDLIMIT_HIGH_BLOCKS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/speedlimit_high_" + Integer.toString(i * 5)),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_high_" + Integer.toString(i * 5)),
                               SPEEDLIMIT_HIGH_ITEMS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/speedlimit_low_" + Integer.toString(i * 5)),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_low_" + Integer.toString(i * 5)),
                               SPEEDLIMIT_LOW_ITEMS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/lift_speedlimit_high_" + Integer.toString(i * 5)),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.BLOCK, "lift_speedlimit_high_" + Integer.toString(i * 5)),
                               LIFT_SPEEDLIMIT_HIGH_ITEMS[i]);
         }
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/speedlimit_high_3"), Blocks.SPEEDLIMIT_HIGH_3);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/speedlimit_low_3"), Blocks.SPEEDLIMIT_LOW_3);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/speedlimit_high_special"), Blocks.SPEEDLIMIT_HIGH_SPECIAL);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/speedlimit_low_special"), Blocks.SPEEDLIMIT_LOW_SPECIAL);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/lift_speedlimit_high_3"), Blocks.LIFT_SPEEDLIMIT_HIGH_3);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/lift_speedlimit_high_special"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_high_3"), Blocks.SPEEDLIMIT_HIGH_3);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_low_3"), Blocks.SPEEDLIMIT_LOW_3);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_high_special"), Blocks.SPEEDLIMIT_HIGH_SPECIAL);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_low_special"), Blocks.SPEEDLIMIT_LOW_SPECIAL);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "lift_speedlimit_high_3"), Blocks.LIFT_SPEEDLIMIT_HIGH_3);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "lift_speedlimit_high_special"),
                           Blocks.LIFT_SPEEDLIMIT_HIGH_SPECIAL);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/circle_backboard"), Blocks.CIRCLE_BACKBOARD);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/heightlimit_special"), Blocks.HEIGHTLIMIT_SPECIAL);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "circle_backboard"), Blocks.CIRCLE_BACKBOARD);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "heightlimit_special"), Blocks.HEIGHTLIMIT_SPECIAL);
         for (int i = 1; i < 101; i++) {
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
                                                                                                                   (i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_BLOCKS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "heightlimit_" + ((i % 10 != 0) ? Integer.toString(i / 10) + "d" +
                                                                                                                  (i % 10) : Integer.toString(i / 10))), HEIGHTLIMIT_ITEMS[i]);
         }
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/prohibition"), Blocks.PROHIBITION);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/no_u_turn"), Blocks.NO_U_TURN);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/no_left_turn"), Blocks.NO_LEFT_TURN);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/no_right_turn"), Blocks.NO_RIGHT_TURN);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/no_parking"), Blocks.NO_PARKING);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "prohibition"), Blocks.PROHIBITION);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "no_u_turn"), Blocks.NO_U_TURN);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "no_left_turn"), Blocks.NO_LEFT_TURN);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "no_right_turn"), Blocks.NO_RIGHT_TURN);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "no_parking"), Blocks.NO_PARKING);
         for (int i = 0; i < 9; i++) {
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/highway_" + (i + 1) + "hm"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_" + (i + 1) + "hm"),
                               HIGHWAY_HM_BLOCKS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/highway_" + (i + 1) + "hm"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_" + (i + 1) + "hm"),
                               HIGHWAY_HM_ITEMS[i]);
         }
         Blocks.FLOOR_LINE_EIGHTHS.setItm1(Items.WHITE_FLOOR_LINE_EIGHTH);
@@ -2808,10 +2790,8 @@ public class SelfWork {
         Blocks.BARRICADES_1.setItm0(Items.BARRICADE_1M_EDGE_1M_HEIGHT);
         Blocks.BARRICADES_1.setItm1(Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
         Blocks.BARRICADES_1.setItm2(Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/floor_line_eighths"), Blocks.FLOOR_LINE_EIGHTHS);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_km"), Blocks.HIGHWAY_KM);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "floor_line_eighths"), Blocks.FLOOR_LINE_EIGHTHS);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_km"), Blocks.HIGHWAY_KM);
         Blocks.DISTANCE_DETECTION_0M_LEFT
             .addToArr(Blocks.DISTANCE_DETECTION_0M_LEFT);
         Blocks.DISTANCE_DETECTION_0M_LEFT
@@ -2926,338 +2906,225 @@ public class SelfWork {
         Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT.freezeArr();
         Blocks.KEEP_SPACE_VARIANT2_LOWER.freezeArr();
         Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT.freezeArr();
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_0m_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_0m_left"),
                           Blocks.DISTANCE_DETECTION_0M_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_0m_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_0m_right"),
                           Blocks.DISTANCE_DETECTION_0M_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_50m_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_50m_left"),
                           Blocks.DISTANCE_DETECTION_50M_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_50m_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_50m_right"),
                           Blocks.DISTANCE_DETECTION_50M_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_100m_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_100m_left"),
                           Blocks.DISTANCE_DETECTION_100M_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_100m_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_100m_right"),
                           Blocks.DISTANCE_DETECTION_100M_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_200m_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_200m_left"),
                           Blocks.DISTANCE_DETECTION_200M_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/distance_detection_200m_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "distance_detection_200m_right"),
                           Blocks.DISTANCE_DETECTION_200M_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_left_single"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_left_single"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_middle_single"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_middle_single"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_right_single"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_right_single"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_left_top"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_left_top"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_middle_top"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_middle_top"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_right_top"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_right_top"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_left_middle"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_left_middle"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_MIDDLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_middle_middle"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_middle_middle"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_MIDDLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_right_middle"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_right_middle"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_MIDDLE);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_left_bottom"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_left_bottom"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_middle_bottom"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_middle_bottom"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/highway_exit_distance_info_right_bottom"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "highway_exit_distance_info_right_bottom"),
                           Blocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/barricades_1"), Blocks.BARRICADES_1);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_upperleft"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "barricades_1"), Blocks.BARRICADES_1);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_upperleft"),
                           Blocks.KEEP_SPACE_VARIANT1_UPPERLEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_upper"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_upper"),
                           Blocks.KEEP_SPACE_VARIANT1_UPPER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_upperright"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_upperright"),
                           Blocks.KEEP_SPACE_VARIANT1_UPPERRIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_left"),
                           Blocks.KEEP_SPACE_VARIANT1_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_center"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_center"),
                           Blocks.KEEP_SPACE_VARIANT1_CENTER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_right"),
                           Blocks.KEEP_SPACE_VARIANT1_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_lowerleft"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_lowerleft"),
                           Blocks.KEEP_SPACE_VARIANT1_LOWERLEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_lower"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_lower"),
                           Blocks.KEEP_SPACE_VARIANT1_LOWER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant1_lowerright"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant1_lowerright"),
                           Blocks.KEEP_SPACE_VARIANT1_LOWERRIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_upperleft"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_upperleft"),
                           Blocks.KEEP_SPACE_VARIANT2_UPPERLEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_upper"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_upper"),
                           Blocks.KEEP_SPACE_VARIANT2_UPPER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_upperright"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_upperright"),
                           Blocks.KEEP_SPACE_VARIANT2_UPPERRIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_left"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_left"),
                           Blocks.KEEP_SPACE_VARIANT2_LEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_center"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_center"),
                           Blocks.KEEP_SPACE_VARIANT2_CENTER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_right"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_right"),
                           Blocks.KEEP_SPACE_VARIANT2_RIGHT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_lowerleft"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_lowerleft"),
                           Blocks.KEEP_SPACE_VARIANT2_LOWERLEFT);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_lower"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_lower"),
                           Blocks.KEEP_SPACE_VARIANT2_LOWER);
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/keep_space_variant2_lowerright"),
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_lowerright"),
                           Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
         for (int i = 0; i < 16; i++) {
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
                               HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
                               FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                               "cntrafficsymbols/" + COLORS_MC16.get(i) + "_rod_with_lamp"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_rod_with_lamp"),
                               ROD_WITH_LAMP_BLOCKS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
                               HALF1_CYLINDRICAL_ROD_ITEMS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
                               FULL1_CYLINDRICAL_ROD_ITEMS[i]);
-            Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                              "cntrafficsymbols/" + COLORS_MC16.get(i) + "_rod_with_lamp"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_rod_with_lamp"),
                               ROD_WITH_LAMP_ITEMS[i]);
         }
-        Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                           "cntrafficsymbols/full_square_backboard"), Blocks.FULL_SQUARE_BACKBOARD);
+        Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "full_square_backboard"), Blocks.FULL_SQUARE_BACKBOARD);
         for (int i = 4; i < 11; i++) {
             for (int j = 0; j < 16; j++) {
-                Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                                   "cntrafficsymbols/" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
+                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
                                                                    "_tp"), DOTTED_TP_BLOCKS[i][j]);
-                Registry.register(Registries.BLOCK, new Identifier("regedt32",
-                                                                   "cntrafficsymbols/" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
+                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
                                                                    "_tp"), LINED_TP_BLOCKS[i][j]);
-                Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                                  "cntrafficsymbols/" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
+                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
                                                                   "_tp"), DOTTED_TP_ITEMS[i][j]);
-                Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                                  "cntrafficsymbols/" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
+                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
                                                                   "_tp"), LINED_TP_ITEMS[i][j]);
             }
         }
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("regedt32",
-                                                                       "cntrafficsymbols/highway_hm"), rege.pegui.cntrafficsymbols.be
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(Registries.BLOCK_ENTITY_TYPE, "highway_hm"), rege.pegui.cntrafficsymbols.be
                               .HighwayHmSignBlockEntity.TYPE);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("regedt32",
-                                                                       "cntrafficsymbols/highway_km"), rege.pegui.cntrafficsymbols.be
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(Registries.BLOCK_ENTITY_TYPE, "highway_km"), rege.pegui.cntrafficsymbols.be
                               .HighwayKmSignBlockEntity.TYPE);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("regedt32",
-                                                                       "cntrafficsymbols/highway_exit_distance_info_name"), rege.pegui
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(Registries.BLOCK_ENTITY_TYPE, "highway_exit_distance_info_name"), rege.pegui
                               .cntrafficsymbols.be.HighwayExitDistanceInfoNameBlockEntity.TYPE);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("regedt32",
-                                                                       "cntrafficsymbols/highway_exit_distance_info_km"), rege.pegui
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(Registries.BLOCK_ENTITY_TYPE, "highway_exit_distance_info_km"), rege.pegui
                               .cntrafficsymbols.be.HighwayExitDistanceInfoKmBlockEntity.TYPE);
-        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("regedt32",
-                                                                       "cntrafficsymbols/rod_with_lamp"), rege.pegui.cntrafficsymbols.be
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(Registries.BLOCK_ENTITY_TYPE, "rod_with_lamp"), rege.pegui.cntrafficsymbols.be
                               .RodWithLampBlockEntity.TYPE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/speedlimit_high_3"), Items.SPEEDLIMIT_HIGH_3);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/speedlimit_low_3"), Items.SPEEDLIMIT_LOW_3);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/speedlimit_high_special"), Items.SPEEDLIMIT_HIGH_SPECIAL);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/speedlimit_low_special"), Items.SPEEDLIMIT_LOW_SPECIAL);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/lift_speedlimit_high_3"), Items.LIFT_SPEEDLIMIT_HIGH_3);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/lift_speedlimit_high_special"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_high_3"), Items.SPEEDLIMIT_HIGH_3);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_low_3"), Items.SPEEDLIMIT_LOW_3);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_high_special"), Items.SPEEDLIMIT_HIGH_SPECIAL);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_low_special"), Items.SPEEDLIMIT_LOW_SPECIAL);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "lift_speedlimit_high_3"), Items.LIFT_SPEEDLIMIT_HIGH_3);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "lift_speedlimit_high_special"),
                           Items.LIFT_SPEEDLIMIT_HIGH_SPECIAL);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/iron_plate"), Items.IRON_PLATE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/circle_backboard"), Items.CIRCLE_BACKBOARD);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/heightlimit_special"), Items.HEIGHTLIMIT_SPECIAL);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/prohibition"), Items.PROHIBITION);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/no_u_turn"), Items.NO_U_TURN);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/no_left_turn"), Items.NO_LEFT_TURN);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/no_right_turn"), Items.NO_RIGHT_TURN);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/no_parking"), Items.NO_PARKING);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/white_floor_line_eighth"), Items.WHITE_FLOOR_LINE_EIGHTH);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/yellow_floor_line_eighth"), Items.YELLOW_FLOOR_LINE_EIGHTH);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_km"), Items.HIGHWAY_KM);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_0m_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "iron_plate"), Items.IRON_PLATE);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "circle_backboard"), Items.CIRCLE_BACKBOARD);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "heightlimit_special"), Items.HEIGHTLIMIT_SPECIAL);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "prohibition"), Items.PROHIBITION);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "no_u_turn"), Items.NO_U_TURN);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "no_left_turn"), Items.NO_LEFT_TURN);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "no_right_turn"), Items.NO_RIGHT_TURN);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "no_parking"), Items.NO_PARKING);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "white_floor_line_eighth"), Items.WHITE_FLOOR_LINE_EIGHTH);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "yellow_floor_line_eighth"), Items.YELLOW_FLOOR_LINE_EIGHTH);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_km"), Items.HIGHWAY_KM);
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_0m_left"),
                           Items.DISTANCE_DETECTION_0M_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_0m_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_0m_right"),
                           Items.DISTANCE_DETECTION_0M_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_50m_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_50m_left"),
                           Items.DISTANCE_DETECTION_50M_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_50m_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_50m_right"),
                           Items.DISTANCE_DETECTION_50M_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_100m_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_100m_left"),
                           Items.DISTANCE_DETECTION_100M_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_100m_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_100m_right"),
                           Items.DISTANCE_DETECTION_100M_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_200m_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_200m_left"),
                           Items.DISTANCE_DETECTION_200M_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/distance_detection_200m_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "distance_detection_200m_right"),
                           Items.DISTANCE_DETECTION_200M_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_left_single"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_left_single"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_middle_single"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_middle_single"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_right_single"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_right_single"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_SINGLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_left_top"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_left_top"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_middle_top"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_middle_top"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_right_top"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_right_top"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_TOP);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_left_middle"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_left_middle"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_MIDDLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_middle_middle"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_middle_middle"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_MIDDLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_right_middle"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_right_middle"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_MIDDLE);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_left_bottom"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_left_bottom"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_BOTTOM);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_middle_bottom"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_middle_bottom"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_BOTTOM);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/highway_exit_distance_info_right_bottom"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "highway_exit_distance_info_right_bottom"),
                           Items.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/barricade_50cm_edge_75cm_height"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "barricade_50cm_edge_75cm_height"),
                           Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/barricade_50cm_edge_1m_height"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "barricade_50cm_edge_1m_height"),
                           Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/barricade_1m_edge_1m_height"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "barricade_1m_edge_1m_height"),
                           Items.BARRICADE_1M_EDGE_1M_HEIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_upperleft"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_upperleft"),
                           Items.KEEP_SPACE_VARIANT1_UPPERLEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_upper"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_upper"),
                           Items.KEEP_SPACE_VARIANT1_UPPER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_upperright"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_upperright"),
                           Items.KEEP_SPACE_VARIANT1_UPPERRIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_left"),
                           Items.KEEP_SPACE_VARIANT1_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_center"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_center"),
                           Items.KEEP_SPACE_VARIANT1_CENTER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_right"),
                           Items.KEEP_SPACE_VARIANT1_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_lowerleft"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_lowerleft"),
                           Items.KEEP_SPACE_VARIANT1_LOWERLEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_lower"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_lower"),
                           Items.KEEP_SPACE_VARIANT1_LOWER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant1_lowerright"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant1_lowerright"),
                           Items.KEEP_SPACE_VARIANT1_LOWERRIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_upperleft"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_upperleft"),
                           Items.KEEP_SPACE_VARIANT2_UPPERLEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_upper"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_upper"),
                           Items.KEEP_SPACE_VARIANT2_UPPER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_upperright"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_upperright"),
                           Items.KEEP_SPACE_VARIANT2_UPPERRIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_left"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_left"),
                           Items.KEEP_SPACE_VARIANT2_LEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_center"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_center"),
                           Items.KEEP_SPACE_VARIANT2_CENTER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_right"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_right"),
                           Items.KEEP_SPACE_VARIANT2_RIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_lowerleft"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_lowerleft"),
                           Items.KEEP_SPACE_VARIANT2_LOWERLEFT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_lower"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_lower"),
                           Items.KEEP_SPACE_VARIANT2_LOWER);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/keep_space_variant2_lowerright"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "keep_space_variant2_lowerright"),
                           Items.KEEP_SPACE_VARIANT2_LOWERRIGHT);
-        Registry.register(Registries.ITEM, new Identifier("regedt32",
-                                                          "cntrafficsymbols/full_square_backboard"),
+        Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "full_square_backboard"),
                           Items.FULL_SQUARE_BACKBOARD);
-        Registry.register(Registries.ITEM_GROUP, new Identifier("regedt32",
+        Registry.register(Registries.ITEM_GROUP, new Identifier("cntrafficsymbols_0d0",
                                                                 "cntrafficsymbols"), ITEM_GROUP);
+        push();
         /*try {
             Block[] tab = {Blocks.SPEEDLIMIT_HIGH_3, Blocks.SPEEDLIMIT_HIGH_5, Blocks.SPEEDLIMIT_HIGH_10, Blocks.SPEEDLIMIT_HIGH_15, Blocks.SPEEDLIMIT_HIGH_20, Blocks.SPEEDLIMIT_HIGH_25, Blocks.SPEEDLIMIT_HIGH_30, Blocks.SPEEDLIMIT_HIGH_35, Blocks.SPEEDLIMIT_HIGH_40, Blocks.SPEEDLIMIT_HIGH_45, Blocks.SPEEDLIMIT_HIGH_50, Blocks.SPEEDLIMIT_HIGH_55, Blocks.SPEEDLIMIT_HIGH_60, Blocks.SPEEDLIMIT_HIGH_65, Blocks.SPEEDLIMIT_HIGH_70, Blocks.SPEEDLIMIT_HIGH_75, Blocks.SPEEDLIMIT_HIGH_80, Blocks.SPEEDLIMIT_HIGH_85, Blocks.SPEEDLIMIT_HIGH_90, Blocks.SPEEDLIMIT_HIGH_95, Blocks.SPEEDLIMIT_HIGH_100, Blocks.SPEEDLIMIT_HIGH_105, Blocks.SPEEDLIMIT_HIGH_110, Blocks.SPEEDLIMIT_HIGH_115, Blocks.SPEEDLIMIT_HIGH_120, Blocks.SPEEDLIMIT_HIGH_125, Blocks.SPEEDLIMIT_HIGH_130, Blocks.SPEEDLIMIT_HIGH_135, Blocks.SPEEDLIMIT_HIGH_140, Blocks.SPEEDLIMIT_HIGH_145, Blocks.SPEEDLIMIT_HIGH_150, Blocks.SPEEDLIMIT_HIGH_SPECIAL, Blocks.SPEEDLIMIT_LOW_3, Blocks.SPEEDLIMIT_LOW_5, Blocks.SPEEDLIMIT_LOW_10, Blocks.SPEEDLIMIT_LOW_15, Blocks.SPEEDLIMIT_LOW_20, Blocks.SPEEDLIMIT_LOW_25, Blocks.SPEEDLIMIT_LOW_30, Blocks.SPEEDLIMIT_LOW_35, Blocks.SPEEDLIMIT_LOW_40, Blocks.SPEEDLIMIT_LOW_45, Blocks.SPEEDLIMIT_LOW_50, Blocks.SPEEDLIMIT_LOW_55, Blocks.SPEEDLIMIT_LOW_60, Blocks.SPEEDLIMIT_LOW_65, Blocks.SPEEDLIMIT_LOW_70, Blocks.SPEEDLIMIT_LOW_75, Blocks.SPEEDLIMIT_LOW_80, Blocks.SPEEDLIMIT_LOW_85, Blocks.SPEEDLIMIT_LOW_90, Blocks.SPEEDLIMIT_LOW_95, Blocks.SPEEDLIMIT_LOW_100, Blocks.SPEEDLIMIT_LOW_105, Blocks.SPEEDLIMIT_LOW_110, Blocks.SPEEDLIMIT_LOW_115, Blocks.SPEEDLIMIT_LOW_120, Blocks.SPEEDLIMIT_LOW_125, Blocks.SPEEDLIMIT_LOW_130, Blocks.SPEEDLIMIT_LOW_135, Blocks.SPEEDLIMIT_LOW_140, Blocks.SPEEDLIMIT_LOW_145, Blocks.SPEEDLIMIT_LOW_150, Blocks.SPEEDLIMIT_LOW_SPECIAL};
             int d = 0;

@@ -1,7 +1,0 @@
-{
-  "parent": "regedt32:block/cntrafficsymbols/wideboard_double",
-  "textures": {
-    "front": "regedt32:block/cntrafficsymbols/highway_exit_distance_info_middle_top",
-    "side": "regedt32:block/cntrafficsymbols/full_square_backboard"
-  }
-}

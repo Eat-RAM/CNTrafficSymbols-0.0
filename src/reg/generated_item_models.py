@@ -1,11 +1,11 @@
 EX1=b"""{
   "parent": "minecraft:item/generated",
-  "textures": {"layer0": "regedt32:block/cntrafficsymbols/%s"}
+  "textures": {"layer0": "cntrafficsymbols_0d0:block/%s"}
 }
 """.replace(b"\n",b"\r\n")
 EX2=b"""{
   "parent": "minecraft:item/generated",
-  "textures": {"layer0": "regedt32:item/cntrafficsymbols/%s"}
+  "textures": {"layer0": "cntrafficsymbols_0d0:item/%s"}
 }
 """.replace(b"\n",b"\r\n")
 BLOCKS=b"""\

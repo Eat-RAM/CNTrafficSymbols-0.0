@@ -2,11 +2,11 @@
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_iron_plate": {
-      "conditions": {"items": [{"items": ["regedt32:cntrafficsymbols/iron_plate"]}]},
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:iron_plate"]}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "conditions": {"recipe": "regedt32:cntrafficsymbols/circle_backboard"},
+      "conditions": {"recipe": "cntrafficsymbols_0d0:circle_backboard"},
       "trigger": "minecraft:recipe_unlocked"
     }
   },
@@ -16,6 +16,6 @@
       "has_iron_plate"
     ]
   ],
-  "rewards": {"recipes": ["regedt32:cntrafficsymbols/circle_backboard"]},
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:circle_backboard"]},
   "sends_telemetry_event": false
 }

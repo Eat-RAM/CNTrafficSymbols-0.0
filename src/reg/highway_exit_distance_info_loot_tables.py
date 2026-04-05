@@ -11,7 +11,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_exit_distance_info_%s",
+                  "block": "cntrafficsymbols_0d0:highway_exit_distance_info_%s",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "north_south"}
                 }
@@ -23,7 +23,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_exit_distance_info_%s",
+                  "block": "cntrafficsymbols_0d0:highway_exit_distance_info_%s",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "east_west"}
                 }
@@ -39,13 +39,13 @@ EX=b"""{
               "source": "block_entity"
             }
           ],
-          "name": "regedt32:cntrafficsymbols/highway_exit_distance_info_%s"
+          "name": "cntrafficsymbols_0d0:highway_exit_distance_info_%s"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "regedt32:cntrafficsymbols/highway_exit_distance_info_%s"
+  "random_sequence": "cntrafficsymbols_0d0:highway_exit_distance_info_%s"
 }
 """
 for i in (b"left_single",b"middle_single",b"right_single",b"left_top",

@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=south": {"model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_standing"},
+    "facing=west": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_standing",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_standing",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_standing",
+      "y": 270
+    },
+    "facing=north_south": {"model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_double"},
+    "facing=east_west": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_double",
+      "y": 90
+    },
+    "facing=wall_north": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_wall",
+      "y": 180
+    },
+    "facing=wall_east": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_wall",
+      "y": 270
+    },
+    "facing=wall_south": {"model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_wall"},
+    "facing=wall_west": {
+      "model": "cntrafficsymbols_0d0:block/keep_space_variant2_upperleft_wall",
+      "y": 90
+    }
+  }
+}

@@ -71,11 +71,22 @@ java {
 	targetCompatibility = JavaVersion.VERSION_17
 }
 
+def extraResourcesPath = "src/main/extra-resources"
+
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
+
+task extraJar(type: Jar) {
+	from sourceSets.main.output
+	from extraResourcesPath
+	dependsOn compileJava
+	archiveClassifier = 'full'
+}
+
+build.dependsOn extraJar
 
 // configure the maven publication
 publishing {

@@ -6,7 +6,7 @@
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "conditions": {"recipe": "regedt32:cntrafficsymbols/black_dotted5_tp"},
+      "conditions": {"recipe": "cntrafficsymbols_0d0:black_dotted5_tp"},
       "trigger": "minecraft:recipe_unlocked"
     }
   },
@@ -16,6 +16,6 @@
       "has_black_concrete"
     ]
   ],
-  "rewards": {"recipes": ["regedt32:cntrafficsymbols/black_dotted5_tp"]},
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:black_dotted5_tp"]},
   "sends_telemetry_event": false
 }

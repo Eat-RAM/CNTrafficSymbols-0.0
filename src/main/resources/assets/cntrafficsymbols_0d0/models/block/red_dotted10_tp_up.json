@@ -1,0 +1,4 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/dotted10_tp_up",
+  "textures": {"this": "minecraft:block/red_concrete"}
+}

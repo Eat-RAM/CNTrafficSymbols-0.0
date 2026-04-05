@@ -1,34 +1,34 @@
 EX=b"""{
   "variants": {
-    "facing=south": {"model": "regedt32:block/cntrafficsymbols/%s_standing"},
+    "facing=south": {"model": "cntrafficsymbols_0d0:block/%s_standing"},
     "facing=west": {
-      "model": "regedt32:block/cntrafficsymbols/%s_standing",
+      "model": "cntrafficsymbols_0d0:block/%s_standing",
       "y": 90
     },
     "facing=north": {
-      "model": "regedt32:block/cntrafficsymbols/%s_standing",
+      "model": "cntrafficsymbols_0d0:block/%s_standing",
       "y": 180
     },
     "facing=east": {
-      "model": "regedt32:block/cntrafficsymbols/%s_standing",
+      "model": "cntrafficsymbols_0d0:block/%s_standing",
       "y": 270
     },
-    "facing=north_south": {"model": "regedt32:block/cntrafficsymbols/%s_double"},
+    "facing=north_south": {"model": "cntrafficsymbols_0d0:block/%s_double"},
     "facing=east_west": {
-      "model": "regedt32:block/cntrafficsymbols/%s_double",
+      "model": "cntrafficsymbols_0d0:block/%s_double",
       "y": 90
     },
     "facing=wall_north": {
-      "model": "regedt32:block/cntrafficsymbols/%s_wall",
+      "model": "cntrafficsymbols_0d0:block/%s_wall",
       "y": 180
     },
     "facing=wall_east": {
-      "model": "regedt32:block/cntrafficsymbols/%s_wall",
+      "model": "cntrafficsymbols_0d0:block/%s_wall",
       "y": 270
     },
-    "facing=wall_south": {"model": "regedt32:block/cntrafficsymbols/%s_wall"},
+    "facing=wall_south": {"model": "cntrafficsymbols_0d0:block/%s_wall"},
     "facing=wall_west": {
-      "model": "regedt32:block/cntrafficsymbols/%s_wall",
+      "model": "cntrafficsymbols_0d0:block/%s_wall",
       "y": 90
     }
   }

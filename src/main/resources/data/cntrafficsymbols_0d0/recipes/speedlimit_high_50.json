@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "cntrafficsymbols_0d0:red_circle_black_text"
+  },
+  "result": "cntrafficsymbols_0d0:speedlimit_high_50"
+}

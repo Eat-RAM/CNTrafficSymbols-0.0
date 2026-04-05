@@ -11,7 +11,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "north_south"}
                 }
@@ -23,7 +23,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "nne_ssw"}
                 }
@@ -35,7 +35,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "northeast_southwest"}
                 }
@@ -47,7 +47,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "ene_wsw"}
                 }
@@ -59,7 +59,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "east_west"}
                 }
@@ -71,7 +71,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "ese_wnw"}
                 }
@@ -83,7 +83,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "northwest_southeast"}
                 }
@@ -95,7 +95,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/highway_%dhm",
+                  "block": "cntrafficsymbols_0d0:highway_%dhm",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "sse_nnw"}
                 }
@@ -111,13 +111,13 @@ EX=b"""{
               "source": "block_entity"
             }
           ],
-          "name": "regedt32:cntrafficsymbols/highway_%dhm"
+          "name": "cntrafficsymbols_0d0:highway_%dhm"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "regedt32:cntrafficsymbols/highway_%dhm"
+  "random_sequence": "cntrafficsymbols_0d0:highway_%dhm"
 }
 """
 for i in range(1,10):

@@ -16,7 +16,7 @@
     {
       "name": "azaz-az",
       "contact": {
-        "homepage": "https://github.com/azaz-az"
+        "homepage": "https://github.com/az7627"
       }
     },
     {
@@ -32,13 +32,13 @@
     "sources": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0/tree/1.20.4"
   },
   "license": "GPL-v2-or-later",
-  "icon": "assets/regedt32/textures/icon/cntrafficsymbols.png",
+  "icon": "assets/cntrafficsymbols_0d0/textures/icon/cntrafficsymbols.png",
   "environment": "*",
   "entrypoints": {
     "main": ["rege.pegui.cntrafficsymbols.Main"],
     "client": ["rege.pegui.cntrafficsymbols.MainClient"]
   },
-  "mixins": [],
+  "mixins": ["cntrafficsymbols_0d0.mixins.json"],
   "depends": {
     "fabricloader": ">=0.14.0",
     "minecraft": "1.20.4",

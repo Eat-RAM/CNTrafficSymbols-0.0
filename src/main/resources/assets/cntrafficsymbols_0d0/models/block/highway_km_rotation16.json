@@ -1,0 +1,60 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "front": "cntrafficsymbols_0d0:block/highway_km",
+    "side": "cntrafficsymbols_0d0:block/highway_km_backboard",
+    "particle": "#front"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 7],
+      "to": [16, 16, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#front"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#front"}
+      }
+    },
+    {
+      "from": [2, 5, 7],
+      "to": [2.5, 12, 9],
+      "faces": {
+        "down": {"uv": [2, 10.5, 2.5, 11], "texture": "#side"},
+        "up": {"uv": [2, 4, 2.5, 4.5], "texture": "#side"},
+        "west": {"uv": [2, 4, 2.5, 11], "texture": "#side"}
+      }
+    },
+    {
+      "from": [2.5, 4.5, 7],
+      "to": [3, 12, 9],
+      "faces": {
+        "down": {"uv": [2.5, 11, 3, 11.5], "texture": "#side"},
+        "up": {"uv": [2.5, 4, 3, 4.5], "texture": "#side"}
+      }
+    },
+    {
+      "from": [3, 4, 7],
+      "to": [13, 12, 9],
+      "faces": {
+        "down": {"uv": [3, 11.5, 13, 12], "texture": "#side"},
+        "up": {"uv": [3, 4, 13, 4.5], "texture": "#side"}
+      }
+    },
+    {
+      "from": [13, 4.5, 7],
+      "to": [13.5, 12, 9],
+      "faces": {
+        "down": {"uv": [13, 11, 13.5, 11.5], "texture": "#side"},
+        "up": {"uv": [13, 4, 13.5, 4.5], "texture": "#side"}
+      }
+    },
+    {
+      "from": [13.5, 5, 7],
+      "to": [14, 12, 9],
+      "faces": {
+        "down": {"uv": [13.5, 10.5, 14, 11], "texture": "#side"},
+        "up": {"uv": [13.5, 4, 14, 4.5], "texture": "#side"},
+        "east": {"uv": [13.5, 4, 14, 11], "texture": "#side"}
+      }
+    }
+  ]
+}

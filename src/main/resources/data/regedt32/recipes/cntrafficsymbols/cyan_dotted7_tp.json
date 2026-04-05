@@ -1,6 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 10,
-  "ingredient": {"item": "minecraft:cyan_concrete"},
-  "result": "regedt32:cntrafficsymbols/cyan_dotted7_tp"
-}

@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "io.github.eat_ram.cntrafficsymbols.v0d0.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["SimpleRegistryAccessor"],
+  "injectors": {"defaultRequire": 1}
+}

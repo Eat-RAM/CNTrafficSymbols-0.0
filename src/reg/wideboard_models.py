@@ -1,17 +1,17 @@
 EX1=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/wideboard_%s",
+  "parent": "cntrafficsymbols_0d0:block/wideboard_%s",
   "textures": {
-    "front": "regedt32:block/cntrafficsymbols/%s",
-    "back": "regedt32:block/cntrafficsymbols/full_square_backboard",
-    "side": "regedt32:block/cntrafficsymbols/full_square_backboard"
+    "front": "cntrafficsymbols_0d0:block/%s",
+    "back": "cntrafficsymbols_0d0:block/full_square_backboard",
+    "side": "cntrafficsymbols_0d0:block/full_square_backboard"
   }
 }
 """.replace(b"\n",b"\r\n")
 EX2=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/wideboard_double",
+  "parent": "cntrafficsymbols_0d0:block/wideboard_double",
   "textures": {
-    "front": "regedt32:block/cntrafficsymbols/%s",
-    "side": "regedt32:block/cntrafficsymbols/full_square_backboard"
+    "front": "cntrafficsymbols_0d0:block/%s",
+    "side": "cntrafficsymbols_0d0:block/full_square_backboard"
   }
 }
 """.replace(b"\n",b"\r\n")

@@ -1,0 +1,45 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "northwest": "0",
+        "northeast": "0",
+        "southwest": "0",
+        "southeast": "0"
+      },
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_1m_edge_1m_height"}
+    },
+    {
+      "when": {"northwest": "1"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_75cm_height_northwest"}
+    },
+    {
+      "when": {"northwest": "2"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_northwest"}
+    },
+    {
+      "when": {"northeast": "1"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_75cm_height_northeast"}
+    },
+    {
+      "when": {"northeast": "2"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_northeast"}
+    },
+    {
+      "when": {"southwest": "1"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_75cm_height_southwest"}
+    },
+    {
+      "when": {"southwest": "2"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_southwest"}
+    },
+    {
+      "when": {"southeast": "1"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_75cm_height_southeast"}
+    },
+    {
+      "when": {"southeast": "2"},
+      "apply": {"model": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_southeast"}
+    }
+  ]
+}

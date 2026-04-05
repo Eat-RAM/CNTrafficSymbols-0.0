@@ -7,13 +7,13 @@ EX=b"""{
         {
           "type": "minecraft:item",
           "functions": [{"function": "minecraft:explosion_decay"}],
-          "name": "regedt32:cntrafficsymbols/%s"
+          "name": "cntrafficsymbols_0d0:%s"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "regedt32:cntrafficsymbols/%s"
+  "random_sequence": "cntrafficsymbols_0d0:%s"
 }
 """.replace(b"\n",b"\r\n")
 BLOCKS=b"""\

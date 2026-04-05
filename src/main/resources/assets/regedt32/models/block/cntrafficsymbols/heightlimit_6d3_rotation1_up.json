@@ -1,8 +1,0 @@
-{
-  "parent": "regedt32:block/cntrafficsymbols/circle_rotation1_up",
-  "textures": {
-    "front": "regedt32:block/cntrafficsymbols/heightlimit_6d3",
-    "back": "regedt32:block/cntrafficsymbols/circle_backboard",
-    "side": "regedt32:block/cntrafficsymbols/circle_backboard"
-  }
-}

@@ -1,0 +1,4 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/dotted4_tp_bottom",
+  "textures": {"this": "minecraft:block/orange_concrete"}
+}

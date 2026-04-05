@@ -1,5 +1,5 @@
 EX=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/%s_%s_bottom"
+  "parent": "cntrafficsymbols_0d0:block/%s_%s_bottom"
 }
 """.replace(b"\n",b"\r\n")
 COLORS=("white","orange","magenta","light_blue","yellow","lime","pink","gray",

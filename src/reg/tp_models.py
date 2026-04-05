@@ -1,5 +1,5 @@
 EX=b"""{
-  "parent": "regedt32:block/cntrafficsymbols/%s",
+  "parent": "cntrafficsymbols_0d0:block/%s",
   "textures": {"this": "minecraft:block/%s_concrete"}
 }
 """

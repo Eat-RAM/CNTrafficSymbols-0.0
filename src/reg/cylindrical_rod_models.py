@@ -1,7 +1,7 @@
 EX=b"""\
 {
-  "parent": "regedt32:block/cntrafficsymbols/%s_cylindrical_rod_%s",
-  "textures": {"side": "regedt32:block/cntrafficsymbols/%s_%s_cylindrical_rod"}
+  "parent": "cntrafficsymbols_0d0:block/%s_cylindrical_rod_%s",
+  "textures": {"side": "cntrafficsymbols_0d0:block/%s_%s_cylindrical_rod"}
 }
 """.replace(b"\n",b"\r\n")
 COLORS=("white","orange","magenta","light_blue","yellow","lime","pink","gray",

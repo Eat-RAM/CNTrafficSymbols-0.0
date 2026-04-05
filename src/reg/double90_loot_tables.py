@@ -11,7 +11,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/%s",
+                  "block": "cntrafficsymbols_0d0:%s",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "north_south"}
                 }
@@ -23,7 +23,7 @@ EX=b"""{
               "add": false,
               "conditions": [
                 {
-                  "block": "regedt32:cntrafficsymbols/%s",
+                  "block": "cntrafficsymbols_0d0:%s",
                   "condition": "minecraft:block_state_property",
                   "properties": {"facing": "east_west"}
                 }
@@ -35,13 +35,13 @@ EX=b"""{
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "regedt32:cntrafficsymbols/%s"
+          "name": "cntrafficsymbols_0d0:%s"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "regedt32:cntrafficsymbols/%s"
+  "random_sequence": "cntrafficsymbols_0d0:%s"
 }
 """.replace(b"\n",b"\r\n")
 BLOCKS=b"""\

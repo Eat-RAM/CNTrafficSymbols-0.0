@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 10,
+  "ingredient": {"item": "minecraft:red_concrete"},
+  "result": "cntrafficsymbols_0d0:red_lined4_tp"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {"item": "minecraft:white_dye"},
+    "E": {"item": "cntrafficsymbols_0d0:circle_backboard"},
+    "B": {"item": "minecraft:blue_dye"}
+  },
+  "pattern": [
+    "T",
+    "E",
+    "B"
+  ],
+  "result": {"item": "cntrafficsymbols_0d0:speedlimit_low_special"},
+  "show_notification": true
+}
