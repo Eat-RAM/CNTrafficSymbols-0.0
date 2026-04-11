@@ -132,7 +132,8 @@ public class LinedTPBlock extends Block implements ManagedWaterloggable {
 
     public final byte asize;
 
-    public LinedTPBlock(byte asize, Settings s) throws IllegalArgumentException {
+    public LinedTPBlock(byte asize, Settings s)
+    throws IllegalArgumentException {
         super(s);
         if ((asize < (byte)4 || asize > (byte)10) &&
             this.getClass() == LinedTPBlock.class) {

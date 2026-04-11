@@ -12,7 +12,12 @@
       }
     },
     "Manarein",
-    "morrison2077",
+    {
+      "name": "morrison2077",
+      "contact": {
+        "homepage": "https://github.com/morrison2077"
+      }
+    },
     {
       "name": "azaz-az",
       "contact": {
@@ -31,7 +36,7 @@
     "issues": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0/issues",
     "sources": "https://github.com/Eat-RAM/CNTrafficSymbols-0.0/tree/1.20.4"
   },
-  "license": "GPL-v2-or-later",
+  "license": "GPL-2.0-or-later",
   "icon": "assets/cntrafficsymbols_0d0/textures/icon/cntrafficsymbols.png",
   "environment": "*",
   "entrypoints": {

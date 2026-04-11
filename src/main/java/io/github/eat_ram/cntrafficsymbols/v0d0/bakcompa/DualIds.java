@@ -11,6 +11,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleRegistry;
 import net.minecraft.registry.entry.RegistryEntry.Reference;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Contract;
 
 import static rege.pegui.cntrafficsymbols.Main.getPreferLegacyIdentifiers;
 
@@ -18,6 +19,7 @@ public abstract class DualIds {
     private static final HashMap<Entry<SimpleRegistry<?>, String>, Runnable>
     COMMITTERS = new HashMap<>();
 
+    @Contract("_, _ -> new")
     @SuppressWarnings("unchecked")
     public static <T> Identifier
     commitAndGet(SimpleRegistry<T> registry, String path) {
@@ -47,6 +49,7 @@ public abstract class DualIds {
         return preferred;
     }
 
+    @Contract("_, _ -> new")
     public static <T> Identifier
     commitAndGet(Registry<T> registry, String path) {
         return commitAndGet((SimpleRegistry<T>)registry, path);

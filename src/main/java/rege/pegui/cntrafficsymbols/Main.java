@@ -2,6 +2,7 @@ package rege.pegui.cntrafficsymbols;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Properties;
 
@@ -61,7 +62,7 @@ public class Main implements ModInitializer {
         return hardcodedBarricades1LootEnabled;
     }
 
-    @Contract("-> new")
+    @Contract(value = "-> new", pure = true)
     public static @NotNull HashSet<@NotNull Class<?>> getBlockstateOptimizations() {
         return new HashSet<>(blockstateOptimizations);
     }
@@ -85,6 +86,7 @@ public class Main implements ModInitializer {
         return r;
     }
 
+    @Contract("_ -> new")
     public static @NotNull HashSet<@NotNull Class<?>>
     setBlockstateOptimizations(@NotNull Iterable<@NotNull Class<?>> newVal) {
         HashSet<Class<?>> r = new HashSet<>(blockstateOptimizations);
@@ -101,11 +103,10 @@ public class Main implements ModInitializer {
         }
     }
 
-    public static void readProperties() throws IOException {
+    public static void readPropertiesFromFile(InputStream inputStream)
+    throws IOException {
         Properties ppts = new Properties();
-        FileInputStream f =
-        new FileInputStream("config/cntrafficsymbols_0d0.properties");
-        ppts.load(f);
+        ppts.load(inputStream);
         if (ppts.containsKey("hardcoded_floor_line_eighths_loot_enabled")) {
             try {
                 hardcodedFloorLineEighthsLootEnabled = parseNullableBoolean(
@@ -190,10 +191,21 @@ public class Main implements ModInitializer {
         }
     }
 
+    @Deprecated(since = "0.0.2-b2", forRemoval = true)
+    public static void readProperties() throws IOException {
+        try (FileInputStream fis = new FileInputStream(
+            "config/cntrafficsymbols_0d0.properties"
+        )) {
+            readPropertiesFromFile(fis);
+        }
+    }
+
     @Override
     public void onInitialize() {
-        try {
-            readProperties();
+        try (FileInputStream fis = new FileInputStream(
+            "config/cntrafficsymbols_0d0.properties"
+        )) {
+            readPropertiesFromFile(fis);
         } catch (java.io.FileNotFoundException e) {
             addDefaultBlockstateOptimizations();
             LOGGER.info(
