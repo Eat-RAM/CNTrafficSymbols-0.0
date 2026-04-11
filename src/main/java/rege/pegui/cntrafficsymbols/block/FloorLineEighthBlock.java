@@ -232,19 +232,19 @@ implements ManagedWaterloggable, StateOptimizable {
                 switch (d) {
                     case NORTH:
                         c = v.z - p.getZ();
-                        l = ((int) c) - ((c % .125 == 0) ? 1 : 0);
+                        l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
                         break;
                     case SOUTH:
                         c = v.z - p.getZ();
-                        l = (int) c;
+                        l = (int)c;
                         break;
                     case WEST:
                         c = v.x - p.getX();
-                        l = ((int) c) - ((c % .125 == 0) ? 1 : 0);
+                        l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
                         break;
                     case EAST:
                         c = v.x - p.getX();
-                        l = (int) c;
+                        l = (int)c;
                         break;
                     default: assert false;
                 }
@@ -269,10 +269,9 @@ implements ManagedWaterloggable, StateOptimizable {
             }
             int base = 1;
             for (int i = 0; i < l; i++) base *= 3;
-            BlockState sst = from3Pow(
-                this.getDefaultState().with(HORIZONTAL_AXIS, Direction.Axis.X),
-                base * repl
-            );
+            BlockState sst = from3Pow(this.getDefaultState().with(
+                HORIZONTAL_AXIS, Direction.Axis.X
+            ), base * repl);
             if (this.getWaterloggedProperty()) {
                 sst = sst.with(WATERLOGGED, ctx.getWorld().getFluidState(
                     ctx.getBlockPos()

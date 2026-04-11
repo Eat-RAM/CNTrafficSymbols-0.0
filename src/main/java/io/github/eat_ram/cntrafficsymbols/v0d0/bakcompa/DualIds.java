@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 import static rege.pegui.cntrafficsymbols.Main.getPreferLegacyIdentifiers;
 
-public class DualIds {
+public abstract class DualIds {
     private static final HashMap<Entry<SimpleRegistry<?>, String>, Runnable>
     COMMITTERS = new HashMap<>();
 

@@ -15,14 +15,22 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
@@ -52,8 +60,7 @@ implements ManagedWaterloggable {
         Z_EAST, Z_LOWEREAST, Z_LOWER, Z_LOWERWEST, Z_WEST, Z_UPPERWEST
     };
 
-    public static enum LightVisualColor
-    implements net.minecraft.util.StringIdentifiable {
+    public static enum LightVisualColor implements StringIdentifiable {
         WHITE("white", 0),
         LIGHT_YELLOW("light_yellow", 1), YELLOW("yellow", 2),
         ORANGE("orange", 3);
@@ -166,8 +173,7 @@ implements ManagedWaterloggable {
     }
 
     @Override
-    public BlockState
-    getPlacementState(net.minecraft.item.ItemPlacementContext ctx) {
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState st = this.getDefaultState();
         double rx = ctx.getHitPos().x - ctx.getBlockPos().getX();
         double ry = ctx.getHitPos().y - ctx.getBlockPos().getY();
@@ -457,49 +463,58 @@ implements ManagedWaterloggable {
                 break;
             }
         }
-        if (getWaterloggedProperty()) st = st.with(WATERLOGGED, ctx.getWorld()
-                                                                   .getFluidState(ctx.getBlockPos()).getFluid() == net.minecraft.fluid.Fluids
-                                                                    .WATER);
+        if (this.getWaterloggedProperty()) {
+            st = st.with(WATERLOGGED, ctx.getWorld().getFluidState(
+                ctx.getBlockPos()
+            ).getFluid() == WATER);
+        }
         return st.with(FacePosition9.POSITION, rp);
     }
 
     @Override
-    public ActionResult onUse(BlockState st, World w, BlockPos p,
-                              net.minecraft.entity.player.PlayerEntity pl, net.minecraft.util.Hand hand,
-                              net.minecraft.util.hit.BlockHitResult hit) {
-        if (pl.getStackInHand(hand).isEmpty()) {
-            w.setBlockState(p, st.cycle(COLOR), 3);
-            return ActionResult.success(w.isClient);
+    public ActionResult onUse(
+        BlockState state, World world, BlockPos pos, PlayerEntity player,
+        Hand hand, BlockHitResult hit
+    ) {
+        if (player.getStackInHand(hand).isEmpty()) {
+            world.setBlockState(pos, state.cycle(COLOR), 3);
+            return ActionResult.success(world.isClient);
         }
         return ActionResult.PASS;
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState st, net
-        .minecraft.util.math.Direction d, BlockState nst, net.minecraft.world
-                                                    .WorldAccess w, BlockPos p, BlockPos np) {
-        if (getWaterloggedProperty() && st.get(WATERLOGGED).booleanValue()) w
-            .scheduleFluidTick(p, WATER, WATER.getTickRate(w));
-        return super.getStateForNeighborUpdate(st, d, nst, w, p, np);
+    public BlockState getStateForNeighborUpdate(
+        BlockState state, Direction direction, BlockState neighborState,
+        WorldAccess world, BlockPos pos, BlockPos neighborPos
+    ) {
+        if (this.getWaterloggedProperty() &&
+            state.get(WATERLOGGED).booleanValue()) {
+            world.scheduleFluidTick(pos, WATER, WATER.getTickRate(world));
+        }
+        return super.getStateForNeighborUpdate(
+            state, direction, neighborState, world, pos, neighborPos
+        );
     }
 
     @Override
-    public net.minecraft.fluid.FluidState getFluidState(BlockState st) {
-        return (getWaterloggedProperty() && st.get(WATERLOGGED).booleanValue()) ?
-               WATER.getStill(false) : super.getFluidState(st);
+    public FluidState getFluidState(BlockState state) {
+        return (this.getWaterloggedProperty() &&
+                state.get(WATERLOGGED).booleanValue()) ?
+               WATER.getStill(false) : super.getFluidState(state);
     }
 
     @Override
-    public BlockRenderType
-    getRenderType(BlockState st) {
+    public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
 
     @Override
-    @org.jetbrains.annotations.Nullable
-    public <T extends BlockEntity>
-    BlockEntityTicker<T> getTicker(World w, BlockState st, BlockEntityType<T> type) {
-        return !w.isClient ? validateTicker(type, RodWithLampBlockEntity.TYPE, (world, p,
-                                                                                state, t) -> t.tick(world, p, state)) : null;
+    public <T extends BlockEntity> @Nullable BlockEntityTicker<T>
+    getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return !world.isClient ? validateTicker(
+            type, RodWithLampBlockEntity.TYPE,
+            (wrld, pos, bs, blockEntity) -> blockEntity.tick(world, pos, bs)
+        ) : null;
     }
 }
