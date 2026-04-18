@@ -43,98 +43,125 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoNameBlockEntity> {
         BlockState st = ett.getCachedState();
         matrices.push();
         if (st.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) {
-            setAngles(matrices, st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
-                                (((8 - st.get(FACING).id) % 4) * 90f), st);
+            this.setAngles(
+                matrices,
+                st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
+                (((8 - st.get(FACING).id) % 4) * 90f), st
+            );
             BlockPos p = ett.getPos();
             World w = ett.getWorld();
             switch (st.get(FACING).id) {
                 case 0: {
                     BlockState st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 1: {
                     BlockState st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 2: {
                     BlockState st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 3: {
                     BlockState st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 4: {
                     BlockState st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, false);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        false);
                     }
                     break;
                 }
                 case 5: {
                     BlockState st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, false);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        false);
                     }
                     break;
                 }
                 case 6: {
                     BlockState st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 6) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 7: {
                     BlockState st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 7) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 8: {
                     BlockState st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 8) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 9: {
                     BlockState st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 9) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
@@ -143,98 +170,125 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoNameBlockEntity> {
             return;
         }
         if (st.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) {
-            setAngles(matrices, st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
-                                (((8 - st.get(FACING).id) % 4) * 90f), st);
+            this.setAngles(
+                matrices,
+                st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
+                (((8 - st.get(FACING).id) % 4) * 90f), st
+            );
             BlockPos p = ett.getPos();
             World w = ett.getWorld();
             switch (st.get(FACING).id) {
                 case 0: {
                     BlockState st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 1: {
                     BlockState st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 2: {
                     BlockState st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 3: {
                     BlockState st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 4: {
                     BlockState st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, false);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        false);
                     }
                     break;
                 }
                 case 5: {
                     BlockState st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, false);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        false);
                     }
                     break;
                 }
                 case 6: {
                     BlockState st1 = w.getBlockState(p.east());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 6) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 7: {
                     BlockState st1 = w.getBlockState(p.south());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 7) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 8: {
                     BlockState st1 = w.getBlockState(p.west());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 8) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
                 case 9: {
                     BlockState st1 = w.getBlockState(p.north());
-                    if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
+                    if ((st1.getBlock() instanceof
+                         HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 9) {
-                        renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
+                        this.renderText(st, p, tx, matrices, vcs, light, 8, 90,
+                                        true);
                     }
                     break;
                 }
@@ -272,9 +326,9 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoNameBlockEntity> {
         } else if (st.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) {
             o = -16f;
         }
-        tr.draw(odt, (float)(-tr.getWidth(odt) / 2 + o), (float)j, i, false,
-                matrices.peek().getPositionMatrix(), vcs,
-                TextRenderer.TextLayerType.POLYGON_OFFSET, 0, light);
+        this.tr.draw(odt, (float)(-this.tr.getWidth(odt) / 2 + o), (float)j, i,
+                     false, matrices.peek().getPositionMatrix(), vcs,
+                     TextRenderer.TextLayerType.POLYGON_OFFSET, 0, light);
         matrices.pop();
     }
 

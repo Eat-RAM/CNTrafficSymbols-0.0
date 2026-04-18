@@ -23,7 +23,7 @@ import static net.minecraft.util.shape.VoxelShapes.cuboid;
 import static net.minecraft.util.shape.VoxelShapes.empty;
 
 public class HighwayHmSignBlock extends Attachment3DoubleFaceFacingBlock
-    implements net.minecraft.block.BlockEntityProvider {
+implements net.minecraft.block.BlockEntityProvider {
     public static final VoxelShape SHAPE0 =
     cuboid(.375, .375, .375, .625, .625, .625);
     public static final VoxelShape SHAPE0N =

@@ -41,7 +41,10 @@
   "environment": "*",
   "entrypoints": {
     "main": ["rege.pegui.cntrafficsymbols.Main"],
-    "client": ["rege.pegui.cntrafficsymbols.MainClient"]
+    "client": ["rege.pegui.cntrafficsymbols.MainClient"],
+    "modmenu": [
+      "io.github.eat_ram.cntrafficsymbols.v0d0.compat.modmenu.ModMenuApiImpl"
+    ]
   },
   "mixins": ["cntrafficsymbols_0d0.mixins.json"],
   "depends": {
@@ -50,5 +53,8 @@
     "java": ">=17",
     "fabric-api": "*",
     "cntrafficsymbols_core": ">=0.0.2-b2"
+  },
+  "suggests": {
+    "modmenu": "*"
   }
 }

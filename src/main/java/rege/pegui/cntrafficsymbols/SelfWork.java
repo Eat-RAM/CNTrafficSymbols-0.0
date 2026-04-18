@@ -7,7 +7,9 @@ import io.github.eat_ram.cntrafficsymbols.core.block.DoubleFaceFacingBlock;
 import io.github.eat_ram.cntrafficsymbols.core.block
        .SquareQuarterDefaulted3Block;
 import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
+import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
+import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -34,16 +36,18 @@ import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoRightBlock;
 import rege.pegui.cntrafficsymbols.block.HighwayHmSignBlock;
 import rege.pegui.cntrafficsymbols.block.LinedTPBlock;
 import rege.pegui.cntrafficsymbols.block.RodWithLampBlock;
-/*import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
-import rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRecognitionRegistry;
-import
-    rege.rege.minecraftmod.number_id_revival.state.numberid.BlockNumberIDRegistry;
-import
-    rege.rege.minecraftmod.number_id_revival.state.numberid.ItemNumberIDRegistry;
+import rege.rege.minecraftmod.number_id_revival.state.BlockProperties;
+import rege.rege.minecraftmod.number_id_revival.state.numberid
+       .BlockNumberIDRecognitionRegistry;
+import rege.rege.minecraftmod.number_id_revival.state.numberid
+       .BlockNumberIDRegistry;
+import rege.rege.minecraftmod.number_id_revival.state.numberid
+       .ItemNumberIDRegistry;
 
 import static net.minecraft.block.Blocks.AIR;
-import static net.minecraft.block.Blocks.WATER;*/
-import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds.commitAndGet;
+import static net.minecraft.block.Blocks.WATER;
+import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
+              .commitAndGet;
 import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds.push;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
@@ -1478,6 +1482,7 @@ public class SelfWork {
     private static final Block[] HEIGHTLIMIT_BLOCKS;
     private static final Block[] PROHIBITION_BLOCKS;
     private static final Block[] HIGHWAY_HM_BLOCKS;
+    private static final Block[] DISTANCE_DETECTION_BLOCKS;
     private static final Block[] HALF1_CYLINDRICAL_ROD_BLOCKS;
     private static final Block[] FULL1_CYLINDRICAL_ROD_BLOCKS;
     private static final Block[] ROD_WITH_LAMP_BLOCKS;
@@ -2651,6 +2656,7 @@ public class SelfWork {
     private static final Item[] HEIGHTLIMIT_ITEMS;
     private static final Item[] PROHIBITION_ITEMS;
     private static final Item[] HIGHWAY_HM_ITEMS;
+    private static final Item[] DISTANCE_DETECTION_ITEMS;
     private static final Item[] HALF1_CYLINDRICAL_ROD_ITEMS;
     private static final Item[] FULL1_CYLINDRICAL_ROD_ITEMS;
     private static final Item[] ROD_WITH_LAMP_ITEMS;
@@ -2665,6 +2671,7 @@ public class SelfWork {
         HEIGHTLIMIT_BLOCKS = new Block[]{Blocks.HEIGHTLIMIT_SPECIAL, Blocks.HEIGHTLIMIT_0D1, Blocks.HEIGHTLIMIT_0D2, Blocks.HEIGHTLIMIT_0D3, Blocks.HEIGHTLIMIT_0D4, Blocks.HEIGHTLIMIT_0D5, Blocks.HEIGHTLIMIT_0D6, Blocks.HEIGHTLIMIT_0D7, Blocks.HEIGHTLIMIT_0D8, Blocks.HEIGHTLIMIT_0D9, Blocks.HEIGHTLIMIT_1, Blocks.HEIGHTLIMIT_1D1, Blocks.HEIGHTLIMIT_1D2, Blocks.HEIGHTLIMIT_1D3, Blocks.HEIGHTLIMIT_1D4, Blocks.HEIGHTLIMIT_1D5, Blocks.HEIGHTLIMIT_1D6, Blocks.HEIGHTLIMIT_1D7, Blocks.HEIGHTLIMIT_1D8, Blocks.HEIGHTLIMIT_1D9, Blocks.HEIGHTLIMIT_2, Blocks.HEIGHTLIMIT_2D1, Blocks.HEIGHTLIMIT_2D2, Blocks.HEIGHTLIMIT_2D3, Blocks.HEIGHTLIMIT_2D4, Blocks.HEIGHTLIMIT_2D5, Blocks.HEIGHTLIMIT_2D6, Blocks.HEIGHTLIMIT_2D7, Blocks.HEIGHTLIMIT_2D8, Blocks.HEIGHTLIMIT_2D9, Blocks.HEIGHTLIMIT_3, Blocks.HEIGHTLIMIT_3D1, Blocks.HEIGHTLIMIT_3D2, Blocks.HEIGHTLIMIT_3D3, Blocks.HEIGHTLIMIT_3D4, Blocks.HEIGHTLIMIT_3D5, Blocks.HEIGHTLIMIT_3D6, Blocks.HEIGHTLIMIT_3D7, Blocks.HEIGHTLIMIT_3D8, Blocks.HEIGHTLIMIT_3D9, Blocks.HEIGHTLIMIT_4, Blocks.HEIGHTLIMIT_4D1, Blocks.HEIGHTLIMIT_4D2, Blocks.HEIGHTLIMIT_4D3, Blocks.HEIGHTLIMIT_4D4, Blocks.HEIGHTLIMIT_4D5, Blocks.HEIGHTLIMIT_4D6, Blocks.HEIGHTLIMIT_4D7, Blocks.HEIGHTLIMIT_4D8, Blocks.HEIGHTLIMIT_4D9, Blocks.HEIGHTLIMIT_5, Blocks.HEIGHTLIMIT_5D1, Blocks.HEIGHTLIMIT_5D2, Blocks.HEIGHTLIMIT_5D3, Blocks.HEIGHTLIMIT_5D4, Blocks.HEIGHTLIMIT_5D5, Blocks.HEIGHTLIMIT_5D6, Blocks.HEIGHTLIMIT_5D7, Blocks.HEIGHTLIMIT_5D8, Blocks.HEIGHTLIMIT_5D9, Blocks.HEIGHTLIMIT_6, Blocks.HEIGHTLIMIT_6D1, Blocks.HEIGHTLIMIT_6D2, Blocks.HEIGHTLIMIT_6D3, Blocks.HEIGHTLIMIT_6D4, Blocks.HEIGHTLIMIT_6D5, Blocks.HEIGHTLIMIT_6D6, Blocks.HEIGHTLIMIT_6D7, Blocks.HEIGHTLIMIT_6D8, Blocks.HEIGHTLIMIT_6D9, Blocks.HEIGHTLIMIT_7, Blocks.HEIGHTLIMIT_7D1, Blocks.HEIGHTLIMIT_7D2, Blocks.HEIGHTLIMIT_7D3, Blocks.HEIGHTLIMIT_7D4, Blocks.HEIGHTLIMIT_7D5, Blocks.HEIGHTLIMIT_7D6, Blocks.HEIGHTLIMIT_7D7, Blocks.HEIGHTLIMIT_7D8, Blocks.HEIGHTLIMIT_7D9, Blocks.HEIGHTLIMIT_8, Blocks.HEIGHTLIMIT_8D1, Blocks.HEIGHTLIMIT_8D2, Blocks.HEIGHTLIMIT_8D3, Blocks.HEIGHTLIMIT_8D4, Blocks.HEIGHTLIMIT_8D5, Blocks.HEIGHTLIMIT_8D6, Blocks.HEIGHTLIMIT_8D7, Blocks.HEIGHTLIMIT_8D8, Blocks.HEIGHTLIMIT_8D9, Blocks.HEIGHTLIMIT_9, Blocks.HEIGHTLIMIT_9D1, Blocks.HEIGHTLIMIT_9D2, Blocks.HEIGHTLIMIT_9D3, Blocks.HEIGHTLIMIT_9D4, Blocks.HEIGHTLIMIT_9D5, Blocks.HEIGHTLIMIT_9D6, Blocks.HEIGHTLIMIT_9D7, Blocks.HEIGHTLIMIT_9D8, Blocks.HEIGHTLIMIT_9D9, Blocks.HEIGHTLIMIT_10};
         PROHIBITION_BLOCKS = new Block[]{Blocks.PROHIBITION, Blocks.NO_U_TURN, Blocks.NO_LEFT_TURN, Blocks.NO_RIGHT_TURN, Blocks.NO_PARKING};
         HIGHWAY_HM_BLOCKS = new Block[]{Blocks.HIGHWAY_1HM, Blocks.HIGHWAY_2HM, Blocks.HIGHWAY_3HM, Blocks.HIGHWAY_4HM, Blocks.HIGHWAY_5HM, Blocks.HIGHWAY_6HM, Blocks.HIGHWAY_7HM, Blocks.HIGHWAY_8HM, Blocks.HIGHWAY_9HM};
+        DISTANCE_DETECTION_BLOCKS = new Block[]{Blocks.DISTANCE_DETECTION_0M_LEFT, Blocks.DISTANCE_DETECTION_0M_RIGHT, Blocks.DISTANCE_DETECTION_50M_LEFT, Blocks.DISTANCE_DETECTION_50M_RIGHT, Blocks.DISTANCE_DETECTION_100M_LEFT, Blocks.DISTANCE_DETECTION_100M_RIGHT, Blocks.DISTANCE_DETECTION_200M_LEFT, Blocks.DISTANCE_DETECTION_200M_RIGHT};
         HALF1_CYLINDRICAL_ROD_BLOCKS = new Block[]{Blocks.WHITE_HALF1_CYLINDRICAL_ROD, Blocks.ORANGE_HALF1_CYLINDRICAL_ROD, Blocks.MAGENTA_HALF1_CYLINDRICAL_ROD, Blocks.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD, Blocks.YELLOW_HALF1_CYLINDRICAL_ROD, Blocks.LIME_HALF1_CYLINDRICAL_ROD, Blocks.PINK_HALF1_CYLINDRICAL_ROD, Blocks.GRAY_HALF1_CYLINDRICAL_ROD, Blocks.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD, Blocks.CYAN_HALF1_CYLINDRICAL_ROD, Blocks.PURPLE_HALF1_CYLINDRICAL_ROD, Blocks.BLUE_HALF1_CYLINDRICAL_ROD, Blocks.BROWN_HALF1_CYLINDRICAL_ROD, Blocks.GREEN_HALF1_CYLINDRICAL_ROD, Blocks.RED_HALF1_CYLINDRICAL_ROD, Blocks.BLACK_HALF1_CYLINDRICAL_ROD};
         FULL1_CYLINDRICAL_ROD_BLOCKS = new Block[]{Blocks.WHITE_FULL1_CYLINDRICAL_ROD, Blocks.ORANGE_FULL1_CYLINDRICAL_ROD, Blocks.MAGENTA_FULL1_CYLINDRICAL_ROD, Blocks.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD, Blocks.YELLOW_FULL1_CYLINDRICAL_ROD, Blocks.LIME_FULL1_CYLINDRICAL_ROD, Blocks.PINK_FULL1_CYLINDRICAL_ROD, Blocks.GRAY_FULL1_CYLINDRICAL_ROD, Blocks.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD, Blocks.CYAN_FULL1_CYLINDRICAL_ROD, Blocks.PURPLE_FULL1_CYLINDRICAL_ROD, Blocks.BLUE_FULL1_CYLINDRICAL_ROD, Blocks.BROWN_FULL1_CYLINDRICAL_ROD, Blocks.GREEN_FULL1_CYLINDRICAL_ROD, Blocks.RED_FULL1_CYLINDRICAL_ROD, Blocks.BLACK_FULL1_CYLINDRICAL_ROD};
         ROD_WITH_LAMP_BLOCKS = new Block[]{Blocks.WHITE_ROD_WITH_LAMP, Blocks.ORANGE_ROD_WITH_LAMP, Blocks.MAGENTA_ROD_WITH_LAMP, Blocks.LIGHT_BLUE_ROD_WITH_LAMP, Blocks.YELLOW_ROD_WITH_LAMP, Blocks.LIME_ROD_WITH_LAMP, Blocks.PINK_ROD_WITH_LAMP, Blocks.GRAY_ROD_WITH_LAMP, Blocks.LIGHT_GRAY_ROD_WITH_LAMP, Blocks.CYAN_ROD_WITH_LAMP, Blocks.PURPLE_ROD_WITH_LAMP, Blocks.BLUE_ROD_WITH_LAMP, Blocks.BROWN_ROD_WITH_LAMP, Blocks.GREEN_ROD_WITH_LAMP, Blocks.RED_ROD_WITH_LAMP, Blocks.BLACK_ROD_WITH_LAMP};
@@ -2676,6 +2683,7 @@ public class SelfWork {
         HEIGHTLIMIT_ITEMS = new Item[]{Items.HEIGHTLIMIT_SPECIAL, Items.HEIGHTLIMIT_0D1, Items.HEIGHTLIMIT_0D2, Items.HEIGHTLIMIT_0D3, Items.HEIGHTLIMIT_0D4, Items.HEIGHTLIMIT_0D5, Items.HEIGHTLIMIT_0D6, Items.HEIGHTLIMIT_0D7, Items.HEIGHTLIMIT_0D8, Items.HEIGHTLIMIT_0D9, Items.HEIGHTLIMIT_1, Items.HEIGHTLIMIT_1D1, Items.HEIGHTLIMIT_1D2, Items.HEIGHTLIMIT_1D3, Items.HEIGHTLIMIT_1D4, Items.HEIGHTLIMIT_1D5, Items.HEIGHTLIMIT_1D6, Items.HEIGHTLIMIT_1D7, Items.HEIGHTLIMIT_1D8, Items.HEIGHTLIMIT_1D9, Items.HEIGHTLIMIT_2, Items.HEIGHTLIMIT_2D1, Items.HEIGHTLIMIT_2D2, Items.HEIGHTLIMIT_2D3, Items.HEIGHTLIMIT_2D4, Items.HEIGHTLIMIT_2D5, Items.HEIGHTLIMIT_2D6, Items.HEIGHTLIMIT_2D7, Items.HEIGHTLIMIT_2D8, Items.HEIGHTLIMIT_2D9, Items.HEIGHTLIMIT_3, Items.HEIGHTLIMIT_3D1, Items.HEIGHTLIMIT_3D2, Items.HEIGHTLIMIT_3D3, Items.HEIGHTLIMIT_3D4, Items.HEIGHTLIMIT_3D5, Items.HEIGHTLIMIT_3D6, Items.HEIGHTLIMIT_3D7, Items.HEIGHTLIMIT_3D8, Items.HEIGHTLIMIT_3D9, Items.HEIGHTLIMIT_4, Items.HEIGHTLIMIT_4D1, Items.HEIGHTLIMIT_4D2, Items.HEIGHTLIMIT_4D3, Items.HEIGHTLIMIT_4D4, Items.HEIGHTLIMIT_4D5, Items.HEIGHTLIMIT_4D6, Items.HEIGHTLIMIT_4D7, Items.HEIGHTLIMIT_4D8, Items.HEIGHTLIMIT_4D9, Items.HEIGHTLIMIT_5, Items.HEIGHTLIMIT_5D1, Items.HEIGHTLIMIT_5D2, Items.HEIGHTLIMIT_5D3, Items.HEIGHTLIMIT_5D4, Items.HEIGHTLIMIT_5D5, Items.HEIGHTLIMIT_5D6, Items.HEIGHTLIMIT_5D7, Items.HEIGHTLIMIT_5D8, Items.HEIGHTLIMIT_5D9, Items.HEIGHTLIMIT_6, Items.HEIGHTLIMIT_6D1, Items.HEIGHTLIMIT_6D2, Items.HEIGHTLIMIT_6D3, Items.HEIGHTLIMIT_6D4, Items.HEIGHTLIMIT_6D5, Items.HEIGHTLIMIT_6D6, Items.HEIGHTLIMIT_6D7, Items.HEIGHTLIMIT_6D8, Items.HEIGHTLIMIT_6D9, Items.HEIGHTLIMIT_7, Items.HEIGHTLIMIT_7D1, Items.HEIGHTLIMIT_7D2, Items.HEIGHTLIMIT_7D3, Items.HEIGHTLIMIT_7D4, Items.HEIGHTLIMIT_7D5, Items.HEIGHTLIMIT_7D6, Items.HEIGHTLIMIT_7D7, Items.HEIGHTLIMIT_7D8, Items.HEIGHTLIMIT_7D9, Items.HEIGHTLIMIT_8, Items.HEIGHTLIMIT_8D1, Items.HEIGHTLIMIT_8D2, Items.HEIGHTLIMIT_8D3, Items.HEIGHTLIMIT_8D4, Items.HEIGHTLIMIT_8D5, Items.HEIGHTLIMIT_8D6, Items.HEIGHTLIMIT_8D7, Items.HEIGHTLIMIT_8D8, Items.HEIGHTLIMIT_8D9, Items.HEIGHTLIMIT_9, Items.HEIGHTLIMIT_9D1, Items.HEIGHTLIMIT_9D2, Items.HEIGHTLIMIT_9D3, Items.HEIGHTLIMIT_9D4, Items.HEIGHTLIMIT_9D5, Items.HEIGHTLIMIT_9D6, Items.HEIGHTLIMIT_9D7, Items.HEIGHTLIMIT_9D8, Items.HEIGHTLIMIT_9D9, Items.HEIGHTLIMIT_10};
         PROHIBITION_ITEMS = new Item[]{Items.PROHIBITION, Items.NO_U_TURN, Items.NO_LEFT_TURN, Items.NO_RIGHT_TURN, Items.NO_PARKING};
         HIGHWAY_HM_ITEMS = new Item[]{Items.HIGHWAY_1HM, Items.HIGHWAY_2HM, Items.HIGHWAY_3HM, Items.HIGHWAY_4HM, Items.HIGHWAY_5HM, Items.HIGHWAY_6HM, Items.HIGHWAY_7HM, Items.HIGHWAY_8HM, Items.HIGHWAY_9HM};
+        DISTANCE_DETECTION_ITEMS = new Item[]{Items.DISTANCE_DETECTION_0M_LEFT, Items.DISTANCE_DETECTION_0M_RIGHT, Items.DISTANCE_DETECTION_50M_LEFT, Items.DISTANCE_DETECTION_50M_RIGHT, Items.DISTANCE_DETECTION_100M_LEFT, Items.DISTANCE_DETECTION_100M_RIGHT, Items.DISTANCE_DETECTION_200M_LEFT, Items.DISTANCE_DETECTION_200M_RIGHT};
         HALF1_CYLINDRICAL_ROD_ITEMS = new Item[]{Items.WHITE_HALF1_CYLINDRICAL_ROD, Items.ORANGE_HALF1_CYLINDRICAL_ROD, Items.MAGENTA_HALF1_CYLINDRICAL_ROD, Items.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD, Items.YELLOW_HALF1_CYLINDRICAL_ROD, Items.LIME_HALF1_CYLINDRICAL_ROD, Items.PINK_HALF1_CYLINDRICAL_ROD, Items.GRAY_HALF1_CYLINDRICAL_ROD, Items.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD, Items.CYAN_HALF1_CYLINDRICAL_ROD, Items.PURPLE_HALF1_CYLINDRICAL_ROD, Items.BLUE_HALF1_CYLINDRICAL_ROD, Items.BROWN_HALF1_CYLINDRICAL_ROD, Items.GREEN_HALF1_CYLINDRICAL_ROD, Items.RED_HALF1_CYLINDRICAL_ROD, Items.BLACK_HALF1_CYLINDRICAL_ROD};
         FULL1_CYLINDRICAL_ROD_ITEMS = new Item[]{Items.WHITE_FULL1_CYLINDRICAL_ROD, Items.ORANGE_FULL1_CYLINDRICAL_ROD, Items.MAGENTA_FULL1_CYLINDRICAL_ROD, Items.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD, Items.YELLOW_FULL1_CYLINDRICAL_ROD, Items.LIME_FULL1_CYLINDRICAL_ROD, Items.PINK_FULL1_CYLINDRICAL_ROD, Items.GRAY_FULL1_CYLINDRICAL_ROD, Items.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD, Items.CYAN_FULL1_CYLINDRICAL_ROD, Items.PURPLE_FULL1_CYLINDRICAL_ROD, Items.BLUE_FULL1_CYLINDRICAL_ROD, Items.BROWN_FULL1_CYLINDRICAL_ROD, Items.GREEN_FULL1_CYLINDRICAL_ROD, Items.RED_FULL1_CYLINDRICAL_ROD, Items.BLACK_FULL1_CYLINDRICAL_ROD};
         ROD_WITH_LAMP_ITEMS = new Item[]{Items.WHITE_ROD_WITH_LAMP, Items.ORANGE_ROD_WITH_LAMP, Items.MAGENTA_ROD_WITH_LAMP, Items.LIGHT_BLUE_ROD_WITH_LAMP, Items.YELLOW_ROD_WITH_LAMP, Items.LIME_ROD_WITH_LAMP, Items.PINK_ROD_WITH_LAMP, Items.GRAY_ROD_WITH_LAMP, Items.LIGHT_GRAY_ROD_WITH_LAMP, Items.CYAN_ROD_WITH_LAMP, Items.PURPLE_ROD_WITH_LAMP, Items.BLUE_ROD_WITH_LAMP, Items.BROWN_ROD_WITH_LAMP, Items.GREEN_ROD_WITH_LAMP, Items.RED_ROD_WITH_LAMP, Items.BLACK_ROD_WITH_LAMP};
@@ -2694,14 +2702,7 @@ public class SelfWork {
             e.add(Items.WHITE_FLOOR_LINE_EIGHTH);
             e.add(Items.YELLOW_FLOOR_LINE_EIGHTH);
             e.add(Items.HIGHWAY_KM);
-            e.add(Items.DISTANCE_DETECTION_0M_LEFT);
-            e.add(Items.DISTANCE_DETECTION_0M_RIGHT);
-            e.add(Items.DISTANCE_DETECTION_50M_LEFT);
-            e.add(Items.DISTANCE_DETECTION_50M_RIGHT);
-            e.add(Items.DISTANCE_DETECTION_100M_LEFT);
-            e.add(Items.DISTANCE_DETECTION_100M_RIGHT);
-            e.add(Items.DISTANCE_DETECTION_200M_LEFT);
-            e.add(Items.DISTANCE_DETECTION_200M_RIGHT);
+            for (Item i : DISTANCE_DETECTION_ITEMS) e.add(i);
             e.add(Items.BARRICADE_1M_EDGE_1M_HEIGHT);
             e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_TOP);
             e.add(Items.HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_TOP);
@@ -2756,7 +2757,7 @@ public class SelfWork {
                               SPEEDLIMIT_HIGH_ITEMS[i]);
             Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "speedlimit_low_" + Integer.toString(i * 5)),
                               SPEEDLIMIT_LOW_ITEMS[i]);
-            Registry.register(Registries.ITEM, commitAndGet(Registries.BLOCK, "lift_speedlimit_high_" + Integer.toString(i * 5)),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "lift_speedlimit_high_" + Integer.toString(i * 5)),
                               LIFT_SPEEDLIMIT_HIGH_ITEMS[i]);
         }
         Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "speedlimit_high_3"), Blocks.SPEEDLIMIT_HIGH_3);
@@ -2984,29 +2985,29 @@ public class SelfWork {
         Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "keep_space_variant2_lowerright"),
                           Blocks.KEEP_SPACE_VARIANT2_LOWERRIGHT);
         for (int i = 0; i < 16; i++) {
-            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
                               HALF1_CYLINDRICAL_ROD_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
                               FULL1_CYLINDRICAL_ROD_BLOCKS[i]);
-            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(i) + "_rod_with_lamp"),
+            Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, COLORS_MC16.get(i) + "_rod_with_lamp"),
                               ROD_WITH_LAMP_BLOCKS[i]);
-            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, COLORS_MC16.get(i) + "_half1_cylindrical_rod"),
                               HALF1_CYLINDRICAL_ROD_ITEMS[i]);
-            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, COLORS_MC16.get(i) + "_full1_cylindrical_rod"),
                               FULL1_CYLINDRICAL_ROD_ITEMS[i]);
-            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(i) + "_rod_with_lamp"),
+            Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, COLORS_MC16.get(i) + "_rod_with_lamp"),
                               ROD_WITH_LAMP_ITEMS[i]);
         }
         Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "full_square_backboard"), Blocks.FULL_SQUARE_BACKBOARD);
         for (int i = 4; i < 11; i++) {
             for (int j = 0; j < 16; j++) {
-                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
+                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
                                                                    "_tp"), DOTTED_TP_BLOCKS[i][j]);
-                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, "" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
+                Registry.register(Registries.BLOCK, commitAndGet(Registries.BLOCK, COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
                                                                    "_tp"), LINED_TP_BLOCKS[i][j]);
-                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
+                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, COLORS_MC16.get(j) + "_dotted" + Integer.toString(i) +
                                                                   "_tp"), DOTTED_TP_ITEMS[i][j]);
-                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, "" + COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
+                Registry.register(Registries.ITEM, commitAndGet(Registries.ITEM, COLORS_MC16.get(j) + "_lined" + Integer.toString(i) +
                                                                   "_tp"), LINED_TP_ITEMS[i][j]);
             }
         }
@@ -3125,7 +3126,7 @@ public class SelfWork {
         Registry.register(Registries.ITEM_GROUP, new Identifier("cntrafficsymbols_0d0",
                                                                 "cntrafficsymbols"), ITEM_GROUP);
         push();
-        /*try {
+        try {
             Block[] tab = {Blocks.SPEEDLIMIT_HIGH_3, Blocks.SPEEDLIMIT_HIGH_5, Blocks.SPEEDLIMIT_HIGH_10, Blocks.SPEEDLIMIT_HIGH_15, Blocks.SPEEDLIMIT_HIGH_20, Blocks.SPEEDLIMIT_HIGH_25, Blocks.SPEEDLIMIT_HIGH_30, Blocks.SPEEDLIMIT_HIGH_35, Blocks.SPEEDLIMIT_HIGH_40, Blocks.SPEEDLIMIT_HIGH_45, Blocks.SPEEDLIMIT_HIGH_50, Blocks.SPEEDLIMIT_HIGH_55, Blocks.SPEEDLIMIT_HIGH_60, Blocks.SPEEDLIMIT_HIGH_65, Blocks.SPEEDLIMIT_HIGH_70, Blocks.SPEEDLIMIT_HIGH_75, Blocks.SPEEDLIMIT_HIGH_80, Blocks.SPEEDLIMIT_HIGH_85, Blocks.SPEEDLIMIT_HIGH_90, Blocks.SPEEDLIMIT_HIGH_95, Blocks.SPEEDLIMIT_HIGH_100, Blocks.SPEEDLIMIT_HIGH_105, Blocks.SPEEDLIMIT_HIGH_110, Blocks.SPEEDLIMIT_HIGH_115, Blocks.SPEEDLIMIT_HIGH_120, Blocks.SPEEDLIMIT_HIGH_125, Blocks.SPEEDLIMIT_HIGH_130, Blocks.SPEEDLIMIT_HIGH_135, Blocks.SPEEDLIMIT_HIGH_140, Blocks.SPEEDLIMIT_HIGH_145, Blocks.SPEEDLIMIT_HIGH_150, Blocks.SPEEDLIMIT_HIGH_SPECIAL, Blocks.SPEEDLIMIT_LOW_3, Blocks.SPEEDLIMIT_LOW_5, Blocks.SPEEDLIMIT_LOW_10, Blocks.SPEEDLIMIT_LOW_15, Blocks.SPEEDLIMIT_LOW_20, Blocks.SPEEDLIMIT_LOW_25, Blocks.SPEEDLIMIT_LOW_30, Blocks.SPEEDLIMIT_LOW_35, Blocks.SPEEDLIMIT_LOW_40, Blocks.SPEEDLIMIT_LOW_45, Blocks.SPEEDLIMIT_LOW_50, Blocks.SPEEDLIMIT_LOW_55, Blocks.SPEEDLIMIT_LOW_60, Blocks.SPEEDLIMIT_LOW_65, Blocks.SPEEDLIMIT_LOW_70, Blocks.SPEEDLIMIT_LOW_75, Blocks.SPEEDLIMIT_LOW_80, Blocks.SPEEDLIMIT_LOW_85, Blocks.SPEEDLIMIT_LOW_90, Blocks.SPEEDLIMIT_LOW_95, Blocks.SPEEDLIMIT_LOW_100, Blocks.SPEEDLIMIT_LOW_105, Blocks.SPEEDLIMIT_LOW_110, Blocks.SPEEDLIMIT_LOW_115, Blocks.SPEEDLIMIT_LOW_120, Blocks.SPEEDLIMIT_LOW_125, Blocks.SPEEDLIMIT_LOW_130, Blocks.SPEEDLIMIT_LOW_135, Blocks.SPEEDLIMIT_LOW_140, Blocks.SPEEDLIMIT_LOW_145, Blocks.SPEEDLIMIT_LOW_150, Blocks.SPEEDLIMIT_LOW_SPECIAL};
             int d = 0;
             for (Attachment3 i : new Attachment3[]{Attachment3.NONE, Attachment3.DOWN, Attachment3.UP}) {
@@ -3181,13 +3182,13 @@ public class SelfWork {
                     BlockNumberIDRegistry.INSTANCE.register(12203, d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
                         .register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12201, d);
+                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12203, d);
                     if (getWaterloggedProperty()) {
                         st = st.with(WATERLOGGED, true);
                         BlockNumberIDRegistry.INSTANCE.register(12203, ~d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
                             .register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12201, ~d);
+                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12203, ~d);
                     }
                     d++;
                 }
@@ -3300,6 +3301,62 @@ public class SelfWork {
                                                            .getValue(), new BlockProperties().mergeFromBlockState(st), 12207, d | 8192);
                 }
             }
+            d = 0;
+            for (Attachment3 i : new Attachment3[]{Attachment3.NONE, Attachment3.DOWN, Attachment3.UP}) {
+                for (DoubleFaceFacing j : new DoubleFaceFacing[]{DoubleFaceFacing.SOUTH, DoubleFaceFacing.SSW, DoubleFaceFacing.SOUTHWEST, DoubleFaceFacing.WSW, DoubleFaceFacing.WEST, DoubleFaceFacing.WNW, DoubleFaceFacing.NORTHWEST, DoubleFaceFacing.NNW, DoubleFaceFacing.NORTH, DoubleFaceFacing.NNE, DoubleFaceFacing.NORTHEAST, DoubleFaceFacing.ENE, DoubleFaceFacing.EAST, DoubleFaceFacing.ESE, DoubleFaceFacing.SOUTHEAST, DoubleFaceFacing.SSE, DoubleFaceFacing.NORTH_SOUTH, DoubleFaceFacing.NNE_SSW, DoubleFaceFacing.NORTHEAST_SOUTHWEST, DoubleFaceFacing.ENE_WSW, DoubleFaceFacing.EAST_WEST, DoubleFaceFacing.ESE_WNW, DoubleFaceFacing.NORTHWEST_SOUTHEAST, DoubleFaceFacing.SSE_NNW, DoubleFaceFacing.WALL_SOUTH, DoubleFaceFacing.WALL_EAST, DoubleFaceFacing.WALL_NORTH, DoubleFaceFacing.WALL_WEST}) {
+                    BlockState st = Blocks.HIGHWAY_KM.getDefaultState()
+                                                           .with(Attachment3.ATTACHMENT, i).with(DoubleFaceFacing.FACING, j);
+                    BlockNumberIDRegistry.INSTANCE.register(12208, d, st);
+                    BlockNumberIDRecognitionRegistry.INSTANCE
+                        .register(Blocks.HIGHWAY_KM.getRegistryEntry().registryKey()
+                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12208, d);
+                    if (getWaterloggedProperty()) {
+                        st = st.with(WATERLOGGED, true);
+                        BlockNumberIDRegistry.INSTANCE.register(12208, ~d, st);
+                        BlockNumberIDRecognitionRegistry.INSTANCE
+                            .register(Blocks.HIGHWAY_KM.getRegistryEntry().registryKey()
+                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12208, ~d);
+                    }
+                    d++;
+                }
+                d += 4;
+            }
+            tab = DISTANCE_DETECTION_BLOCKS;
+            d = 0;
+            for (DoubleFaceFacing90 i : new DoubleFaceFacing90[]{DoubleFaceFacing90.SOUTH, DoubleFaceFacing90.WEST, DoubleFaceFacing90.NORTH, DoubleFaceFacing90.EAST, DoubleFaceFacing90.NORTH_SOUTH, DoubleFaceFacing90.EAST_WEST, DoubleFaceFacing90.WALL_NORTH, DoubleFaceFacing90.WALL_EAST, DoubleFaceFacing90.WALL_SOUTH, DoubleFaceFacing90.WALL_WEST}) {
+                for (Block j : tab) {
+                    BlockState st = j.getDefaultState().with(DoubleFaceFacing90.FACING, i);
+                    BlockNumberIDRegistry.INSTANCE.register(12209, d, st);
+                    BlockNumberIDRecognitionRegistry.INSTANCE
+                        .register(j.getRegistryEntry().registryKey()
+                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12209, d);
+                    if (getWaterloggedProperty()) {
+                        st = st.with(WATERLOGGED, true);
+                        BlockNumberIDRegistry.INSTANCE.register(12209, ~d, st);
+                        BlockNumberIDRecognitionRegistry.INSTANCE
+                            .register(j.getRegistryEntry().registryKey()
+                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12209, ~d);
+                    }
+                    d++;
+                }
+            }
+            for (d = 0; d < 81; d++) {
+                BlockState st = Blocks.BARRICADES_1.getDefaultState().with(SquareQuarterDefaulted3Block.NORTHWEST, d % 3)
+                    .with(SquareQuarterDefaulted3Block.NORTHEAST, (d / 3) % 3)
+                    .with(SquareQuarterDefaulted3Block.SOUTHWEST, (d / 9) % 3)
+                    .with(SquareQuarterDefaulted3Block.SOUTHEAST, d / 27);
+                BlockNumberIDRegistry.INSTANCE.register(12210, d, st);
+                BlockNumberIDRecognitionRegistry.INSTANCE
+                    .register(Blocks.BARRICADES_1.getRegistryEntry().registryKey()
+                                                 .getValue(), new BlockProperties().mergeFromBlockState(st), 12210, d);
+                if (getWaterloggedProperty()) {
+                    st = st.with(WATERLOGGED, true);
+                    BlockNumberIDRegistry.INSTANCE.register(12210, ~d, st);
+                    BlockNumberIDRecognitionRegistry.INSTANCE
+                        .register(Blocks.BARRICADES_1.getRegistryEntry().registryKey()
+                                                     .getValue(), new BlockProperties().mergeFromBlockState(st), 12210, ~d);
+                }
+            }
             Item[] tab2 = {Items.SPEEDLIMIT_HIGH_3, Items.SPEEDLIMIT_HIGH_5, Items.SPEEDLIMIT_HIGH_10, Items.SPEEDLIMIT_HIGH_15, Items.SPEEDLIMIT_HIGH_20, Items.SPEEDLIMIT_HIGH_25, Items.SPEEDLIMIT_HIGH_30, Items.SPEEDLIMIT_HIGH_35, Items.SPEEDLIMIT_HIGH_40, Items.SPEEDLIMIT_HIGH_45, Items.SPEEDLIMIT_HIGH_50, Items.SPEEDLIMIT_HIGH_55, Items.SPEEDLIMIT_HIGH_60, Items.SPEEDLIMIT_HIGH_65, Items.SPEEDLIMIT_HIGH_70, Items.SPEEDLIMIT_HIGH_75, Items.SPEEDLIMIT_HIGH_80, Items.SPEEDLIMIT_HIGH_85, Items.SPEEDLIMIT_HIGH_90, Items.SPEEDLIMIT_HIGH_95, Items.SPEEDLIMIT_HIGH_100, Items.SPEEDLIMIT_HIGH_105, Items.SPEEDLIMIT_HIGH_110, Items.SPEEDLIMIT_HIGH_115, Items.SPEEDLIMIT_HIGH_120, Items.SPEEDLIMIT_HIGH_125, Items.SPEEDLIMIT_HIGH_130, Items.SPEEDLIMIT_HIGH_135, Items.SPEEDLIMIT_HIGH_140, Items.SPEEDLIMIT_HIGH_145, Items.SPEEDLIMIT_HIGH_150, Items.SPEEDLIMIT_HIGH_SPECIAL, Items.SPEEDLIMIT_LOW_3, Items.SPEEDLIMIT_LOW_5, Items.SPEEDLIMIT_LOW_10, Items.SPEEDLIMIT_LOW_15, Items.SPEEDLIMIT_LOW_20, Items.SPEEDLIMIT_LOW_25, Items.SPEEDLIMIT_LOW_30, Items.SPEEDLIMIT_LOW_35, Items.SPEEDLIMIT_LOW_40, Items.SPEEDLIMIT_LOW_45, Items.SPEEDLIMIT_LOW_50, Items.SPEEDLIMIT_LOW_55, Items.SPEEDLIMIT_LOW_60, Items.SPEEDLIMIT_LOW_65, Items.SPEEDLIMIT_LOW_70, Items.SPEEDLIMIT_LOW_75, Items.SPEEDLIMIT_LOW_80, Items.SPEEDLIMIT_LOW_85, Items.SPEEDLIMIT_LOW_90, Items.SPEEDLIMIT_LOW_95, Items.SPEEDLIMIT_LOW_100, Items.SPEEDLIMIT_LOW_105, Items.SPEEDLIMIT_LOW_110, Items.SPEEDLIMIT_LOW_115, Items.SPEEDLIMIT_LOW_120, Items.SPEEDLIMIT_LOW_125, Items.SPEEDLIMIT_LOW_130, Items.SPEEDLIMIT_LOW_135, Items.SPEEDLIMIT_LOW_140, Items.SPEEDLIMIT_LOW_145, Items.SPEEDLIMIT_LOW_150, Items.SPEEDLIMIT_LOW_SPECIAL};
             d = 0;
             for (Item i : tab2) {
@@ -3336,7 +3393,19 @@ public class SelfWork {
                 .register(12207, 1, Items.WHITE_FLOOR_LINE_EIGHTH);
             ItemNumberIDRegistry.INSTANCE
                 .register(12207, 2, Items.YELLOW_FLOOR_LINE_EIGHTH);
-        } catch (NoClassDefFoundError e) {
-        }*/
+            ItemNumberIDRegistry.INSTANCE.register(12208, 0, Items.HIGHWAY_KM);
+            tab2 = DISTANCE_DETECTION_ITEMS;
+            d = 0;
+            for (Item i : tab2) {
+                ItemNumberIDRegistry.INSTANCE.register(12209, d, i);
+                d++;
+            }
+            ItemNumberIDRegistry.INSTANCE
+                .register(12210, 0, Items.BARRICADE_1M_EDGE_1M_HEIGHT);
+            ItemNumberIDRegistry.INSTANCE
+                .register(12210, 1, Items.BARRICADE_50CM_EDGE_75CM_HEIGHT);
+            ItemNumberIDRegistry.INSTANCE
+                .register(12210, 2, Items.BARRICADE_50CM_EDGE_1M_HEIGHT);
+        } catch (NoClassDefFoundError ignored) {}
     }
 }
