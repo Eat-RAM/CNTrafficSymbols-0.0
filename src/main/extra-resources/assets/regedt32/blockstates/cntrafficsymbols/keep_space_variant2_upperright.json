@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=south": {"model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_standing"},
+    "facing=west": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_standing",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_standing",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_standing",
+      "y": 270
+    },
+    "facing=north_south": {"model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_double"},
+    "facing=east_west": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_double",
+      "y": 90
+    },
+    "facing=wall_north": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_wall",
+      "y": 180
+    },
+    "facing=wall_east": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_wall",
+      "y": 270
+    },
+    "facing=wall_south": {"model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_wall"},
+    "facing=wall_west": {
+      "model": "regedt32:block/cntrafficsymbols/keep_space_variant2_upperright_wall",
+      "y": 90
+    }
+  }
+}

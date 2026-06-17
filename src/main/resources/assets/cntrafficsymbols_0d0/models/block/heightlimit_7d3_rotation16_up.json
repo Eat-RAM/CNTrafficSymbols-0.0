@@ -1,0 +1,7 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/circle_rotation16_up",
+  "textures": {
+    "front": "cntrafficsymbols_0d0:block/heightlimit_7d3",
+    "side": "cntrafficsymbols_0d0:block/circle_backboard"
+  }
+}

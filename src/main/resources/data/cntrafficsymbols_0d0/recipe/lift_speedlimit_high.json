@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": {"item": "minecraft:black_dye"},
+    "E": {"item": "cntrafficsymbols_0d0:circle_backboard"},
+    "B": {"item": "minecraft:black_dye"}
+  },
+  "pattern": [
+    "T",
+    "E",
+    "B"
+  ],
+  "result": {"item": "cntrafficsymbols_0d0:lift_speedlimit_high_special"},
+  "show_notification": true
+}

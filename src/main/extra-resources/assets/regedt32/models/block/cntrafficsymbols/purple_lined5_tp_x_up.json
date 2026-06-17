@@ -1,0 +1,4 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/lined5_tp_x_up",
+  "textures": {"this": "minecraft:block/purple_concrete"}
+}

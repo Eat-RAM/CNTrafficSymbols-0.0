@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#cntrafficsymbols_0d0:circle_vertical_symbols",
+    "cntrafficsymbols_0d0:circle_backboard",
+    "#cntrafficsymbols_0d0:highway_hm",
+    "cntrafficsymbols_0d0:floor_line_eighths",
+    "cntrafficsymbols_0d0:highway_km",
+    "#cntrafficsymbols_0d0:distance_detection",
+    "#cntrafficsymbols_0d0:highway_exit_distance_info",
+    "#cntrafficsymbols_0d0:keep_space_variant1_components",
+    "#cntrafficsymbols_0d0:keep_space_variant2_components",
+    "cntrafficsymbols_0d0:barricades_1",
+    "#cntrafficsymbols_0d0:cylindrical_rods"
+  ]
+}

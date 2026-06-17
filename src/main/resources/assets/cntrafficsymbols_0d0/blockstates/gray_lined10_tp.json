@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x,bottom=true": {"model": "cntrafficsymbols_0d0:block/gray_lined10_tp_x_bottom"},
+    "axis=x,bottom=false": {"model": "cntrafficsymbols_0d0:block/gray_lined10_tp_x_up"},
+    "axis=z,bottom=true": {
+      "model": "cntrafficsymbols_0d0:block/gray_lined10_tp_x_bottom",
+      "y": 90,
+      "uvlock": true
+    },
+    "axis=z,bottom=false": {
+      "model": "cntrafficsymbols_0d0:block/gray_lined10_tp_x_up",
+      "y": 90,
+      "uvlock": true
+    }
+  }
+}

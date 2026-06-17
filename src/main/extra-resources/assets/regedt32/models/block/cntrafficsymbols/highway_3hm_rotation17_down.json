@@ -1,0 +1,7 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/highway_hm_rotation17_down",
+  "textures": {
+    "front": "regedt32:block/cntrafficsymbols/highway_3hm",
+    "side": "regedt32:block/cntrafficsymbols/highway_hm_backboard"
+  }
+}

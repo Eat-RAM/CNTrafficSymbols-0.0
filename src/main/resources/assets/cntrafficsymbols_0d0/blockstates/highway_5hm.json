@@ -1,0 +1,259 @@
+{
+  "variants": {
+    "facing=south,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0"},
+    "facing=ssw,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1"},
+    "facing=southwest,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2"},
+    "facing=wsw,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15",
+      "y": 90
+    },
+    "facing=west,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0",
+      "y": 90
+    },
+    "facing=wnw,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1",
+      "y": 90
+    },
+    "facing=northwest,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2",
+      "y": 90
+    },
+    "facing=nnw,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15",
+      "y": 180
+    },
+    "facing=north,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0",
+      "y": 180
+    },
+    "facing=nne,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1",
+      "y": 180
+    },
+    "facing=northeast,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2",
+      "y": 180
+    },
+    "facing=ene,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15",
+      "y": 270
+    },
+    "facing=east,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0",
+      "y": 270
+    },
+    "facing=ese,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1",
+      "y": 270
+    },
+    "facing=southeast,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2",
+      "y": 270
+    },
+    "facing=sse,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15"},
+    "facing=north_south,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16"},
+    "facing=nne_ssw,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17"},
+    "facing=northeast_southwest,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18"},
+    "facing=ene_wsw,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23",
+      "y": 90
+    },
+    "facing=east_west,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16",
+      "y": 90
+    },
+    "facing=ese_wnw,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17",
+      "y": 90
+    },
+    "facing=northwest_southeast,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18",
+      "y": 90
+    },
+    "facing=sse_nnw,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23"},
+    "facing=wall_north,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26",
+      "y": 180
+    },
+    "facing=wall_east,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26",
+      "y": 270
+    },
+    "facing=wall_south,attachment=none": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26"},
+    "facing=wall_west,attachment=none": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26",
+      "y": 90
+    },
+    "facing=south,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_down"},
+    "facing=ssw,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_down"},
+    "facing=southwest,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_down"},
+    "facing=wsw,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_down",
+      "y": 90
+    },
+    "facing=west,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_down",
+      "y": 90
+    },
+    "facing=wnw,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_down",
+      "y": 90
+    },
+    "facing=northwest,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_down",
+      "y": 90
+    },
+    "facing=nnw,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_down",
+      "y": 180
+    },
+    "facing=north,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_down",
+      "y": 180
+    },
+    "facing=nne,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_down",
+      "y": 180
+    },
+    "facing=northeast,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_down",
+      "y": 180
+    },
+    "facing=ene,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_down",
+      "y": 270
+    },
+    "facing=east,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_down",
+      "y": 270
+    },
+    "facing=ese,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_down",
+      "y": 270
+    },
+    "facing=southeast,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_down",
+      "y": 270
+    },
+    "facing=sse,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_down"},
+    "facing=north_south,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16_down"},
+    "facing=nne_ssw,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17_down"},
+    "facing=northeast_southwest,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18_down"},
+    "facing=ene_wsw,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23_down",
+      "y": 90
+    },
+    "facing=east_west,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16_down",
+      "y": 90
+    },
+    "facing=ese_wnw,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17_down",
+      "y": 90
+    },
+    "facing=northwest_southeast,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18_down",
+      "y": 90
+    },
+    "facing=sse_nnw,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23_down"},
+    "facing=wall_north,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_down",
+      "y": 180
+    },
+    "facing=wall_east,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_down",
+      "y": 270
+    },
+    "facing=wall_south,attachment=down": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_down"},
+    "facing=wall_west,attachment=down": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_down",
+      "y": 90
+    },
+    "facing=south,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_up"},
+    "facing=ssw,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_up"},
+    "facing=southwest,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_up"},
+    "facing=wsw,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_up",
+      "y": 90
+    },
+    "facing=west,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_up",
+      "y": 90
+    },
+    "facing=wnw,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_up",
+      "y": 90
+    },
+    "facing=northwest,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_up",
+      "y": 90
+    },
+    "facing=nnw,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_up",
+      "y": 180
+    },
+    "facing=north,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_up",
+      "y": 180
+    },
+    "facing=nne,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_up",
+      "y": 180
+    },
+    "facing=northeast,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_up",
+      "y": 180
+    },
+    "facing=ene,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_up",
+      "y": 270
+    },
+    "facing=east,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation0_up",
+      "y": 270
+    },
+    "facing=ese,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation1_up",
+      "y": 270
+    },
+    "facing=southeast,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation2_up",
+      "y": 270
+    },
+    "facing=sse,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation15_up"},
+    "facing=north_south,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16_up"},
+    "facing=nne_ssw,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17_up"},
+    "facing=northeast_southwest,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18_up"},
+    "facing=ene_wsw,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23_up",
+      "y": 90
+    },
+    "facing=east_west,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation16_up",
+      "y": 90
+    },
+    "facing=ese_wnw,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation17_up",
+      "y": 90
+    },
+    "facing=northwest_southeast,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation18_up",
+      "y": 90
+    },
+    "facing=sse_nnw,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation23_up"},
+    "facing=wall_north,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_up",
+      "y": 180
+    },
+    "facing=wall_east,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_up",
+      "y": 270
+    },
+    "facing=wall_south,attachment=up": {"model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_up"},
+    "facing=wall_west,attachment=up": {
+      "model": "cntrafficsymbols_0d0:block/highway_5hm_rotation26_up",
+      "y": 90
+    }
+  }
+}

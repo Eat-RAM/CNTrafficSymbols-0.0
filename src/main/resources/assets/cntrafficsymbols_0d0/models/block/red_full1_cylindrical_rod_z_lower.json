@@ -1,0 +1,4 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/full1_cylindrical_rod_z_lower",
+  "textures": {"side": "cntrafficsymbols_0d0:block/red_full1_cylindrical_rod"}
+}

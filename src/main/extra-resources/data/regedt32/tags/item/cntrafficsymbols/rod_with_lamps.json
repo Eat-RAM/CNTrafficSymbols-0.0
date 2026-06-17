@@ -1,0 +1,20 @@
+{
+  "values": [
+    "regedt32:cntrafficsymbols/white_rod_with_lamp",
+    "regedt32:cntrafficsymbols/orange_rod_with_lamp",
+    "regedt32:cntrafficsymbols/magenta_rod_with_lamp",
+    "regedt32:cntrafficsymbols/light_blue_rod_with_lamp",
+    "regedt32:cntrafficsymbols/yellow_rod_with_lamp",
+    "regedt32:cntrafficsymbols/lime_rod_with_lamp",
+    "regedt32:cntrafficsymbols/pink_rod_with_lamp",
+    "regedt32:cntrafficsymbols/gray_rod_with_lamp",
+    "regedt32:cntrafficsymbols/light_gray_rod_with_lamp",
+    "regedt32:cntrafficsymbols/cyan_rod_with_lamp",
+    "regedt32:cntrafficsymbols/purple_rod_with_lamp",
+    "regedt32:cntrafficsymbols/blue_rod_with_lamp",
+    "regedt32:cntrafficsymbols/brown_rod_with_lamp",
+    "regedt32:cntrafficsymbols/green_rod_with_lamp",
+    "regedt32:cntrafficsymbols/red_rod_with_lamp",
+    "regedt32:cntrafficsymbols/black_rod_with_lamp"
+  ]
+}

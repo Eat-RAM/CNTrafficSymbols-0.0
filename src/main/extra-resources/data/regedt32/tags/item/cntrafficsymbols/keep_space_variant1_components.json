@@ -1,0 +1,13 @@
+{
+  "values": [
+    "regedt32:cntrafficsymbols/keep_space_variant1_upperleft",
+    "regedt32:cntrafficsymbols/keep_space_variant1_upper",
+    "regedt32:cntrafficsymbols/keep_space_variant1_upperright",
+    "regedt32:cntrafficsymbols/keep_space_variant1_left",
+    "regedt32:cntrafficsymbols/keep_space_variant1_center",
+    "regedt32:cntrafficsymbols/keep_space_variant1_right",
+    "regedt32:cntrafficsymbols/keep_space_variant1_lowerleft",
+    "regedt32:cntrafficsymbols/keep_space_variant1_lower",
+    "regedt32:cntrafficsymbols/keep_space_variant1_lowerright"
+  ]
+}

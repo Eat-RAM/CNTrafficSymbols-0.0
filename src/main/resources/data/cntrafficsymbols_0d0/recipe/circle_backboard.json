@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {"item": "cntrafficsymbols_0d0:iron_plate"},
+    "L": {"item": "minecraft:iron_bars"}
+  },
+  "pattern": [
+    " I ",
+    "III",
+    " L "
+  ],
+  "result": {"item": "cntrafficsymbols_0d0:circle_backboard"},
+  "show_notification": true
+}

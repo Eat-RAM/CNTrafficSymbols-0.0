@@ -1,0 +1,132 @@
+{
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        6
+      ],
+      "to": [
+        16,
+        0.5,
+        8
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            6,
+            16,
+            8
+          ],
+          "texture": "#a1",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            6,
+            16,
+            8
+          ],
+          "texture": "#a1"
+        },
+        "north": {
+          "uv": [
+            0,
+            15.5,
+            16,
+            16
+          ],
+          "texture": "#a1"
+        },
+        "west": {
+          "uv": [
+            6,
+            15.5,
+            8,
+            6
+          ],
+          "texture": "#a1",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            8,
+            15.5,
+            10,
+            6
+          ],
+          "texture": "#a1",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        0.5,
+        12
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            8,
+            16,
+            12
+          ],
+          "texture": "#a2",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            16,
+            12
+          ],
+          "texture": "#a2"
+        },
+        "south": {
+          "uv": [
+            0,
+            15.5,
+            16,
+            16
+          ],
+          "texture": "#a2"
+        },
+        "west": {
+          "uv": [
+            8,
+            15.5,
+            12,
+            6
+          ],
+          "texture": "#a2",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            4,
+            15.5,
+            8,
+            6
+          ],
+          "texture": "#a2",
+          "cullface": "east"
+        }
+      }
+    }
+  ],
+  "textures": {
+    "a1": "cntrafficsymbols_0d0:block/white_floor_line_eighths",
+    "a2": "cntrafficsymbols_0d0:block/yellow_floor_line_eighths"
+  }
+}

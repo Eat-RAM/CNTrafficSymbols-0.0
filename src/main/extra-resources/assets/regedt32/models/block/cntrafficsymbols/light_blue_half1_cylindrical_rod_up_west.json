@@ -1,0 +1,4 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/half1_cylindrical_rod_up_west",
+  "textures": {"side": "regedt32:block/cntrafficsymbols/light_blue_half1_cylindrical_rod"}
+}

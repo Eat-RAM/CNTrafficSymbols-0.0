@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {"item": "minecraft:iron_ingot"},
+  "result": "cntrafficsymbols_0d0:iron_plate"
+}

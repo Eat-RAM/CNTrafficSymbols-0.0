@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "bottom=true": {"model": "cntrafficsymbols_0d0:block/light_gray_dotted9_tp_bottom"},
+    "bottom=false": {"model": "cntrafficsymbols_0d0:block/light_gray_dotted9_tp_up"}
+  }
+}

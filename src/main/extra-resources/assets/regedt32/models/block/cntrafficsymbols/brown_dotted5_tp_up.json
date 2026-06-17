@@ -1,0 +1,4 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/dotted5_tp_up",
+  "textures": {"this": "minecraft:block/brown_concrete"}
+}

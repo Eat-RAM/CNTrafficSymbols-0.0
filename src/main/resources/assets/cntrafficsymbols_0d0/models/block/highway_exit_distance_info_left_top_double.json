@@ -1,0 +1,7 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/wideboard_double",
+  "textures": {
+    "front": "cntrafficsymbols_0d0:block/highway_exit_distance_info_left_top",
+    "side": "cntrafficsymbols_0d0:block/full_square_backboard"
+  }
+}

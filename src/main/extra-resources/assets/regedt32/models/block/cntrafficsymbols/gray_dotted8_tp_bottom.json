@@ -1,0 +1,4 @@
+{
+  "parent": "regedt32:block/cntrafficsymbols/dotted8_tp_bottom",
+  "textures": {"this": "minecraft:block/gray_concrete"}
+}
