@@ -2,11 +2,11 @@ EX=b"""{
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_%s": {
-      "conditions": {"items": [{"items": ["%s"]}]},
+      "conditions": {"items": [{"items": "%s"}]},
       "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "conditions": {"recipe": "cntrafficsymbols_0d0:%s"},
+      "conditions": {"recipes": "cntrafficsymbols_0d0:%s"},
       "trigger": "minecraft:recipe_unlocked"
     }
   },

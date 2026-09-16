@@ -58,9 +58,9 @@ dependencies {
 
     // modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}")
     modImplementation(files(
-        "cntrafficsymbols_core-0.0.2-b2+mc26.2.jar"
+        "cntrafficsymbols_core-0.0.2-b2+mc26.3.jar"
     ))
-    modImplementation("com.terraformersmc:modmenu:20.0.0-beta.2")
+    modImplementation("com.terraformersmc:modmenu:21.0.0-beta.1")
     //implementation(files("nbtutils-0.0.1a1.jar"))
     //modImplementation(files("nbtutils_bridge_mc-0.0.1-a1.jar"))
     //modImplementation(files("number_id_revival-0.0.1-a1+mc1.20.4.jar"))

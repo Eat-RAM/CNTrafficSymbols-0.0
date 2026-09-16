@@ -2,40 +2,35 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "north_south"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single",
+                "state": {"facing": "north_south"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "east_west"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single",
+                "state": {"facing": "east_west"}
+              },
+              "count": 2
             },
             {
-              "function": "minecraft:explosion_decay"
+              "type": "minecraft:explosion_decay"
             },
             {
-              "function": "minecraft:copy_components",
+              "type": "minecraft:copy_components",
               "include": [
                 "minecraft:custom_name"
               ],
@@ -45,7 +40,7 @@
           "name": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "cntrafficsymbols_0d0:highway_exit_distance_info_right_single"

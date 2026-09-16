@@ -2,43 +2,38 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:keep_space_variant1_upper",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "north_south"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:keep_space_variant1_upper",
+                "state": {"facing": "north_south"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:keep_space_variant1_upper",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "east_west"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:keep_space_variant1_upper",
+                "state": {"facing": "east_west"}
+              },
+              "count": 2
             },
             {
-              "function": "minecraft:explosion_decay"
+              "type": "minecraft:explosion_decay"
             }
           ],
           "name": "cntrafficsymbols_0d0:keep_space_variant1_upper"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "cntrafficsymbols_0d0:keep_space_variant1_upper"

@@ -2,112 +2,95 @@ EX=b"""{
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "north_south"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "north_south"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "nne_ssw"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "nne_ssw"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "northeast_southwest"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "northeast_southwest"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "ene_wsw"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "ene_wsw"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "east_west"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "east_west"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "ese_wnw"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "ese_wnw"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "northwest_southeast"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "northwest_southeast"}
+              },
+              "count": 2
             },
             {
+              "type": "minecraft:set_count",
               "add": false,
-              "conditions": [
-                {
-                  "block": "cntrafficsymbols_0d0:highway_%dhm",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {"facing": "sse_nnw"}
-                }
-              ],
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "cntrafficsymbols_0d0:highway_%dhm",
+                "state": {"facing": "sse_nnw"}
+              },
+              "count": 2
             },
             {
-              "function": "minecraft:explosion_decay"
+              "type": "minecraft:explosion_decay"
             },
             {
-              "function": "minecraft:copy_components",
+              "type": "minecraft:copy_components",
               "include": [
                 "minecraft:custom_name"
               ],
@@ -117,7 +100,7 @@ EX=b"""{
           "name": "cntrafficsymbols_0d0:highway_%dhm"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "cntrafficsymbols_0d0:highway_%dhm"

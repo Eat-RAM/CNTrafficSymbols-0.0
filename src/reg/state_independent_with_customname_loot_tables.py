@@ -2,26 +2,21 @@ EX=b"""{
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "condition": {"type": "minecraft:survives_explosion"},
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:explosion_decay"
-            },
-            {
-              "function": "minecraft:copy_components",
-              "include": [
-                "minecraft:custom_name"
-              ],
-              "source": "block_entity"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:copy_components",
+            "include": [
+              "minecraft:custom_name"
+            ],
+            "source": "block_entity"
+          },
           "name": "cntrafficsymbols_0d0:%s"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "cntrafficsymbols_0d0:%s"

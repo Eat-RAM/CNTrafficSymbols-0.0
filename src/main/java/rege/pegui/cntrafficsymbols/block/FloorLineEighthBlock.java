@@ -11,6 +11,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -22,7 +23,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Nullable;
@@ -143,8 +143,8 @@ implements ManagedWaterloggable, StateOptimizable {
 
     @Override
     public void afterBreak(
-        World world, PlayerEntity player, BlockPos pos, BlockState state,
-        @Nullable BlockEntity blockEntity, ItemStack tool
+        ServerWorld world, ServerPlayerEntity player, BlockPos pos,
+        BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool
     ) {
         super.afterBreak(world, player, pos, state, blockEntity, tool);
         if ((world instanceof ServerWorld) &&

@@ -3,7 +3,6 @@ package rege.pegui.cntrafficsymbols.block;
 import java.util.List;
 import java.util.function.ToIntFunction;
 
-import com.mojang.serialization.MapCodec;
 import io.github.eat_ram.cntrafficsymbols.core.block.ManagedWaterloggable;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import net.minecraft.block.Block;
@@ -49,8 +48,6 @@ import static net.minecraft.state.property.Properties.WATERLOGGED;
 
 public class RodWithLampBlock extends BlockWithEntity
 implements ManagedWaterloggable {
-    public static final MapCodec<RodWithLampBlock> CODEC =
-    createCodec(RodWithLampBlock::new);
     private static final VoxelShape[] SHAPES_BY_ID = {
         X_CENTER, X_UPPER, X_UPPERSOUTH, X_SOUTH, X_LOWERSOUTH, X_LOWER,
         X_LOWERNORTH, X_NORTH, X_UPPERNORTH, X_CENTER, X_UPPER, X_UPPERSOUTH,
@@ -105,12 +102,6 @@ implements ManagedWaterloggable {
             st = st.with(WATERLOGGED, false);
         }
         this.setDefaultState(st);
-    }
-
-    @Override
-    @Contract(pure = true)
-    public MapCodec<? extends BlockWithEntity> getCodec() {
-        return CODEC;
     }
 
     @Override

@@ -6,7 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.RegistryView;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.text.TextCodecs;
@@ -101,7 +101,7 @@ implements Nameable {
 
     @Override
     public NbtCompound
-    toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
+    toInitialChunkDataNbt(RegistryView.WrapperLookup registries) {
         return this.createNbt(registries);
     }
 }
