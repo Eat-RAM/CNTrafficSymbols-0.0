@@ -2,7 +2,7 @@ import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
     id("fabric-loom") version "1.6-SNAPSHOT"
-    id("maven-publish")
+    `maven-publish`
 }
 
 version = project.property("mod_version") as String
@@ -78,11 +78,11 @@ val extraResourcesPath: String = "src/main/extra-resources"
 
 tasks.jar {
     from("LICENSE") {
-        rename {
-            "${it}_${base.archivesName.get()}"
-        }
+        into("META-INF")
     }
-    from("LICENSE_Unifont")
+    from("LICENSE_Unifont") {
+        into("META-INF")
+    }
 }
 
 tasks.register<Jar>("extraJar") {

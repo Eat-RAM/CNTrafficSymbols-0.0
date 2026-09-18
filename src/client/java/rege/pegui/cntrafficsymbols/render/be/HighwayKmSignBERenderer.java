@@ -1,7 +1,5 @@
 package rege.pegui.cntrafficsymbols.render.be;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -20,7 +18,6 @@ import static io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3
 import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing
               .FACING;
 
-@Environment(EnvType.CLIENT)
 public class HighwayKmSignBERenderer
 implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
     private static final Vec3d TEXT_OFFSET = new Vec3d(0, .25, .075);

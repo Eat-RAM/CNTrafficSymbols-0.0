@@ -1,7 +1,5 @@
 package rege.pegui.cntrafficsymbols.render.be;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -19,7 +17,6 @@ import rege.pegui.cntrafficsymbols.block.HighwayExitDistanceInfoRightBlock;
 import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90
               .FACING;
 
-@Environment(EnvType.CLIENT)
 public class HighwayExitDistanceInfoKmBERenderer
 implements BlockEntityRenderer<HighwayExitDistanceInfoKmBlockEntity> {
     private static final Vec3d TEXT_OFFSET = new Vec3d(0, .75, .075);

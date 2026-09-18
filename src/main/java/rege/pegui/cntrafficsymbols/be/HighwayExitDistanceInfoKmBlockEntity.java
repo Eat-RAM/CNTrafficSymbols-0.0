@@ -44,7 +44,8 @@ implements Nameable {
     }
 
     public String getKmStr() {
-        return (this.km % 1f == 0f) ? Integer.toString((int)this.km) :
+        return (this.km % 1f == 0f) ?
+               Integer.toString(Math.abs((int)this.km)) :
                String.format("%.1f", Math.abs(this.km));
     }
 

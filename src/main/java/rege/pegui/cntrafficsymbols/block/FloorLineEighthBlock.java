@@ -232,19 +232,19 @@ implements ManagedWaterloggable, StateOptimizable {
                 switch (d) {
                     case NORTH:
                         c = v.z - p.getZ();
-                        l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
+                        l = ((int)(c * 8)) - ((c % .125 == 0) ? 1 : 0);
                         break;
                     case SOUTH:
                         c = v.z - p.getZ();
-                        l = (int)c;
+                        l = (int)(c * 8);
                         break;
                     case WEST:
                         c = v.x - p.getX();
-                        l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
+                        l = ((int)(c * 8)) - ((c % .125 == 0) ? 1 : 0);
                         break;
                     case EAST:
                         c = v.x - p.getX();
-                        l = (int)c;
+                        l = (int)(c * 8);
                         break;
                     default: assert false;
                 }
@@ -343,19 +343,19 @@ implements ManagedWaterloggable, StateOptimizable {
             switch (d) {
                 case NORTH:
                     c = v.z - p.getZ();
-                    l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
+                    l = ((int)(c * 8)) - ((c % .125 == 0) ? 1 : 0);
                     break;
                 case SOUTH:
                     c = v.z - p.getZ();
-                    l = (int)c;
+                    l = (int)(c * 8);
                     break;
                 case WEST:
                     c = v.x - p.getX();
-                    l = ((int)c) - ((c % .125 == 0) ? 1 : 0);
+                    l = ((int)(c * 8)) - ((c % .125 == 0) ? 1 : 0);
                     break;
                 case EAST:
                     c = v.x - p.getX();
-                    l = (int)c;
+                    l = (int)(c * 8);
                     break;
                 default: assert false;
             }

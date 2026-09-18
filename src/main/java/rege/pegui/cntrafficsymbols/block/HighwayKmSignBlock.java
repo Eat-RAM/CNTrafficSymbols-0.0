@@ -29,7 +29,7 @@ import rege.pegui.cntrafficsymbols.Main;
 import rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity;
 
 public class HighwayKmSignBlock extends Attachment3DoubleFaceFacingBlock
-    implements net.minecraft.block.BlockEntityProvider {
+implements net.minecraft.block.BlockEntityProvider {
     public static final VoxelShape SHAPE0 =
     cuboid(.375, .25, .375, .625, .75, .625);
     public static final VoxelShape SHAPE0N = union(

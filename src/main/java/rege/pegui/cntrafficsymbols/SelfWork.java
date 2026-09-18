@@ -3136,13 +3136,13 @@ public class SelfWork {
                                          .with(DoubleFaceFacing.FACING, j);
                         BlockNumberIDRegistry.INSTANCE.register(12200, d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(k.getRegistryEntry().registryKey().getValue(),
+                            .register(Registries.BLOCK.getId(k),
                                       new BlockProperties().mergeFromBlockState(st), 12200, d);
                         if (getWaterloggedProperty()) {
                             st = st.with(WATERLOGGED, true);
                             BlockNumberIDRegistry.INSTANCE.register(12200, ~d, st);
                             BlockNumberIDRecognitionRegistry.INSTANCE
-                                .register(k.getRegistryEntry().registryKey().getValue(),
+                                .register(Registries.BLOCK.getId(k),
                                           new BlockProperties().mergeFromBlockState(st), 12200, ~d);
                         }
                         d++;
@@ -3159,13 +3159,13 @@ public class SelfWork {
                                          .with(DoubleFaceFacing.FACING, j);
                         BlockNumberIDRegistry.INSTANCE.register(12201, d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(k.getRegistryEntry().registryKey().getValue(),
+                            .register(Registries.BLOCK.getId(k),
                                       new BlockProperties().mergeFromBlockState(st), 12201, d);
                         if (getWaterloggedProperty()) {
                             st = st.with(WATERLOGGED, true);
                             BlockNumberIDRegistry.INSTANCE.register(12201, ~d, st);
                             BlockNumberIDRecognitionRegistry.INSTANCE
-                                .register(k.getRegistryEntry().registryKey().getValue(),
+                                .register(Registries.BLOCK.getId(k),
                                           new BlockProperties().mergeFromBlockState(st), 12201, ~d);
                         }
                         d++;
@@ -3181,14 +3181,12 @@ public class SelfWork {
                                                            .with(Attachment3.ATTACHMENT, i).with(DoubleFaceFacing.FACING, j);
                     BlockNumberIDRegistry.INSTANCE.register(12203, d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12203, d);
+                        .register(Registries.BLOCK.getId(Blocks.CIRCLE_BACKBOARD), new BlockProperties().mergeFromBlockState(st), 12203, d);
                     if (getWaterloggedProperty()) {
                         st = st.with(WATERLOGGED, true);
                         BlockNumberIDRegistry.INSTANCE.register(12203, ~d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(Blocks.CIRCLE_BACKBOARD.getRegistryEntry().registryKey()
-                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12203, ~d);
+                            .register(Registries.BLOCK.getId(Blocks.CIRCLE_BACKBOARD), new BlockProperties().mergeFromBlockState(st), 12203, ~d);
                     }
                     d++;
                 }
@@ -3203,13 +3201,13 @@ public class SelfWork {
                                          .with(DoubleFaceFacing.FACING, j);
                         BlockNumberIDRegistry.INSTANCE.register(12204, d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(k.getRegistryEntry().registryKey().getValue(),
+                            .register(Registries.BLOCK.getId(k),
                                       new BlockProperties().mergeFromBlockState(st), 12204, d);
                         if (getWaterloggedProperty()) {
                             st = st.with(WATERLOGGED, true);
                             BlockNumberIDRegistry.INSTANCE.register(12204, ~d, st);
                             BlockNumberIDRecognitionRegistry.INSTANCE
-                                .register(k.getRegistryEntry().registryKey().getValue(),
+                                .register(Registries.BLOCK.getId(k),
                                           new BlockProperties().mergeFromBlockState(st), 12204, ~d);
                         }
                         d++;
@@ -3227,13 +3225,13 @@ public class SelfWork {
                                          .with(DoubleFaceFacing.FACING, j);
                         BlockNumberIDRegistry.INSTANCE.register(12205, d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(k.getRegistryEntry().registryKey().getValue(),
+                            .register(Registries.BLOCK.getId(k),
                                       new BlockProperties().mergeFromBlockState(st), 12205, d);
                         if (getWaterloggedProperty()) {
                             st = st.with(WATERLOGGED, true);
                             BlockNumberIDRegistry.INSTANCE.register(12205, ~d, st);
                             BlockNumberIDRecognitionRegistry.INSTANCE
-                                .register(k.getRegistryEntry().registryKey().getValue(),
+                                .register(Registries.BLOCK.getId(k),
                                           new BlockProperties().mergeFromBlockState(st), 12205, ~d);
                         }
                         d++;
@@ -3251,13 +3249,13 @@ public class SelfWork {
                                          .with(DoubleFaceFacing.FACING, j);
                         BlockNumberIDRegistry.INSTANCE.register(12206, d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(k.getRegistryEntry().registryKey().getValue(),
+                            .register(Registries.BLOCK.getId(k),
                                       new BlockProperties().mergeFromBlockState(st), 12206, d);
                         if (getWaterloggedProperty()) {
                             st = st.with(WATERLOGGED, true);
                             BlockNumberIDRegistry.INSTANCE.register(12206, ~d, st);
                             BlockNumberIDRecognitionRegistry.INSTANCE
-                                .register(k.getRegistryEntry().registryKey().getValue(),
+                                .register(Registries.BLOCK.getId(k),
                                           new BlockProperties().mergeFromBlockState(st), 12206, ~d);
                         }
                         d++;
@@ -3278,27 +3276,23 @@ public class SelfWork {
                     .from3Pow(Blocks.FLOOR_LINE_EIGHTHS.getDefaultState(), d);
                 BlockNumberIDRegistry.INSTANCE.register(12207, d, st);
                 BlockNumberIDRecognitionRegistry.INSTANCE
-                    .register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-                                                       .getValue(), new BlockProperties().mergeFromBlockState(st), 12207, d);
+                    .register(Registries.BLOCK.getId(Blocks.FLOOR_LINE_EIGHTHS), new BlockProperties().mergeFromBlockState(st), 12207, d);
                 if (getWaterloggedProperty()) {
                     st = st.with(WATERLOGGED, true);
                     BlockNumberIDRegistry.INSTANCE.register(12207, ~d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-                                                           .getValue(), new BlockProperties().mergeFromBlockState(st), 12207, ~d);
+                        .register(Registries.BLOCK.getId(Blocks.FLOOR_LINE_EIGHTHS), new BlockProperties().mergeFromBlockState(st), 12207, ~d);
                 }
                 st = st.with(net.minecraft.state.property.Properties.HORIZONTAL_AXIS,
                              net.minecraft.util.math.Direction.Axis.Z);
                 BlockNumberIDRegistry.INSTANCE.register(12207, ~(d | 8192), st);
                 BlockNumberIDRecognitionRegistry.INSTANCE
-                    .register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-                                                       .getValue(), new BlockProperties().mergeFromBlockState(st), 12207, ~(d | 8192));
+                    .register(Registries.BLOCK.getId(Blocks.FLOOR_LINE_EIGHTHS), new BlockProperties().mergeFromBlockState(st), 12207, ~(d | 8192));
                 if (getWaterloggedProperty()) {
                     st = st.with(WATERLOGGED, false);
                     BlockNumberIDRegistry.INSTANCE.register(12207, d | 8192, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(Blocks.FLOOR_LINE_EIGHTHS.getRegistryEntry().registryKey()
-                                                           .getValue(), new BlockProperties().mergeFromBlockState(st), 12207, d | 8192);
+                        .register(Registries.BLOCK.getId(Blocks.FLOOR_LINE_EIGHTHS), new BlockProperties().mergeFromBlockState(st), 12207, d | 8192);
                 }
             }
             d = 0;
@@ -3308,14 +3302,12 @@ public class SelfWork {
                                                            .with(Attachment3.ATTACHMENT, i).with(DoubleFaceFacing.FACING, j);
                     BlockNumberIDRegistry.INSTANCE.register(12208, d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(Blocks.HIGHWAY_KM.getRegistryEntry().registryKey()
-                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12208, d);
+                        .register(Registries.BLOCK.getId(Blocks.HIGHWAY_KM), new BlockProperties().mergeFromBlockState(st), 12208, d);
                     if (getWaterloggedProperty()) {
                         st = st.with(WATERLOGGED, true);
                         BlockNumberIDRegistry.INSTANCE.register(12208, ~d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(Blocks.HIGHWAY_KM.getRegistryEntry().registryKey()
-                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12208, ~d);
+                            .register(Registries.BLOCK.getId(Blocks.HIGHWAY_KM), new BlockProperties().mergeFromBlockState(st), 12208, ~d);
                     }
                     d++;
                 }
@@ -3328,14 +3320,12 @@ public class SelfWork {
                     BlockState st = j.getDefaultState().with(DoubleFaceFacing90.FACING, i);
                     BlockNumberIDRegistry.INSTANCE.register(12209, d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(j.getRegistryEntry().registryKey()
-                                                         .getValue(), new BlockProperties().mergeFromBlockState(st), 12209, d);
+                        .register(Registries.BLOCK.getId(j), new BlockProperties().mergeFromBlockState(st), 12209, d);
                     if (getWaterloggedProperty()) {
                         st = st.with(WATERLOGGED, true);
                         BlockNumberIDRegistry.INSTANCE.register(12209, ~d, st);
                         BlockNumberIDRecognitionRegistry.INSTANCE
-                            .register(j.getRegistryEntry().registryKey()
-                                                             .getValue(), new BlockProperties().mergeFromBlockState(st), 12209, ~d);
+                            .register(Registries.BLOCK.getId(j), new BlockProperties().mergeFromBlockState(st), 12209, ~d);
                     }
                     d++;
                 }
@@ -3347,14 +3337,12 @@ public class SelfWork {
                     .with(SquareQuarterDefaulted3Block.SOUTHEAST, d / 27);
                 BlockNumberIDRegistry.INSTANCE.register(12210, d, st);
                 BlockNumberIDRecognitionRegistry.INSTANCE
-                    .register(Blocks.BARRICADES_1.getRegistryEntry().registryKey()
-                                                 .getValue(), new BlockProperties().mergeFromBlockState(st), 12210, d);
+                    .register(Registries.BLOCK.getId(Blocks.BARRICADES_1), new BlockProperties().mergeFromBlockState(st), 12210, d);
                 if (getWaterloggedProperty()) {
                     st = st.with(WATERLOGGED, true);
                     BlockNumberIDRegistry.INSTANCE.register(12210, ~d, st);
                     BlockNumberIDRecognitionRegistry.INSTANCE
-                        .register(Blocks.BARRICADES_1.getRegistryEntry().registryKey()
-                                                     .getValue(), new BlockProperties().mergeFromBlockState(st), 12210, ~d);
+                        .register(Registries.BLOCK.getId(Blocks.BARRICADES_1), new BlockProperties().mergeFromBlockState(st), 12210, ~d);
                 }
             }
             Item[] tab2 = {Items.SPEEDLIMIT_HIGH_3, Items.SPEEDLIMIT_HIGH_5, Items.SPEEDLIMIT_HIGH_10, Items.SPEEDLIMIT_HIGH_15, Items.SPEEDLIMIT_HIGH_20, Items.SPEEDLIMIT_HIGH_25, Items.SPEEDLIMIT_HIGH_30, Items.SPEEDLIMIT_HIGH_35, Items.SPEEDLIMIT_HIGH_40, Items.SPEEDLIMIT_HIGH_45, Items.SPEEDLIMIT_HIGH_50, Items.SPEEDLIMIT_HIGH_55, Items.SPEEDLIMIT_HIGH_60, Items.SPEEDLIMIT_HIGH_65, Items.SPEEDLIMIT_HIGH_70, Items.SPEEDLIMIT_HIGH_75, Items.SPEEDLIMIT_HIGH_80, Items.SPEEDLIMIT_HIGH_85, Items.SPEEDLIMIT_HIGH_90, Items.SPEEDLIMIT_HIGH_95, Items.SPEEDLIMIT_HIGH_100, Items.SPEEDLIMIT_HIGH_105, Items.SPEEDLIMIT_HIGH_110, Items.SPEEDLIMIT_HIGH_115, Items.SPEEDLIMIT_HIGH_120, Items.SPEEDLIMIT_HIGH_125, Items.SPEEDLIMIT_HIGH_130, Items.SPEEDLIMIT_HIGH_135, Items.SPEEDLIMIT_HIGH_140, Items.SPEEDLIMIT_HIGH_145, Items.SPEEDLIMIT_HIGH_150, Items.SPEEDLIMIT_HIGH_SPECIAL, Items.SPEEDLIMIT_LOW_3, Items.SPEEDLIMIT_LOW_5, Items.SPEEDLIMIT_LOW_10, Items.SPEEDLIMIT_LOW_15, Items.SPEEDLIMIT_LOW_20, Items.SPEEDLIMIT_LOW_25, Items.SPEEDLIMIT_LOW_30, Items.SPEEDLIMIT_LOW_35, Items.SPEEDLIMIT_LOW_40, Items.SPEEDLIMIT_LOW_45, Items.SPEEDLIMIT_LOW_50, Items.SPEEDLIMIT_LOW_55, Items.SPEEDLIMIT_LOW_60, Items.SPEEDLIMIT_LOW_65, Items.SPEEDLIMIT_LOW_70, Items.SPEEDLIMIT_LOW_75, Items.SPEEDLIMIT_LOW_80, Items.SPEEDLIMIT_LOW_85, Items.SPEEDLIMIT_LOW_90, Items.SPEEDLIMIT_LOW_95, Items.SPEEDLIMIT_LOW_100, Items.SPEEDLIMIT_LOW_105, Items.SPEEDLIMIT_LOW_110, Items.SPEEDLIMIT_LOW_115, Items.SPEEDLIMIT_LOW_120, Items.SPEEDLIMIT_LOW_125, Items.SPEEDLIMIT_LOW_130, Items.SPEEDLIMIT_LOW_135, Items.SPEEDLIMIT_LOW_140, Items.SPEEDLIMIT_LOW_145, Items.SPEEDLIMIT_LOW_150, Items.SPEEDLIMIT_LOW_SPECIAL};
