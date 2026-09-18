@@ -60,6 +60,7 @@ implements CustomBERenderer<HighwayHmSignBlockEntity> {
         if (!st.get(FACING).isSingle()) {
             this.renderText(matrices, light, queue, tx, false);
         }
+        matrices.pop();
     }
 
     void
