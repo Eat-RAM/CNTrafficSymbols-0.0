@@ -5,6 +5,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.ComponentsAccess;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.text.Text;
@@ -55,11 +58,11 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
                (daytime >= start || daytime <= end);
     }
 
+    private @Nullable Integer duration;
+
     public RodWithLampBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
     }
-
-    private @Nullable Integer duration;
 
     @Override
     public Text getName() {
@@ -96,6 +99,16 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
             this.duration = isOverall(a) ? OVERALL_DURATION :
                             Integer.valueOf(a);
         });
+    }
+
+    protected void readComponents(final ComponentsAccess components) {
+        super.readComponents(components);
+        components.get(DataComponentTypes.CUSTOM_NAME);
+    }
+
+    protected void addComponents(final ComponentMap.Builder builder) {
+        super.addComponents(builder);
+        builder.add(DataComponentTypes.CUSTOM_NAME, this.getName());
     }
 
     public void tick(World w, BlockPos p, BlockState st) {

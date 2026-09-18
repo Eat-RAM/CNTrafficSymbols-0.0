@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "cntrafficsymbols_0d0:green_full1_cylindrical_rod",
+  "result": {
+    "id": "cntrafficsymbols_0d0:green_half1_cylindrical_rod",
+    "count": 2
+  }
+}

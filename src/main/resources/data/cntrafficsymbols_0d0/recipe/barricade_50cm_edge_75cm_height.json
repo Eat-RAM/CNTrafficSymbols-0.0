@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": "minecraft:orange_concrete",
+    "W": "minecraft:white_concrete"
+  },
+  "pattern": [
+    "O",
+    "W"
+  ],
+  "result": {
+    "id": "cntrafficsymbols_0d0:barricade_50cm_edge_75cm_height",
+    "count": 4
+  },
+  "show_notification": true
+}

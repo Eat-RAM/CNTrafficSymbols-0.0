@@ -3,6 +3,11 @@ package rege.pegui.cntrafficsymbols.be;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity
        .FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.ComponentsAccess;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.ContainerComponent;
+import net.minecraft.inventory.ContainerLock;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -49,7 +54,8 @@ implements Nameable {
     }
 
     public String getKmStr() {
-        return (this.km % 1f == 0f) ? Integer.toString((int)this.km) :
+        return (this.km % 1f == 0f) ?
+               Integer.toString(Math.abs((int)this.km)) :
                String.format("%.1f", Math.abs(this.km));
     }
 
@@ -92,6 +98,16 @@ implements Nameable {
     protected void readData(ReadView view) {
         super.readData(view);
         this.setKm(view.getFloat("km", 0f));
+    }
+
+    protected void readComponents(final ComponentsAccess components) {
+        super.readComponents(components);
+        components.get(DataComponentTypes.CUSTOM_NAME);
+    }
+
+    protected void addComponents(final ComponentMap.Builder builder) {
+        super.addComponents(builder);
+        builder.add(DataComponentTypes.CUSTOM_NAME, this.getName());
     }
 
     @Override

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:yellow_concrete",
+  "result": {
+    "id": "cntrafficsymbols_0d0:keep_space_variant2_upperleft",
+    "count": 8
+  }
+}

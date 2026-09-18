@@ -17,7 +17,6 @@ public abstract class DualIds {
     COMMITTERS = new HashMap<>();
 
     @Contract("_, _ -> new")
-    @SuppressWarnings("unchecked")
     public static <T> Identifier
     commitAndGet(SimpleRegistry<T> registry, String path) {
         Identifier legacyId =
@@ -26,7 +25,7 @@ public abstract class DualIds {
         boolean preferLegacy = getPreferLegacyIdentifiers();
         Identifier preferred = preferLegacy ? legacyId : newId;
         if (!COMMITTERS.containsKey(
-            new SimpleImmutableEntry<>(registry, path)
+            new SimpleImmutableEntry<SimpleRegistry<?>, String>(registry, path)
         )) {
             Identifier spare = preferLegacy ? newId : legacyId;
             COMMITTERS.put(new SimpleImmutableEntry<>(registry, path),

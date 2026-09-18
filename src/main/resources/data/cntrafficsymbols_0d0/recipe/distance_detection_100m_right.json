@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:lime_concrete",
+  "result": {
+    "id": "cntrafficsymbols_0d0:distance_detection_100m_right",
+    "count": 8
+  }
+}

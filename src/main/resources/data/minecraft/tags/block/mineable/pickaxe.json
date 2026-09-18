@@ -11,6 +11,8 @@
     "#cntrafficsymbols_0d0:keep_space_variant1_components",
     "#cntrafficsymbols_0d0:keep_space_variant2_components",
     "cntrafficsymbols_0d0:barricades_1",
-    "#cntrafficsymbols_0d0:cylindrical_rods"
+    "#cntrafficsymbols_0d0:cylindrical_rods",
+    "#cntrafficsymbols_0d0:dotted_tp",
+    "#cntrafficsymbols_0d0:lined_tp"
   ]
 }

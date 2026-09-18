@@ -4,8 +4,6 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .CustomBERenderState;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .CustomBERenderer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
@@ -25,7 +23,6 @@ import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90
               .FACING;
 import static net.minecraft.world.LightUtil.getBlockBrightness;
 
-@Environment(EnvType.CLIENT)
 public class HighwayExitDistanceInfoNameBERenderer
 implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
     private static final Vec3d TEXT_OFFSET = new Vec3d(0, .8125, .075);

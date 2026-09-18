@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#cntrafficsymbols_0d0:green_wideboard",
+  "result": {
+    "id": "cntrafficsymbols_0d0:distance_detection_200m_left"
+  }
+}

@@ -2,7 +2,7 @@ import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
     id("net.fabricmc.fabric-loom-remap") version "1.17-SNAPSHOT"
-    id("maven-publish")
+    `maven-publish`
 }
 
 version = project.property("mod_version") as String
@@ -26,7 +26,7 @@ repositories {
 
 loom {
     useIntermediateMappings = true
-    intermediaryUrl = "https://repo.codemc.io/repository/relativitymc/org/relativitymc/intermediary/%1\$s/intermediary-%1\$s-v2.jar"
+    intermediaryUrl = $$"https://repo.codemc.io/repository/relativitymc/org/relativitymc/intermediary/%1$s/intermediary-%1$s-v2.jar"
 
     splitEnvironmentSourceSets()
 
@@ -84,11 +84,11 @@ val extraResourcesPath: String = "src/main/extra-resources"
 
 tasks.jar {
     from("LICENSE") {
-        rename {
-            "${it}_${base.archivesName.get()}"
-        }
+        into("META-INF")
     }
-    from("LICENSE_Unifont")
+    from("LICENSE_Unifont") {
+        into("META-INF")
+    }
 }
 
 tasks.register<Jar>("extraJar") {

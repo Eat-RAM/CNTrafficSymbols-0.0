@@ -2,6 +2,9 @@ package rege.pegui.cntrafficsymbols.be;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity
        .FabricBlockEntityTypeBuilder;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.ComponentsAccess;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -19,8 +22,8 @@ import net.minecraft.util.math.BlockPos;
 import static rege.pegui.cntrafficsymbols.SelfWork.Blocks.HIGHWAY_KM;
 
 public class HighwayKmSignBlockEntity
-    extends net.minecraft.block.entity.BlockEntity
-    implements net.minecraft.util.Nameable {
+extends net.minecraft.block.entity.BlockEntity
+implements net.minecraft.util.Nameable {
     public static final BlockEntityType<HighwayKmSignBlockEntity> TYPE =
     FabricBlockEntityTypeBuilder
     .create(HighwayKmSignBlockEntity::new, HIGHWAY_KM).build();
@@ -73,6 +76,16 @@ public class HighwayKmSignBlockEntity
         if (cn != null) {
             this.customName = cn;
         }
+    }
+
+    protected void readComponents(final ComponentsAccess components) {
+        super.readComponents(components);
+        this.customName = components.get(DataComponentTypes.CUSTOM_NAME);
+    }
+
+    protected void addComponents(final ComponentMap.Builder builder) {
+        super.addComponents(builder);
+        builder.add(DataComponentTypes.CUSTOM_NAME, this.customName);
     }
 
     @Override
