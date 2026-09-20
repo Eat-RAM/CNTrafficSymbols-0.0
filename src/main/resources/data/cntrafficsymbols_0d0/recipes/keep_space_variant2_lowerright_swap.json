@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {"tag": "cntrafficsymbols_0d0:yellow_wideboard"},
+  "result": "cntrafficsymbols_0d0:keep_space_variant2_lowerright"
+}

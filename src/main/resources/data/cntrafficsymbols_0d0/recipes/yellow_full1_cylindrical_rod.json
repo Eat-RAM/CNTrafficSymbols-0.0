@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 12,
+  "ingredient": {"item": "minecraft:yellow_concrete"},
+  "result": "cntrafficsymbols_0d0:yellow_full1_cylindrical_rod"
+}

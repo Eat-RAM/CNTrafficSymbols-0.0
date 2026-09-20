@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 12,
+  "ingredient": {"item": "minecraft:pink_concrete"},
+  "result": "cntrafficsymbols_0d0:pink_full1_cylindrical_rod"
+}

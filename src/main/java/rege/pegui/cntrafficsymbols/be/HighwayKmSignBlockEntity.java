@@ -14,8 +14,8 @@ import net.minecraft.util.math.BlockPos;
 import static rege.pegui.cntrafficsymbols.SelfWork.Blocks.HIGHWAY_KM;
 
 public class HighwayKmSignBlockEntity
-    extends net.minecraft.block.entity.BlockEntity
-    implements net.minecraft.util.Nameable {
+extends net.minecraft.block.entity.BlockEntity
+implements net.minecraft.util.Nameable {
     public static final BlockEntityType<HighwayKmSignBlockEntity> TYPE =
     BlockEntityType.Builder.create(HighwayKmSignBlockEntity::new, HIGHWAY_KM)
     .build();

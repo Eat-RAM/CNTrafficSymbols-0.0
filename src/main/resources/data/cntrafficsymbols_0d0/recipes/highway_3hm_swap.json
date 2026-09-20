@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {"tag": "cntrafficsymbols_0d0:highway_hm"},
+  "result": "cntrafficsymbols_0d0:highway_3hm"
+}
