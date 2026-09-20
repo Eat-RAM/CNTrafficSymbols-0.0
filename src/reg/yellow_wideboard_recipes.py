@@ -1,9 +1,17 @@
-EX=b"""{
+EX1=b"""{
   "type": "minecraft:stonecutting",
   "ingredient": "minecraft:yellow_concrete",
   "result": {
     "id": "cntrafficsymbols_0d0:%s",
     "count": 8
+  }
+}
+""".replace(b"\n",b"\r\n")
+EX2=b"""{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#cntrafficsymbols_0d0:yellow_wideboard",
+  "result": {
+    "id": "cntrafficsymbols_0d0:%s"
   }
 }
 """.replace(b"\n",b"\r\n")
@@ -26,4 +34,5 @@ keep_space_variant2_right
 keep_space_variant2_lowerleft
 keep_space_variant2_lower
 keep_space_variant2_lowerright""".split():
- with open(f"{i.decode()}.json","wb")as f:f.write(EX%i)
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX1%i)
+ with open(f"{i.decode()}_swap.json","wb")as f:f.write(EX2%i)

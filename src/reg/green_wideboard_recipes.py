@@ -1,9 +1,17 @@
-EX=b"""{
+EX1=b"""{
   "type": "minecraft:stonecutting",
   "ingredient": "minecraft:lime_concrete",
   "result": {
     "id": "cntrafficsymbols_0d0:%s",
     "count": 8
+  }
+}
+""".replace(b"\n",b"\r\n")
+EX2=b"""{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#cntrafficsymbols_0d0:green_wideboard",
+  "result": {
+    "id": "cntrafficsymbols_0d0:%s"
   }
 }
 """.replace(b"\n",b"\r\n")
@@ -28,4 +36,5 @@ highway_exit_distance_info_right_single
 highway_exit_distance_info_right_top
 highway_exit_distance_info_right_middle
 highway_exit_distance_info_right_bottom""".split():
- with open(f"{i.decode()}.json","wb")as f:f.write(EX%i)
+ with open(f"{i.decode()}.json","wb")as f:f.write(EX1%i)
+ with open(f"{i.decode()}_swap.json","wb")as f:f.write(EX2%i)
