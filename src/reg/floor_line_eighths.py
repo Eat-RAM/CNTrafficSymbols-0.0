@@ -1,4 +1,4 @@
-import json
+import fractions,json,re
 p=lambda l0,l1,l2,l3,l4,l5,l6,l7:l7*2187+l6*729+l5*243+l4*81+l3*27+l2*9+l1*3+l0
 def q(x):
  x-=1;return x%16,(x//16)%10,(x//160)%41
@@ -62,7 +62,18 @@ for i in TUPS:
     else:del obj["elements"][-1]["faces"]["south"]["cullface"]
   if l<8:
    deltal=0;ct=i[l]
- with open(f"floor_line_eighths_{''.join(str(x) for x in i)}.json","w")as f:json.dump(obj,f,indent=2)
+ wc=i.count(1);yc=i.count(2)
+ if wc==0:obj["textures"]["particle"]="cntrafficsymbols_0d0:block/yellow_floor_line_eighths"
+ elif yc==0:obj["textures"]["particle"]="cntrafficsymbols_0d0:block/white_floor_line_eighths"
+ else:
+  fr=fractions.Fraction(wc,yc)
+  obj["textures"]["particle"]=f"cntrafficsymbols_0d0:block/floor_line_eighths_particle_{fr.numerator}{fr.denominator}"
+ s=re.sub(r"\n {10,}","",re.sub(r",\n {10,}",", ",json.dumps(obj,indent=2)))
+ s=re.sub(r"\n {8}}","}",s)
+ s=re.sub(r"\[\n {8}([0-9.]+),\n {8}([0-9.]+),\n {8}([0-9.]+)\n {6}]",
+          r"[\1, \2, \3]",s)
+ with open(f"floor_line_eighths_{''.join(str(x) for x in i)}.json","w")as f:
+  f.write(s)
  lobj["variants"][f"axis=x,slices={qp[0]},slices16={qp[1]},slices160={qp[2]}"]={
   "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i)}"
  }
@@ -70,5 +81,5 @@ for i in TUPS:
   "model":f"cntrafficsymbols_0d0:block/floor_line_eighths_{''.join(str(x) for x in i)}",
   "y":270,"uvlock":True
  }
-with open("../../../blockstates/cntrafficsymbols/floor_line_eighths.json",
-          "w")as f:json.dump(lobj,f,indent=2)
+with open("../../blockstates/floor_line_eighths.json","w")as f:
+ json.dump(lobj,f,indent=2)

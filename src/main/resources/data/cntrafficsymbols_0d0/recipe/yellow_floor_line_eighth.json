@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 64,
   "ingredient": "minecraft:yellow_concrete",
   "result": {
-    "id": "cntrafficsymbols_0d0:yellow_floor_line_eighth"
+    "id": "cntrafficsymbols_0d0:yellow_floor_line_eighth",
+    "count": 64
   }
 }

@@ -7,7 +7,7 @@
     "south": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_south",
     "west": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_west",
     "east": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_east",
-    "particle": "cntrafficsymbols_0d0:block/barricade_50m_edge_1m_height_north"
+    "particle": "cntrafficsymbols_0d0:block/barricade_50cm_edge_1m_height_north"
   },
   "elements": [
     {

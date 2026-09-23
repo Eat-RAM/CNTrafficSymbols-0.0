@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:redstone_lamp",
+    "C": "minecraft:white_concrete"
+  },
+  "pattern": [
+    "L",
+    "C",
+    "C"
+  ],
+  "result": {
+    "id": "cntrafficsymbols_0d0:white_rod_with_lamp",
+    "count": 8
+  },
+  "show_notification": true
+}

@@ -59,1020 +59,1032 @@ public class SelfWork {
         "red", "black"
     );
 
+    @Contract("_ -> new")
+    public static CircleStandingSymbolBlock
+    newCircleStandingSymbolBlock(Block.Settings settings) {
+        return new CircleStandingSymbolBlock(settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
     public static class Blocks {
         public static final Block SPEEDLIMIT_HIGH_3 = registerBlock(
             commitDouble("speedlimit_high_3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_3 = registerBlock(
             commitDouble("speedlimit_low_3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_5 = registerBlock(
             commitDouble("speedlimit_high_5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_5 = registerBlock(
             commitDouble("speedlimit_low_5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_10 = registerBlock(
             commitDouble("speedlimit_high_10"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_10 = registerBlock(
             commitDouble("speedlimit_low_10"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_15 = registerBlock(
             commitDouble("speedlimit_high_15"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_15 = registerBlock(
             commitDouble("speedlimit_low_15"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_20 = registerBlock(
             commitDouble("speedlimit_high_20"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_20 = registerBlock(
             commitDouble("speedlimit_low_20"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_25 = registerBlock(
             commitDouble("speedlimit_high_25"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_25 = registerBlock(
             commitDouble("speedlimit_low_25"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_30 = registerBlock(
             commitDouble("speedlimit_high_30"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_30 = registerBlock(
             commitDouble("speedlimit_low_30"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_35 = registerBlock(
             commitDouble("speedlimit_high_35"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_35 = registerBlock(
             commitDouble("speedlimit_low_35"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_40 = registerBlock(
             commitDouble("speedlimit_high_40"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_40 = registerBlock(
             commitDouble("speedlimit_low_40"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_45 = registerBlock(
             commitDouble("speedlimit_high_45"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_45 = registerBlock(
             commitDouble("speedlimit_low_45"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_50 = registerBlock(
             commitDouble("speedlimit_high_50"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_50 = registerBlock(
             commitDouble("speedlimit_low_50"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_55 = registerBlock(
             commitDouble("speedlimit_high_55"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_55 = registerBlock(
             commitDouble("speedlimit_low_55"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_60 = registerBlock(
             commitDouble("speedlimit_high_60"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_60 = registerBlock(
             commitDouble("speedlimit_low_60"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_65 = registerBlock(
             commitDouble("speedlimit_high_65"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_65 = registerBlock(
             commitDouble("speedlimit_low_65"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_70 = registerBlock(
             commitDouble("speedlimit_high_70"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_70 = registerBlock(
             commitDouble("speedlimit_low_70"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_75 = registerBlock(
             commitDouble("speedlimit_high_75"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_75 = registerBlock(
             commitDouble("speedlimit_low_75"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_80 = registerBlock(
             commitDouble("speedlimit_high_80"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_80 = registerBlock(
             commitDouble("speedlimit_low_80"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_85 = registerBlock(
             commitDouble("speedlimit_high_85"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_85 = registerBlock(
             commitDouble("speedlimit_low_85"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_90 = registerBlock(
             commitDouble("speedlimit_high_90"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_90 = registerBlock(
             commitDouble("speedlimit_low_90"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_95 = registerBlock(
             commitDouble("speedlimit_high_95"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_95 = registerBlock(
             commitDouble("speedlimit_low_95"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_100 = registerBlock(
             commitDouble("speedlimit_high_100"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_100 = registerBlock(
             commitDouble("speedlimit_low_100"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_105 = registerBlock(
             commitDouble("speedlimit_high_105"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_105 = registerBlock(
             commitDouble("speedlimit_low_105"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_110 = registerBlock(
             commitDouble("speedlimit_high_110"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_110 = registerBlock(
             commitDouble("speedlimit_low_110"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_115 = registerBlock(
             commitDouble("speedlimit_high_115"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_115 = registerBlock(
             commitDouble("speedlimit_low_115"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_120 = registerBlock(
             commitDouble("speedlimit_high_120"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_120 = registerBlock(
             commitDouble("speedlimit_low_120"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_125 = registerBlock(
             commitDouble("speedlimit_high_125"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_125 = registerBlock(
             commitDouble("speedlimit_low_125"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_130 = registerBlock(
             commitDouble("speedlimit_high_130"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_130 = registerBlock(
             commitDouble("speedlimit_low_130"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_135 = registerBlock(
             commitDouble("speedlimit_high_135"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_135 = registerBlock(
             commitDouble("speedlimit_low_135"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_140 = registerBlock(
             commitDouble("speedlimit_high_140"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_140 = registerBlock(
             commitDouble("speedlimit_low_140"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_145 = registerBlock(
             commitDouble("speedlimit_high_145"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_145 = registerBlock(
             commitDouble("speedlimit_low_145"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_150 = registerBlock(
             commitDouble("speedlimit_high_150"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_150 = registerBlock(
             commitDouble("speedlimit_low_150"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_HIGH_SPECIAL = registerBlock(
             commitDouble("speedlimit_high_special"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block SPEEDLIMIT_LOW_SPECIAL = registerBlock(
             commitDouble("speedlimit_low_special"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_3 = registerBlock(
             commitDouble("lift_speedlimit_high_3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_5 = registerBlock(
             commitDouble("lift_speedlimit_high_5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_10 = registerBlock(
             commitDouble("lift_speedlimit_high_10"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_15 = registerBlock(
             commitDouble("lift_speedlimit_high_15"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_20 = registerBlock(
             commitDouble("lift_speedlimit_high_20"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_25 = registerBlock(
             commitDouble("lift_speedlimit_high_25"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_30 = registerBlock(
             commitDouble("lift_speedlimit_high_30"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_35 = registerBlock(
             commitDouble("lift_speedlimit_high_35"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_40 = registerBlock(
             commitDouble("lift_speedlimit_high_40"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_45 = registerBlock(
             commitDouble("lift_speedlimit_high_45"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_50 = registerBlock(
             commitDouble("lift_speedlimit_high_50"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_55 = registerBlock(
             commitDouble("lift_speedlimit_high_55"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_60 = registerBlock(
             commitDouble("lift_speedlimit_high_60"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_65 = registerBlock(
             commitDouble("lift_speedlimit_high_65"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_70 = registerBlock(
             commitDouble("lift_speedlimit_high_70"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_75 = registerBlock(
             commitDouble("lift_speedlimit_high_75"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_80 = registerBlock(
             commitDouble("lift_speedlimit_high_80"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_85 = registerBlock(
             commitDouble("lift_speedlimit_high_85"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_90 = registerBlock(
             commitDouble("lift_speedlimit_high_90"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_95 = registerBlock(
             commitDouble("lift_speedlimit_high_95"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_100 = registerBlock(
             commitDouble("lift_speedlimit_high_100"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_105 = registerBlock(
             commitDouble("lift_speedlimit_high_105"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_110 = registerBlock(
             commitDouble("lift_speedlimit_high_110"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_115 = registerBlock(
             commitDouble("lift_speedlimit_high_115"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_120 = registerBlock(
             commitDouble("lift_speedlimit_high_120"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_125 = registerBlock(
             commitDouble("lift_speedlimit_high_125"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_130 = registerBlock(
             commitDouble("lift_speedlimit_high_130"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_135 = registerBlock(
             commitDouble("lift_speedlimit_high_135"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_140 = registerBlock(
             commitDouble("lift_speedlimit_high_140"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_145 = registerBlock(
             commitDouble("lift_speedlimit_high_145"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_150 = registerBlock(
             commitDouble("lift_speedlimit_high_150"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block LIFT_SPEEDLIMIT_HIGH_SPECIAL = registerBlock(
             commitDouble("lift_speedlimit_high_special"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block CIRCLE_BACKBOARD = registerBlock(
             commitDouble("circle_backboard"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_SPECIAL = registerBlock(
             commitDouble("heightlimit_special"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D1 = registerBlock(
             commitDouble("heightlimit_0d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D2 = registerBlock(
             commitDouble("heightlimit_0d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D3 = registerBlock(
             commitDouble("heightlimit_0d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D4 = registerBlock(
             commitDouble("heightlimit_0d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D5 = registerBlock(
             commitDouble("heightlimit_0d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D6 = registerBlock(
             commitDouble("heightlimit_0d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D7 = registerBlock(
             commitDouble("heightlimit_0d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D8 = registerBlock(
             commitDouble("heightlimit_0d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_0D9 = registerBlock(
             commitDouble("heightlimit_0d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1 = registerBlock(
             commitDouble("heightlimit_1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D1 = registerBlock(
             commitDouble("heightlimit_1d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D2 = registerBlock(
             commitDouble("heightlimit_1d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D3 = registerBlock(
             commitDouble("heightlimit_1d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D4 = registerBlock(
             commitDouble("heightlimit_1d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D5 = registerBlock(
             commitDouble("heightlimit_1d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D6 = registerBlock(
             commitDouble("heightlimit_1d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D7 = registerBlock(
             commitDouble("heightlimit_1d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D8 = registerBlock(
             commitDouble("heightlimit_1d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_1D9 = registerBlock(
             commitDouble("heightlimit_1d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2 = registerBlock(
             commitDouble("heightlimit_2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D1 = registerBlock(
             commitDouble("heightlimit_2d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D2 = registerBlock(
             commitDouble("heightlimit_2d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D3 = registerBlock(
             commitDouble("heightlimit_2d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D4 = registerBlock(
             commitDouble("heightlimit_2d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D5 = registerBlock(
             commitDouble("heightlimit_2d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D6 = registerBlock(
             commitDouble("heightlimit_2d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D7 = registerBlock(
             commitDouble("heightlimit_2d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D8 = registerBlock(
             commitDouble("heightlimit_2d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_2D9 = registerBlock(
             commitDouble("heightlimit_2d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3 = registerBlock(
             commitDouble("heightlimit_3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D1 = registerBlock(
             commitDouble("heightlimit_3d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D2 = registerBlock(
             commitDouble("heightlimit_3d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D3 = registerBlock(
             commitDouble("heightlimit_3d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D4 = registerBlock(
             commitDouble("heightlimit_3d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D5 = registerBlock(
             commitDouble("heightlimit_3d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D6 = registerBlock(
             commitDouble("heightlimit_3d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D7 = registerBlock(
             commitDouble("heightlimit_3d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D8 = registerBlock(
             commitDouble("heightlimit_3d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_3D9 = registerBlock(
             commitDouble("heightlimit_3d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4 = registerBlock(
             commitDouble("heightlimit_4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D1 = registerBlock(
             commitDouble("heightlimit_4d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D2 = registerBlock(
             commitDouble("heightlimit_4d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D3 = registerBlock(
             commitDouble("heightlimit_4d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D4 = registerBlock(
             commitDouble("heightlimit_4d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D5 = registerBlock(
             commitDouble("heightlimit_4d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D6 = registerBlock(
             commitDouble("heightlimit_4d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D7 = registerBlock(
             commitDouble("heightlimit_4d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D8 = registerBlock(
             commitDouble("heightlimit_4d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_4D9 = registerBlock(
             commitDouble("heightlimit_4d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5 = registerBlock(
             commitDouble("heightlimit_5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D1 = registerBlock(
             commitDouble("heightlimit_5d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D2 = registerBlock(
             commitDouble("heightlimit_5d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D3 = registerBlock(
             commitDouble("heightlimit_5d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D4 = registerBlock(
             commitDouble("heightlimit_5d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D5 = registerBlock(
             commitDouble("heightlimit_5d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D6 = registerBlock(
             commitDouble("heightlimit_5d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D7 = registerBlock(
             commitDouble("heightlimit_5d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D8 = registerBlock(
             commitDouble("heightlimit_5d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_5D9 = registerBlock(
             commitDouble("heightlimit_5d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6 = registerBlock(
             commitDouble("heightlimit_6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D1 = registerBlock(
             commitDouble("heightlimit_6d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D2 = registerBlock(
             commitDouble("heightlimit_6d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D3 = registerBlock(
             commitDouble("heightlimit_6d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D4 = registerBlock(
             commitDouble("heightlimit_6d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D5 = registerBlock(
             commitDouble("heightlimit_6d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D6 = registerBlock(
             commitDouble("heightlimit_6d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D7 = registerBlock(
             commitDouble("heightlimit_6d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D8 = registerBlock(
             commitDouble("heightlimit_6d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_6D9 = registerBlock(
             commitDouble("heightlimit_6d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7 = registerBlock(
             commitDouble("heightlimit_7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D1 = registerBlock(
             commitDouble("heightlimit_7d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D2 = registerBlock(
             commitDouble("heightlimit_7d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D3 = registerBlock(
             commitDouble("heightlimit_7d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D4 = registerBlock(
             commitDouble("heightlimit_7d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D5 = registerBlock(
             commitDouble("heightlimit_7d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D6 = registerBlock(
             commitDouble("heightlimit_7d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D7 = registerBlock(
             commitDouble("heightlimit_7d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D8 = registerBlock(
             commitDouble("heightlimit_7d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_7D9 = registerBlock(
             commitDouble("heightlimit_7d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8 = registerBlock(
             commitDouble("heightlimit_8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D1 = registerBlock(
             commitDouble("heightlimit_8d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D2 = registerBlock(
             commitDouble("heightlimit_8d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D3 = registerBlock(
             commitDouble("heightlimit_8d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D4 = registerBlock(
             commitDouble("heightlimit_8d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D5 = registerBlock(
             commitDouble("heightlimit_8d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D6 = registerBlock(
             commitDouble("heightlimit_8d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D7 = registerBlock(
             commitDouble("heightlimit_8d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D8 = registerBlock(
             commitDouble("heightlimit_8d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_8D9 = registerBlock(
             commitDouble("heightlimit_8d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9 = registerBlock(
             commitDouble("heightlimit_9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D1 = registerBlock(
             commitDouble("heightlimit_9d1"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D2 = registerBlock(
             commitDouble("heightlimit_9d2"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D3 = registerBlock(
             commitDouble("heightlimit_9d3"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D4 = registerBlock(
             commitDouble("heightlimit_9d4"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D5 = registerBlock(
             commitDouble("heightlimit_9d5"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D6 = registerBlock(
             commitDouble("heightlimit_9d6"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D7 = registerBlock(
             commitDouble("heightlimit_9d7"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D8 = registerBlock(
             commitDouble("heightlimit_9d8"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_9D9 = registerBlock(
             commitDouble("heightlimit_9d9"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HEIGHTLIMIT_10 = registerBlock(
             commitDouble("heightlimit_10"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block PROHIBITION = registerBlock(
             commitDouble("prohibition"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block NO_U_TURN = registerBlock(
             commitDouble("no_u_turn"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block NO_LEFT_TURN = registerBlock(
             commitDouble("no_left_turn"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block NO_RIGHT_TURN = registerBlock(
             commitDouble("no_right_turn"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block NO_PARKING = registerBlock(
             commitDouble("no_parking"),
-            CircleStandingSymbolBlock::new,
+            SelfWork::newCircleStandingSymbolBlock,
             Block.Settings.create().nonOpaque().strength(9f, 36f)
         );
         public static final Block HIGHWAY_1HM = registerBlock(
@@ -1341,6 +1353,12 @@ public class SelfWork {
                     return Boolean.TRUE.equals(getHardcodedBarricades1LootEnabled()) ||
                            (getHardcodedBarricades1LootEnabled() == null && getDroppedStacks(st, (net
                                .minecraft.server.world.ServerWorld) w, p, ett, pl, tool).isEmpty());
+                }
+
+                @Override
+                @Contract(pure = true)
+                public boolean getWaterloggedProperty() {
+                    return Main.getWaterloggedProperty();
                 }
             }, Block.Settings.create().strength(9f, 10.5f).mapColor(st -> ((
                 getWaterloggedProperty() && st.get(WATERLOGGED).booleanValue()
@@ -1704,6 +1722,12 @@ public class SelfWork {
                         case 27: return WideBoardBlock.SHAPE9;
                         default: return SHAPE_DEFAULT;
                     }
+                }
+
+                @Override
+                @Contract(pure = true)
+                public boolean getWaterloggedProperty() {
+                    return Main.getWaterloggedProperty();
                 }
             }, Block.Settings.create().strength(21f, 84f)
         );

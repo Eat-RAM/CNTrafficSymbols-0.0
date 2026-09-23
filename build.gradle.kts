@@ -1,7 +1,7 @@
 import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
-    id("net.fabricmc.fabric-loom-remap") version "1.17-SNAPSHOT"
+    id("net.fabricmc.fabric-loom-remap") version "1.18-SNAPSHOT"
     `maven-publish`
 }
 
@@ -21,6 +21,10 @@ repositories {
     maven("https://repo.codemc.io/repository/relativitymc/")
     maven("https://maven.terraformersmc.com/") {
         name = "TerraformersMC"
+    }
+    maven("https://maven.fallenbreath.me/releases")
+    maven("https://masa.dy.fi/maven/sakura-ryoko") {
+        name = "masa"
     }
 }
 
@@ -64,6 +68,9 @@ dependencies {
     //implementation(files("nbtutils-0.0.1a1.jar"))
     //modImplementation(files("nbtutils_bridge_mc-0.0.1-a1.jar"))
     //modImplementation(files("number_id_revival-0.0.1-a1+mc1.20.4.jar"))
+    modCompileOnly("fi.dy.masa.litematica:litematica-fabric-26.3:0.29.0")
+    compileOnly("me.fallenbreath:conditional-mixin-fabric:0.6.4")
+    include("me.fallenbreath:conditional-mixin-fabric:0.6.4")
 }
 
 tasks.withType<JavaCompile>().configureEach {

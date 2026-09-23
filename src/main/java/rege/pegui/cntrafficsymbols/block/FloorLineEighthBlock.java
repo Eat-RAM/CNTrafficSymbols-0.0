@@ -150,7 +150,7 @@ implements ManagedWaterloggable, StateOptimizable {
         if ((world instanceof ServerWorld) &&
             (Boolean.TRUE.equals(getHardcodedFloorLineEighthsLootEnabled()) ||
              (getHardcodedFloorLineEighthsLootEnabled() == null &&
-              getDroppedStacks(state, (ServerWorld)world, pos, blockEntity,
+              getDroppedStacks(state, world, pos, blockEntity,
                                player, tool).isEmpty()))) {
             byte i1 = 0;
             byte i2 = 0;
