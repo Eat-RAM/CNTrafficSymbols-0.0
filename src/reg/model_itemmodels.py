@@ -268,7 +268,23 @@ keep_space_variant2_lower
 keep_space_variant2_lowerright
 iron_plate
 white_floor_line_eighth
-yellow_floor_line_eighth""".split(b"\n")
+yellow_floor_line_eighth
+white_rod_with_lamp
+orange_rod_with_lamp
+magenta_rod_with_lamp
+light_blue_rod_with_lamp
+yellow_rod_with_lamp
+lime_rod_with_lamp
+pink_rod_with_lamp
+gray_rod_with_lamp
+light_gray_rod_with_lamp
+cyan_rod_with_lamp
+purple_rod_with_lamp
+blue_rod_with_lamp
+brown_rod_with_lamp
+green_rod_with_lamp
+red_rod_with_lamp
+black_rod_with_lamp""".split(b"\n")
 for i in BLOCK_FORMS:
  with open(f"{i.decode()}.json","wb")as f:f.write(EX1%i)
 for i in ITEM_FORMS:
