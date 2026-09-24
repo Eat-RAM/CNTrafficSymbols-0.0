@@ -600,7 +600,8 @@ D={
  b"brown_rod_with_lamp": b"minecraft:redstone_lamp",
  b"green_rod_with_lamp": b"minecraft:redstone_lamp",
  b"red_rod_with_lamp": b"minecraft:redstone_lamp",
- b"black_rod_with_lamp": b"minecraft:redstone_lamp"
+ b"black_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"full_square_backboard": b"cntrafficsymbols_0d0:iron_plate"
 }
 for k,v in D.items():
  s=v.replace(b":",b"/").split(b"/")[-1]

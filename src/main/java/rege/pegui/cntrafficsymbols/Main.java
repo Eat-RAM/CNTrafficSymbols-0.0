@@ -195,7 +195,8 @@ public class Main implements ModInitializer {
     @Deprecated(since = "0.0.2-b2", forRemoval = true)
     public static void readProperties() throws IOException {
         try (FileInputStream fis = new FileInputStream(
-            "config/cntrafficsymbols_0d0.properties"
+            FabricLoader.getInstance().getConfigDir()
+            .resolve("cntrafficsymbols_0d0.properties").toFile()
         )) {
             readPropertiesFromFile(fis);
         }
@@ -204,7 +205,8 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         try (FileInputStream fis = new FileInputStream(
-            "config/cntrafficsymbols_0d0.properties"
+            FabricLoader.getInstance().getConfigDir()
+            .resolve("cntrafficsymbols_0d0.properties").toFile()
         )) {
             readPropertiesFromFile(fis);
         } catch (java.io.FileNotFoundException e) {

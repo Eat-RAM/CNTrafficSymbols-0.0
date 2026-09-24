@@ -13,6 +13,8 @@
     "cntrafficsymbols_0d0:barricades_1",
     "#cntrafficsymbols_0d0:cylindrical_rods",
     "#cntrafficsymbols_0d0:dotted_tp",
-    "#cntrafficsymbols_0d0:lined_tp"
+    "#cntrafficsymbols_0d0:lined_tp",
+    "#cntrafficsymbols_0d0:rod_with_lamps",
+    "cntrafficsymbols_0d0:full_square_backboard"
   ]
 }

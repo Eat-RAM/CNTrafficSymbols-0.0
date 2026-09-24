@@ -2,13 +2,20 @@ package io.github.eat_ram.cntrafficsymbols.v0d0.compat.litematica.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.common.collect.ImmutableList;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import io.github.eat_ram.cntrafficsymbols.core.block.DoubleFaceFacingBlock;
 import io.github.eat_ram.cntrafficsymbols.core.block
        .SquareQuarterDefaulted3Block;
+import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
+import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
+import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90;
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import rege.pegui.cntrafficsymbols.SelfWork;
@@ -152,5 +159,20 @@ public abstract class MaterialCacheMixin {
             return bd.build();
         }
         return original;
+    }
+
+    @Inject(method = "overrideStackSize", at = @At("RETURN"))
+    private void
+    overrideStackSize(BlockState state, ItemStack stack, CallbackInfo ci) {
+        Block block = state.getBlock();
+        if (block instanceof DoubleFaceFacingBlock &&
+            !state.getOrEmpty(DoubleFaceFacing.FACING)
+             .orElse(DoubleFaceFacing.SOUTH).isSingle()) {
+            stack.setCount(2);
+        } else if (block instanceof WideBoardBlock &&
+                   !state.getOrEmpty(DoubleFaceFacing90.FACING)
+                    .orElse(DoubleFaceFacing90.SOUTH).isSingle()) {
+            stack.setCount(2);
+        }
     }
 }

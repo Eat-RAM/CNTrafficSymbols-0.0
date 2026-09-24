@@ -36,6 +36,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
+import rege.pegui.cntrafficsymbols.Main;
 import rege.pegui.cntrafficsymbols.be.RodWithLampBlockEntity;
 
 import static io.github.eat_ram.cntrafficsymbols.core.block
@@ -478,7 +479,7 @@ implements ManagedWaterloggable {
         ItemStack stack, BlockState state, World world, BlockPos pos,
         PlayerEntity player, Hand hand, BlockHitResult hit
     ) {
-        return ActionResult.PASS;
+        return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
     }
 
     @Override
@@ -525,5 +526,10 @@ implements ManagedWaterloggable {
             type, RodWithLampBlockEntity.TYPE,
             (wrld, pos, bs, be) -> be.tick(world, pos, bs)
         ) : null;
+    }
+
+    @Override
+    public boolean getWaterloggedProperty() {
+        return Main.getWaterloggedProperty();
     }
 }

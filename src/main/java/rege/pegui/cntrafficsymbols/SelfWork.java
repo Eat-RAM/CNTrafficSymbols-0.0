@@ -71,6 +71,29 @@ public class SelfWork {
         };
     }
 
+    @Contract("_ -> new")
+    public static WideBoardBlock newWideBoardBlock(Block.Settings settings) {
+        return new WideBoardBlock(settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
+    @Contract("_, _ -> new")
+    public static WideBoardBlock
+    newWideBoardBlockBunched(WideBoardBlock cb, Block.Settings settings) {
+        return new WideBoardBlock(cb, settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
     public static class Blocks {
         public static final Block SPEEDLIMIT_HIGH_3 = registerBlock(
             commitDouble("speedlimit_high_3"),
@@ -1173,38 +1196,38 @@ public class SelfWork {
         );
         public static final WideBoardBlock DISTANCE_DETECTION_0M_LEFT = registerBlock(
             commitDouble("distance_detection_0m_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_0M_RIGHT = registerBlock(
             commitDouble("distance_detection_0m_right"),
-            settings -> new WideBoardBlock(DISTANCE_DETECTION_0M_LEFT, settings),
+            settings -> newWideBoardBlockBunched(DISTANCE_DETECTION_0M_LEFT, settings),
             Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_50M_LEFT = registerBlock(
             commitDouble("distance_detection_50m_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_50M_RIGHT = registerBlock(
             commitDouble("distance_detection_50m_right"),
-            settings -> new WideBoardBlock(DISTANCE_DETECTION_50M_LEFT, settings),
+            settings -> newWideBoardBlockBunched(DISTANCE_DETECTION_50M_LEFT, settings),
             Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_100M_LEFT = registerBlock(
             commitDouble("distance_detection_100m_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_100M_RIGHT = registerBlock(
             commitDouble("distance_detection_100m_right"),
-            settings -> new WideBoardBlock(DISTANCE_DETECTION_100M_LEFT, settings),
+            settings -> newWideBoardBlockBunched(DISTANCE_DETECTION_100M_LEFT, settings),
             Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_200M_LEFT = registerBlock(
             commitDouble("distance_detection_200m_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock DISTANCE_DETECTION_200M_RIGHT = registerBlock(
             commitDouble("distance_detection_200m_right"),
-            settings -> new WideBoardBlock(DISTANCE_DETECTION_200M_LEFT, settings),
+            settings -> newWideBoardBlockBunched(DISTANCE_DETECTION_200M_LEFT, settings),
             Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE = registerBlock(
@@ -1366,97 +1389,97 @@ public class SelfWork {
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERLEFT = registerBlock(
             commitDouble("keep_space_variant1_upperleft"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPER = registerBlock(
             commitDouble("keep_space_variant1_upper"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_UPPERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERRIGHT = registerBlock(
             commitDouble("keep_space_variant1_upperright"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_UPPERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LEFT = registerBlock(
             commitDouble("keep_space_variant1_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_CENTER = registerBlock(
             commitDouble("keep_space_variant1_center"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_LEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_RIGHT = registerBlock(
             commitDouble("keep_space_variant1_right"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_LEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERLEFT = registerBlock(
             commitDouble("keep_space_variant1_lowerleft"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWER = registerBlock(
             commitDouble("keep_space_variant1_lower"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_LOWERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERRIGHT = registerBlock(
             commitDouble("keep_space_variant1_lowerright"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT1_LOWERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERLEFT = registerBlock(
             commitDouble("keep_space_variant2_upperleft"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPER = registerBlock(
             commitDouble("keep_space_variant2_upper"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_UPPERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERRIGHT = registerBlock(
             commitDouble("keep_space_variant2_upperright"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_UPPERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LEFT = registerBlock(
             commitDouble("keep_space_variant2_left"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_CENTER = registerBlock(
             commitDouble("keep_space_variant2_center"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_LEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_RIGHT = registerBlock(
             commitDouble("keep_space_variant2_right"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_LEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERLEFT = registerBlock(
             commitDouble("keep_space_variant2_lowerleft"),
-            WideBoardBlock::new, Block.Settings.create().strength(21f, 84f)
+            SelfWork::newWideBoardBlock, Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWER = registerBlock(
             commitDouble("keep_space_variant2_lower"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_LOWERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERRIGHT = registerBlock(
             commitDouble("keep_space_variant2_lowerright"),
-            settings -> new WideBoardBlock(
+            settings -> newWideBoardBlockBunched(
                 KEEP_SPACE_VARIANT2_LOWERLEFT, settings
             ), Block.Settings.create().strength(21f, 84f)
         );

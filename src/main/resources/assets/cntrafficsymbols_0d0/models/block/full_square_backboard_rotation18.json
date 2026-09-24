@@ -1,0 +1,22 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "cntrafficsymbols_0d0:block/full_square_backboard",
+    "side": "cntrafficsymbols_0d0:block/full_square_backboard"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 7],
+      "to": [16, 16, 9],
+      "rotation": {"origin": [8, 8, 8], "axis": "y", "angle": -45},
+      "faces": {
+        "down": {"uv": [0, 7, 16, 9], "texture": "#side", "cullface": "down"},
+        "up": {"uv": [0, 7, 16, 9], "texture": "#side", "cullface": "up"},
+        "north": {"uv": [0, 0, 16, 16], "texture": "#side"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#side"},
+        "west": {"uv": [7, 0, 9, 16], "texture": "#side", "cullface": "west"},
+        "east": {"uv": [7, 0, 9, 16], "texture": "#side", "cullface": "east"}
+      }
+    }
+  ]
+}
