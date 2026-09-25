@@ -96,8 +96,8 @@ EX_UP=b"""\
       "from": [%d, 8, %d],
       "to": [%d, 16, %d],
       "faces": {
-        "down": {"uv": [4, 0, 8, 4], "texture": "#side", "cullface": "up"},
-        "up": {"uv": [4, 0, 8, 4], "texture": "#side"}
+        "down": {"uv": [4, 0, 8, 4], "texture": "#side"},
+        "up": {"uv": [4, 0, 8, 4], "texture": "#side", "cullface": "up"}
       }
     }
   ]
@@ -253,42 +253,46 @@ EX_Z=b"""\
       "to": [%d, %d, 16],
       "faces": {
         "north": {"uv": [4, 0, 8, 4], "texture": "#side", "cullface": "north"},
-        "south": {"uv": [4, 0, 8, 4], "texture": "#side"}
+        "south": {"uv": [4, 0, 8, 4], "texture": "#side", "cullface": "south"}
       }
     }
   ]
 }
 """.replace(b"\n",b"\r\n")
-OFFSETS:Dict[Tuple[int,int],Tuple[str,str]]={
- (0,0):("center","center"),
- (0,6):("south","upper"),
- (6,6):("southeast","uppereast"),
- (6,0):("east","east"),
- (6,-6):("northeast","lowereast"),
- (0,-6):("north","lower"),
- (-6,-6):("northwest","lowerwest"),
- (-6,0):("west","west"),
- (-6,6):("southwest","upperwest")
+Y_OFFSETS:Dict[Tuple[int,int],str]={
+ (0,0):"center",(0,6):"south",(6,6):"southeast",(6,0):"east",
+ (6,-6):"northeast",(0,-6):"north",(-6,-6):"northwest",(-6,0):"west",
+ (-6,6):"southwest"
 }
-def translate(v:int,*a:int)->Tuple[int,...]:return tuple(x-v for x in a)
-for k,v in OFFSETS.items():
- with open(f"half1_cylindrical_rod_down_{v[0]}.json","wb")as f:
+Z_OFFSETS:Dict[Tuple[int,int],str]={
+ (0,0):"center",(0,6):"upper",(0,-6):"lower",(-6,-6):"lowerwest",(-6,0):"west",
+ (-6,6):"upperwest"
+}
+NORTH_OFFSETS:Dict[Tuple[int,int],str]={
+ (0,0):"center",(0,6):"upper",(6,6):"uppereast",(6,0):"east",
+ (6,-6):"lowereast",(0,-6):"lower",(-6,-6):"lowerwest",(-6,0):"west",
+ (-6,6):"upperwest"
+}
+for k,v in Y_OFFSETS.items():
+ with open(f"half1_cylindrical_rod_down_{v}.json","wb")as f:
   f.write(EX_DOWN%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
                    6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
                    6+k[0],6+k[1],10+k[0],10+k[1]))
- with open(f"half1_cylindrical_rod_up_{v[0]}.json","wb")as f:
+ with open(f"half1_cylindrical_rod_up_{v}.json","wb")as f:
   f.write(EX_UP%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
                  6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
                  6+k[0],6+k[1],10+k[0],10+k[1]))
- with open(f"full1_cylindrical_rod_y_{v[0]}.json","wb")as f:
+ with open(f"full1_cylindrical_rod_y_{v}.json","wb")as f:
   f.write(EX_Y%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
                 6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
                 6+k[0],6+k[1],10+k[0],10+k[1]))
- with open(f"half1_cylindrical_rod_north_{v[1]}.json","wb")as f:
-  f.write(EX_NORTH%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
-                    6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
-                    6+k[0],6+k[1],10+k[0],10+k[1]))
- with open(f"full1_cylindrical_rod_z_{v[1]}.json","wb")as f:
+for k,v in Z_OFFSETS.items():
+ with open(f"full1_cylindrical_rod_z_{v}.json","wb")as f:
   f.write(EX_Z%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
                 6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
                 6+k[0],6+k[1],10+k[0],10+k[1]))
+for k,v in NORTH_OFFSETS.items():
+ with open(f"half1_cylindrical_rod_north_{v}.json","wb")as f:
+  f.write(EX_NORTH%(7+k[0],6+k[1],9+k[0],7+k[1],7+k[0],9+k[1],9+k[0],10+k[1],
+                    6+k[0],7+k[1],7+k[0],9+k[1],9+k[0],7+k[1],10+k[0],9+k[1],
+                    6+k[0],6+k[1],10+k[0],10+k[1]))

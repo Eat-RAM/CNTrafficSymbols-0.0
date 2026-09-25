@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "io.github.eat_ram.cntrafficsymbols.v0d0.compat.litematica.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MaterialCacheMixin"
+  ],
+  "injectors": {"defaultRequire": 0}
+}

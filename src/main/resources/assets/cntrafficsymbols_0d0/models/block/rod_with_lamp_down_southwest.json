@@ -1,0 +1,151 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {"particle": "#side"},
+  "elements": [
+    {
+      "from": [1, 0, 12],
+      "to": [3, 7, 13],
+      "faces": {
+        "north": {"uv": [1, 0, 3, 7], "texture": "#side"},
+        "west": {"uv": [0, 0, 1, 7], "texture": "#side"},
+        "east": {"uv": [3, 0, 4, 7], "texture": "#side"}
+      }
+    },
+    {
+      "from": [1, 0, 15],
+      "to": [3, 7, 16],
+      "faces": {
+        "south": {"uv": [1, 0, 3, 7], "texture": "#side"},
+        "west": {"uv": [3, 0, 4, 7], "texture": "#side"},
+        "east": {"uv": [0, 0, 1, 7], "texture": "#side"}
+      }
+    },
+    {
+      "from": [0, 0, 13],
+      "to": [1, 7, 15],
+      "faces": {
+        "west": {"uv": [1, 0, 3, 7], "texture": "#side"},
+        "north": {"uv": [3, 0, 4, 7], "texture": "#side"},
+        "south": {"uv": [0, 0, 1, 7], "texture": "#side"}
+      }
+    },
+    {
+      "from": [3, 0, 13],
+      "to": [4, 7, 15],
+      "faces": {
+        "east": {"uv": [1, 0, 3, 7], "texture": "#side"},
+        "north": {"uv": [0, 0, 1, 7], "texture": "#side"},
+        "south": {"uv": [3, 0, 4, 7], "texture": "#side"}
+      }
+    },
+    {
+      "from": [1, 4, 12],
+      "to": [3, 7, 13],
+      "faces": {"south": {"uv": [1, 4, 3, 7], "texture": "#side"}}
+    },
+    {
+      "from": [1, 4, 15],
+      "to": [3, 7, 16],
+      "faces": {"north": {"uv": [1, 4, 3, 7], "texture": "#side"}}
+    },
+    {
+      "from": [0, 4, 13],
+      "to": [1, 7, 15],
+      "faces": {"east": {"uv": [1, 4, 3, 7], "texture": "#side"}}
+    },
+    {
+      "from": [3, 4, 13],
+      "to": [4, 7, 15],
+      "faces": {"west": {"uv": [1, 4, 3, 7], "texture": "#side"}}
+    },
+    {
+      "from": [1, 0, 13],
+      "to": [3, 4, 15],
+      "faces": {"up": {"uv": [5, 1, 7, 3], "texture": "#side"}}
+    },
+    {
+      "from": [1, 0, 12],
+      "to": [3, 7, 13],
+      "faces": {"up": {"uv": [1, 7, 3, 8], "texture": "#side"}}
+    },
+    {
+      "from": [1, 0, 15],
+      "to": [3, 7, 16],
+      "faces": {"up": {"uv": [1, 7, 3, 8], "texture": "#side"}}
+    },
+    {
+      "from": [0, 0, 13],
+      "to": [1, 7, 15],
+      "faces": {"up": {"uv": [7, 13, 8, 15], "texture": "#side"}}
+    },
+    {
+      "from": [3, 0, 13],
+      "to": [4, 7, 15],
+      "faces": {"up": {"uv": [7, 13, 8, 15], "texture": "#side"}}
+    },
+    {
+      "from": [1, 7, 12],
+      "to": [3, 8, 13],
+      "faces": {
+        "north": {"uv": [1, 7, 3, 8], "texture": "#cover"},
+        "west": {"uv": [0, 7, 1, 8], "texture": "#cover"},
+        "east": {"uv": [3, 7, 4, 8], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [1, 7, 15],
+      "to": [3, 8, 16],
+      "faces": {
+        "south": {"uv": [1, 7, 3, 8], "texture": "#cover"},
+        "west": {"uv": [3, 7, 4, 8], "texture": "#cover"},
+        "east": {"uv": [0, 7, 1, 8], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [0, 7, 13],
+      "to": [1, 8, 15],
+      "faces": {
+        "west": {"uv": [1, 7, 3, 8], "texture": "#cover"},
+        "north": {"uv": [3, 7, 4, 8], "texture": "#cover"},
+        "south": {"uv": [0, 7, 1, 8], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [3, 7, 13],
+      "to": [4, 8, 15],
+      "faces": {
+        "east": {"uv": [1, 7, 3, 8], "texture": "#cover"},
+        "north": {"uv": [0, 7, 1, 8], "texture": "#cover"},
+        "south": {"uv": [3, 7, 4, 8], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [0, 0, 12],
+      "to": [4, 8, 16],
+      "faces": {
+        "down": {"uv": [4, 0, 8, 4], "texture": "#side", "cullface": "down"}
+      }
+    },
+    {
+      "from": [1, 0, 12],
+      "to": [3, 8, 13],
+      "faces": {
+        "up": {"uv": [5, 0, 7, 1], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [0, 0, 13],
+      "to": [4, 8, 15],
+      "faces": {
+        "up": {"uv": [4, 1, 8, 3], "texture": "#cover"}
+      }
+    },
+    {
+      "from": [1, 0, 15],
+      "to": [3, 8, 16],
+      "faces": {
+        "up": {"uv": [5, 3, 7, 4], "texture": "#cover"}
+      }
+    }
+  ]
+}

@@ -20,7 +20,6 @@ V=(("half1","down_center"),("half1","down_south"),("half1","down_southeast"),
    ("full1","y_southeast"),("full1","y_east"),("full1","y_northeast"),
    ("full1","y_north"),("full1","y_northwest"),("full1","y_west"),
    ("full1","y_southwest"),("full1","z_center"),("full1","z_upper"),
-   ("full1","z_uppereast"),("full1","z_east"),("full1","z_lowereast"),
    ("full1","z_lower"),("full1","z_lowerwest"),("full1","z_west"),
    ("full1","z_upperwest"))
 for i in COLORS:

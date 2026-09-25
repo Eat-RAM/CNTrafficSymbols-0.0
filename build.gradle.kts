@@ -21,6 +21,17 @@ repositories {
     maven("https://maven.terraformersmc.com/") {
         name = "TerraformersMC"
     }
+    maven("https://maven.fallenbreath.me/releases")
+    exclusiveContent {
+        forRepository {
+            maven("https://api.modrinth.com/maven") {
+                name = "Modrinth"
+            }
+        }
+        filter {
+            includeGroup("maven.modrinth")
+        }
+    }
 }
 
 loom {
@@ -58,6 +69,9 @@ dependencies {
     implementation(files("nbtutils-0.0.1a1.jar"))
     modImplementation(files("nbtutils_bridge_mc-0.0.1-a1.jar"))
     modImplementation(files("number_id_revival-0.0.1-a1+mc1.20.4.jar"))
+    modImplementation("maven.modrinth:bEpr0Arc:RfB4COWa") // Litematica
+    compileOnly("me.fallenbreath:conditional-mixin-fabric:0.6.4")
+    include("me.fallenbreath:conditional-mixin-fabric:0.6.4")
 }
 
 tasks.withType<JavaCompile>().configureEach {

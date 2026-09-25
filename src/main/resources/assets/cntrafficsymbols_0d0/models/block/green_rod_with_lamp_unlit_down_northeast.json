@@ -1,0 +1,7 @@
+{
+  "parent": "cntrafficsymbols_0d0:block/rod_with_lamp_down_northeast",
+  "textures": {
+    "side": "cntrafficsymbols_0d0:block/green_half1_cylindrical_rod",
+    "cover": "cntrafficsymbols_0d0:block/rod_with_lamp_cover_unlit"
+  }
+}

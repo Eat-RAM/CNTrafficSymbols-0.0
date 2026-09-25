@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cntrafficsymbols_0d0",
-  "version": "0.0.2-b3",
+  "version": "0.0.2-rc1",
   "name": "CNTrafficSymbols 0.0",
   "description": "Contents of version “0.0” phase of CNTrafficSymbols",
   "authors": [
@@ -46,7 +46,13 @@
       "io.github.eat_ram.cntrafficsymbols.v0d0.compat.modmenu.ModMenuApiImpl"
     ]
   },
-  "mixins": ["cntrafficsymbols_0d0.mixins.json"],
+  "mixins": [
+    "cntrafficsymbols_0d0.mixins.json",
+    {
+      "config": "cntrafficsymbols_0d0-litematica.mixins.json",
+      "environment": "client"
+    }
+  ],
   "depends": {
     "fabricloader": ">=0.14.0",
     "minecraft": "1.20.4",

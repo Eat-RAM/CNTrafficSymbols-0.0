@@ -319,6 +319,7 @@ prohibition
 no_u_turn
 no_left_turn
 no_right_turn
-no_parking""".split(b"\n")
+no_parking
+full_square_backboard""".split(b"\n")
 for i in BLOCKS:
  with open(f"{i.decode()}.json","wb")as f:f.write(EX%((i,)*10))

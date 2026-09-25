@@ -12,7 +12,6 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
-import rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -99,7 +98,9 @@ public class Main implements ModInitializer {
 
     public static void addDefaultBlockstateOptimizations() {
         if (!FabricLoader.getInstance().isModLoaded("ferritecore")) {
-            blockstateOptimizations.add(FloorLineEighthBlock.class);
+            blockstateOptimizations.add(
+                rege.pegui.cntrafficsymbols.block.FloorLineEighthBlock.class
+            );
         }
     }
 
@@ -194,7 +195,8 @@ public class Main implements ModInitializer {
     @Deprecated(since = "0.0.2-b2", forRemoval = true)
     public static void readProperties() throws IOException {
         try (FileInputStream fis = new FileInputStream(
-            "config/cntrafficsymbols_0d0.properties"
+            FabricLoader.getInstance().getConfigDir()
+            .resolve("cntrafficsymbols_0d0.properties").toFile()
         )) {
             readPropertiesFromFile(fis);
         }
@@ -203,7 +205,8 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         try (FileInputStream fis = new FileInputStream(
-            "config/cntrafficsymbols_0d0.properties"
+            FabricLoader.getInstance().getConfigDir()
+            .resolve("cntrafficsymbols_0d0.properties").toFile()
         )) {
             readPropertiesFromFile(fis);
         } catch (java.io.FileNotFoundException e) {

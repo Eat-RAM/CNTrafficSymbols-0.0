@@ -63,615 +63,650 @@ public class SelfWork {
         "red", "black"
     );
 
+    @Contract("_ -> new")
+    public static CircleStandingSymbolBlock
+    newCircleStandingSymbolBlock(Block.Settings settings) {
+        return new CircleStandingSymbolBlock(settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
+    @Contract("_ -> new")
+    public static WideBoardBlock newWideBoardBlock(Block.Settings settings) {
+        return new WideBoardBlock(settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
+    @Contract("_, _ -> new")
+    public static WideBoardBlock
+    newWideBoardBlockBunched(WideBoardBlock cb, Block.Settings settings) {
+        return new WideBoardBlock(cb, settings) {
+            @Override
+            @Contract(pure = true)
+            public boolean getWaterloggedProperty() {
+                return Main.getWaterloggedProperty();
+            }
+        };
+    }
+
     public static class Blocks {
         public static final Block SPEEDLIMIT_HIGH_3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_10 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_10 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_15 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_15 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_20 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_20 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_25 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_25 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_30 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_30 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_35 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_35 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_40 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_40 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_45 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_45 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_50 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_50 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_55 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_55 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_60 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_60 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_65 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_65 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_70 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_70 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_75 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_75 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_80 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_80 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_85 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_85 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_90 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_90 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_95 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_95 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_100 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_100 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_105 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_105 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_110 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_110 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_115 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_115 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_120 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_120 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_125 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_125 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_130 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_130 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_135 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_135 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_140 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_140 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_145 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_145 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_150 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_150 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_HIGH_SPECIAL =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block SPEEDLIMIT_LOW_SPECIAL =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_10 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_15 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_20 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_25 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_30 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_35 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_40 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_45 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_50 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_55 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_60 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_65 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_70 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_75 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_80 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_85 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_90 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_95 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_100 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_105 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_110 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_115 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_120 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_125 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_130 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_135 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_140 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_145 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_150 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block LIFT_SPEEDLIMIT_HIGH_SPECIAL =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block CIRCLE_BACKBOARD =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_SPECIAL =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_0D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_1D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_2D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_3D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_4D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_5D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_6D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_7D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_8D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D1 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D2 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D3 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D4 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D5 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D6 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D7 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D8 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_9D9 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HEIGHTLIMIT_10 =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block PROHIBITION =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block NO_U_TURN =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block NO_LEFT_TURN =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block NO_RIGHT_TURN =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block NO_PARKING =
-            new CircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
+            newCircleStandingSymbolBlock(Block.Settings.create().nonOpaque()
                                                         .strength(9f, 36f));
         public static final Block HIGHWAY_1HM =
             new HighwayHmSignBlock(Block.Settings.create().nonOpaque().strength(1f, 4f)
@@ -717,24 +752,24 @@ public class SelfWork {
                                                                                                                               ((getWaterloggedProperty() && st.get(WATERLOGGED).booleanValue()) ? MapColor.CYAN
                                                                                                                                                                                                 : MapColor.GREEN)));
         public static final WideBoardBlock DISTANCE_DETECTION_0M_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_0M_RIGHT =
-            new WideBoardBlock(DISTANCE_DETECTION_0M_LEFT,
+            newWideBoardBlockBunched(DISTANCE_DETECTION_0M_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_50M_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_50M_RIGHT =
-            new WideBoardBlock(DISTANCE_DETECTION_50M_LEFT,
+            newWideBoardBlockBunched(DISTANCE_DETECTION_50M_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_100M_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_100M_RIGHT =
-            new WideBoardBlock(DISTANCE_DETECTION_100M_LEFT,
+            newWideBoardBlockBunched(DISTANCE_DETECTION_100M_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_200M_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock DISTANCE_DETECTION_200M_RIGHT =
-            new WideBoardBlock(DISTANCE_DETECTION_200M_LEFT,
+            newWideBoardBlockBunched(DISTANCE_DETECTION_200M_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE =
             new HighwayExitDistanceInfoLeftBlock(Block.Settings.create()
@@ -858,54 +893,60 @@ public class SelfWork {
                            (getHardcodedBarricades1LootEnabled() == null && getDroppedStacks(st, (net
                                .minecraft.server.world.ServerWorld) w, p, ett, pl, tool).isEmpty());
                 }
+
+                @Override
+                @Contract(pure = true)
+                public boolean getWaterloggedProperty() {
+                    return Main.getWaterloggedProperty();
+                }
             };
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERLEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_UPPERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_UPPERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_UPPERRIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_UPPERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_UPPERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_CENTER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_LEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_RIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_LEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERLEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_LOWERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_LOWERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT1_LOWERRIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT1_LOWERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT1_LOWERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERLEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_UPPERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_UPPERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_UPPERRIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_UPPERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_UPPERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_CENTER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_LEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_RIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_LEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_LEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERLEFT =
-            new WideBoardBlock(Block.Settings.create().strength(21f, 84f));
+            newWideBoardBlock(Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWER =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_LOWERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_LOWERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final WideBoardBlock KEEP_SPACE_VARIANT2_LOWERRIGHT =
-            new WideBoardBlock(KEEP_SPACE_VARIANT2_LOWERLEFT,
+            newWideBoardBlockBunched(KEEP_SPACE_VARIANT2_LOWERLEFT,
                                Block.Settings.create().strength(21f, 84f));
         public static final Block WHITE_HALF1_CYLINDRICAL_ROD =
             new Half1CylindricalRodBlock(Block.Settings.create().strength(5f, 20f));
@@ -1024,6 +1065,12 @@ public class SelfWork {
                         case 27: return WideBoardBlock.SHAPE9;
                         default: return SHAPE_DEFAULT;
                     }
+                }
+
+                @Override
+                @Contract(pure = true)
+                public boolean getWaterloggedProperty() {
+                    return Main.getWaterloggedProperty();
                 }
             };
         public static final Block WHITE_DOTTED4_TP = new DottedTPBlock((byte) 4,

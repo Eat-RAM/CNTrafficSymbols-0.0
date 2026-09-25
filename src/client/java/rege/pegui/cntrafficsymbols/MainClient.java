@@ -1,11 +1,29 @@
 package rege.pegui.cntrafficsymbols;
 
+import java.util.function.Supplier;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.rendereregistry.v1
        .BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.renderer.v1.Renderer;
+import net.fabricmc.fabric.api.renderer.v1.RendererAccess;
+import net.fabricmc.fabric.api.renderer.v1.material.BlendMode;
+import net.fabricmc.fabric.api.renderer.v1.material.MaterialFinder;
+import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial;
+import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter;
+import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
+import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.model.BakedQuad;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockRenderView;
 import rege.pegui.cntrafficsymbols.SelfWork.Blocks;
 import rege.pegui.cntrafficsymbols.be.HighwayExitDistanceInfoKmBlockEntity;
 import rege.pegui.cntrafficsymbols.be.HighwayExitDistanceInfoNameBlockEntity;
@@ -272,6 +290,45 @@ public class MainClient implements ClientModInitializer {
         for (Block i : tab) {
             BlockRenderLayerMap.INSTANCE.putBlock(i, RenderLayer.getCutout());
         }
+        ModelLoadingPlugin.register(pluginContext -> pluginContext.modifyModelAfterBake().register((model, context) -> {
+            Identifier id = context.id();
+            if (id.getNamespace().equals("cntrafficsymbols_0d0") && id.getPath().matches("block/[a-z_]*rod_with_lamp[a-z_]*")) {
+                return new ForwardingBakedModel() {
+                    private final RenderMaterial cutoutMaterial;
+                    private final RenderMaterial translucentMaterial;
+
+                    {
+                        this.wrapped = model;
+                        Renderer renderer = RendererAccess.INSTANCE.getRenderer();
+                        MaterialFinder finder = renderer.materialFinder();
+                        this.cutoutMaterial = finder.clear().blendMode(BlendMode.CUTOUT).find();
+                        this.translucentMaterial = finder.clear().blendMode(BlendMode.TRANSLUCENT).find();
+                    }
+
+                    @Override
+                    public boolean isVanillaAdapter() {
+                        return false;
+                    }
+
+                    @Override
+                    public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
+                        QuadEmitter emitter = context.getEmitter();
+                        for (Direction dir : Direction.values()) {
+                            this.emitFiltered(this.wrapped.getQuads(state, dir, randomSupplier.get()), emitter);
+                        }
+                        this.emitFiltered(this.wrapped.getQuads(state, null, randomSupplier.get()), emitter);
+                    }
+
+                    private void emitFiltered(Iterable<? extends BakedQuad> quads, QuadEmitter emitter) {
+                        for (BakedQuad quad : quads) {
+                            emitter.fromVanilla(quad, quad.getSprite().getContents().getId().getPath().contains("_cover_") ? this.translucentMaterial : this.cutoutMaterial, null);
+                            emitter.emit();
+                        }
+                    }
+                };
+            }
+            return model;
+        })); // We should find a better way to handle it
         BlockEntityRendererRegistry.INSTANCE
         .register(HighwayHmSignBlockEntity.TYPE, HighwayHmSignBERenderer::new);
         BlockEntityRendererRegistry.INSTANCE

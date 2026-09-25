@@ -584,7 +584,24 @@ D={
  b"black_half1_cylindrical_rod": b"cntrafficsymbols_0d0:black_full1_cylindrical_rod",
  b"barricade_1m_edge_1m_height": b"minecraft:orange_concrete",
  b"barricade_50cm_edge_1m_height": b"minecraft:orange_concrete",
- b"barricade_50cm_edge_75cm_height": b"minecraft:orange_concrete"
+ b"barricade_50cm_edge_75cm_height": b"minecraft:orange_concrete",
+ b"white_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"orange_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"magenta_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"light_blue_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"yellow_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"lime_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"pink_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"gray_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"light_gray_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"cyan_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"purple_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"blue_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"brown_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"green_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"red_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"black_rod_with_lamp": b"minecraft:redstone_lamp",
+ b"full_square_backboard": b"cntrafficsymbols_0d0:iron_plate"
 }
 for k,v in D.items():
  s=v.replace(b":",b"/").split(b"/")[-1]

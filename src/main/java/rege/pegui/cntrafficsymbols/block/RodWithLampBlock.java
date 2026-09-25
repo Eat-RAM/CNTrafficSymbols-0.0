@@ -34,6 +34,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
+import rege.pegui.cntrafficsymbols.Main;
 import rege.pegui.cntrafficsymbols.be.RodWithLampBlockEntity;
 
 import static io.github.eat_ram.cntrafficsymbols.core.block
@@ -49,15 +50,18 @@ implements ManagedWaterloggable {
     public static final MapCodec<RodWithLampBlock> CODEC =
     createCodec(RodWithLampBlock::new);
     private static final VoxelShape[] SHAPES_BY_ID = {
-        X_CENTER, X_UPPER, X_UPPERSOUTH, X_SOUTH, X_LOWERSOUTH, X_LOWER,
-        X_LOWERNORTH, X_NORTH, X_UPPERNORTH, X_CENTER, X_UPPER, X_UPPERSOUTH,
-        X_SOUTH, X_LOWERSOUTH, X_LOWER, X_LOWERNORTH, X_NORTH, X_UPPERNORTH,
-        Y_CENTER, Y_NORTH, Y_NORTHEAST, Y_EAST, Y_SOUTHEAST, Y_SOUTH,
-        Y_SOUTHWEST, Y_WEST, Y_NORTHWEST, Y_CENTER, Y_NORTH, Y_NORTHEAST,
-        Y_EAST, Y_SOUTHEAST, Y_SOUTH, Y_SOUTHWEST, Y_WEST, Y_NORTHWEST,
-        Z_CENTER, Z_UPPER, Z_UPPEREAST, Z_EAST, Z_LOWEREAST, Z_LOWER,
-        Z_LOWERWEST, Z_WEST, Z_UPPERWEST, Z_CENTER, Z_UPPER, Z_UPPEREAST,
-        Z_EAST, Z_LOWEREAST, Z_LOWER, Z_LOWERWEST, Z_WEST, Z_UPPERWEST
+        WEST_CENTER, WEST_UPPER, WEST_UPPERSOUTH, WEST_SOUTH, WEST_LOWERSOUTH,
+        WEST_LOWER, WEST_LOWERNORTH, WEST_NORTH, WEST_UPPERNORTH, EAST_CENTER,
+        EAST_UPPER, EAST_UPPERSOUTH, EAST_SOUTH, EAST_LOWERSOUTH, EAST_LOWER,
+        EAST_LOWERNORTH, EAST_NORTH, EAST_UPPERNORTH, DOWN_CENTER, DOWN_NORTH,
+        DOWN_NORTHEAST, DOWN_EAST, DOWN_SOUTHEAST, DOWN_SOUTH, DOWN_SOUTHWEST,
+        DOWN_WEST, DOWN_NORTHWEST, UP_CENTER, UP_NORTH, UP_NORTHEAST, UP_EAST,
+        UP_SOUTHEAST, UP_SOUTH, UP_SOUTHWEST, UP_WEST, UP_NORTHWEST,
+        NORTH_CENTER, NORTH_UPPER, NORTH_UPPEREAST, NORTH_EAST,
+        NORTH_LOWEREAST, NORTH_LOWER, NORTH_LOWERWEST, NORTH_WEST,
+        NORTH_UPPERWEST, SOUTH_CENTER, SOUTH_UPPER, SOUTH_UPPEREAST,
+        SOUTH_EAST, SOUTH_LOWEREAST, SOUTH_LOWER, SOUTH_LOWERWEST, SOUTH_WEST,
+        SOUTH_UPPERWEST
     };
 
     public static enum LightVisualColor implements StringIdentifiable {
@@ -96,8 +100,8 @@ implements ManagedWaterloggable {
         super(settings);
         BlockState st =
         this.getDefaultState().with(LIT, false)
-            .with(FacePosition9.POSITION, FacePosition9.DOWN_CENTER)
-            .with(COLOR, LightVisualColor.WHITE);
+        .with(FacePosition9.POSITION, FacePosition9.DOWN_CENTER)
+        .with(COLOR, LightVisualColor.WHITE);
         if (this.getWaterloggedProperty()) {
             st = st.with(WATERLOGGED, false);
         }
@@ -516,5 +520,10 @@ implements ManagedWaterloggable {
             type, RodWithLampBlockEntity.TYPE,
             (wrld, pos, bs, blockEntity) -> blockEntity.tick(world, pos, bs)
         ) : null;
+    }
+
+    @Override
+    public boolean getWaterloggedProperty() {
+        return Main.getWaterloggedProperty();
     }
 }
