@@ -58,11 +58,11 @@ public class DottedTPBlock extends Block implements ManagedWaterloggable {
         .0625, .03125, .0625, .125, 0, .125, 7, 1, 7
     );
     public static final VoxelShape DOWN_8 = pattern(
-        DOWN_BASE, .03125, .0625, .09375,
+        DOWN_BASE, .03125, .0625, .03125,
         .0625, .03125, .0625, .125, 0, .125, 8, 1, 8
     );
     public static final VoxelShape UP_8 = pattern(
-        UP_BASE, .03125, .5625, .09375,
+        UP_BASE, .03125, .5625, .03125,
         .0625, .03125, .0625, .125, 0, .125, 8, 1, 8
     );
     public static final VoxelShape DOWN_9 = pattern(

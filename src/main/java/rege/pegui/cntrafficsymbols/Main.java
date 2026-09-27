@@ -215,7 +215,7 @@ public class Main implements ModInitializer {
                 "No cntrafficsymbols_0d0.properties found. Use default config."
             );
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Error reading cntrafficsymbols_0d0.properties", e);
         }
         SelfWork.doit();
     }

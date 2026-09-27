@@ -108,7 +108,7 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
 
     protected void addComponents(final ComponentMap.Builder builder) {
         super.addComponents(builder);
-        builder.add(DataComponentTypes.CUSTOM_NAME, this.getName());
+        builder.add(DataComponentTypes.CUSTOM_NAME, this.getCustomName());
     }
 
     public void tick(World w, BlockPos p, BlockState st) {

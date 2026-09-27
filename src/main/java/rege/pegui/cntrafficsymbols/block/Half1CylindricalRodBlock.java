@@ -2,12 +2,16 @@ package rege.pegui.cntrafficsymbols.block;
 
 import io.github.eat_ram.cntrafficsymbols.core.block
        .AbstractCylindricalRodBlock;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Mirrorer;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Rotator;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.util.math.BlockMirror;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRotation;
 import net.minecraft.util.shape.VoxelShape;
 import rege.pegui.cntrafficsymbols.Main;
 
@@ -351,6 +355,27 @@ public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock {
             ).getFluid() == WATER);
         }
         return st.with(FacePosition9.POSITION, rp);
+    }
+
+    @Override
+    public BlockState rotate(BlockState st, BlockRotation rot) {
+        return rot == BlockRotation.NONE ? st : st.with(
+            FacePosition9.POSITION, FacePosition9Rotator.rotate(
+                st.get(FacePosition9.POSITION),
+                rot == BlockRotation.CLOCKWISE_90 ? 1 :
+                (rot == BlockRotation.CLOCKWISE_180 ? 2 : 3)
+            )
+        );
+    }
+
+    @Override
+    public BlockState mirror(BlockState st, BlockMirror mirror) {
+        return mirror == BlockMirror.NONE ? st : st.with(
+            FacePosition9.POSITION,
+            mirror == BlockMirror.FRONT_BACK ?
+            FacePosition9Mirrorer.mirrorX(st.get(FacePosition9.POSITION)) :
+            FacePosition9Mirrorer.mirrorZ(st.get(FacePosition9.POSITION))
+        );
     }
 
     @Override

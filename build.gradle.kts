@@ -22,10 +22,6 @@ repositories {
     maven("https://maven.terraformersmc.com/") {
         name = "TerraformersMC"
     }
-    maven("https://maven.fallenbreath.me/releases")
-    maven("https://masa.dy.fi/maven/sakura-ryoko") {
-        name = "masa"
-    }
 }
 
 loom {
@@ -62,15 +58,12 @@ dependencies {
 
     // modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}")
     modImplementation(files(
-        "cntrafficsymbols_core-0.0.2-b2+mc26.3.jar"
+        "cntrafficsymbols_core-0.0.2-rc2+mc26.3.jar"
     ))
     modImplementation("com.terraformersmc:modmenu:21.0.0-beta.1")
     //implementation(files("nbtutils-0.0.1a1.jar"))
     //modImplementation(files("nbtutils_bridge_mc-0.0.1-a1.jar"))
     //modImplementation(files("number_id_revival-0.0.1-a1+mc1.20.4.jar"))
-    modCompileOnly("fi.dy.masa.litematica:litematica-fabric-26.3:0.29.0")
-    compileOnly("me.fallenbreath:conditional-mixin-fabric:0.6.4")
-    include("me.fallenbreath:conditional-mixin-fabric:0.6.4")
 }
 
 tasks.withType<JavaCompile>().configureEach {

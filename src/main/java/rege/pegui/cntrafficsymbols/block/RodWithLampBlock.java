@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.function.ToIntFunction;
 
 import io.github.eat_ram.cntrafficsymbols.core.block.ManagedWaterloggable;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Mirrorer;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Rotator;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -26,7 +28,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockMirror;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRotation;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
@@ -526,6 +530,27 @@ implements ManagedWaterloggable {
             type, RodWithLampBlockEntity.TYPE,
             (wrld, pos, bs, be) -> be.tick(world, pos, bs)
         ) : null;
+    }
+
+    @Override
+    public BlockState rotate(BlockState st, BlockRotation rot) {
+        return rot == BlockRotation.NONE ? st : st.with(
+            FacePosition9.POSITION, FacePosition9Rotator.rotate(
+                st.get(FacePosition9.POSITION),
+                rot == BlockRotation.CLOCKWISE_90 ? 1 :
+                (rot == BlockRotation.CLOCKWISE_180 ? 2 : 3)
+            )
+        );
+    }
+
+    @Override
+    public BlockState mirror(BlockState st, BlockMirror mirror) {
+        return mirror == BlockMirror.NONE ? st : st.with(
+            FacePosition9.POSITION,
+            mirror == BlockMirror.FRONT_BACK ?
+            FacePosition9Mirrorer.mirrorX(st.get(FacePosition9.POSITION)) :
+            FacePosition9Mirrorer.mirrorZ(st.get(FacePosition9.POSITION))
+        );
     }
 
     @Override

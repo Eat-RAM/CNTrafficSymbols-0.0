@@ -1,6 +1,10 @@
 package rege.pegui.cntrafficsymbols.block;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import io.github.eat_ram.cntrafficsymbols.core.block.ManagedWaterloggable;
+import io.github.eat_ram.cntrafficsymbols.core.block.MultiItemComposed;
 import io.github.eat_ram.cntrafficsymbols.core.state.StateOptimizable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -25,6 +29,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import rege.pegui.cntrafficsymbols.Main;
 
@@ -37,7 +42,7 @@ import static rege.pegui.cntrafficsymbols.Main
               .getHardcodedFloorLineEighthsLootEnabled;
 
 public class FloorLineEighthBlock extends Block
-implements ManagedWaterloggable, StateOptimizable {
+implements ManagedWaterloggable, StateOptimizable, MultiItemComposed {
     public static final IntProperty SLICES160 = IntProperty.of("slices160", 0, 40);
     public static final IntProperty SLICES16 = IntProperty.of("slices16", 0, 9);
     public static final IntProperty SLICES = IntProperty.of("slices", 0, 15);
@@ -152,24 +157,10 @@ implements ManagedWaterloggable, StateOptimizable {
              (getHardcodedFloorLineEighthsLootEnabled() == null &&
               getDroppedStacks(state, world, pos, blockEntity,
                                player, tool).isEmpty()))) {
-            byte i1 = 0;
-            byte i2 = 0;
-            int r = to3Pow(state);
-            for (int i = 0; i < 8; i++) {
-                switch (r % 3) {
-                    case 1:
-                        i1++;
-                        break;
-                    case 2:
-                        i2++;
-                        break;
-                }
-                r /= 3;
+            for (ItemStack i : this.getComposedItems(state, blockEntity)) {
+                ItemScatterer
+                .spawn(world, pos.getX(), pos.getY(), pos.getZ(), i);
             }
-            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(),
-                                new ItemStack(this.itm1, i1));
-            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(),
-                                new ItemStack(this.itm2, i2));
         }
     }
 
@@ -478,5 +469,28 @@ implements ManagedWaterloggable, StateOptimizable {
     @Override
     public boolean stateOptimizationEnabled() {
         return Main.getBlockstateOptimizations().contains(this.getClass());
+    }
+
+    @Override
+    public @NotNull Iterable<@NotNull ItemStack>
+    getComposedItems(BlockState state, @Nullable BlockEntity be) {
+        byte i1 = 0;
+        byte i2 = 0;
+        int r = to3Pow(state);
+        for (int i = 0; i < 8; i++) {
+            switch (r % 3) {
+                case 1:
+                    i1++;
+                    break;
+                case 2:
+                    i2++;
+                    break;
+            }
+            r /= 3;
+        }
+        return i1 != 0 ? (i2 != 0 ? Arrays.asList(
+            new ItemStack(this.itm1, i1), new ItemStack(this.itm2, i2)
+        ) : Collections.singletonList(new ItemStack(this.itm1, i1))) :
+               Collections.singletonList(new ItemStack(this.itm2, i2));
     }
 }
