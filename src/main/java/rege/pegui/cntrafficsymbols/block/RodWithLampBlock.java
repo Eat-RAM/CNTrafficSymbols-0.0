@@ -5,6 +5,8 @@ import java.util.function.ToIntFunction;
 
 import com.mojang.serialization.MapCodec;
 import io.github.eat_ram.cntrafficsymbols.core.block.ManagedWaterloggable;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Mirrorer;
+import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Rotator;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -25,6 +27,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -480,11 +484,8 @@ implements ManagedWaterloggable {
         BlockState state, World world, BlockPos pos, PlayerEntity player,
         Hand hand, BlockHitResult hit
     ) {
-        if (player.getStackInHand(hand).isEmpty()) {
-            world.setBlockState(pos, state.cycle(COLOR), 3);
-            return ActionResult.success(world.isClient);
-        }
-        return ActionResult.PASS;
+        world.setBlockState(pos, state.cycle(COLOR), 3);
+        return ActionResult.success(world.isClient);
     }
 
     @Override
@@ -520,6 +521,27 @@ implements ManagedWaterloggable {
             type, RodWithLampBlockEntity.TYPE,
             (wrld, pos, bs, blockEntity) -> blockEntity.tick(world, pos, bs)
         ) : null;
+    }
+
+    @Override
+    public BlockState rotate(BlockState st, BlockRotation rot) {
+        return rot == BlockRotation.NONE ? st : st.with(
+            FacePosition9.POSITION, FacePosition9Rotator.rotate(
+                st.get(FacePosition9.POSITION),
+                rot == BlockRotation.CLOCKWISE_90 ? 1 :
+                (rot == BlockRotation.CLOCKWISE_180 ? 2 : 3)
+            )
+        );
+    }
+
+    @Override
+    public BlockState mirror(BlockState st, BlockMirror mirror) {
+        return mirror == BlockMirror.NONE ? st : st.with(
+            FacePosition9.POSITION,
+            mirror == BlockMirror.FRONT_BACK ?
+            FacePosition9Mirrorer.mirrorX(st.get(FacePosition9.POSITION)) :
+            FacePosition9Mirrorer.mirrorZ(st.get(FacePosition9.POSITION))
+        );
     }
 
     @Override

@@ -50,10 +50,10 @@ public class LinedTPBlock extends Block implements ManagedWaterloggable {
         UP_BASE, .09375, .5625, .09375, .8125, .03125, .0625, .125, 7
     );
     public static final VoxelShape DOWN_X8 = patternZ(
-        DOWN_BASE, .03125, .0625, .09375, .9375, .03125, .0625, .125, 8
+        DOWN_BASE, .03125, .0625, .03125, .9375, .03125, .0625, .125, 8
     );
     public static final VoxelShape UP_X8 = patternZ(
-        UP_BASE, .03125, .5625, .09375, .9375, .03125, .0625, .125, 8
+        UP_BASE, .03125, .5625, .03125, .9375, .03125, .0625, .125, 8
     );
     public static final VoxelShape DOWN_X9 = patternZ(
         DOWN_BASE, .09375, .0625, .09375, .8125, .03125, .0625, .09375, 9
@@ -92,10 +92,10 @@ public class LinedTPBlock extends Block implements ManagedWaterloggable {
         UP_BASE, .09375, .5625, .09375, .0625, .03125, .8125, .125, 7
     );
     public static final VoxelShape DOWN_Z8 = patternX(
-        DOWN_BASE, .03125, .0625, .09375, .0625, .03125, .9375, .125, 8
+        DOWN_BASE, .03125, .0625, .03125, .0625, .03125, .9375, .125, 8
     );
     public static final VoxelShape UP_Z8 = patternX(
-        UP_BASE, .03125, .5625, .09375, .0625, .03125, .9375, .125, 8
+        UP_BASE, .03125, .5625, .03125, .0625, .03125, .9375, .125, 8
     );
     public static final VoxelShape DOWN_Z9 = patternX(
         DOWN_BASE, .09375, .0625, .09375, .0625, .03125, .8125, .09375, 9

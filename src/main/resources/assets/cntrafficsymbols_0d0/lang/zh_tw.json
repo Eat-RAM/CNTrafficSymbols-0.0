@@ -213,9 +213,9 @@
   "block.regedt32.cntrafficsymbols.highway_8hm": "高速8百米",
   "block.regedt32.cntrafficsymbols.highway_9hm": "高速9百米",
   "block.regedt32.cntrafficsymbols.highway_hm": "高速百米",
-  "block.regedt32.cntrafficsymbols.floor_line_eighths": "實線",
-  "item.regedt32.cntrafficsymbols.white_floor_line_eighth": "白色實線",
-  "item.regedt32.cntrafficsymbols.yellow_floor_line_eighth": "黃色實線",
+  "block.regedt32.cntrafficsymbols.floor_line_eighths": "地面八分線",
+  "item.regedt32.cntrafficsymbols.white_floor_line_eighth": "白色地面八分線",
+  "item.regedt32.cntrafficsymbols.yellow_floor_line_eighth": "黃色地面八分線",
   "block.cntrafficsymbols_0d0.speedlimit_high_3": "限制最高時速3km",
   "block.cntrafficsymbols_0d0.speedlimit_high_5": "限制最高時速5km",
   "block.cntrafficsymbols_0d0.speedlimit_high_10": "限制最高時速10km",
@@ -430,7 +430,7 @@
   "block.cntrafficsymbols_0d0.highway_8hm": "高速8百米",
   "block.cntrafficsymbols_0d0.highway_9hm": "高速9百米",
   "block.cntrafficsymbols_0d0.highway_hm": "高速百米",
-  "block.cntrafficsymbols_0d0.floor_line_eighths": "實線",
-  "item.cntrafficsymbols_0d0.white_floor_line_eighth": "白色實線",
-  "item.cntrafficsymbols_0d0.yellow_floor_line_eighth": "黃色實線"
+  "block.cntrafficsymbols_0d0.floor_line_eighths": "地面八分線",
+  "item.cntrafficsymbols_0d0.white_floor_line_eighth": "白色地面八分線",
+  "item.cntrafficsymbols_0d0.yellow_floor_line_eighth": "黃色地面八分線"
 }

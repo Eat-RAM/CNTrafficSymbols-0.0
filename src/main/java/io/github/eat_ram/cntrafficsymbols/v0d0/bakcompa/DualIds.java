@@ -5,12 +5,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import io.github.eat_ram.cntrafficsymbols.v0d0.mixin.SimpleRegistryAccessor;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleRegistry;
-import net.minecraft.registry.entry.RegistryEntry.Reference;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.ApiStatus.Internal;
 import org.jetbrains.annotations.Contract;
 
 import static rege.pegui.cntrafficsymbols.Main.getPreferLegacyIdentifiers;
@@ -20,7 +18,6 @@ public abstract class DualIds {
     COMMITTERS = new HashMap<>();
 
     @Contract("_, _ -> new")
-    @SuppressWarnings("unchecked")
     public static <T> Identifier
     commitAndGet(SimpleRegistry<T> registry, String path) {
         Identifier legacyId =
@@ -32,19 +29,11 @@ public abstract class DualIds {
             new SimpleImmutableEntry<SimpleRegistry<?>, String>(registry, path)
         )) {
             Identifier spare = preferLegacy ? newId : legacyId;
-            COMMITTERS.put(new SimpleImmutableEntry<>(registry, path), () -> {
-                RegistryKey<? extends Registry<T>> keyOfRegistry =
-                registry.getKey();
-                Reference<T> reference = registry.getEntry(
-                    RegistryKey.of(keyOfRegistry, preferred)
-                ).get();
-                ((SimpleRegistryAccessor<T>)registry).getKeyToEntry().put(
-                    RegistryKey.of(keyOfRegistry, spare), reference
-                );
-                ((SimpleRegistryAccessor<T>)registry).getIdToEntry().put(
-                    spare, reference
-                );
-            });
+            COMMITTERS.put(new SimpleImmutableEntry<>(
+                registry, path
+            ), () -> ((Aliasable)registry).cntrafficsymbols_0d0$addAlias(
+                spare, preferred
+            ));
         }
         return preferred;
     }
@@ -65,5 +54,10 @@ public abstract class DualIds {
             iterator.remove();
             task.run();
         }
+    }
+
+    @Internal
+    public interface Aliasable {
+        void cntrafficsymbols_0d0$addAlias(Identifier from, Identifier to);
     }
 }

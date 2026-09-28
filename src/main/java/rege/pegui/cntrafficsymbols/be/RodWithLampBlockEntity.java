@@ -52,11 +52,11 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
                (daytime >= start || daytime <= end);
     }
 
+    private @Nullable Integer duration;
+
     public RodWithLampBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
     }
-
-    private @Nullable Integer duration;
 
     @Override
     public Text getName() {
