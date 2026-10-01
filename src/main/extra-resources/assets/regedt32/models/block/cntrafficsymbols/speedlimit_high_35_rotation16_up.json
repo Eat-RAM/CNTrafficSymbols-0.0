@@ -1,7 +1,0 @@
-{
-  "parent": "regedt32:block/cntrafficsymbols/circle_rotation16_up",
-  "textures": {
-    "front": "regedt32:block/cntrafficsymbols/speedlimit_high_35",
-    "side": "regedt32:block/cntrafficsymbols/circle_backboard"
-  }
-}

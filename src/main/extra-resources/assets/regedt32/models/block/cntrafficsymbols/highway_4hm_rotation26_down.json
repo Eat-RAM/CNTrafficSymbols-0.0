@@ -1,8 +1,0 @@
-{
-  "parent": "regedt32:block/cntrafficsymbols/highway_hm_rotation26_down",
-  "textures": {
-    "front": "regedt32:block/cntrafficsymbols/highway_4hm",
-    "back": "regedt32:block/cntrafficsymbols/highway_hm_backboard",
-    "side": "regedt32:block/cntrafficsymbols/highway_hm_backboard"
-  }
-}

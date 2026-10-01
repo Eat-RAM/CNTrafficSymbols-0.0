@@ -1,8 +1,0 @@
-{
-  "parent": "regedt32:block/cntrafficsymbols/wideboard_standing",
-  "textures": {
-    "front": "regedt32:block/cntrafficsymbols/keep_space_variant2_lowerleft",
-    "back": "regedt32:block/cntrafficsymbols/full_square_backboard",
-    "side": "regedt32:block/cntrafficsymbols/full_square_backboard"
-  }
-}
