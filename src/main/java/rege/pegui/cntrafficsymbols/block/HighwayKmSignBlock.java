@@ -1,8 +1,5 @@
 package rege.pegui.cntrafficsymbols.block;
 
-import static net.minecraft.util.shape.VoxelShapes.cuboid;
-import static net.minecraft.util.shape.VoxelShapes.union;
-
 import io.github.eat_ram.cntrafficsymbols.core.block
        .Attachment3DoubleFaceFacingBlock;
 import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
@@ -28,6 +25,9 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 import rege.pegui.cntrafficsymbols.Main;
 import rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity;
+
+import static net.minecraft.util.shape.VoxelShapes.cuboid;
+import static net.minecraft.util.shape.VoxelShapes.union;
 
 public class HighwayKmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider {
@@ -191,8 +191,9 @@ implements net.minecraft.block.BlockEntityProvider {
     }
 
     @Override
-    public ItemStack
-    getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
+    public ItemStack getPickStack(
+        WorldView world, BlockPos pos, BlockState state, boolean includeData
+    ) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof HighwayKmSignBlockEntity)) {
             return super.getPickStack(world, pos, state, includeData);
@@ -202,8 +203,8 @@ implements net.minecraft.block.BlockEntityProvider {
         ).isSingle() ? 1 : 2);
         if (includeData) {
             stack.set(DataComponentTypes.CUSTOM_NAME, (
-                (HighwayKmSignBlockEntity)be).getCustomName()
-            );
+                (HighwayKmSignBlockEntity)be
+            ).getCustomName());
         }
         return stack;
     }
@@ -217,15 +218,18 @@ implements net.minecraft.block.BlockEntityProvider {
         if (!(ett instanceof HighwayKmSignBlockEntity)) {
             return ActionResult.PASS;
         }
-        HighwayKmSignBlockEntity sett = (HighwayKmSignBlockEntity)ett;
+        if (stack.isEmpty()) {
+            return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
+        }
         if (stack.isIn(LOCKS_HIGHWAY_KM_SIGN)) {
+            HighwayKmSignBlockEntity sett = (HighwayKmSignBlockEntity)ett;
             int km = sett.getKm();
             if (km >= 0) {
                 sett.setKm(~km);
                 return ActionResult.SUCCESS_SERVER;
             }
         }
-        return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
+        return ActionResult.PASS;
     }
 
     @Override

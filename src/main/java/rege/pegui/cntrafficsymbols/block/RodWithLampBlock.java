@@ -148,8 +148,9 @@ implements ManagedWaterloggable {
     }
 
     @Override
-    public ItemStack
-    getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
+    public ItemStack getPickStack(
+        WorldView world, BlockPos pos, BlockState state, boolean includeData
+    ) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof RodWithLampBlockEntity)) {
             return super.getPickStack(world, pos, state, includeData);
@@ -157,8 +158,8 @@ implements ManagedWaterloggable {
         ItemStack stack = new ItemStack(this.asItem());
         if (includeData) {
             stack.set(DataComponentTypes.CUSTOM_NAME, (
-                (RodWithLampBlockEntity)be).getCustomName()
-            );
+                (RodWithLampBlockEntity)be
+            ).getCustomName());
         }
         return stack;
     }

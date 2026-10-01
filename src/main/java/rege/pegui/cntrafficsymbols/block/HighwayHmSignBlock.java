@@ -128,8 +128,9 @@ implements net.minecraft.block.BlockEntityProvider {
     }
 
     @Override
-    public ItemStack
-    getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
+    public ItemStack getPickStack(
+        WorldView world, BlockPos pos, BlockState state, boolean includeData
+    ) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof HighwayHmSignBlockEntity)) {
             return super.getPickStack(world, pos, state, includeData);
@@ -139,8 +140,8 @@ implements net.minecraft.block.BlockEntityProvider {
         ).isSingle() ? 1 : 2);
         if (includeData) {
             stack.set(DataComponentTypes.CUSTOM_NAME, (
-                (HighwayHmSignBlockEntity)be).getCustomName()
-            );
+                (HighwayHmSignBlockEntity)be
+            ).getCustomName());
         }
         return stack;
     }

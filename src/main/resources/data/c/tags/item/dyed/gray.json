@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "cntrafficsymbols_0d0:gray_dotted4_tp",
+    "cntrafficsymbols_0d0:gray_dotted5_tp",
+    "cntrafficsymbols_0d0:gray_dotted6_tp",
+    "cntrafficsymbols_0d0:gray_dotted7_tp",
+    "cntrafficsymbols_0d0:gray_dotted8_tp",
+    "cntrafficsymbols_0d0:gray_dotted9_tp",
+    "cntrafficsymbols_0d0:gray_dotted10_tp",
+    "cntrafficsymbols_0d0:gray_lined4_tp",
+    "cntrafficsymbols_0d0:gray_lined5_tp",
+    "cntrafficsymbols_0d0:gray_lined6_tp",
+    "cntrafficsymbols_0d0:gray_lined7_tp",
+    "cntrafficsymbols_0d0:gray_lined8_tp",
+    "cntrafficsymbols_0d0:gray_lined9_tp",
+    "cntrafficsymbols_0d0:gray_lined10_tp",
+    "cntrafficsymbols_0d0:gray_half1_cylindrical_rod",
+    "cntrafficsymbols_0d0:gray_full1_cylindrical_rod",
+    "cntrafficsymbols_0d0:gray_rod_with_lamp"
+  ]
+}

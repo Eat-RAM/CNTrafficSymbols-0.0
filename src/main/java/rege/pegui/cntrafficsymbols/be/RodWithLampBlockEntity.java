@@ -111,6 +111,14 @@ public class RodWithLampBlockEntity extends BlockEntity implements Nameable {
         builder.add(DataComponentTypes.CUSTOM_NAME, this.getCustomName());
     }
 
+    @Override
+    @SuppressWarnings("deprecation")
+    public void removeFromCopiedStackData(WriteView view) {
+        super.removeFromCopiedStackData(view);
+        view.remove("Duration");
+        view.remove("CustomName");
+    }
+
     public void tick(World w, BlockPos p, BlockState st) {
         w.setBlockState(p, st.withIfExists(
             LIT, this.duration != null && shouldLit(

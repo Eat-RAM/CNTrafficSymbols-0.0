@@ -87,6 +87,13 @@ implements Nameable {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
+    public void removeFromCopiedStackData(WriteView view) {
+        super.removeFromCopiedStackData(view);
+        view.remove("CustomName");
+    }
+
+    @Override
     public Packet<ClientPlayPacketListener> toUpdatePacket() {
         return BlockEntityUpdateS2CPacket.create(this);
     }

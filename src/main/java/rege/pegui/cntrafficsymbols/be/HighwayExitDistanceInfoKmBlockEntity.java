@@ -6,8 +6,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.ComponentMap;
 import net.minecraft.component.ComponentsAccess;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.ContainerComponent;
-import net.minecraft.inventory.ContainerLock;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
@@ -108,6 +106,14 @@ implements Nameable {
     protected void addComponents(final ComponentMap.Builder builder) {
         super.addComponents(builder);
         builder.add(DataComponentTypes.CUSTOM_NAME, this.getCustomName());
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void removeFromCopiedStackData(WriteView view) {
+        super.removeFromCopiedStackData(view);
+        view.remove("km");
+        view.remove("CustomName");
     }
 
     @Override

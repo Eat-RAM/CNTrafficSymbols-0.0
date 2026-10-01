@@ -61,8 +61,9 @@ implements BlockEntityProvider {
     }
 
     @Override
-    public ItemStack
-    getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
+    public ItemStack getPickStack(
+        WorldView world, BlockPos pos, BlockState state, boolean includeData
+    ) {
         BlockEntity be = world.getBlockEntity(pos);
         if (!(be instanceof HighwayExitDistanceInfoKmBlockEntity)) {
             return super.getPickStack(world, pos, state, includeData);
@@ -72,8 +73,8 @@ implements BlockEntityProvider {
         ).isSingle() ? 1 : 2);
         if (includeData) {
             stack.set(DataComponentTypes.CUSTOM_NAME, (
-                (HighwayExitDistanceInfoKmBlockEntity)be).getCustomName()
-            );
+                (HighwayExitDistanceInfoKmBlockEntity)be
+            ).getCustomName());
         }
         return stack;
     }
