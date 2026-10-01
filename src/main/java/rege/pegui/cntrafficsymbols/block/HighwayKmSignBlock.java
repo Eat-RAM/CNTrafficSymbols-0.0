@@ -1,8 +1,5 @@
 package rege.pegui.cntrafficsymbols.block;
 
-import static net.minecraft.util.shape.VoxelShapes.cuboid;
-import static net.minecraft.util.shape.VoxelShapes.union;
-
 import io.github.eat_ram.cntrafficsymbols.core.block
        .Attachment3DoubleFaceFacingBlock;
 import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
@@ -27,6 +24,9 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 import rege.pegui.cntrafficsymbols.Main;
 import rege.pegui.cntrafficsymbols.be.HighwayKmSignBlockEntity;
+
+import static net.minecraft.util.shape.VoxelShapes.cuboid;
+import static net.minecraft.util.shape.VoxelShapes.union;
 
 public class HighwayKmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider {
@@ -218,7 +218,7 @@ implements net.minecraft.block.BlockEntityProvider {
             if (km >= 0) {
                 byte digit = (byte)(hit.getSide().getHorizontal());
                 if (digit == (byte)-1) {
-                    digit = (byte) 4;
+                    digit = (byte)4;
                 }
                 short incr = 1;
                 for (byte i = 0; i < digit; i++) {

@@ -519,7 +519,7 @@ implements ManagedWaterloggable {
     getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return !world.isClient ? validateTicker(
             type, RodWithLampBlockEntity.TYPE,
-            (wrld, pos, bs, blockEntity) -> blockEntity.tick(world, pos, bs)
+            (wrld, pos, bs, be) -> be.tick(world, pos, bs)
         ) : null;
     }
 

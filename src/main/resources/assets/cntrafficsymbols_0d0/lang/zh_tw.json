@@ -432,5 +432,6 @@
   "block.cntrafficsymbols_0d0.highway_hm": "高速百米",
   "block.cntrafficsymbols_0d0.floor_line_eighths": "地面八分線",
   "item.cntrafficsymbols_0d0.white_floor_line_eighth": "白色地面八分線",
-  "item.cntrafficsymbols_0d0.yellow_floor_line_eighth": "黃色地面八分線"
+  "item.cntrafficsymbols_0d0.yellow_floor_line_eighth": "黃色地面八分線",
+  "modmenu.descriptionTranslation.cntrafficsymbols_0d0": "CNTrafficSymbols“0.0”階段的內容"
 }
