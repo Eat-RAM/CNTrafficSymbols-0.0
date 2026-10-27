@@ -13,13 +13,9 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.screen.ScreenTexts.DONE;
-import static rege.pegui.cntrafficsymbols.Main
-              .getHardcodedBarricades1LootEnabled;
-import static rege.pegui.cntrafficsymbols.Main
+import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
               .getHardcodedFloorLineEighthsLootEnabled;
-import static rege.pegui.cntrafficsymbols.Main
-              .setHardcodedBarricades1LootEnabled;
-import static rege.pegui.cntrafficsymbols.Main
+import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
               .setHardcodedFloorLineEighthsLootEnabled;
 
 public class ModMenuApiImpl implements ModMenuApi {
@@ -32,7 +28,6 @@ public class ModMenuApiImpl implements ModMenuApi {
             DirectionalLayoutWidget.vertical().spacing(5);
             public final ButtonWidget
             hardcodedFloorLineEighthsLootEnabledButton;
-            public final ButtonWidget hardcodedBarricades1LootEnabledButton;
 
             public void draw() {
                 this.layout.getMainPositioner().alignHorizontalCenter()
@@ -72,25 +67,6 @@ public class ModMenuApiImpl implements ModMenuApi {
                 this.hardcodedFloorLineEighthsLootEnabledButton = bwb.build();
                 this.layout
                 .add(this.hardcodedFloorLineEighthsLootEnabledButton);
-                bwb = ButtonWidget.builder(Text.literal(
-                    "hardcoded_barricades_1_loot_enabled: " +
-                    getNullableBooleanText(
-                        getHardcodedBarricades1LootEnabled()
-                    )
-                ), button -> {
-                    setHardcodedBarricades1LootEnabled(getNullableBooleanNext(
-                        getHardcodedBarricades1LootEnabled()
-                    ));
-                    this.init();
-                    button.setMessage(Text.literal(
-                        "hardcoded_barricades_1_loot_enabled: " +
-                        getNullableBooleanText(
-                            getHardcodedBarricades1LootEnabled()
-                        )
-                    ));
-                }).dimensions(this.width / 2 - 155, 40, 310, 20);
-                this.hardcodedBarricades1LootEnabledButton = bwb.build();
-                this.layout.add(this.hardcodedBarricades1LootEnabledButton);
             }
 
             @Override

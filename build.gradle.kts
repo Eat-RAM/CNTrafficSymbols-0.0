@@ -56,7 +56,7 @@ dependencies {
 
     // modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}")
     modImplementation(files(
-        "cntrafficsymbols_core-0.0.2-rc2+mc26.3.jar"
+        "cntrafficsymbols_core-0.0.3-a1+mc26.3.jar"
     ))
     modImplementation("com.terraformersmc:modmenu:21.0.0-beta.1")
     //implementation(files("nbtutils-0.0.1a1.jar"))
@@ -113,4 +113,27 @@ publishing {
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
     }
+}
+
+val isWindowsOs = org.apache.tools.ant.taskdefs.condition.Os.isFamily(
+    org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS
+)
+val defaultPythonExecutable = project.findProperty("pythonCmd") as? String
+    ?: System.getenv("PYTHON")
+    ?: if (isWindowsOs) "python" else "python3"
+
+val generateAssets = tasks.register<Exec>("generateAssets") {
+    group = "generation"
+    description = "Regenerates all JSON assets using Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "src/main/resources")
+}
+
+val verifyAssets = tasks.register<Exec>("verifyAssets") {
+    group = "verification"
+    description = "Verifies that all generated JSON assets are in sync with Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "src/main/resources", "--dry-run")
+}
+
+tasks.named("check") {
+    dependsOn(verifyAssets)
 }
