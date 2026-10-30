@@ -15,6 +15,7 @@ import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.text.TextCodecs;
 import net.minecraft.util.Nameable;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
@@ -49,6 +50,11 @@ implements Nameable {
 
     public HighwayExitDistanceInfoKmBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
+    }
+
+    @Contract(pure = true)
+    public float getKm() {
+        return this.km;
     }
 
     public String getKmStr() {

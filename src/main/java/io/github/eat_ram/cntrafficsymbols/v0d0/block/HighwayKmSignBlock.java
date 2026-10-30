@@ -6,6 +6,9 @@ import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
@@ -14,8 +17,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -121,6 +124,7 @@ implements net.minecraft.block.BlockEntityProvider {
         cuboid(.9375, .53125, .21875, 1, .5625, .78125),
         cuboid(.9375, .5, .25, 1, .53125, .75)
     );
+    @Deprecated(since = "0.0.3-a1", forRemoval = true)
     public static final TagKey<net.minecraft.item.Item> LOCKS_HIGHWAY_KM_SIGN =
     TagKey.of(RegistryKeys.ITEM, Identifier.of(
         "cntrafficsymbols_0d0", "locks_highway_km_sign"
@@ -137,8 +141,10 @@ implements net.minecraft.block.BlockEntityProvider {
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState st, BlockView v,
-                                      BlockPos p, net.minecraft.block.ShapeContext c) {
+    public VoxelShape getOutlineShape(
+        BlockState st, BlockView v, BlockPos p,
+        net.minecraft.block.ShapeContext c
+    ) {
         int f = st.get(DoubleFaceFacing.FACING).id;
         int i = st.get(Attachment3.ATTACHMENT).id;
         switch (f) {
@@ -210,51 +216,20 @@ implements net.minecraft.block.BlockEntityProvider {
     }
 
     @Override
-    public ActionResult onUseWithItem(
-        ItemStack stack, BlockState state, World world, BlockPos pos,
-        PlayerEntity player, Hand hand, BlockHitResult hit
-    ) {
-        BlockEntity ett = world.getBlockEntity(pos);
-        if (!(ett instanceof HighwayKmSignBlockEntity)) {
-            return ActionResult.PASS;
-        }
-        if (stack.isEmpty()) {
-            return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
-        }
-        if (stack.isIn(LOCKS_HIGHWAY_KM_SIGN)) {
-            HighwayKmSignBlockEntity sett = (HighwayKmSignBlockEntity)ett;
-            int km = sett.getKm();
-            if (km >= 0) {
-                sett.setKm(~km);
-                return ActionResult.SUCCESS_SERVER;
-            }
-        }
-        return ActionResult.PASS;
-    }
-
-    @Override
     public ActionResult onUse(
         BlockState state, World world, BlockPos pos, PlayerEntity player,
         BlockHitResult hit
     ) {
         BlockEntity ett = world.getBlockEntity(pos);
-        if (!(ett instanceof HighwayKmSignBlockEntity)) {
+        if (!(ett instanceof HighwayKmSignBlockEntity) ||
+            ((HighwayKmSignBlockEntity)ett).getKm() < 0) {
             return ActionResult.PASS;
         }
-        HighwayKmSignBlockEntity sett = (HighwayKmSignBlockEntity)ett;
-        int km = sett.getKm();
-        if (km >= 0) {
-            byte digit = (byte)(hit.getSide().getHorizontalQuarterTurns());
-            if (digit == (byte)-1) {
-                digit = (byte)4;
-            }
-            short incr = 1;
-            for (byte i = 0; i < digit; i++) {
-                incr *= 10;
-            }
-            sett.setKm((km + incr) % 100000);
-            return ActionResult.SUCCESS_SERVER;
+        if (!world.isClient() && player instanceof ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, new OpenEditTrafficSignPayload(
+                pos, OpenEditTrafficSignPayload.TYPE_HIGHWAY_KM, hit.getSide()
+            ));
         }
-        return ActionResult.PASS;
+        return ActionResult.SUCCESS_SERVER;
     }
 }

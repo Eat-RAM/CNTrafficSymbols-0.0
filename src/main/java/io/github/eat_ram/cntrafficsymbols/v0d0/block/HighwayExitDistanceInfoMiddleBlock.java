@@ -4,12 +4,18 @@ import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoNameBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -63,5 +69,26 @@ implements BlockEntityProvider {
             ).getCustomName());
         }
         return stack;
+    }
+
+    @Override
+    public ActionResult onUse(
+        BlockState state, World world, BlockPos pos, PlayerEntity player,
+        BlockHitResult hit
+    ) {
+        HighwayExitDistanceInfoParts parts =
+        new HighwayExitDistanceInfoParts(world, pos, state, hit.getSide());
+        if (parts.kmBe != null &&
+            Math.copySign(1f, parts.kmBe.getKm()) == -1f) {
+            return ActionResult.PASS;
+        }
+        if (!world.isClient() && player instanceof
+            net.minecraft.server.network.ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, new OpenEditTrafficSignPayload(
+                pos, OpenEditTrafficSignPayload.TYPE_HIGHWAY_EXIT_INFO,
+                hit.getSide()
+            ));
+        }
+        return ActionResult.SUCCESS_SERVER;
     }
 }

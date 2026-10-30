@@ -10,7 +10,8 @@ import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.HighwayKmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .HighwayKmSignBlockEntity;
 
 import static io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3
               .ATTACHMENT;
@@ -45,6 +46,7 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         if (km < 0) {
             km = ~km;
         }
+        boolean pf = ett.isPointFive();
         BlockState st = ett.getCachedState();
         matrices.push();
         this.setAngles(
@@ -55,12 +57,12 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         if (tx != null) {
             this.renderText(matrices, light, queue, tx, true);
         }
-        this.renderInt(matrices, light, queue, km, true);
+        this.renderKm(matrices, light, queue, km, pf, true);
         if (!st.get(FACING).isSingle()) {
             if (tx != null) {
                 this.renderText(matrices, light, queue, tx, false);
             }
-            this.renderInt(matrices, light, queue, km, false);
+            this.renderKm(matrices, light, queue, km, pf, false);
         }
         matrices.pop();
     }
@@ -110,15 +112,16 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         matrices.scale(f, -f, f);
     }
 
-    private void renderInt(
+    private void renderKm(
         MatrixStack matrices, int light, OrderedRenderCommandQueue queue,
-        int v, boolean front
+        int v, boolean pointFive, boolean front
     ) {
         matrices.push();
         this.setIntAngles(matrices, front, INT_OFFSET);
         int i = -1;
         int j = 16;
-        OrderedText odt = Text.literal(Integer.toString(v)).asOrderedText();
+        String s = v + (pointFive ? ".\u2085" : "");
+        OrderedText odt = Text.literal(s).asOrderedText();
         queue.submitText(
             matrices, (float)(-this.tr.getWidth(odt) / 2), (float)j, odt,
             false, TextRenderer.TextLayerType.POLYGON_OFFSET, light, i, 0, 0

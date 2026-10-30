@@ -8,6 +8,9 @@ import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Mirrorer;
 import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Rotator;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.RodWithLampBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -16,18 +19,13 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockMirror;
@@ -41,7 +39,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.tick.ScheduledTickView;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Range;
 
 import static io.github.eat_ram.cntrafficsymbols.core.block
               .AbstractCylindricalRodBlock.*;
@@ -71,17 +71,17 @@ implements FluidloggedConfigurable {
         LIGHT_YELLOW("light_yellow", 1), YELLOW("yellow", 2),
         ORANGE("orange", 3);
 
-        public final String str;
-        public final int id;
+        public final @NotNull String str;
+        public final @Range(from = 0, to = 3) int id;
 
-        private LightVisualColor(String n, int i) {
+        LightVisualColor(@NotNull String n, @Range(from = 0, to = 3) int i) {
             this.str = n;
             this.id = i;
         }
 
         @Override
         @Contract(pure = true)
-        public String asString() {
+        public @NotNull String asString() {
             return this.str;
         }
 
@@ -95,7 +95,7 @@ implements FluidloggedConfigurable {
 
     public static final EnumProperty<LightVisualColor> COLOR =
     EnumProperty.of("color", LightVisualColor.class);
-    public static final ToIntFunction<BlockState> LUMINANCE =
+    public static final ToIntFunction<@NotNull BlockState> LUMINANCE =
     st -> st.get(LIT).booleanValue() ? 15 : 0;
 
     public RodWithLampBlock(Settings settings) {
@@ -111,52 +111,6 @@ implements FluidloggedConfigurable {
     @Contract("_, _ -> new")
     public BlockEntity createBlockEntity(BlockPos p, BlockState st) {
         return new RodWithLampBlockEntity(p, st);
-    }
-
-    @Override
-    public void onPlaced(
-        World world, BlockPos pos, BlockState state,
-        @Nullable LivingEntity placer, ItemStack itemStack
-    ) {
-        if (world.isClient()) {
-            world.getBlockEntity(
-                pos, RodWithLampBlockEntity.TYPE
-            ).ifPresent(be -> {
-                Text cn = itemStack.getCustomName();
-                if (cn != null) {
-                    try {
-                        be.setDuration(Integer.valueOf(cn.getString()));
-                    } catch (NumberFormatException ignored) {}
-                }
-            });
-        } else if (itemStack.getCustomName() != null) {
-            world.getBlockEntity(
-                pos, RodWithLampBlockEntity.TYPE
-            ).ifPresent(be -> {
-                try {
-                    be.setDuration(Integer.valueOf(
-                        itemStack.getName().getString()
-                    ));
-                } catch (NumberFormatException ignored) {}
-            });
-        }
-    }
-
-    @Override
-    public ItemStack getPickStack(
-        WorldView world, BlockPos pos, BlockState state, boolean includeData
-    ) {
-        BlockEntity be = world.getBlockEntity(pos);
-        if (!(be instanceof RodWithLampBlockEntity)) {
-            return super.getPickStack(world, pos, state, includeData);
-        }
-        ItemStack stack = new ItemStack(this.asItem());
-        if (includeData) {
-            stack.set(DataComponentTypes.CUSTOM_NAME, (
-                (RodWithLampBlockEntity)be
-            ).getCustomName());
-        }
-        return stack;
     }
 
     @Override
@@ -180,299 +134,94 @@ implements FluidloggedConfigurable {
         double rz = ctx.getHitPos().z - ctx.getBlockPos().getZ();
         FacePosition9 rp = st.get(FacePosition9.POSITION);
         switch (ctx.getSide().getIndex()) {
-            case 5: {
-                switch (closedRangeTo(.25, .75, ry)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_LOWERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_LOWER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_LOWERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_UPPERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_UPPER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_UPPERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
+            case 5:
+                switch (closedRangeTo(.25, .75, ry) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.WEST_LOWERNORTH; break;
+                    case -3: rp = FacePosition9.WEST_LOWER; break;
+                    case -2: rp = FacePosition9.WEST_LOWERSOUTH; break;
+                    case -1: rp = FacePosition9.WEST_NORTH; break;
+                    case 0: rp = FacePosition9.WEST_CENTER; break;
+                    case 1: rp = FacePosition9.WEST_SOUTH; break;
+                    case 2: rp = FacePosition9.WEST_UPPERNORTH; break;
+                    case 3: rp = FacePosition9.WEST_UPPER; break;
+                    case 4: rp = FacePosition9.WEST_UPPERSOUTH; break;
                 }
                 break;
-            }
-            case 4: {
-                switch (closedRangeTo(.25, .75, ry)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_LOWERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_LOWER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_LOWERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_UPPERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_UPPER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_UPPERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
+            case 4:
+                switch (closedRangeTo(.25, .75, ry) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.EAST_LOWERNORTH; break;
+                    case -3: rp = FacePosition9.EAST_LOWER; break;
+                    case -2: rp = FacePosition9.EAST_LOWERSOUTH; break;
+                    case -1: rp = FacePosition9.EAST_NORTH; break;
+                    case 0: rp = FacePosition9.EAST_CENTER; break;
+                    case 1: rp = FacePosition9.EAST_SOUTH; break;
+                    case 2: rp = FacePosition9.EAST_UPPERNORTH; break;
+                    case 3: rp = FacePosition9.EAST_UPPER; break;
+                    case 4: rp = FacePosition9.EAST_UPPERSOUTH; break;
                 }
                 break;
-            }
-            case 1: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTHWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTHWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTHEAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTHEAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 1:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.DOWN_NORTHWEST; break;
+                    case -3: rp = FacePosition9.DOWN_WEST; break;
+                    case -2: rp = FacePosition9.DOWN_SOUTHWEST; break;
+                    case -1: rp = FacePosition9.DOWN_NORTH; break;
+                    case 0: rp = FacePosition9.DOWN_CENTER; break;
+                    case 1: rp = FacePosition9.DOWN_SOUTH; break;
+                    case 2: rp = FacePosition9.DOWN_NORTHEAST; break;
+                    case 3: rp = FacePosition9.DOWN_EAST; break;
+                    case 4: rp = FacePosition9.DOWN_SOUTHEAST; break;
                 }
                 break;
-            }
-            case 0: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTHWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTHWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTHEAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTHEAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 0:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.UP_NORTHWEST; break;
+                    case -3: rp = FacePosition9.UP_WEST; break;
+                    case -2: rp = FacePosition9.UP_SOUTHWEST; break;
+                    case -1: rp = FacePosition9.UP_NORTH; break;
+                    case 0: rp = FacePosition9.UP_CENTER; break;
+                    case 1: rp = FacePosition9.UP_SOUTH; break;
+                    case 2: rp = FacePosition9.UP_NORTHEAST; break;
+                    case 3: rp = FacePosition9.UP_EAST; break;
+                    case 4: rp = FacePosition9.UP_SOUTHEAST; break;
                 }
                 break;
-            }
-            case 3: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWERWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPERWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWER;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPER;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWEREAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPEREAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 3:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, ry)) {
+                    case -4: rp = FacePosition9.NORTH_LOWERWEST; break;
+                    case -3: rp = FacePosition9.NORTH_WEST; break;
+                    case -2: rp = FacePosition9.NORTH_UPPERWEST; break;
+                    case -1: rp = FacePosition9.NORTH_LOWER; break;
+                    case 0: rp = FacePosition9.NORTH_CENTER; break;
+                    case 1: rp = FacePosition9.NORTH_UPPER; break;
+                    case 2: rp = FacePosition9.NORTH_LOWEREAST; break;
+                    case 3: rp = FacePosition9.NORTH_EAST; break;
+                    case 4: rp = FacePosition9.NORTH_UPPEREAST; break;
                 }
                 break;
-            }
-            case 2: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWERWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPERWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWER;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPER;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWEREAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPEREAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 2:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, ry)) {
+                    case -4: rp = FacePosition9.SOUTH_LOWERWEST; break;
+                    case -3: rp = FacePosition9.SOUTH_WEST; break;
+                    case -2: rp = FacePosition9.SOUTH_UPPERWEST; break;
+                    case -1: rp = FacePosition9.SOUTH_LOWER; break;
+                    case 0: rp = FacePosition9.SOUTH_CENTER; break;
+                    case 1: rp = FacePosition9.SOUTH_UPPER; break;
+                    case 2: rp = FacePosition9.SOUTH_LOWEREAST; break;
+                    case 3: rp = FacePosition9.SOUTH_EAST; break;
+                    case 4: rp = FacePosition9.SOUTH_UPPEREAST; break;
                 }
                 break;
-            }
         }
-        return this.configurePlacedFluid(st.with(FacePosition9.POSITION, rp),
-                                         ctx);
-    }
-
-    @Override
-    public ActionResult onUseWithItem(
-        ItemStack stack, BlockState state, World world, BlockPos pos,
-        PlayerEntity player, Hand hand, BlockHitResult hit
-    ) {
-        return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION;
+        return this.configurePlacedFluid(
+            st.with(FacePosition9.POSITION, rp), ctx
+        );
     }
 
     @Override
@@ -480,7 +229,13 @@ implements FluidloggedConfigurable {
         BlockState state, World world, BlockPos pos, PlayerEntity player,
         BlockHitResult hit
     ) {
-        world.setBlockState(pos, state.cycle(COLOR), 3);
+        if (!world.isClient() && player instanceof
+            net.minecraft.server.network.ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, new OpenEditTrafficSignPayload(
+                pos, OpenEditTrafficSignPayload.TYPE_ROD_WITH_LAMP,
+                hit.getSide()
+            ));
+        }
         return ActionResult.SUCCESS_SERVER;
     }
 

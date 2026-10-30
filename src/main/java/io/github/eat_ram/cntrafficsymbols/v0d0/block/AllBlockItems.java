@@ -10,7 +10,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Contract;
 
 import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
               .commitAndGet;
@@ -450,33 +449,31 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HIGHWAY_9HM);
     public static final Item WHITE_FLOOR_LINE_EIGHTH = registerItem(
         commitAndGet(Registries.ITEM, "white_floor_line_eighth"),
-        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.FLOOR_LINE_EIGHTHS;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item YELLOW_FLOOR_LINE_EIGHTH = registerItem(
         commitAndGet(Registries.ITEM, "yellow_floor_line_eighth"),
-        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.FLOOR_LINE_EIGHTHS;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item HIGHWAY_KM = registerNormal(AllBlocks.HIGHWAY_KM);
-    public static final Item DISTANCE_DETECTION_0M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_0M_LEFT);
-    public static final Item DISTANCE_DETECTION_0M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_0M_RIGHT);
-    public static final Item DISTANCE_DETECTION_50M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_50M_LEFT);
-    public static final Item DISTANCE_DETECTION_50M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_50M_RIGHT);
-    public static final Item DISTANCE_DETECTION_100M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_100M_LEFT);
-    public static final Item DISTANCE_DETECTION_100M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_100M_RIGHT);
-    public static final Item DISTANCE_DETECTION_200M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_200M_LEFT);
-    public static final Item DISTANCE_DETECTION_200M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_200M_RIGHT);
+    public static final Item DISTANCE_DETECTION_0M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_0M_LEFT);
+    public static final Item DISTANCE_DETECTION_0M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_0M_RIGHT);
+    public static final Item DISTANCE_DETECTION_50M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_50M_LEFT);
+    public static final Item DISTANCE_DETECTION_50M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_50M_RIGHT);
+    public static final Item DISTANCE_DETECTION_100M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_100M_LEFT);
+    public static final Item DISTANCE_DETECTION_100M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_100M_RIGHT);
+    public static final Item DISTANCE_DETECTION_200M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_200M_LEFT);
+    public static final Item DISTANCE_DETECTION_200M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_200M_RIGHT);
     public static final Item HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE =
     registerNormal(AllBlocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
     public static final Item HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE =
@@ -503,33 +500,18 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
     public static final Item BARRICADE_50CM_EDGE_75CM_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_50cm_edge_75cm_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item BARRICADE_50CM_EDGE_1M_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_50cm_edge_1m_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item BARRICADE_1M_EDGE_1M_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_1m_edge_1m_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item KEEP_SPACE_VARIANT1_UPPERLEFT =
     registerNormal(AllBlocks.KEEP_SPACE_VARIANT1_UPPERLEFT);

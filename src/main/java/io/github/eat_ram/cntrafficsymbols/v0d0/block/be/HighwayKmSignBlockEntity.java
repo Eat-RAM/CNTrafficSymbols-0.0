@@ -31,6 +31,7 @@ implements net.minecraft.util.Nameable {
 
     private @Nullable Text customName;
     private int km = 0;
+    private boolean pointFive = false;
 
     public HighwayKmSignBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
@@ -60,10 +61,21 @@ implements net.minecraft.util.Nameable {
         this.km = (v <= 99999) ? ((v > -100001) ? v : -100000) : 99999;
     }
 
+    public boolean isPointFive() {
+        return this.pointFive;
+    }
+
+    public void setPointFive(boolean v) {
+        this.pointFive = v;
+    }
+
     @Override
     protected void writeData(WriteView view) {
         super.writeData(view);
         view.putInt("km", this.km);
+        if (this.pointFive) {
+            view.putBoolean("PointFive", true);
+        }
         if (this.customName != null) {
             view.put("CustomName", TextCodecs.CODEC, this.customName);
         }
@@ -73,6 +85,8 @@ implements net.minecraft.util.Nameable {
     protected void readData(ReadView view) {
         super.readData(view);
         this.setKm(view.getInt("km", 0));
+        this.pointFive = view.getBoolean("PointFive", false) ||
+                         view.getBoolean("pointFive", false);
         Text cn = tryParseCustomName(view, "CustomName");
         if (cn != null) {
             this.customName = cn;

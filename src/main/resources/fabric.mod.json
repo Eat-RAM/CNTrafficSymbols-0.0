@@ -46,7 +46,13 @@
       "io.github.eat_ram.cntrafficsymbols.v0d0.compat.modmenu.ModMenuApiImpl"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "cntrafficsymbols_0d0.mixins.json",
+    {
+      "environment": "client",
+      "config": "cntrafficsymbols_0d0.client.mixins.json"
+    }
+  ],
   "depends": {
     "fabricloader": ">=0.18.0",
     "minecraft": "~26.3",

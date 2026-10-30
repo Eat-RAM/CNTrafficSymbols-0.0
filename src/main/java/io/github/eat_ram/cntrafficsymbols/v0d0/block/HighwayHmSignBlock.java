@@ -6,12 +6,18 @@ import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayHmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -144,5 +150,31 @@ implements net.minecraft.block.BlockEntityProvider {
             ).getCustomName());
         }
         return stack;
+    }
+
+    @Override
+    public ActionResult onUse(
+        BlockState state, World world, BlockPos pos, PlayerEntity player,
+        BlockHitResult hit
+    ) {
+        if (!world.isClient() && player instanceof
+            net.minecraft.server.network.ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, new OpenEditTrafficSignPayload(
+                pos, OpenEditTrafficSignPayload.TYPE_HIGHWAY_HM, hit.getSide()
+            ));
+        }
+        return ActionResult.SUCCESS_SERVER;
+    }
+
+    public static int getHmDigit(net.minecraft.block.Block block) {
+        if (block == AllBlocks.HIGHWAY_2HM) return 2;
+        if (block == AllBlocks.HIGHWAY_3HM) return 3;
+        if (block == AllBlocks.HIGHWAY_4HM) return 4;
+        if (block == AllBlocks.HIGHWAY_5HM) return 5;
+        if (block == AllBlocks.HIGHWAY_6HM) return 6;
+        if (block == AllBlocks.HIGHWAY_7HM) return 7;
+        if (block == AllBlocks.HIGHWAY_8HM) return 8;
+        if (block == AllBlocks.HIGHWAY_9HM) return 9;
+        return 1;
     }
 }

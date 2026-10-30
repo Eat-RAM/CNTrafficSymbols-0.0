@@ -47,7 +47,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
         BlockState st = ett.getCachedState();
         matrices.push();
         if (st.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) {
-            setAngles(
+            this.setAngles(
                 matrices,
                 st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
                 (((8 - st.get(FACING).id) % 4) * 90f), st
@@ -59,7 +59,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -67,7 +67,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -75,7 +75,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -83,7 +83,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -91,12 +91,12 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, false);
+                        this.renderText(st, matrices, light, queue, tx, false);
                     }
                     break;
                 }
@@ -104,12 +104,12 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, false);
+                        this.renderText(st, matrices, light, queue, tx, false);
                     }
                     break;
                 }
@@ -117,7 +117,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 6) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -125,7 +125,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 7) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -133,7 +133,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 8) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -141,7 +141,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) &&
                         st1.get(FACING).id == 9) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -150,7 +150,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
             return;
         }
         if (st.getBlock() instanceof HighwayExitDistanceInfoMiddleBlock) {
-            setAngles(
+            this.setAngles(
                 matrices,
                 st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
                 (((8 - st.get(FACING).id) % 4) * 90f), st
@@ -162,7 +162,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -170,7 +170,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -178,7 +178,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -186,7 +186,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -194,12 +194,12 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 0 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 2 || st1.get(FACING).id == 4)) {
-                        renderText(st, matrices, light, queue, tx, false);
+                        this.renderText(st, matrices, light, queue, tx, false);
                     }
                     break;
                 }
@@ -207,12 +207,12 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 1 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         (st1.get(FACING).id == 3 || st1.get(FACING).id == 5)) {
-                        renderText(st, matrices, light, queue, tx, false);
+                        this.renderText(st, matrices, light, queue, tx, false);
                     }
                     break;
                 }
@@ -220,7 +220,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.east());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 6) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -228,7 +228,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.south());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 7) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -236,7 +236,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.west());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 8) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }
@@ -244,7 +244,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoNameBlockEntity> {
                     BlockState st1 = w.getBlockState(p.north());
                     if ((st1.getBlock() instanceof HighwayExitDistanceInfoLeftBlock) &&
                         st1.get(FACING).id == 9) {
-                        renderText(st, matrices, light, queue, tx, true);
+                        this.renderText(st, matrices, light, queue, tx, true);
                     }
                     break;
                 }

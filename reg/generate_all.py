@@ -1,13 +1,15 @@
+import sys
+
 from argparse import ArgumentParser, Namespace
 from io import TextIOWrapper
 from os import path
-import sys
 from typing import Any, Callable, List, Optional, Tuple
 
 from . import (
     circle_models,
     cylindrical_rod_itemmodels,
     cylindrical_rod_models,
+    cylindrical_rod_parent_models,
     double90_loot_tables,
     double_loot_tables,
     doublefacefacing90_blockstates,
@@ -36,7 +38,6 @@ from . import (
     speedlimit_high_recipes,
     speedlimit_low_recipes,
     state_independent_loot_tables,
-    state_independent_with_customname_loot_tables,
     tp_blockstates,
     tp_itemmodels,
     tp_models,
@@ -50,12 +51,17 @@ from . import (
 class StderrCounter:
     """Wrap stderr to detect whether any file changes were reported."""
 
+    target: Any
+    has_output: bool
+
+    __slots__ = ["target", "has_output"]
+
     def __init__(self, target: Any) -> None:
-        self.target: Any = target
-        self.has_output: bool = False
+        self.target = target
+        self.has_output = False
 
     def write(self, s: str) -> int:
-        if s.strip():
+        if s.strip(" \t\r\n\u00a0"):
             self.has_output = True
         return self.target.write(s)
 
@@ -65,10 +71,8 @@ class StderrCounter:
 
 def main(argv: Optional[List[str]] = None) -> None:
     # Protect against Windows cp936 / ANSI encoding crashes on stderr
-    if (
-        isinstance(sys.stderr, TextIOWrapper) and
-        sys.stderr.encoding != "utf-8"
-    ):
+    if isinstance(sys.stderr, TextIOWrapper) and \
+       sys.stderr.encoding.lower() not in ("utf-8", "utf8"):
         try:
             sys.stderr.reconfigure(encoding="utf-8")
         except AttributeError:
@@ -88,37 +92,26 @@ def main(argv: Optional[List[str]] = None) -> None:
     args: Namespace = parser.parse_args(argv)
 
     res: str = path.abspath(args.resources_dir)
-    b_models: str = path.join(
-        res, "assets", "cntrafficsymbols_0d0", "models", "block"
-    )
-    i_models: str = path.join(
-        res, "assets", "cntrafficsymbols_0d0", "models", "item"
-    )
-    items: str = path.join(
-        res, "assets", "cntrafficsymbols_0d0", "items"
-    )
-    blockstates: str = path.join(
-        res, "assets", "cntrafficsymbols_0d0", "blockstates"
-    )
-    loot: str = path.join(
-        res, "data", "cntrafficsymbols_0d0", "loot_table", "blocks"
-    )
-    recipes: str = path.join(
-        res, "data", "cntrafficsymbols_0d0", "recipe"
-    )
+    b_models: str = \
+    path.join(res, "assets", "cntrafficsymbols_0d0", "models", "block")
+    i_models: str = \
+    path.join(res, "assets", "cntrafficsymbols_0d0", "models", "item")
+    items: str = path.join(res, "assets", "cntrafficsymbols_0d0", "items")
+    blockstates: str = \
+    path.join(res, "assets", "cntrafficsymbols_0d0", "blockstates")
+    loot: str = \
+    path.join(res, "data", "cntrafficsymbols_0d0", "loot_table", "blocks")
+    recipes: str = path.join(res, "data", "cntrafficsymbols_0d0", "recipe")
     adv: str = path.join(
         res, "data", "cntrafficsymbols_0d0", "advancement", "recipes", "misc"
     )
-    tag_b: str = path.join(
-        res, "data", "c", "tags", "block", "dyed"
-    )
-    tag_i: str = path.join(
-        res, "data", "c", "tags", "item", "dyed"
-    )
+    tag_b: str = path.join(res, "data", "c", "tags", "block", "dyed")
+    tag_i: str = path.join(res, "data", "c", "tags", "item", "dyed")
 
     dry_arg: List[str] = ["--dry-run"] if args.dry_run else []
 
-    tasks: List[Tuple[Callable[[Optional[List[str]]], None], List[str]]] = [
+    tasks: Tuple[Tuple[Callable[[Optional[List[str]]], None], List[str]], ...]\
+    = (
         # Recipes (12)
         (full1_cylindrical_rod_recipes.main, [recipes] + dry_arg),
         (half1_cylindrical_rod_recipes.main, [recipes] + dry_arg),
@@ -141,16 +134,12 @@ def main(argv: Optional[List[str]] = None) -> None:
         (half1_cylindrical_rod_blockstates.main, [blockstates] + dry_arg),
         (rod_with_lamp_blockstates.main, [blockstates] + dry_arg),
         (rotation_blockstates.main, [blockstates] + dry_arg),
-        # Loot tables (6)
+        # Loot tables (5)
         (double_loot_tables.main, [loot] + dry_arg),
         (double90_loot_tables.main, [loot] + dry_arg),
         (highway_exit_distance_info_loot_tables.main, [loot] + dry_arg),
         (highway_hm_loot_tables.main, [loot] + dry_arg),
         (state_independent_loot_tables.main, [loot] + dry_arg),
-        (
-            state_independent_with_customname_loot_tables.main,
-            [loot] + dry_arg
-        ),
         # Items (3)
         (model_itemmodels.main, [items] + dry_arg),
         (cylindrical_rod_itemmodels.main, [items] + dry_arg),
@@ -160,6 +149,7 @@ def main(argv: Optional[List[str]] = None) -> None:
         # Block models (8)
         (circle_models.main, [b_models] + dry_arg),
         (cylindrical_rod_models.main, [b_models] + dry_arg),
+        (cylindrical_rod_parent_models.main, [b_models] + dry_arg),
         (highway_hm_models.main, [b_models] + dry_arg),
         (rod_with_lamp_models.main, [b_models] + dry_arg),
         (tp_models.main, [b_models] + dry_arg),
@@ -172,7 +162,7 @@ def main(argv: Optional[List[str]] = None) -> None:
         # Tags (2)
         (dyed_ctags.main, [tag_b] + dry_arg),
         (dyed_ctags.main, [tag_i] + dry_arg),
-    ]
+    )
 
     counter: StderrCounter = StderrCounter(sys.stderr)
     old_stderr: Any = sys.stderr
@@ -189,7 +179,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     if args.dry_run and counter.has_output:
         sys.stderr.write(
             "\n[ERROR] Generated assets are OUTDATED!\n"
-            "Please run: python -m src.reg.generate_all src/main/resources\n"
+            "Please run: python -m reg.generate_all src/main/resources\n"
         )
         sys.exit(1)
 

@@ -21,7 +21,7 @@ import static io.github.eat_ram.cntrafficsymbols.core.helper.RangeUtil
               .closedRangeTo;
 
 public class Full1CylindricalRodBlock extends AbstractCylindricalRodBlock
-    implements FluidloggedConfigurable {
+implements FluidloggedConfigurable {
     private static final VoxelShape[] SHAPES_BY_ID = {
         X_CENTER, X_UPPER, X_UPPERSOUTH, X_SOUTH, X_LOWERSOUTH, X_LOWER,
         X_LOWERNORTH, X_NORTH, X_UPPERNORTH, Y_CENTER, Y_NORTH, Y_NORTHEAST,
@@ -59,152 +59,54 @@ public class Full1CylindricalRodBlock extends AbstractCylindricalRodBlock
         AxisPosition9 rp = st.get(AxisPosition9.POSITION);
         switch (ctx.getSide().getIndex()) {
             case 4:
-            case 5: {
-                switch (closedRangeTo(.25, .75, ry)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.X_LOWERNORTH;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.X_LOWER;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.X_LOWERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.X_NORTH;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.X_CENTER;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.X_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.X_UPPERNORTH;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.X_UPPER;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.X_UPPERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
+            case 5:
+                switch (closedRangeTo(.25, .75, ry) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = AxisPosition9.X_LOWERNORTH; break;
+                    case -3: rp = AxisPosition9.X_LOWER; break;
+                    case -2: rp = AxisPosition9.X_LOWERSOUTH; break;
+                    case -1: rp = AxisPosition9.X_NORTH; break;
+                    case 0: rp = AxisPosition9.X_CENTER; break;
+                    case 1: rp = AxisPosition9.X_SOUTH; break;
+                    case 2: rp = AxisPosition9.X_UPPERNORTH; break;
+                    case 3: rp = AxisPosition9.X_UPPER; break;
+                    case 4: rp = AxisPosition9.X_UPPERSOUTH; break;
                 }
                 break;
-            }
             case 0:
-            case 1: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.Y_NORTHWEST;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Y_WEST;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Y_SOUTHWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.Y_NORTH;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Y_CENTER;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Y_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = AxisPosition9.Y_NORTHEAST;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Y_EAST;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Y_SOUTHEAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 1:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = AxisPosition9.Y_NORTHWEST; break;
+                    case -3: rp = AxisPosition9.Y_WEST; break;
+                    case -2: rp = AxisPosition9.Y_SOUTHWEST; break;
+                    case -1: rp = AxisPosition9.Y_NORTH; break;
+                    case 0: rp = AxisPosition9.Y_CENTER; break;
+                    case 1: rp = AxisPosition9.Y_SOUTH; break;
+                    case 2: rp = AxisPosition9.Y_NORTHEAST; break;
+                    case 3: rp = AxisPosition9.Y_EAST; break;
+                    case 4: rp = AxisPosition9.Y_SOUTHEAST; break;
                 }
                 break;
-            }
             case 2:
-            case 3: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = AxisPosition9.Z_LOWERWEST;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Z_WEST;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Z_UPPERWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = AxisPosition9.Z_LOWER;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Z_CENTER;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Z_UPPER;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = AxisPosition9.Z_LOWEREAST;
-                                break;
-                            case 0:
-                                rp = AxisPosition9.Z_EAST;
-                                break;
-                            case 1:
-                                rp = AxisPosition9.Z_UPPEREAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 3:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, ry)) {
+                    case -4: rp = AxisPosition9.Z_LOWERWEST; break;
+                    case -3: rp = AxisPosition9.Z_WEST; break;
+                    case -2: rp = AxisPosition9.Z_UPPERWEST; break;
+                    case -1: rp = AxisPosition9.Z_LOWER; break;
+                    case 0: rp = AxisPosition9.Z_CENTER; break;
+                    case 1: rp = AxisPosition9.Z_UPPER; break;
+                    case 2: rp = AxisPosition9.Z_LOWEREAST; break;
+                    case 3: rp = AxisPosition9.Z_EAST; break;
+                    case 4: rp = AxisPosition9.Z_UPPEREAST; break;
                 }
                 break;
-            }
         }
-        return this.configurePlacedFluid(st.with(AxisPosition9.POSITION, rp),
-                                         ctx);
+        return this.configurePlacedFluid(
+            st.with(AxisPosition9.POSITION, rp), ctx
+        );
     }
 
     @Override

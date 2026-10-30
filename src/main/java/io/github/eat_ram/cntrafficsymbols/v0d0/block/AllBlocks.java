@@ -8,9 +8,7 @@ import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.MapColor;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -25,7 +23,6 @@ import static io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper
 import static io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper
               .registerBlock;
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
-import static net.minecraft.util.shape.VoxelShapes.union;
 
 public class AllBlocks {
     public static final Block SPEEDLIMIT_HIGH_3 = registerBlock(
@@ -1040,66 +1037,39 @@ public class AllBlocks {
     );
     public static final Block HIGHWAY_1HM = registerBlock(
         commitDouble("highway_1hm"), highwayHmSign("highway_1hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_2HM = registerBlock(
         commitDouble("highway_2hm"), highwayHmSign("highway_2hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_3HM = registerBlock(
         commitDouble("highway_3hm"), highwayHmSign("highway_3hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_4HM = registerBlock(
         commitDouble("highway_4hm"), highwayHmSign("highway_4hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_5HM = registerBlock(
         commitDouble("highway_5hm"), highwayHmSign("highway_5hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_6HM = registerBlock(
         commitDouble("highway_6hm"), highwayHmSign("highway_6hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_7HM = registerBlock(
         commitDouble("highway_7hm"), highwayHmSign("highway_7hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_8HM = registerBlock(
         commitDouble("highway_8hm"), highwayHmSign("highway_8hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final Block HIGHWAY_9HM = registerBlock(
         commitDouble("highway_9hm"), highwayHmSign("highway_9hm"),
-        Block.Settings.create().nonOpaque().strength(1f, 4f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(1f, 4f)
     );
     public static final FloorLineEighthBlock
     FLOOR_LINE_EIGHTHS = registerBlock(
@@ -1108,10 +1078,7 @@ public class AllBlocks {
     );
     public static final Block HIGHWAY_KM = registerBlock(
         commitDouble("highway_km"), highwayKmSign("highway_km"),
-        Block.Settings.create().nonOpaque().strength(7f, 28f).mapColor(
-            st -> st.getFluidState().getFluid() == Fluids.WATER ?
-                  MapColor.CYAN : MapColor.GREEN
-        )
+        Block.Settings.create().nonOpaque().strength(7f, 28f)
     );
     public static final WideBoardBlock
     DISTANCE_DETECTION_0M_LEFT = registerBlock(
@@ -1262,98 +1229,11 @@ public class AllBlocks {
         Block.Settings.create().strength(21f, 84f)
     );
     public static final SquareQuarterDefaulted3Block BARRICADES_1 =
-    registerBlock(commitAndGet(
-        Registries.BLOCK, "barricades_1"
-    ), settings -> new SquareQuarterDefaulted3Block(settings) {
-        public static final VoxelShape NW1 = union(
-            cuboid(0, 0, 0, .5, .0625, .5),
-            cuboid(.0625, .0625, .0625, .4375, .75, .4375)
-        );
-        public static final VoxelShape NW2 = union(
-            cuboid(0, 0, 0, .5, .0625, .5),
-            cuboid(.0625, .0625, .0625, .4375, 1, .4375)
-        );
-        public static final VoxelShape NE1 = union(
-            cuboid(.5, 0, 0, 1, .0625, .5),
-            cuboid(.5625, .0625, .0625, .9375, .75, .4375)
-        );
-        public static final VoxelShape NE2 = union(
-            cuboid(.5, 0, 0, 1, .0625, .5),
-            cuboid(.5625, .0625, .0625, .9375, 1, .4375)
-        );
-        public static final VoxelShape SW1 = union(
-            cuboid(0, 0, .5, .5, .0625, 1),
-            cuboid(.0625, .0625, .5625, .4375, .75, .9375)
-        );
-        public static final VoxelShape SW2 = union(
-            cuboid(0, 0, .5, .5, .0625, 1),
-            cuboid(.0625, .0625, .5625, .4375, 1, .9375)
-        );
-        public static final VoxelShape SE1 = union(
-            cuboid(.5, 0, .5, 1, .0625, 1),
-            cuboid(.5625, .0625, .5625, .9375, .75, .9375)
-        );
-        public static final VoxelShape SE2 = union(
-            cuboid(.5, 0, .5, 1, .0625, 1),
-            cuboid(.5625, .0625, .5625, .9375, 1, .9375)
-        );
-        public static final VoxelShape W = union(
-            cuboid(0, 0, 0, 1, .125, 1),
-            cuboid(.125, .125, .125, .875, 1, .875)
-        );
-
-        @Override
-        public VoxelShape getOutlineShape(
-            BlockState st, BlockView v, BlockPos p, ShapeContext c
-        ) {
-            boolean w = false;
-            VoxelShape r = net.minecraft.util.shape.VoxelShapes.empty();
-            switch (st.get(NORTHWEST).intValue()) {
-                case 1:
-                    w = true;
-                    r = union(r, NW1);
-                    break;
-                case 2:
-                    w = true;
-                    r = union(r, NW2);
-                    break;
-            }
-            switch (st.get(NORTHEAST).intValue()) {
-                case 1:
-                    w = true;
-                    r = union(r, NE1);
-                    break;
-                case 2:
-                    w = true;
-                    r = union(r, NE2);
-                    break;
-            }
-            switch (st.get(SOUTHWEST).intValue()) {
-                case 1:
-                    w = true;
-                    r = union(r, SW1);
-                    break;
-                case 2:
-                    w = true;
-                    r = union(r, SW2);
-                    break;
-            }
-            switch (st.get(SOUTHEAST).intValue()) {
-                case 1:
-                    w = true;
-                    r = union(r, SE1);
-                    break;
-                case 2:
-                    w = true;
-                    r = union(r, SE2);
-                    break;
-            }
-            return w ? r : W;
-        }
-    }, Block.Settings.create().strength(9f, 10.5f).mapColor(
-        st -> st.getFluidState().getFluid() == Fluids.WATER ?
-              MapColor.PURPLE : MapColor.ORANGE
-    ));
+    registerBlock(
+        commitAndGet(Registries.BLOCK, "barricades_1"),
+        barricades1("barricades_1"),
+        Block.Settings.create().strength(9f, 10.5f)
+    );
     public static final WideBoardBlock
     KEEP_SPACE_VARIANT1_UPPERLEFT = registerBlock(
         commitDouble("keep_space_variant1_upperleft"),

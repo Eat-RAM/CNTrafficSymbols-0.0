@@ -96,22 +96,28 @@ def write_json_idempotent(
 
     target_path: str = path.join(target_dir, filename)
     same: bool = False
+    new_file: bool = False
     try:
         with open(target_path, "r", encoding="utf-8") as f:
             original = json.load(f)
             same = original == to_write
-    except (json.JSONDecodeError, FileNotFoundError):
+    except FileNotFoundError:
+        new_file = True
+    except json.JSONDecodeError:
         pass
+    log_string: str = f"Wrote {filename}\n"
+    if new_file:
+        log_string = "[NEW] " + log_string
 
     if same:
         return False
     if dry_run:
-        stderr.write(f"Wrote {filename}\n")
+        stderr.write(log_string)
     else:
         with open(target_path, "w", encoding="utf-8") as f:
             if compact:
                 f.write(dumps_compact(to_write, indent=indent))
             else:
                 json.dump(to_write, f, indent=indent, sort_keys=sort_keys)
-            stderr.write(f"Wrote {filename}\n")
+            stderr.write(log_string)
     return True
