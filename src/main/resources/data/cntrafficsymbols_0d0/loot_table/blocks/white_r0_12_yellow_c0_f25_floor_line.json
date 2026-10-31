@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {"type": "minecraft:survives_explosion"},
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cntrafficsymbols_0d0:white_r0_12_yellow_c0_f25_floor_line"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "cntrafficsymbols_0d0:white_r0_12_yellow_c0_f25_floor_line"
+}

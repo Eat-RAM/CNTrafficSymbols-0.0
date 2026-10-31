@@ -1,6 +1,11 @@
+import io
+import os
 from argparse import ArgumentParser, Namespace
 from typing import List, Optional, Tuple
 
+from .floor_line_cross_data import (
+    ALL_FLOOR_LINE_CROSSES, generate_cross_texture
+)
 from .reg_utils import (
     CompactDict, create_parser, ensure_output_dir, write_json_idempotent
 )
@@ -308,6 +313,35 @@ def main(argv: Optional[List[str]] = None) -> None:
         }
         write_json_idempotent(args.dir, f"{name}.json", to_write, args.dry_run,
                               compact=True)
+
+    for info in ALL_FLOOR_LINE_CROSSES:
+        to_write = {
+            "parent": "minecraft:item/generated",
+            "textures": CompactDict({
+                "layer0": f"cntrafficsymbols_0d0:item/{info.name}"
+            })
+        }
+        write_json_idempotent(args.dir, f"{info.name}.json", to_write,
+                              args.dry_run, compact=True)
+
+    tex_dir: str = os.path.join(
+        os.path.dirname(os.path.dirname(args.dir)), "textures", "item"
+    )
+    if not args.dry_run:
+        os.makedirs(tex_dir, exist_ok=True)
+    for info in ALL_FLOOR_LINE_CROSSES:
+        tex_path: str = os.path.join(tex_dir, f"{info.name}.png")
+        im = generate_cross_texture(info)
+        buf = io.BytesIO()
+        im.save(buf, format="PNG")
+        png_bytes: bytes = buf.getvalue()
+        existing: Optional[bytes] = None
+        if os.path.exists(tex_path):
+            with open(tex_path, "rb") as f:
+                existing = f.read()
+        if existing != png_bytes and not args.dry_run:
+            with open(tex_path, "wb") as f:
+                f.write(png_bytes)
 
 
 if __name__ == "__main__":

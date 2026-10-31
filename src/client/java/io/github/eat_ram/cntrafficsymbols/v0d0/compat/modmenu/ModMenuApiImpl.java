@@ -3,7 +3,9 @@ package io.github.eat_ram.cntrafficsymbols.v0d0.compat.modmenu;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import io.github.eat_ram.cntrafficsymbols.core.client.helper.I18nHelper;
+import io.github.eat_ram.cntrafficsymbols.v0d0.Main;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.HighwayHmWallUpConnection;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.RodWallUpConnection;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
@@ -15,14 +17,6 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
-              .getHighwayHmWallUpConnectionMode;
-import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
-              .getHardcodedFloorLineEighthsLootEnabled;
-import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
-              .setHardcodedFloorLineEighthsLootEnabled;
-import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
-              .setHighwayHmWallUpConnectionMode;
 import static net.minecraft.screen.ScreenTexts.DONE;
 
 public class ModMenuApiImpl implements ModMenuApi {
@@ -55,19 +49,19 @@ public class ModMenuApiImpl implements ModMenuApi {
                 ButtonWidget.Builder bwb = ButtonWidget.builder(Text.literal(
                     "hardcoded_floor_line_eighths_loot_enabled: " +
                     getNullableBooleanText(
-                        getHardcodedFloorLineEighthsLootEnabled()
+                        Main.getHardcodedFloorLineEighthsLootEnabled()
                     )
                 ), button -> {
-                    setHardcodedFloorLineEighthsLootEnabled(
+                    Main.setHardcodedFloorLineEighthsLootEnabled(
                         getNullableBooleanNext(
-                            getHardcodedFloorLineEighthsLootEnabled()
+                            Main.getHardcodedFloorLineEighthsLootEnabled()
                         )
                     );
                     this.init();
                     button.setMessage(Text.literal(
                         "hardcoded_floor_line_eighths_loot_enabled: " +
                         getNullableBooleanText(
-                            getHardcodedFloorLineEighthsLootEnabled()
+                            Main.getHardcodedFloorLineEighthsLootEnabled()
                         )
                     ));
                 }).dimensions(this.width / 2 - 155, 40, 310, 20);
@@ -77,20 +71,34 @@ public class ModMenuApiImpl implements ModMenuApi {
                 this.layout.add(ButtonWidget.builder(Text.literal(
                     "highway_hm_wall_up_connection_mode: " +
                     getNullableEnumText(
-                        getHighwayHmWallUpConnectionMode(), "UNSET"
+                        Main.getHighwayHmWallUpConnectionMode(), "UNSET"
                     )
                 ), button -> {
-                    setHighwayHmWallUpConnectionMode(
-                        getNullableEnumNext(
-                            HighwayHmWallUpConnection.class,
-                            getHighwayHmWallUpConnectionMode()
-                        )
-                    );
+                    Main.setHighwayHmWallUpConnectionMode(getNullableEnumNext(
+                        HighwayHmWallUpConnection.class,
+                        Main.getHighwayHmWallUpConnectionMode()
+                    ));
                     this.init();
                     button.setMessage(Text.literal(
                         "highway_hm_wall_up_connection_mode: " +
                         getNullableEnumText(
-                            getHighwayHmWallUpConnectionMode(), "UNSET"
+                            Main.getHighwayHmWallUpConnectionMode(), "UNSET"
+                        )
+                    ));
+                }).dimensions(this.width / 2 - 155, 40, 310, 20).build());
+                this.layout.add(ButtonWidget.builder(Text.literal(
+                    "rod_wall_up_connection_mode: " + getNullableEnumText(
+                        Main.getRodWallUpConnectionMode(), "UNSET"
+                    )
+                ), button -> {
+                    Main.setRodWallUpConnectionMode(getNullableEnumNext(
+                        RodWallUpConnection.class,
+                        Main.getRodWallUpConnectionMode()
+                    ));
+                    this.init();
+                    button.setMessage(Text.literal(
+                        "rod_wall_up_connection_mode: " + getNullableEnumText(
+                            Main.getRodWallUpConnectionMode(), "UNSET"
                         )
                     ));
                 }).dimensions(this.width / 2 - 155, 40, 310, 20).build());

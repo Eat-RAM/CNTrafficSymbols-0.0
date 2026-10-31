@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockRotation;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -41,7 +42,7 @@ import static io.github.eat_ram.cntrafficsymbols.v0d0.Main
               .getHardcodedFloorLineEighthsLootEnabled;
 
 public class FloorLineEighthBlock extends Block
-    implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
+implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
     public static final IntProperty SLICES160 = IntProperty.of("slices160", 0, 40);
     public static final IntProperty SLICES16 = IntProperty.of("slices16", 0, 9);
     public static final IntProperty SLICES = IntProperty.of("slices", 0, 15);
@@ -90,11 +91,7 @@ public class FloorLineEighthBlock extends Block
     }
 
     public FloorLineEighthBlock(Settings settings) {
-        super(settings);
-        BlockState st = this.getDefaultState().with(SLICES160, 0)
-                        .with(SLICES16, 0).with(SLICES, 0)
-                        .with(HORIZONTAL_AXIS, Direction.Axis.X);
-        this.setDefaultState(st);
+        this(null, null, settings);
     }
 
     @Override
@@ -145,7 +142,7 @@ public class FloorLineEighthBlock extends Block
         BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool
     ) {
         super.afterBreak(world, player, pos, state, blockEntity, tool);
-        if ((world instanceof ServerWorld) &&
+        if (world instanceof ServerWorld &&
             (Boolean.TRUE.equals(getHardcodedFloorLineEighthsLootEnabled()) ||
              (getHardcodedFloorLineEighthsLootEnabled() == null &&
               getDroppedStacks(state, world, pos, blockEntity,
@@ -158,30 +155,27 @@ public class FloorLineEighthBlock extends Block
     }
 
     @Override
-    public ItemStack
-    getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
+    public ItemStack getPickStack(
+        WorldView world, BlockPos pos, BlockState state, boolean includeData
+    ) {
         int pow = to3Pow(state);
-        byte s1 = 0;
-        byte s2 = 0;
-        for (byte i = 0; i < (byte)8; i++) {
+        int s1 = 0;
+        int s2 = 0;
+        for (int i = 0; i < 8; i++) {
             switch (pow % 3) {
-                case 1:
-                    s1++;
-                    break;
-                case 2:
-                    s2++;
-                    break;
+                case 1: s1++; break;
+                case 2: s2++; break;
             }
             pow /= 3;
         }
-        if (s1 == (byte)0) {
-            assert s2 != (byte)0;
+        if (s1 == 0) {
+            assert s2 != 0;
             return new ItemStack(this.itm2);
         }
-        if (s2 == (byte)0) {
+        if (s2 == 0) {
             return new ItemStack(this.itm1);
         }
-        return new ItemStack((Math.random() < .5) ? this.itm1 : this.itm2);
+        return new ItemStack(Math.random() < .5 ? this.itm1 : this.itm2);
     }
 
     @Override
@@ -204,7 +198,7 @@ public class FloorLineEighthBlock extends Block
         if (st.is(this)) {
             Direction d = ctx.getSide();
             BlockPos p = ctx.getBlockPos();
-            net.minecraft.util.math.Vec3d v = ctx.getHitPos();
+            Vec3d v = ctx.getHitPos();
             int l = 0;
             if (d.getAxis().isVertical()) {
                 l = (int)(((st.get(HORIZONTAL_AXIS) == Direction.Axis.X) ?
@@ -250,7 +244,9 @@ public class FloorLineEighthBlock extends Block
                 l = 7;
             }
             int base = 1;
-            for (int i = 0; i < l; i++) base *= 3;
+            for (int i = 0; i < l; i++) {
+                base *= 3;
+            }
             BlockState sst = from3Pow(this.getDefaultState().with(
                 HORIZONTAL_AXIS, Direction.Axis.X
             ), base * repl);
@@ -293,13 +289,12 @@ public class FloorLineEighthBlock extends Block
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext ctx) {
-        if (!(ctx.getStack().is(this.itm1) ||
-              ctx.getStack().is(this.itm2))) {
+        if (!(ctx.getStack().is(this.itm1) || ctx.getStack().is(this.itm2))) {
             return false;
         }
         Direction d = ctx.getSide();
         BlockPos p = ctx.getBlockPos();
-        net.minecraft.util.math.Vec3d v = ctx.getHitPos();
+        Vec3d v = ctx.getHitPos();
         int l = 0;
         if (d.getAxis().isVertical()) {
             l = (int)(((state.get(HORIZONTAL_AXIS) == Direction.Axis.X) ?
@@ -344,23 +339,21 @@ public class FloorLineEighthBlock extends Block
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         boolean shouldReverse;
         switch (rotation) {
-            case CLOCKWISE_90: {
+            case CLOCKWISE_90:
                 shouldReverse = state.get(HORIZONTAL_AXIS) == Direction.Axis.X;
                 state = state.with(HORIZONTAL_AXIS,
                                    shouldReverse ?
                                    Direction.Axis.Z : Direction.Axis.X);
                 break;
-            }
             case CLOCKWISE_180:
                 shouldReverse = true;
                 break;
-            case COUNTERCLOCKWISE_90: {
+            case COUNTERCLOCKWISE_90:
                 shouldReverse = state.get(HORIZONTAL_AXIS) == Direction.Axis.Z;
                 state = state.with(HORIZONTAL_AXIS,
                                    shouldReverse ?
                                    Direction.Axis.X : Direction.Axis.Z);
                 break;
-            }
             default: return state;
         }
         if (shouldReverse) {
@@ -406,7 +399,7 @@ public class FloorLineEighthBlock extends Block
         if (r == null) {
             this.itm1 = v;
         }
-        return v;
+        return r;
     }
 
     public @Nullable Item setItm2(@Nullable Item v) {
@@ -414,7 +407,7 @@ public class FloorLineEighthBlock extends Block
         if (r == null) {
             this.itm2 = v;
         }
-        return v;
+        return r;
     }
 
     @Override
@@ -423,15 +416,14 @@ public class FloorLineEighthBlock extends Block
     ) {
         int pow = to3Pow(state);
         byte s = 0;
-        for (byte i = 0; i < (byte)8; i++) {
+        for (int i = 0; i < 8; i++) {
             if (pow % 3 != 0) {
                 s++;
             }
             pow /= 3;
         }
-        return (s > 1) ?
-               super.calcBlockBreakingDelta(state, player, view, pos) /
-               ((s + 1) * 0.5f) :
+        return s > 1 ? super.calcBlockBreakingDelta(state, player, view, pos) /
+                       ((s + 1) * 0.5f) :
                super.calcBlockBreakingDelta(state, player, view, pos);
     }
 
@@ -443,17 +435,13 @@ public class FloorLineEighthBlock extends Block
     @Override
     public @NotNull Iterable<@NotNull ItemStack>
     getComposedItems(BlockState state, @Nullable BlockEntity be) {
-        byte i1 = 0;
-        byte i2 = 0;
+        int i1 = 0;
+        int i2 = 0;
         int r = to3Pow(state);
         for (int i = 0; i < 8; i++) {
             switch (r % 3) {
-                case 1:
-                    i1++;
-                    break;
-                case 2:
-                    i2++;
-                    break;
+                case 1: i1++; break;
+                case 2: i2++; break;
             }
             r /= 3;
         }

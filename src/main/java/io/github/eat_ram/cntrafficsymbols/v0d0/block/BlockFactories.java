@@ -3,15 +3,18 @@ package io.github.eat_ram.cntrafficsymbols.v0d0.block;
 import java.util.function.Function;
 
 import io.github.eat_ram.cntrafficsymbols.core.block.CircleStandingSymbolBlock;
+import io.github.eat_ram.cntrafficsymbols.core.block.DoubleFaceFacingBlock;
 import io.github.eat_ram.cntrafficsymbols.core.block
        .SquareQuarterDefaulted3Block;
 import io.github.eat_ram.cntrafficsymbols.core.block.VanillaWaterloggable;
 import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
+import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.FluidloggingConfig;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.MapColorConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.state.StateManager;
@@ -64,6 +67,40 @@ public abstract class BlockFactories {
             return wrap(name, WaterloggedCircleStandingSymbolBlock::new);
         }
         return wrap(name, CircleStandingSymbolBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull FloorLineEighthBlock
+    > floorLineEighth(@NotNull String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedFloorLineEighthBlock
+            extends FloorLineEighthBlock implements VanillaWaterloggable {
+                WaterloggedFloorLineEighthBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedFloorLineEighthBlock::new);
+        }
+        return wrap(name, FloorLineEighthBlock::new);
     }
 
     public static @NotNull Function<Block.Settings, @NotNull WideBoardBlock>
@@ -300,6 +337,67 @@ public abstract class BlockFactories {
     }
 
     public static @NotNull Function<
+        Block.Settings, @NotNull DoubleFaceFacingBlock
+    > fullSquareBackboard(String name) {
+        class FullSquareBackboardBlock extends DoubleFaceFacingBlock {
+            public static final VoxelShape SHAPE_DEFAULT =
+            cuboid(.3125, 0, .3125, .6875, 1, .6875);
+
+            FullSquareBackboardBlock(Settings settings) {
+                super(settings);
+            }
+
+            @Override
+            public VoxelShape getOutlineShape(
+                BlockState st, BlockView v, BlockPos p, ShapeContext c
+            ) {
+                switch (st.get(DoubleFaceFacing.FACING).id) {
+                    case 0: return WideBoardBlock.SHAPE0;
+                    case 4: return WideBoardBlock.SHAPE1;
+                    case 8: return WideBoardBlock.SHAPE2;
+                    case 12: return WideBoardBlock.SHAPE3;
+                    case 16: return WideBoardBlock.SHAPE4;
+                    case 20: return WideBoardBlock.SHAPE5;
+                    case 24: return WideBoardBlock.SHAPE6;
+                    case 25: return WideBoardBlock.SHAPE7;
+                    case 26: return WideBoardBlock.SHAPE8;
+                    case 27: return WideBoardBlock.SHAPE9;
+                    default: return SHAPE_DEFAULT;
+                }
+            }
+        }
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedFullSquareBackboardBlock
+            extends FullSquareBackboardBlock implements VanillaWaterloggable {
+                WaterloggedFullSquareBackboardBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedFullSquareBackboardBlock::new);
+        }
+        return wrap(name, FullSquareBackboardBlock::new);
+    }
+
+    public static @NotNull Function<
         Block.Settings, @NotNull HighwayHmSignBlock
     > highwayHmSign(String name) {
         if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
@@ -326,6 +424,12 @@ public abstract class BlockFactories {
                     return state.get(WATERLOGGED) ?
                            Fluids.WATER.getStill(false) :
                            super.getFluidState(state);
+                }
+
+                @Override
+                protected boolean
+                canBucketPlace(BlockState state, Fluid fluid) {
+                    return fluid == Fluids.WATER;
                 }
             }
             return wrap(name, WaterloggedHighwayHmSignBlock::new);
@@ -617,6 +721,12 @@ public abstract class BlockFactories {
                            Fluids.WATER.getStill(false) :
                            super.getFluidState(state);
                 }
+
+                @Override
+                protected boolean
+                canBucketPlace(BlockState state, Fluid fluid) {
+                    return fluid == Fluids.WATER;
+                }
             }
             return wrap(name, WaterloggedThin22d5FloorLineBlock::new);
         }
@@ -651,9 +761,163 @@ public abstract class BlockFactories {
                            Fluids.WATER.getStill(false) :
                            super.getFluidState(state);
                 }
+
+                @Override
+                protected boolean
+                canBucketPlace(BlockState state, Fluid fluid) {
+                    return fluid == Fluids.WATER;
+                }
             }
             return wrap(name, WaterloggedThin45FloorLineBlock::new);
         }
         return wrap(name, Thin45FloorLineBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull CenterSymmetricFloorLineCrossBlock
+    > centerSymmetricFloorLineCross(@NotNull String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedCenterSymmetricFloorLineCrossBlock
+            extends CenterSymmetricFloorLineCrossBlock
+            implements VanillaWaterloggable {
+                WaterloggedCenterSymmetricFloorLineCrossBlock(
+                    Settings settings
+                ) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(
+                name, WaterloggedCenterSymmetricFloorLineCrossBlock::new
+            );
+        }
+        return wrap(name, CenterSymmetricFloorLineCrossBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull DiagonalFloorLineCrossBlock
+    > diagonalFloorLineCross(
+        @NotNull String name, int r, int wr, int c, int wc
+    ) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedDiagonalFloorLineCrossBlock
+            extends DiagonalFloorLineCrossBlock
+            implements VanillaWaterloggable {
+                WaterloggedDiagonalFloorLineCrossBlock(Settings settings) {
+                    super(r, wr, c, wc, settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedDiagonalFloorLineCrossBlock::new);
+        }
+        return wrap(name, s -> new DiagonalFloorLineCrossBlock(r, wr, c, wc, s));
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull AxialFloorLineCrossBlock
+    > axialFloorLineCross(@NotNull String name, int r, int wr) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedAxialFloorLineCrossBlock
+            extends AxialFloorLineCrossBlock
+            implements VanillaWaterloggable {
+                WaterloggedAxialFloorLineCrossBlock(Settings settings) {
+                    super(r, wr, settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedAxialFloorLineCrossBlock::new);
+        }
+        return wrap(name, s -> new AxialFloorLineCrossBlock(r, wr, s));
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull ChiralFloorLineCrossBlock
+    > chiralFloorLineCross(
+        @NotNull String name, int r, int wr, int c, int wc
+    ) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedChiralFloorLineCrossBlock
+            extends ChiralFloorLineCrossBlock
+            implements VanillaWaterloggable {
+                WaterloggedChiralFloorLineCrossBlock(Settings settings) {
+                    super(r, wr, c, wc, settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedChiralFloorLineCrossBlock::new);
+        }
+        return wrap(name, s -> new ChiralFloorLineCrossBlock(r, wr, c, wc, s));
     }
 }

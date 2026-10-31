@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "corner=northwest": {"model": "cntrafficsymbols_0d0:block/white_r2_12_c2_12_floor_line"},
+    "corner=northeast": {"model": "cntrafficsymbols_0d0:block/white_r2_12_c2_12_floor_line", "y": 90, "uvlock": true},
+    "corner=southeast": {"model": "cntrafficsymbols_0d0:block/white_r2_12_c2_12_floor_line", "y": 180, "uvlock": true},
+    "corner=southwest": {"model": "cntrafficsymbols_0d0:block/white_r2_12_c2_12_floor_line", "y": 270, "uvlock": true}
+  }
+}

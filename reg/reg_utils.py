@@ -86,7 +86,7 @@ def write_json_idempotent(
     dry_run: bool,
     indent: int = 2,
     sort_keys: bool = False,
-    compact: bool = False
+    compact: bool = False,
 ) -> bool:
     """Compare with existing file and write only if content has changed.
 
@@ -118,6 +118,7 @@ def write_json_idempotent(
             if compact:
                 f.write(dumps_compact(to_write, indent=indent))
             else:
-                json.dump(to_write, f, indent=indent, sort_keys=sort_keys)
+                json.dump(to_write, f, indent=indent, sort_keys=sort_keys,
+                          ensure_ascii=False)
             stderr.write(log_string)
     return True

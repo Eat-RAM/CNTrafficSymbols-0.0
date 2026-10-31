@@ -12,6 +12,7 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlockItems;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.FloorLineEighthBlock;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.HighwayHmWallUpConnection;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.RodWallUpConnection;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.FluidloggingConfig;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.MapColorConfig;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
@@ -114,6 +115,19 @@ public class Main implements ModInitializer {
         HighwayHmWallUpConnection r =
         WORLD_CONFIG.highwayHmWallUpConnectionMode;
         WORLD_CONFIG.highwayHmWallUpConnectionMode = newVal;
+        return r;
+    }
+
+    @Contract(pure = true)
+    public static @Nullable RodWallUpConnection
+    getRodWallUpConnectionMode() {
+        return WORLD_CONFIG.rodWallUpConnectionMode;
+    }
+
+    public static @Nullable RodWallUpConnection
+    setRodWallUpConnectionMode(@Nullable RodWallUpConnection newVal) {
+        RodWallUpConnection r = WORLD_CONFIG.rodWallUpConnectionMode;
+        WORLD_CONFIG.rodWallUpConnectionMode = newVal;
         return r;
     }
 
@@ -222,6 +236,34 @@ WORLD_CONFIG.highwayHmWallUpConnectionMode.name()
         } else {
             LOGGER.info(
 "No property highway_hm_wall_up_connection_mode found. Use defalt value \"thin_up\"."
+            );
+        }
+        if (ppts.containsKey("rod_wall_up_connection_mode")) {
+            String val = ppts.getProperty(
+                "rod_wall_up_connection_mode"
+            ).toUpperCase(Locale.ROOT);
+            if ("UNSET".equals(val)) {
+                WORLD_CONFIG.rodWallUpConnectionMode = null;
+                LOGGER.info(
+"Overriding property value rod_wall_up_connection_mode with UNSET"
+                );
+            } else {
+                try {
+                    WORLD_CONFIG.rodWallUpConnectionMode =
+                    RodWallUpConnection.valueOf(val);
+                    LOGGER.info(
+"Overriding property value rod_wall_up_connection_mode with " +
+WORLD_CONFIG.rodWallUpConnectionMode.name()
+                    );
+                } catch (IllegalArgumentException e) {
+                    LOGGER.warn(
+"Invalid config property value of rod_wall_up_connection_mode", e
+                    );
+                }
+            }
+        } else {
+            LOGGER.info(
+"No property rod_wall_up_connection_mode found. Use defalt value \"thin_up\"."
             );
         }
     }

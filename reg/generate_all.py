@@ -10,10 +10,13 @@ from . import (
     cylindrical_rod_itemmodels,
     cylindrical_rod_models,
     cylindrical_rod_parent_models,
+    derived_langs,
     double90_loot_tables,
     double_loot_tables,
     doublefacefacing90_blockstates,
     dyed_ctags,
+    floor_line_cross_blockstates,
+    floor_line_cross_models,
     floor_line_eighths,
     full1_cylindrical_rod_blockstates,
     full1_cylindrical_rod_recipes,
@@ -86,9 +89,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         except AttributeError:
             pass
 
-    parser: ArgumentParser = ArgumentParser(
-        description="Generate all mod assets in process"
-    )
+    parser: ArgumentParser = \
+    ArgumentParser(description="Generate all mod assets in process")
     parser.add_argument(
         "resources_dir", nargs="?", default="src/main/resources",
         help="Root path to resources directory (default: src/main/resources)"
@@ -115,6 +117,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     )
     tag_b: str = path.join(res, "data", "c", "tags", "block", "dyed")
     tag_i: str = path.join(res, "data", "c", "tags", "item", "dyed")
+    lang_dir: str = path.join(res, "assets", "cntrafficsymbols_0d0", "lang")
 
     dry_arg: List[str] = ["--dry-run"] if args.dry_run else []
 
@@ -135,7 +138,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         (tp_recipes.main, [recipes] + dry_arg),
         # Advancements (1)
         (recipe_advancements.main, [adv] + dry_arg),
-        # Blockstates (8)
+        # Blockstates (9)
+        (floor_line_cross_blockstates.main, [blockstates] + dry_arg),
         (thin_22d5_floor_blockstates.main, [blockstates] + dry_arg),
         (thin_45_floor_blockstates.main, [blockstates] + dry_arg),
         (tp_blockstates.main, [blockstates] + dry_arg),
@@ -150,15 +154,16 @@ def main(argv: Optional[List[str]] = None) -> None:
         (highway_exit_distance_info_loot_tables.main, [loot] + dry_arg),
         (highway_hm_loot_tables.main, [loot] + dry_arg),
         (state_independent_loot_tables.main, [loot] + dry_arg),
-        # Items (5)
+        # Items (3)
         (model_itemmodels.main, [items] + dry_arg),
         (cylindrical_rod_itemmodels.main, [items] + dry_arg),
-        (thin_22d5_floor_line_itemmodels.main, [items] + dry_arg),
-        (thin_45_floor_line_itemmodels.main, [items] + dry_arg),
         (tp_itemmodels.main, [items] + dry_arg),
-        # Item models (1)
+        # Item models (3)
         (generated_item_models.main, [i_models] + dry_arg),
-        # Block models (12)
+        (thin_22d5_floor_line_itemmodels.main, [i_models] + dry_arg),
+        (thin_45_floor_line_itemmodels.main, [i_models] + dry_arg),
+        # Block models (13)
+        (floor_line_cross_models.main, [b_models] + dry_arg),
         (circle_models.main, [b_models] + dry_arg),
         (cylindrical_rod_models.main, [b_models] + dry_arg),
         (cylindrical_rod_parent_models.main, [b_models] + dry_arg),
@@ -178,6 +183,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         # Tags (2)
         (dyed_ctags.main, [tag_b] + dry_arg),
         (dyed_ctags.main, [tag_i] + dry_arg),
+        # Languages (1)
+        (derived_langs.main, [lang_dir] + dry_arg),
     )
 
     counter: StderrCounter = StderrCounter(sys.stderr)

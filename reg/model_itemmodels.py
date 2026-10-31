@@ -1,6 +1,7 @@
 from argparse import ArgumentParser, Namespace
 from typing import List, Optional, Tuple
 
+from .floor_line_cross_data import ALL_FLOOR_LINE_CROSSES
 from .reg_utils import create_parser, ensure_output_dir, write_json_idempotent
 
 
@@ -261,6 +262,10 @@ ITEM_FORMS: Tuple[str, ...] = (
     "iron_plate",
     "white_floor_line_eighth",
     "yellow_floor_line_eighth",
+    "white_thin_22d5_floor_line",
+    "yellow_thin_22d5_floor_line",
+    "white_thin_45_floor_line",
+    "yellow_thin_45_floor_line",
     "white_rod_with_lamp",
     "orange_rod_with_lamp",
     "magenta_rod_with_lamp",
@@ -302,6 +307,16 @@ def main(argv: Optional[List[str]] = None) -> None:
             }
         }
         write_json_idempotent(args.dir, f"{name}.json", to_write, args.dry_run)
+
+    for info in ALL_FLOOR_LINE_CROSSES:
+        to_write = {
+            "model": {
+                "type": "minecraft:model",
+                "model": f"cntrafficsymbols_0d0:item/{info.name}"
+            }
+        }
+        write_json_idempotent(args.dir, f"{info.name}.json", to_write,
+                              args.dry_run)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,47 @@
 from argparse import ArgumentParser, Namespace
-from typing import List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-from .reg_utils import create_parser, ensure_output_dir, write_json_idempotent
+from .reg_utils import (
+    CompactDict, CompactList, create_parser, ensure_output_dir,
+    write_json_idempotent
+)
 
 
 COLORS: Tuple[str, ...] = ("white", "yellow")
+
+DISPLAY: Dict[str, Any] = {
+    "gui": CompactDict({
+        "rotation": CompactList([90, 0, 0]),
+        "scale": CompactList([1, 1, 1])
+    }),
+    "ground": CompactDict({
+        "rotation": CompactList([90, 0, 0]),
+        "translation": CompactList([0, 3, 0]),
+        "scale": CompactList([0.25, 0.25, 0.25])
+    }),
+    "fixed": CompactDict({
+        "rotation": CompactList([90, 0, 0]),
+        "scale": CompactList([1, 1, 1])
+    }),
+    "thirdperson_righthand": CompactDict({
+        "rotation": CompactList([75, 45, 0]),
+        "translation": CompactList([0, 2.5, 0]),
+        "scale": CompactList([0.375, 0.375, 0.375])
+    }),
+    "thirdperson_lefthand": CompactDict({
+        "rotation": CompactList([75, 45, 0]),
+        "translation": CompactList([0, 2.5, 0]),
+        "scale": CompactList([0.375, 0.375, 0.375])
+    }),
+    "firstperson_righthand": CompactDict({
+        "rotation": CompactList([0, 45, 0]),
+        "scale": CompactList([0.4, 0.4, 0.4])
+    }),
+    "firstperson_lefthand": CompactDict({
+        "rotation": CompactList([0, 225, 0]),
+        "scale": CompactList([0.4, 0.4, 0.4])
+    })
+}
 
 
 def main(argv: Optional[List[str]] = None) -> None:
@@ -15,14 +52,17 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     for color in COLORS:
         to_write = {
-            "model": {
-                "type": "minecraft:model",
-                "model": "cntrafficsymbols_0d0:block/"
-                        f"{color}_thin_45_floor_line_q13o_s11"
-            }
+            "parent": (
+                "cntrafficsymbols_0d0:block/"
+                f"{color}_thin_45_floor_line_q13o_s11"
+            ),
+            "gui_light": "front",
+            "display": DISPLAY
         }
-        write_json_idempotent(args.dir, f"{color}_thin_45_floor_line.json",
-                              to_write, args.dry_run)
+        write_json_idempotent(
+            args.dir, f"{color}_thin_45_floor_line.json", to_write,
+            args.dry_run, compact=True
+        )
 
 
 if __name__ == "__main__":

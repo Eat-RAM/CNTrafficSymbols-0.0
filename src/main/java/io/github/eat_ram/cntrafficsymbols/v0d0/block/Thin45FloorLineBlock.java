@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockMirror;
 import net.minecraft.util.math.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -26,8 +27,8 @@ import static net.minecraft.util.shape.VoxelShapes.empty;
 public class Thin45FloorLineBlock extends Block
 implements FluidloggedConfigurable {
     public static final IntProperty SHIFT = IntProperty.of("shift", 0, 23);
-    public static final VoxelShape[] OUTLINE_SHAPES_O = new VoxelShape[24];
-    public static final VoxelShape[] OUTLINE_SHAPES_A = new VoxelShape[24];
+    private static final VoxelShape[] OUTLINE_SHAPES_O = new VoxelShape[24];
+    private static final VoxelShape[] OUTLINE_SHAPES_A = new VoxelShape[24];
 
     static {
         for (int s = 0; s < 24; s++) {
@@ -83,10 +84,19 @@ implements FluidloggedConfigurable {
             rot = QuadrantsQuadrisector.Q13O;
         }
 
-        double rel =
-        rot == QuadrantsQuadrisector.Q13O || rot == QuadrantsQuadrisector.Q24O
-        ? ctx.getHitPos().x - ctx.getBlockPos().getX()
-        : ctx.getHitPos().z - ctx.getBlockPos().getZ();
+        Vec3d hpos = ctx.getHitPos();
+        BlockPos bp = ctx.getBlockPos();
+        double rel;
+        switch (rot) {
+            case Q13A:
+                rel = hpos.z - bp.getZ() - (hpos.x - 0.5 - bp.getX()); break;
+            case Q13O:
+                rel = hpos.x - bp.getX() - (hpos.z - 0.5 - bp.getZ()); break;
+            case Q24O:
+                rel = hpos.x - bp.getX() + (hpos.z - 0.5 - bp.getZ()); break;
+            default:
+                rel = hpos.z - bp.getZ() + (hpos.x - 0.5 - bp.getX());
+        }
         int shift = Math.max(0, Math.min(23, (int)Math.floor(rel * 24.)));
 
         BlockState state =
@@ -110,6 +120,11 @@ implements FluidloggedConfigurable {
             state, world, tickView, pos, direction, neighborPos, neighborState,
             random
         );
+    }
+
+    @Override
+    protected boolean canBucketPlace(BlockState state, Fluid fluid) {
+        return false;
     }
 
     @Override

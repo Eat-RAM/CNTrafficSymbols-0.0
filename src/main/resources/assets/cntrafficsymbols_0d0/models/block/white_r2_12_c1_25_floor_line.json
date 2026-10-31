@@ -1,0 +1,62 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "cntrafficsymbols_0d0:block/white_floor_line_eighths",
+    "texture_row": "cntrafficsymbols_0d0:block/white_floor_line_eighths",
+    "texture_col": "cntrafficsymbols_0d0:block/white_floor_line_eighths"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 4],
+      "to": [2, 0.5, 6],
+      "faces": {
+        "up": {"uv": [0, 4, 2, 6], "texture": "#texture_row"},
+        "down": {"uv": [0, 4, 2, 6], "texture": "#texture_row", "cullface": "down"},
+        "north": {"uv": [0, 15.5, 2, 16], "texture": "#texture_row"},
+        "south": {"uv": [0, 15.5, 2, 16], "texture": "#texture_row"},
+        "west": {"uv": [4, 15.5, 6, 16], "texture": "#texture_row", "cullface": "west"}
+      }
+    },
+    {
+      "from": [6, 0, 4],
+      "to": [16, 0.5, 6],
+      "faces": {
+        "up": {"uv": [6, 4, 16, 6], "texture": "#texture_row"},
+        "down": {"uv": [6, 4, 16, 6], "texture": "#texture_row", "cullface": "down"},
+        "north": {"uv": [6, 15.5, 16, 16], "texture": "#texture_row"},
+        "south": {"uv": [6, 15.5, 16, 16], "texture": "#texture_row"},
+        "east": {"uv": [4, 15.5, 6, 16], "texture": "#texture_row", "cullface": "east"}
+      }
+    },
+    {
+      "from": [2, 0, 0],
+      "to": [6, 0.5, 4],
+      "faces": {
+        "up": {"uv": [2, 0, 6, 4], "texture": "#texture_col"},
+        "down": {"uv": [2, 0, 6, 4], "texture": "#texture_col", "cullface": "down"},
+        "west": {"uv": [0, 15.5, 4, 16], "texture": "#texture_col"},
+        "east": {"uv": [0, 15.5, 4, 16], "texture": "#texture_col"},
+        "north": {"uv": [2, 15.5, 6, 16], "texture": "#texture_col", "cullface": "north"}
+      }
+    },
+    {
+      "from": [2, 0, 6],
+      "to": [6, 0.5, 16],
+      "faces": {
+        "up": {"uv": [2, 6, 6, 16], "texture": "#texture_col"},
+        "down": {"uv": [2, 6, 6, 16], "texture": "#texture_col", "cullface": "down"},
+        "west": {"uv": [6, 15.5, 16, 16], "texture": "#texture_col"},
+        "east": {"uv": [6, 15.5, 16, 16], "texture": "#texture_col"},
+        "south": {"uv": [2, 15.5, 6, 16], "texture": "#texture_col", "cullface": "south"}
+      }
+    },
+    {
+      "from": [2, 0, 4],
+      "to": [6, 0.5, 6],
+      "faces": {
+        "up": {"uv": [2, 4, 6, 6], "texture": "#texture_row"},
+        "down": {"uv": [2, 4, 6, 6], "texture": "#texture_row", "cullface": "down"}
+      }
+    }
+  ]
+}

@@ -474,9 +474,14 @@ public class RodWithLampEditScreen extends Screen {
             );
             int h = (mins / 60) % 24;
             int m = mins % 60;
+            int h12 = (h + 11) % 12 + 1;
+            String ampm = I18n.translate(
+                h < 12 ?
+                "gui.cntrafficsymbols_0d0.am" : "gui.cntrafficsymbols_0d0.pm"
+            );
             this.setMessage(tagTr(
                 "gui.cntrafficsymbols_0d0.tag_clocktime_01v",
-                this.label, h, m, this.value
+                this.label, h, m, this.value, h12, ampm
             ));
         }
 

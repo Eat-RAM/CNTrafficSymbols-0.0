@@ -1,6 +1,7 @@
 from argparse import ArgumentParser, Namespace
 from typing import Any, List, Optional, Tuple
 
+from .floor_line_cross_data import ALL_FLOOR_LINE_CROSSES
 from .reg_utils import (
     CompactDict, create_parser, ensure_output_dir, write_json_idempotent
 )
@@ -316,6 +317,11 @@ def main(argv: Optional[List[str]] = None) -> None:
     for block in BLOCKS:
         to_write = make_loot_table(block)
         write_json_idempotent(args.dir, f"{block}.json", to_write,
+                              args.dry_run, compact=True)
+
+    for info in ALL_FLOOR_LINE_CROSSES:
+        to_write = make_loot_table(info.name)
+        write_json_idempotent(args.dir, f"{info.name}.json", to_write,
                               args.dry_run, compact=True)
 
 

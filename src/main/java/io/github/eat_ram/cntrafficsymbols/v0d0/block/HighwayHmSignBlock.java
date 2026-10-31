@@ -15,6 +15,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -164,6 +165,11 @@ implements net.minecraft.block.BlockEntityProvider {
             ));
         }
         return ActionResult.SUCCESS_SERVER;
+    }
+
+    @Override
+    protected boolean canBucketPlace(BlockState state, Fluid fluid) {
+        return false;
     }
 
     public static int getHmDigit(net.minecraft.block.Block block) {
