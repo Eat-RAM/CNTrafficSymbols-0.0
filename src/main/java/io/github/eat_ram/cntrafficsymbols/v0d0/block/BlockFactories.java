@@ -588,4 +588,72 @@ public abstract class BlockFactories {
         }
         return wrap(name, Barricades1Block::new);
     }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Thin22d5FloorLineBlock
+    > thin22d5FloorLine(@NotNull String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedThin22d5FloorLineBlock
+            extends Thin22d5FloorLineBlock implements VanillaWaterloggable {
+                WaterloggedThin22d5FloorLineBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedThin22d5FloorLineBlock::new);
+        }
+        return wrap(name, Thin22d5FloorLineBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Thin45FloorLineBlock
+    > thin45FloorLine(@NotNull String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedThin45FloorLineBlock
+            extends Thin45FloorLineBlock implements VanillaWaterloggable {
+                WaterloggedThin45FloorLineBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedThin45FloorLineBlock::new);
+        }
+        return wrap(name, Thin45FloorLineBlock::new);
+    }
 }

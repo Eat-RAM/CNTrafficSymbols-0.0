@@ -1,0 +1,157 @@
+package io.github.eat_ram.cntrafficsymbols.v0d0.block;
+
+import io.github.eat_ram.cntrafficsymbols.core.block.FluidloggedConfigurable;
+import io.github.eat_ram.cntrafficsymbols.core.struct.QuadrantsQuadrisector;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.util.math.BlockMirror;
+import net.minecraft.util.math.BlockRotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.tick.ScheduledTickView;
+
+import static net.minecraft.util.shape.VoxelShapes.cuboid;
+import static net.minecraft.util.shape.VoxelShapes.empty;
+
+public class Thin45FloorLineBlock extends Block
+implements FluidloggedConfigurable {
+    public static final IntProperty SHIFT = IntProperty.of("shift", 0, 23);
+    public static final VoxelShape[] OUTLINE_SHAPES_O = new VoxelShape[24];
+    public static final VoxelShape[] OUTLINE_SHAPES_A = new VoxelShape[24];
+
+    static {
+        for (int s = 0; s < 24; s++) {
+            OUTLINE_SHAPES_O[s] =
+            cuboid((s - 13) / 24., 0., 0., (s + 14) / 24., 0.03125, 1.);
+            OUTLINE_SHAPES_A[s] =
+            cuboid(0., 0., (s - 13) / 24., 1., 0.03125, (s + 14) / 24.);
+        }
+    }
+
+    public Thin45FloorLineBlock(Settings settings) {
+        super(settings);
+        this.setDefaultState(
+            this.getDefaultState().with(SHIFT, 0)
+            .with(QuadrantsQuadrisector.ROTATION, QuadrantsQuadrisector.Q13O)
+        );
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(
+        BlockState state, BlockView view, BlockPos pos, ShapeContext context
+    ) {
+        QuadrantsQuadrisector rot = state.get(QuadrantsQuadrisector.ROTATION);
+        return ((rot == QuadrantsQuadrisector.Q13O ||
+                 rot == QuadrantsQuadrisector.Q24O) ?
+                OUTLINE_SHAPES_O : OUTLINE_SHAPES_A)[state.get(SHIFT)];
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(
+        BlockState state, BlockView view, BlockPos pos, ShapeContext context
+    ) {
+        return empty();
+    }
+
+    @Override
+    protected void
+    appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(SHIFT, QuadrantsQuadrisector.ROTATION);
+    }
+
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        int angle = Math.floorMod((int)Math.floor(ctx.getPlayerYaw()), 180);
+        QuadrantsQuadrisector rot;
+        if (angle < 45) {
+            rot = QuadrantsQuadrisector.Q24O;
+        } else if (angle < 90) {
+            rot = QuadrantsQuadrisector.Q24A;
+        } else if (angle < 135) {
+            rot = QuadrantsQuadrisector.Q13A;
+        } else {
+            rot = QuadrantsQuadrisector.Q13O;
+        }
+
+        double rel =
+        rot == QuadrantsQuadrisector.Q13O || rot == QuadrantsQuadrisector.Q24O
+        ? ctx.getHitPos().x - ctx.getBlockPos().getX()
+        : ctx.getHitPos().z - ctx.getBlockPos().getZ();
+        int shift = Math.max(0, Math.min(23, (int)Math.floor(rel * 24.)));
+
+        BlockState state =
+        this.getDefaultState().with(SHIFT, shift)
+        .with(QuadrantsQuadrisector.ROTATION, rot);
+        return this.configurePlacedFluid(state, ctx);
+    }
+
+    @Override
+    public BlockState getStateForNeighborUpdate(
+        BlockState state, WorldView world, ScheduledTickView tickView,
+        BlockPos pos, Direction direction, BlockPos neighborPos,
+        BlockState neighborState, Random random
+    ) {
+        FluidState fs = state.getFluidState();
+        if (!fs.isEmpty()) {
+            Fluid fluid = fs.getFluid();
+            tickView.scheduleFluidTick(pos, fluid, fluid.getTickRate(world));
+        }
+        return super.getStateForNeighborUpdate(
+            state, world, tickView, pos, direction, neighborPos, neighborState,
+            random
+        );
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        QuadrantsQuadrisector rot = state.get(QuadrantsQuadrisector.ROTATION);
+        int s = state.get(SHIFT);
+        switch (rotation) {
+            case CLOCKWISE_90:
+                return (rot == QuadrantsQuadrisector.Q13A ||
+                        rot == QuadrantsQuadrisector.Q24A) ?
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.turn())
+                       .with(SHIFT, 23 - s) :
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.turn());
+            case CLOCKWISE_180: return state.with(SHIFT, 23 - s);
+            case COUNTERCLOCKWISE_90:
+                return (rot == QuadrantsQuadrisector.Q13O ||
+                        rot == QuadrantsQuadrisector.Q24O) ?
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.turn())
+                       .with(SHIFT, 23 - s) :
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.turn());
+            default: return state;
+        }
+    }
+
+    @Override
+    public BlockState mirror(BlockState state, BlockMirror mirror) {
+        QuadrantsQuadrisector rot = state.get(QuadrantsQuadrisector.ROTATION);
+        int s = state.get(SHIFT);
+        switch (mirror) {
+            case LEFT_RIGHT:
+                return (rot == QuadrantsQuadrisector.Q13O ||
+                        rot == QuadrantsQuadrisector.Q24O) ?
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.flip())
+                       .with(SHIFT, 23 - s) :
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.flip());
+            case FRONT_BACK:
+                return (rot == QuadrantsQuadrisector.Q13A ||
+                        rot == QuadrantsQuadrisector.Q24A) ?
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.flip())
+                       .with(SHIFT, 23 - s) :
+                       state.with(QuadrantsQuadrisector.ROTATION, rot.flip());
+            default: return state;
+        }
+    }
+}

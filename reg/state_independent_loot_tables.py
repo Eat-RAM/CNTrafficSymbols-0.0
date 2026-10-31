@@ -278,7 +278,11 @@ BLOCKS: Tuple[str, ...] = (
     "brown_lined10_tp",
     "green_lined10_tp",
     "red_lined10_tp",
-    "black_lined10_tp"
+    "black_lined10_tp",
+    "white_thin_22d5_floor_line",
+    "yellow_thin_22d5_floor_line",
+    "white_thin_45_floor_line",
+    "yellow_thin_45_floor_line"
 )
 
 

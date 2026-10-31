@@ -38,6 +38,14 @@ from . import (
     speedlimit_high_recipes,
     speedlimit_low_recipes,
     state_independent_loot_tables,
+    thin_22d5_floor_blockstates,
+    thin_22d5_floor_line_itemmodels,
+    thin_22d5_floor_line_models,
+    thin_22d5_floor_line_parent_models,
+    thin_45_floor_blockstates,
+    thin_45_floor_line_itemmodels,
+    thin_45_floor_line_models,
+    thin_45_floor_line_parent_models,
     tp_blockstates,
     tp_itemmodels,
     tp_models,
@@ -127,7 +135,9 @@ def main(argv: Optional[List[str]] = None) -> None:
         (tp_recipes.main, [recipes] + dry_arg),
         # Advancements (1)
         (recipe_advancements.main, [adv] + dry_arg),
-        # Blockstates (6)
+        # Blockstates (8)
+        (thin_22d5_floor_blockstates.main, [blockstates] + dry_arg),
+        (thin_45_floor_blockstates.main, [blockstates] + dry_arg),
         (tp_blockstates.main, [blockstates] + dry_arg),
         (doublefacefacing90_blockstates.main, [blockstates] + dry_arg),
         (full1_cylindrical_rod_blockstates.main, [blockstates] + dry_arg),
@@ -140,18 +150,24 @@ def main(argv: Optional[List[str]] = None) -> None:
         (highway_exit_distance_info_loot_tables.main, [loot] + dry_arg),
         (highway_hm_loot_tables.main, [loot] + dry_arg),
         (state_independent_loot_tables.main, [loot] + dry_arg),
-        # Items (3)
+        # Items (5)
         (model_itemmodels.main, [items] + dry_arg),
         (cylindrical_rod_itemmodels.main, [items] + dry_arg),
+        (thin_22d5_floor_line_itemmodels.main, [items] + dry_arg),
+        (thin_45_floor_line_itemmodels.main, [items] + dry_arg),
         (tp_itemmodels.main, [items] + dry_arg),
         # Item models (1)
         (generated_item_models.main, [i_models] + dry_arg),
-        # Block models (8)
+        # Block models (12)
         (circle_models.main, [b_models] + dry_arg),
         (cylindrical_rod_models.main, [b_models] + dry_arg),
         (cylindrical_rod_parent_models.main, [b_models] + dry_arg),
         (highway_hm_models.main, [b_models] + dry_arg),
         (rod_with_lamp_models.main, [b_models] + dry_arg),
+        (thin_22d5_floor_line_models.main, [b_models] + dry_arg),
+        (thin_22d5_floor_line_parent_models.main, [b_models] + dry_arg),
+        (thin_45_floor_line_models.main, [b_models] + dry_arg),
+        (thin_45_floor_line_parent_models.main, [b_models] + dry_arg),
         (tp_models.main, [b_models] + dry_arg),
         (tp_parent_models.main, [b_models] + dry_arg),
         (wideboard_models.main, [b_models] + dry_arg),

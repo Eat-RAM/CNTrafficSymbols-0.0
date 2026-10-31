@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -2757,6 +2758,30 @@ public class AllBlocks {
         commitDouble("black_lined10_tp"),
         linedTP("black_lined10_tp", (byte)10),
         Block.Settings.create().strength(.9f).requiresTool()
+    );
+    public static final Thin22d5FloorLineBlock
+    WHITE_THIN_22D5_FLOOR_LINE = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "white_thin_22d5_floor_line"),
+        thin22d5FloorLine("white_thin_22d5_floor_line"),
+        Block.Settings.create().nonOpaque().strength(4f, 4f)
+    );
+    public static final Thin22d5FloorLineBlock
+    YELLOW_THIN_22D5_FLOOR_LINE = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "yellow_thin_22d5_floor_line"),
+        thin22d5FloorLine("yellow_thin_22d5_floor_line"),
+        Block.Settings.create().nonOpaque().strength(4f, 4f)
+    );
+    public static final Thin45FloorLineBlock
+    WHITE_THIN_45_FLOOR_LINE = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "white_thin_45_floor_line"),
+        thin45FloorLine("white_thin_45_floor_line"),
+        Block.Settings.create().nonOpaque().strength(4f, 4f)
+    );
+    public static final Thin45FloorLineBlock
+    YELLOW_THIN_45_FLOOR_LINE = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "yellow_thin_45_floor_line"),
+        thin45FloorLine("yellow_thin_45_floor_line"),
+        Block.Settings.create().nonOpaque().strength(4f, 4f)
     );
 
     @Deprecated(since = "0.0.3-a1", forRemoval = true)

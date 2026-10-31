@@ -1095,6 +1095,14 @@ public class AllBlockItems {
     registerNormal(AllBlocks.RED_LINED10_TP);
     public static final Item BLACK_LINED10_TP =
     registerNormal(AllBlocks.BLACK_LINED10_TP);
+    public static final Item WHITE_THIN_22D5_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_THIN_22D5_FLOOR_LINE);
+    public static final Item YELLOW_THIN_22D5_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_THIN_22D5_FLOOR_LINE);
+    public static final Item WHITE_THIN_45_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_THIN_45_FLOOR_LINE);
+    public static final Item YELLOW_THIN_45_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_THIN_45_FLOOR_LINE);
     public static final ItemGroup ITEM_GROUP;
 
     public static BlockItem registerNormal(Block block) {
@@ -1404,6 +1412,10 @@ public class AllBlockItems {
                     e.add(j);
                 }
             }
+            e.add(WHITE_THIN_22D5_FLOOR_LINE);
+            e.add(YELLOW_THIN_22D5_FLOOR_LINE);
+            e.add(WHITE_THIN_45_FLOOR_LINE);
+            e.add(YELLOW_THIN_45_FLOOR_LINE);
         }).build();
         Registry.register(Registries.ITEM_GROUP, Identifier.of(
             "cntrafficsymbols_0d0", "cntrafficsymbols"
