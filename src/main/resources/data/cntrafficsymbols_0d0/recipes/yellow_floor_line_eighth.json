@@ -1,6 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "count": 64,
-  "ingredient": {"item": "minecraft:yellow_concrete"},
-  "result": "cntrafficsymbols_0d0:yellow_floor_line_eighth"
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {"item": "cntrafficsymbols_0d0:yellow_thin_45_floor_line"}
+  },
+  "pattern": [
+    "LLL",
+    "LLL",
+    "LLL"
+  ],
+  "result": {
+    "item": "cntrafficsymbols_0d0:yellow_floor_line_eighth",
+    "count": 10
+  },
+  "show_notification": true
 }

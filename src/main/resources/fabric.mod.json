@@ -40,19 +40,21 @@
   "icon": "assets/cntrafficsymbols_0d0/textures/icon/cntrafficsymbols.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "io.github.eat_ram.cntrafficsymbols.v0d0.Main"
-    ],
-    "client": [
-      "io.github.eat_ram.cntrafficsymbols.v0d0.client.MainClient"
-    ],
+    "main": ["io.github.eat_ram.cntrafficsymbols.v0d0.Main"],
+    "client": ["io.github.eat_ram.cntrafficsymbols.v0d0.client.MainClient"],
     "modmenu": [
       "io.github.eat_ram.cntrafficsymbols.v0d0.compat.modmenu.ModMenuApiImpl"
     ]
   },
-  "mixins": ["cntrafficsymbols_0d0.mixins.json"],
+  "mixins": [
+    "cntrafficsymbols_0d0.mixins.json",
+    {
+      "environment": "client",
+      "config": "cntrafficsymbols_0d0.client.mixins.json"
+    }
+  ],
   "depends": {
-    "fabricloader": ">=0.14.0",
+    "fabricloader": ">=0.18.0",
     "minecraft": "1.20.4",
     "java": ">=17",
     "fabric-api": "*",

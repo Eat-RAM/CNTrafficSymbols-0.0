@@ -5,12 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Properties;
 
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlockItems;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.FloorLineEighthBlock;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.HighwayHmWallUpConnection;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.RodWallUpConnection;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.FluidloggingConfig;
+import io.github.eat_ram.cntrafficsymbols.v0d0.helper.MapColorConfig;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
@@ -36,8 +40,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 public class Main implements ModInitializer {
     public static final Logger LOGGER = getLogger("cntrafficsymbols_0d0");
-    private static @Nullable Boolean hardcodedFloorLineEighthsLootEnabled =
-    null;
+    private static final WorldConfig WORLD_CONFIG = new WorldConfig();
     private static final @NotNull HashSet<@NotNull Class<?>>
     blockstateOptimizations = new HashSet<>();
 
@@ -64,22 +67,10 @@ public class Main implements ModInitializer {
         throw new IllegalArgumentException(s);
     }
 
-    @Contract(pure = true)
-    public static @Nullable Boolean getHardcodedFloorLineEighthsLootEnabled() {
-        return hardcodedFloorLineEighthsLootEnabled;
-    }
-
     @Contract(value = "-> new", pure = true)
     public static @NotNull HashSet<@NotNull Class<?>>
     getBlockstateOptimizations() {
         return new HashSet<>(blockstateOptimizations);
-    }
-
-    public static @Nullable Boolean
-    setHardcodedFloorLineEighthsLootEnabled(@Nullable Boolean newVal) {
-        Boolean r = hardcodedFloorLineEighthsLootEnabled;
-        hardcodedFloorLineEighthsLootEnabled = newVal;
-        return r;
     }
 
     @Contract("_ -> new")
@@ -99,34 +90,51 @@ public class Main implements ModInitializer {
         }
     }
 
+    @Contract(pure = true)
+    public static @Nullable Boolean getHardcodedFloorLineEighthsLootEnabled() {
+        return WORLD_CONFIG.hardcodedFloorLineEighthsLootEnabled;
+    }
+
+    public static @Nullable Boolean
+    setHardcodedFloorLineEighthsLootEnabled(@Nullable Boolean newVal) {
+        Boolean r = WORLD_CONFIG.hardcodedFloorLineEighthsLootEnabled;
+        WORLD_CONFIG.hardcodedFloorLineEighthsLootEnabled = newVal;
+        return r;
+    }
+
+    @Contract(pure = true)
+    public static @Nullable HighwayHmWallUpConnection
+    getHighwayHmWallUpConnectionMode() {
+        return WORLD_CONFIG.highwayHmWallUpConnectionMode;
+    }
+
+    public static @Nullable HighwayHmWallUpConnection
+    setHighwayHmWallUpConnectionMode(
+        @Nullable HighwayHmWallUpConnection newVal
+    ) {
+        HighwayHmWallUpConnection r =
+        WORLD_CONFIG.highwayHmWallUpConnectionMode;
+        WORLD_CONFIG.highwayHmWallUpConnectionMode = newVal;
+        return r;
+    }
+
+    @Contract(pure = true)
+    public static @Nullable RodWallUpConnection
+    getRodWallUpConnectionMode() {
+        return WORLD_CONFIG.rodWallUpConnectionMode;
+    }
+
+    public static @Nullable RodWallUpConnection
+    setRodWallUpConnectionMode(@Nullable RodWallUpConnection newVal) {
+        RodWallUpConnection r = WORLD_CONFIG.rodWallUpConnectionMode;
+        WORLD_CONFIG.rodWallUpConnectionMode = newVal;
+        return r;
+    }
+
     public static void readPropertiesFromFile(InputStream inputStream)
     throws IOException {
         Properties ppts = new Properties();
         ppts.load(inputStream);
-        if (ppts.containsKey("hardcoded_floor_line_eighths_loot_enabled")) {
-            try {
-                hardcodedFloorLineEighthsLootEnabled = parseNullableBoolean(
-                    ppts.getProperty(
-                        "hardcoded_floor_line_eighths_loot_enabled"
-                    ).strip().toLowerCase(),
-                    new String[]{"true", "yes", "always"},
-                    new String[]{"false", "no", "never"},
-                    new String[]{"null", "auto"}
-                );
-                LOGGER.info(
-"Overriding property value hardcoded_floor_line_eighths_loot_enabled with " +
-hardcodedFloorLineEighthsLootEnabled
-                );
-            } catch (IllegalArgumentException e) {
-                LOGGER.warn(
-"Invalid config property value of hardcoded_floor_line_eighths_loot_enabled", e
-                );
-            }
-        } else {
-            LOGGER.info(
-"No property hardcoded_floor_line_eighths_loot_enabled found. Use defalt value \"auto\"."
-            );
-        }
         if (ppts.containsKey("fluidlogging_rules")) {
             String rules = ppts.getProperty("fluidlogging_rules").strip();
             FluidloggingConfig.loadRules(rules);
@@ -136,6 +144,17 @@ hardcodedFloorLineEighthsLootEnabled
             LOGGER.info(
                 "No property fluidlogging_rules found. Use default value \"" +
                 FluidloggingConfig.DEFAULT_RULES + "\"."
+            );
+        }
+        if (ppts.containsKey("block_map_colors")) {
+            String rules = ppts.getProperty("block_map_colors").strip();
+            MapColorConfig.loadRules(rules);
+            LOGGER.info("Loaded block_map_colors: " + rules);
+        } else {
+            MapColorConfig.loadRules(null);
+            LOGGER.info(
+                "No property block_map_colors found. Use default value \"" +
+                MapColorConfig.DEFAULT_RULES + "\"."
             );
         }
         if (ppts.containsKey("blockstate_optimizations")) {
@@ -152,8 +171,7 @@ hardcodedFloorLineEighthsLootEnabled
                 blockstateOptimizations.clear();
                 addDefaultBlockstateOptimizations();
                 LOGGER.warn(
-                    "Invalid config property value of blockstate_optimizations: " +
-                    e.getMessage()
+"Invalid config property value of blockstate_optimizations", e
                 );
             }
         } else {
@@ -165,6 +183,87 @@ hardcodedFloorLineEighthsLootEnabled
             LOGGER.info(
 "No property blockstate_optimizations found. Use defalt value \"" +
 String.join(";", classNames) + "\"."
+            );
+        }
+        if (ppts.containsKey("hardcoded_floor_line_eighths_loot_enabled")) {
+            try {
+                WORLD_CONFIG.hardcodedFloorLineEighthsLootEnabled =
+                parseNullableBoolean(
+                    ppts.getProperty(
+                        "hardcoded_floor_line_eighths_loot_enabled"
+                    ).strip().toLowerCase(Locale.ROOT),
+                    new String[]{"true", "yes", "always"},
+                    new String[]{"false", "no", "never"},
+                    new String[]{"null", "auto"}
+                );
+                LOGGER.info(
+"Overriding property value hardcoded_floor_line_eighths_loot_enabled with " +
+WORLD_CONFIG.hardcodedFloorLineEighthsLootEnabled
+                );
+            } catch (IllegalArgumentException e) {
+                LOGGER.warn(
+"Invalid config property value of hardcoded_floor_line_eighths_loot_enabled", e
+                );
+            }
+        } else {
+            LOGGER.info(
+"No property hardcoded_floor_line_eighths_loot_enabled found. Use defalt value \"auto\"."
+            );
+        }
+        if (ppts.containsKey("highway_hm_wall_up_connection_mode")) {
+            String val = ppts.getProperty(
+                "highway_hm_wall_up_connection_mode"
+            ).toUpperCase(Locale.ROOT);
+            if ("UNSET".equals(val)) {
+                WORLD_CONFIG.highwayHmWallUpConnectionMode = null;
+                LOGGER.info(
+"Overriding property value highway_hm_wall_up_connection_mode with UNSET"
+                );
+            } else {
+                try {
+                    WORLD_CONFIG.highwayHmWallUpConnectionMode =
+                    HighwayHmWallUpConnection.valueOf(val);
+                    LOGGER.info(
+"Overriding property value highway_hm_wall_up_connection_mode with " +
+WORLD_CONFIG.highwayHmWallUpConnectionMode.name()
+                    );
+                } catch (IllegalArgumentException e) {
+                    LOGGER.warn(
+"Invalid config property value of highway_hm_wall_up_connection_mode", e
+                    );
+                }
+            }
+        } else {
+            LOGGER.info(
+"No property highway_hm_wall_up_connection_mode found. Use defalt value \"thin_up\"."
+            );
+        }
+        if (ppts.containsKey("rod_wall_up_connection_mode")) {
+            String val = ppts.getProperty(
+                "rod_wall_up_connection_mode"
+            ).toUpperCase(Locale.ROOT);
+            if ("UNSET".equals(val)) {
+                WORLD_CONFIG.rodWallUpConnectionMode = null;
+                LOGGER.info(
+"Overriding property value rod_wall_up_connection_mode with UNSET"
+                );
+            } else {
+                try {
+                    WORLD_CONFIG.rodWallUpConnectionMode =
+                    RodWallUpConnection.valueOf(val);
+                    LOGGER.info(
+"Overriding property value rod_wall_up_connection_mode with " +
+WORLD_CONFIG.rodWallUpConnectionMode.name()
+                    );
+                } catch (IllegalArgumentException e) {
+                    LOGGER.warn(
+"Invalid config property value of rod_wall_up_connection_mode", e
+                    );
+                }
+            }
+        } else {
+            LOGGER.info(
+"No property rod_wall_up_connection_mode found. Use defalt value \"thin_up\"."
             );
         }
     }
@@ -201,6 +300,7 @@ String.join(";", classNames) + "\"."
         Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(
             Registries.BLOCK_ENTITY_TYPE, "rod_with_lamp"
         ), RodWithLampBlockEntity.TYPE);
+        io.github.eat_ram.cntrafficsymbols.v0d0.network.ModNetworking.init();
         push();
     }
 }

@@ -2,6 +2,7 @@ package io.github.eat_ram.cntrafficsymbols.v0d0.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -10,7 +11,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Contract;
 
 import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
               .commitAndGet;
@@ -422,14 +422,29 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HEIGHTLIMIT_10);
     public static final Item PROHIBITION =
     registerNormal(AllBlocks.PROHIBITION);
-    public static final Item NO_U_TURN =
-    registerNormal(AllBlocks.NO_U_TURN);
+    public static final Item NO_U_TURN = registerNormal(AllBlocks.NO_U_TURN);
     public static final Item NO_LEFT_TURN =
     registerNormal(AllBlocks.NO_LEFT_TURN);
     public static final Item NO_RIGHT_TURN =
     registerNormal(AllBlocks.NO_RIGHT_TURN);
-    public static final Item NO_PARKING =
-    registerNormal(AllBlocks.NO_PARKING);
+    public static final Item NO_PARKING = registerNormal(AllBlocks.NO_PARKING);
+    public static final Item NO_ENTRY = registerNormal(AllBlocks.NO_ENTRY);
+    public static final Item NO_LEFT_AND_RIGHT_TURN =
+    registerNormal(AllBlocks.NO_LEFT_AND_RIGHT_TURN);
+    public static final Item NO_STRAIGHT_AHEAD =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD);
+    public static final Item NO_STRAIGHT_AHEAD_AND_LEFT_TURN =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD_AND_LEFT_TURN);
+    public static final Item NO_STRAIGHT_AHEAD_AND_RIGHT_TURN =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD_AND_RIGHT_TURN);
+    public static final Item NO_STOPPING =
+    registerNormal(AllBlocks.NO_STOPPING);
+    public static final Item NO_STOPPING_LEFT =
+    registerNormal(AllBlocks.NO_STOPPING_LEFT);
+    public static final Item NO_STOPPING_LEFT_RIGHT =
+    registerNormal(AllBlocks.NO_STOPPING_LEFT_RIGHT);
+    public static final Item NO_STOPPING_RIGHT =
+    registerNormal(AllBlocks.NO_STOPPING_RIGHT);
     public static final Item HIGHWAY_1HM =
     registerNormal(AllBlocks.HIGHWAY_1HM);
     public static final Item HIGHWAY_2HM =
@@ -450,33 +465,33 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HIGHWAY_9HM);
     public static final Item WHITE_FLOOR_LINE_EIGHTH = registerItem(
         commitAndGet(Registries.ITEM, "white_floor_line_eighth"),
-        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.FLOOR_LINE_EIGHTHS;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings ->
+        new AliasedBlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item YELLOW_FLOOR_LINE_EIGHTH = registerItem(
         commitAndGet(Registries.ITEM, "yellow_floor_line_eighth"),
-        settings -> new BlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.FLOOR_LINE_EIGHTHS;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings ->
+        new AliasedBlockItem(AllBlocks.FLOOR_LINE_EIGHTHS, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item HIGHWAY_KM = registerNormal(AllBlocks.HIGHWAY_KM);
-    public static final Item DISTANCE_DETECTION_0M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_0M_LEFT);
-    public static final Item DISTANCE_DETECTION_0M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_0M_RIGHT);
-    public static final Item DISTANCE_DETECTION_50M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_50M_LEFT);
-    public static final Item DISTANCE_DETECTION_50M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_50M_RIGHT);
-    public static final Item DISTANCE_DETECTION_100M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_100M_LEFT);
-    public static final Item DISTANCE_DETECTION_100M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_100M_RIGHT);
-    public static final Item DISTANCE_DETECTION_200M_LEFT = registerNormal(AllBlocks.DISTANCE_DETECTION_200M_LEFT);
-    public static final Item DISTANCE_DETECTION_200M_RIGHT = registerNormal(AllBlocks.DISTANCE_DETECTION_200M_RIGHT);
+    public static final Item DISTANCE_DETECTION_0M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_0M_LEFT);
+    public static final Item DISTANCE_DETECTION_0M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_0M_RIGHT);
+    public static final Item DISTANCE_DETECTION_50M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_50M_LEFT);
+    public static final Item DISTANCE_DETECTION_50M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_50M_RIGHT);
+    public static final Item DISTANCE_DETECTION_100M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_100M_LEFT);
+    public static final Item DISTANCE_DETECTION_100M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_100M_RIGHT);
+    public static final Item DISTANCE_DETECTION_200M_LEFT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_200M_LEFT);
+    public static final Item DISTANCE_DETECTION_200M_RIGHT =
+    registerNormal(AllBlocks.DISTANCE_DETECTION_200M_RIGHT);
     public static final Item HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE =
     registerNormal(AllBlocks.HIGHWAY_EXIT_DISTANCE_INFO_LEFT_SINGLE);
     public static final Item HIGHWAY_EXIT_DISTANCE_INFO_MIDDLE_SINGLE =
@@ -503,33 +518,18 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HIGHWAY_EXIT_DISTANCE_INFO_RIGHT_BOTTOM);
     public static final Item BARRICADE_50CM_EDGE_75CM_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_50cm_edge_75cm_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new AliasedBlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item BARRICADE_50CM_EDGE_1M_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_50cm_edge_1m_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new AliasedBlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item BARRICADE_1M_EDGE_1M_HEIGHT = registerItem(
         commitAndGet(Registries.ITEM, "barricade_1m_edge_1m_height"),
-        settings -> new BlockItem(AllBlocks.BARRICADES_1, settings) {
-            @Override
-            @Contract(pure = true)
-            public Block getBlock() {
-                return AllBlocks.BARRICADES_1;
-            }
-        }, new Item.Settings().maxCount(64)
+        settings -> new AliasedBlockItem(AllBlocks.BARRICADES_1, settings),
+        new Item.Settings().maxCount(64)
     );
     public static final Item KEEP_SPACE_VARIANT1_UPPERLEFT =
     registerNormal(AllBlocks.KEEP_SPACE_VARIANT1_UPPERLEFT);
@@ -1113,6 +1113,222 @@ public class AllBlockItems {
     registerNormal(AllBlocks.RED_LINED10_TP);
     public static final Item BLACK_LINED10_TP =
     registerNormal(AllBlocks.BLACK_LINED10_TP);
+    public static final Item WHITE_THIN_22D5_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_THIN_22D5_FLOOR_LINE);
+    public static final Item YELLOW_THIN_22D5_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_THIN_22D5_FLOOR_LINE);
+    public static final Item WHITE_THIN_45_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_THIN_45_FLOOR_LINE);
+    public static final Item YELLOW_THIN_45_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_THIN_45_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C1_12_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C2_12_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C3_12_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C2_12_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C3_12_FLOOR_LINE);
+    public static final Item WHITE_R3_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_C3_12_FLOOR_LINE);
+    public static final Item WHITE_R1_25_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_25_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R1_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_25_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R1_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_25_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R2_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_25_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R2_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_25_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R3_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_25_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R3_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R3_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R3_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C1_12_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C2_12_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C3_12_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C2_12_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C3_12_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_C3_12_FLOOR_LINE);
+    public static final Item YELLOW_R1_25_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_25_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_25_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_25_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_25_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_25_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R3_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_25_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C0_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C0_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C0_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C0_12_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C0_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C0_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C0_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C0_12_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C1_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C1_12_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C1_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C1_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C1_12_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C2_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C2_12_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C2_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C2_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C2_12_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C3_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C3_12_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C3_12_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C3_12_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C3_12_FLOOR_LINE);
+    public static final Item WHITE_R0_25_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_25_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_25_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_25_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F25_YELLOW_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F25_YELLOW_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F25_WHITE_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F25_WHITE_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R0_25_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_25_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_25_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_25_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F25_YELLOW_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F25_YELLOW_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F25_WHITE_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F25_WHITE_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R0_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_25_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_25_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_25_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F25_YELLOW_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F25_YELLOW_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F25_WHITE_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F25_WHITE_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R0_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_25_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_25_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_25_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F25_YELLOW_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F25_YELLOW_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F25_WHITE_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F25_WHITE_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C1_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C1_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C1_25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C2_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C2_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C2_25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C3_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C3_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C3_25_FLOOR_LINE);
+    public static final Item WHITE_R1_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R1_12_YELLOW_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R1_12_YELLOW_C0_F25_FLOOR_LINE);
+    public static final Item YELLOW_R1_12_WHITE_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R1_12_WHITE_C0_F25_FLOOR_LINE);
+    public static final Item WHITE_R2_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R2_12_YELLOW_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R2_12_YELLOW_C0_F25_FLOOR_LINE);
+    public static final Item YELLOW_R2_12_WHITE_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R2_12_WHITE_C0_F25_FLOOR_LINE);
+    public static final Item WHITE_R3_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R3_12_YELLOW_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R3_12_YELLOW_C0_F25_FLOOR_LINE);
+    public static final Item YELLOW_R3_12_WHITE_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R3_12_WHITE_C0_F25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R0_F12_YELLOW_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_F12_YELLOW_C0_25_FLOOR_LINE);
+    public static final Item YELLOW_R0_F12_WHITE_C0_25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_F12_WHITE_C0_25_FLOOR_LINE);
+    public static final Item WHITE_R0_12_YELLOW_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.WHITE_R0_12_YELLOW_C0_F25_FLOOR_LINE);
+    public static final Item YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE =
+    registerNormal(AllBlocks.YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE);
     public static final ItemGroup ITEM_GROUP;
 
     public static BlockItem registerNormal(Block block) {
@@ -1195,7 +1411,11 @@ public class AllBlockItems {
             HEIGHTLIMIT_9D9, HEIGHTLIMIT_10
         };
         Item[] PROHIBITION_ITEMS = new Item[]{
-            PROHIBITION, NO_U_TURN, NO_LEFT_TURN, NO_RIGHT_TURN, NO_PARKING
+            PROHIBITION, NO_U_TURN, NO_LEFT_TURN, NO_RIGHT_TURN, NO_PARKING,
+            NO_ENTRY, NO_LEFT_AND_RIGHT_TURN, NO_STRAIGHT_AHEAD,
+            NO_STRAIGHT_AHEAD_AND_LEFT_TURN, NO_STRAIGHT_AHEAD_AND_RIGHT_TURN,
+            NO_STOPPING, NO_STOPPING_LEFT, NO_STOPPING_LEFT_RIGHT,
+            NO_STOPPING_RIGHT
         };
         Item[] HIGHWAY_HM_ITEMS = new Item[]{
             HIGHWAY_1HM, HIGHWAY_2HM, HIGHWAY_3HM, HIGHWAY_4HM, HIGHWAY_5HM,
@@ -1287,43 +1507,37 @@ public class AllBlockItems {
             LIGHT_BLUE_LINED4_TP, YELLOW_LINED4_TP, LIME_LINED4_TP,
             PINK_LINED4_TP, GRAY_LINED4_TP, LIGHT_GRAY_LINED4_TP,
             CYAN_LINED4_TP, PURPLE_LINED4_TP, BLUE_LINED4_TP,
-            BROWN_LINED4_TP, GREEN_LINED4_TP, RED_LINED4_TP,
-            BLACK_LINED4_TP
+            BROWN_LINED4_TP, GREEN_LINED4_TP, RED_LINED4_TP, BLACK_LINED4_TP
         }, new Item[]{
             WHITE_LINED5_TP, ORANGE_LINED5_TP, MAGENTA_LINED5_TP,
             LIGHT_BLUE_LINED5_TP, YELLOW_LINED5_TP, LIME_LINED5_TP,
             PINK_LINED5_TP, GRAY_LINED5_TP, LIGHT_GRAY_LINED5_TP,
             CYAN_LINED5_TP, PURPLE_LINED5_TP, BLUE_LINED5_TP,
-            BROWN_LINED5_TP, GREEN_LINED5_TP, RED_LINED5_TP,
-            BLACK_LINED5_TP
+            BROWN_LINED5_TP, GREEN_LINED5_TP, RED_LINED5_TP, BLACK_LINED5_TP
         }, new Item[]{
             WHITE_LINED6_TP, ORANGE_LINED6_TP, MAGENTA_LINED6_TP,
             LIGHT_BLUE_LINED6_TP, YELLOW_LINED6_TP, LIME_LINED6_TP,
             PINK_LINED6_TP, GRAY_LINED6_TP, LIGHT_GRAY_LINED6_TP,
             CYAN_LINED6_TP, PURPLE_LINED6_TP, BLUE_LINED6_TP,
-            BROWN_LINED6_TP, GREEN_LINED6_TP, RED_LINED6_TP,
-            BLACK_LINED6_TP
+            BROWN_LINED6_TP, GREEN_LINED6_TP, RED_LINED6_TP, BLACK_LINED6_TP
         }, new Item[]{
             WHITE_LINED7_TP, ORANGE_LINED7_TP, MAGENTA_LINED7_TP,
             LIGHT_BLUE_LINED7_TP, YELLOW_LINED7_TP, LIME_LINED7_TP,
             PINK_LINED7_TP, GRAY_LINED7_TP, LIGHT_GRAY_LINED7_TP,
             CYAN_LINED7_TP, PURPLE_LINED7_TP, BLUE_LINED7_TP,
-            BROWN_LINED7_TP, GREEN_LINED7_TP, RED_LINED7_TP,
-            BLACK_LINED7_TP
+            BROWN_LINED7_TP, GREEN_LINED7_TP, RED_LINED7_TP, BLACK_LINED7_TP
         }, new Item[]{
             WHITE_LINED8_TP, ORANGE_LINED8_TP, MAGENTA_LINED8_TP,
             LIGHT_BLUE_LINED8_TP, YELLOW_LINED8_TP, LIME_LINED8_TP,
             PINK_LINED8_TP, GRAY_LINED8_TP, LIGHT_GRAY_LINED8_TP,
             CYAN_LINED8_TP, PURPLE_LINED8_TP, BLUE_LINED8_TP,
-            BROWN_LINED8_TP, GREEN_LINED8_TP, RED_LINED8_TP,
-            BLACK_LINED8_TP
+            BROWN_LINED8_TP, GREEN_LINED8_TP, RED_LINED8_TP, BLACK_LINED8_TP
         }, new Item[]{
             WHITE_LINED9_TP, ORANGE_LINED9_TP, MAGENTA_LINED9_TP,
             LIGHT_BLUE_LINED9_TP, YELLOW_LINED9_TP, LIME_LINED9_TP,
             PINK_LINED9_TP, GRAY_LINED9_TP, LIGHT_GRAY_LINED9_TP,
             CYAN_LINED9_TP, PURPLE_LINED9_TP, BLUE_LINED9_TP,
-            BROWN_LINED9_TP, GREEN_LINED9_TP, RED_LINED9_TP,
-            BLACK_LINED9_TP
+            BROWN_LINED9_TP, GREEN_LINED9_TP, RED_LINED9_TP, BLACK_LINED9_TP
         }, new Item[]{
             WHITE_LINED10_TP, ORANGE_LINED10_TP, MAGENTA_LINED10_TP,
             LIGHT_BLUE_LINED10_TP, YELLOW_LINED10_TP, LIME_LINED10_TP,
@@ -1332,6 +1546,76 @@ public class AllBlockItems {
             BROWN_LINED10_TP, GREEN_LINED10_TP, RED_LINED10_TP,
             BLACK_LINED10_TP
         }};
+        Item[] FLOOR_LINE_CROSS_ITEMS = new Item[]{
+            WHITE_R1_12_C1_12_FLOOR_LINE, WHITE_R1_12_C2_12_FLOOR_LINE,
+            WHITE_R1_12_C3_12_FLOOR_LINE, WHITE_R2_12_C2_12_FLOOR_LINE,
+            WHITE_R2_12_C3_12_FLOOR_LINE, WHITE_R3_12_C3_12_FLOOR_LINE,
+            WHITE_R1_25_C1_25_FLOOR_LINE, WHITE_R1_25_C2_25_FLOOR_LINE,
+            WHITE_R1_25_C3_25_FLOOR_LINE, WHITE_R2_25_C2_25_FLOOR_LINE,
+            WHITE_R2_25_C3_25_FLOOR_LINE, WHITE_R3_25_C3_25_FLOOR_LINE,
+            WHITE_R1_12_C1_25_FLOOR_LINE, WHITE_R1_12_C2_25_FLOOR_LINE,
+            WHITE_R1_12_C3_25_FLOOR_LINE, WHITE_R2_12_C1_25_FLOOR_LINE,
+            WHITE_R2_12_C2_25_FLOOR_LINE, WHITE_R2_12_C3_25_FLOOR_LINE,
+            WHITE_R3_12_C1_25_FLOOR_LINE, WHITE_R3_12_C2_25_FLOOR_LINE,
+            WHITE_R3_12_C3_25_FLOOR_LINE, YELLOW_R1_12_C1_12_FLOOR_LINE,
+            YELLOW_R1_12_C2_12_FLOOR_LINE, YELLOW_R1_12_C3_12_FLOOR_LINE,
+            YELLOW_R2_12_C2_12_FLOOR_LINE, YELLOW_R2_12_C3_12_FLOOR_LINE,
+            YELLOW_R3_12_C3_12_FLOOR_LINE, YELLOW_R1_25_C1_25_FLOOR_LINE,
+            YELLOW_R1_25_C2_25_FLOOR_LINE, YELLOW_R1_25_C3_25_FLOOR_LINE,
+            YELLOW_R2_25_C2_25_FLOOR_LINE, YELLOW_R2_25_C3_25_FLOOR_LINE,
+            YELLOW_R3_25_C3_25_FLOOR_LINE, YELLOW_R1_12_C1_25_FLOOR_LINE,
+            YELLOW_R1_12_C2_25_FLOOR_LINE, YELLOW_R1_12_C3_25_FLOOR_LINE,
+            YELLOW_R2_12_C1_25_FLOOR_LINE, YELLOW_R2_12_C2_25_FLOOR_LINE,
+            YELLOW_R2_12_C3_25_FLOOR_LINE, YELLOW_R3_12_C1_25_FLOOR_LINE,
+            YELLOW_R3_12_C2_25_FLOOR_LINE, YELLOW_R3_12_C3_25_FLOOR_LINE,
+            WHITE_R0_12_C0_12_FLOOR_LINE, YELLOW_R0_12_C0_12_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C0_12_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C0_12_FLOOR_LINE,
+            WHITE_R0_12_C1_12_FLOOR_LINE, YELLOW_R0_12_C1_12_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C1_12_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C1_12_FLOOR_LINE,
+            WHITE_R0_12_C2_12_FLOOR_LINE, YELLOW_R0_12_C2_12_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C2_12_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C2_12_FLOOR_LINE,
+            WHITE_R0_12_C3_12_FLOOR_LINE, YELLOW_R0_12_C3_12_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C3_12_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C3_12_FLOOR_LINE,
+            WHITE_R0_25_C0_25_FLOOR_LINE, YELLOW_R0_25_C0_25_FLOOR_LINE,
+            WHITE_R0_F25_YELLOW_C0_25_FLOOR_LINE,
+            YELLOW_R0_F25_WHITE_C0_25_FLOOR_LINE,
+            WHITE_R0_25_C1_25_FLOOR_LINE, YELLOW_R0_25_C1_25_FLOOR_LINE,
+            WHITE_R0_F25_YELLOW_C1_25_FLOOR_LINE,
+            YELLOW_R0_F25_WHITE_C1_25_FLOOR_LINE,
+            WHITE_R0_25_C2_25_FLOOR_LINE, YELLOW_R0_25_C2_25_FLOOR_LINE,
+            WHITE_R0_F25_YELLOW_C2_25_FLOOR_LINE,
+            YELLOW_R0_F25_WHITE_C2_25_FLOOR_LINE,
+            WHITE_R0_25_C3_25_FLOOR_LINE, YELLOW_R0_25_C3_25_FLOOR_LINE,
+            WHITE_R0_F25_YELLOW_C3_25_FLOOR_LINE,
+            YELLOW_R0_F25_WHITE_C3_25_FLOOR_LINE,
+            WHITE_R0_12_C1_25_FLOOR_LINE, YELLOW_R0_12_C1_25_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C1_25_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C1_25_FLOOR_LINE,
+            WHITE_R0_12_C2_25_FLOOR_LINE, YELLOW_R0_12_C2_25_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C2_25_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C2_25_FLOOR_LINE,
+            WHITE_R0_12_C3_25_FLOOR_LINE, YELLOW_R0_12_C3_25_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C3_25_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C3_25_FLOOR_LINE,
+            WHITE_R1_12_C0_25_FLOOR_LINE, YELLOW_R1_12_C0_25_FLOOR_LINE,
+            WHITE_R1_12_YELLOW_C0_F25_FLOOR_LINE,
+            YELLOW_R1_12_WHITE_C0_F25_FLOOR_LINE,
+            WHITE_R2_12_C0_25_FLOOR_LINE, YELLOW_R2_12_C0_25_FLOOR_LINE,
+            WHITE_R2_12_YELLOW_C0_F25_FLOOR_LINE,
+            YELLOW_R2_12_WHITE_C0_F25_FLOOR_LINE,
+            WHITE_R3_12_C0_25_FLOOR_LINE, YELLOW_R3_12_C0_25_FLOOR_LINE,
+            WHITE_R3_12_YELLOW_C0_F25_FLOOR_LINE,
+            YELLOW_R3_12_WHITE_C0_F25_FLOOR_LINE,
+            WHITE_R0_12_C0_25_FLOOR_LINE, YELLOW_R0_12_C0_25_FLOOR_LINE,
+            WHITE_R0_F12_YELLOW_C0_25_FLOOR_LINE,
+            YELLOW_R0_F12_WHITE_C0_25_FLOOR_LINE,
+            WHITE_R0_12_YELLOW_C0_F25_FLOOR_LINE,
+            YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE
+        };
         ITEM_GROUP =
         FabricItemGroup.builder()
         .icon(() -> new ItemStack(SPEEDLIMIT_HIGH_120))
@@ -1421,6 +1705,13 @@ public class AllBlockItems {
                 for (Item j : i) {
                     e.add(j);
                 }
+            }
+            e.add(WHITE_THIN_22D5_FLOOR_LINE);
+            e.add(YELLOW_THIN_22D5_FLOOR_LINE);
+            e.add(WHITE_THIN_45_FLOOR_LINE);
+            e.add(YELLOW_THIN_45_FLOOR_LINE);
+            for (Item i : FLOOR_LINE_CROSS_ITEMS) {
+                e.add(i);
             }
         }).build();
         Registry.register(Registries.ITEM_GROUP, Identifier.of(

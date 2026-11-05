@@ -8,22 +8,19 @@ from .reg_utils import (
 
 
 Y_SUBS: Tuple[str, ...] = (
-    "center", "south", "southeast", "east", "northeast",
-    "north", "northwest", "west", "southwest"
+    "center", "south", "southeast", "east", "northeast", "north", "northwest",
+    "west", "southwest"
 )
 
 HORIZ_AXES: Tuple[Tuple[str, str, str, int, int], ...] = (
-    ("z", "west", "east", 0, 180),
-    ("x", "north", "south", 90, 270),
+    ("z", "west", "east", 0, 180), ("x", "north", "south", 90, 270)
 )
 
 
 def build_blockstate(name: str) -> Any:
     variants: Dict[str, Any] = {f"position=y_{sub}": CompactDict({
-        "model": (
-            "cntrafficsymbols_0d0:block/"
-            f"{name}_full1_cylindrical_rod_y_{sub}"
-        )
+        "model":
+        f"cntrafficsymbols_0d0:block/{name}_full1_cylindrical_rod_y_{sub}"
     }) for sub in Y_SUBS}
 
     for axis, main_dir, opp_dir, base_y, opp_y in HORIZ_AXES:

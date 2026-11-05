@@ -20,9 +20,10 @@ import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing
 
 public class HighwayHmSignBERenderer
 implements BlockEntityRenderer<HighwayHmSignBlockEntity> {
-    private static final Vec3d TEXT_OFFSET = new Vec3d(0, .171875, .075);
-    public static final float UP_OFFSET = .375f;
-    public static final float DOWN_OFFSET = -.375f;
+    private static final Vec3d TEXT_OFFSET =
+    new Vec3d(0, 0.1640625, 0.0234375);
+    public static final float UP_OFFSET = 0.4375f;
+    public static final float DOWN_OFFSET = -0.4375f;
     private final TextRenderer tr;
 
     public HighwayHmSignBERenderer(BlockEntityRendererFactory.Context ctx) {
@@ -40,11 +41,9 @@ implements BlockEntityRenderer<HighwayHmSignBlockEntity> {
         }
         BlockState st = ett.getCachedState();
         matrices.push();
-        this.setAngles(
-            matrices,
-            st.get(FACING).isWall() ? (26 - st.get(FACING).id) * 90f :
-            (((32 - st.get(FACING).id) % 16) * 22.5f), st
-        );
+        this.setAngles(matrices, st.get(FACING).isWall() ? (
+            26 - st.get(FACING).id
+        ) * 90f : (((32 - st.get(FACING).id) % 16) * 22.5f), st);
         this.renderText(ett.getPos(), tx, matrices, vcs, light, 8, 90, true);
         if (!st.get(FACING).isSingle()) {
             this
@@ -63,12 +62,8 @@ implements BlockEntityRenderer<HighwayHmSignBlockEntity> {
             matrices.translate(0f, 0f, -.5f);
         }
         switch (st.get(ATTACHMENT).id) {
-            case 1:
-                matrices.translate(0f, DOWN_OFFSET, 0f);
-                break;
-            case 2:
-                matrices.translate(0f, UP_OFFSET, 0f);
-                break;
+            case 1: matrices.translate(0f, DOWN_OFFSET, 0f); break;
+            case 2: matrices.translate(0f, UP_OFFSET, 0f); break;
         }
     }
 
@@ -78,7 +73,7 @@ implements BlockEntityRenderer<HighwayHmSignBlockEntity> {
         boolean front
     ) {
         matrices.push();
-        this.setTextAngles(matrices, front, TEXT_OFFSET);
+        setTextAngles(matrices, front, TEXT_OFFSET);
         int i = 36912;
         int j = 4 * lineHeight / 2;
         net.minecraft.text.OrderedText odt = tx.asOrderedText();
@@ -88,12 +83,12 @@ implements BlockEntityRenderer<HighwayHmSignBlockEntity> {
         matrices.pop();
     }
 
-    private void
+    private static void
     setTextAngles(MatrixStack matrices, boolean front, Vec3d translation) {
         if (!front) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
         }
-        float f = .00390625f;
+        float f = 0.0029296875f;
         matrices.translate(translation.x, translation.y, translation.z);
         matrices.scale(f, -f, f);
     }

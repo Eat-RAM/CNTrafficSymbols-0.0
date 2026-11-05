@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": {"item": "cntrafficsymbols_0d0:white_floor_line_eighth"}
+  },
+  "pattern": [
+    "WW"
+  ],
+  "result": {"item": "cntrafficsymbols_0d0:white_r0_12_c0_12_floor_line"},
+  "show_notification": true
+}

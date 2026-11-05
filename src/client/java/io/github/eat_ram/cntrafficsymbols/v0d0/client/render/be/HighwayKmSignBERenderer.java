@@ -21,10 +21,10 @@ import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing
 
 public class HighwayKmSignBERenderer
 implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
-    private static final Vec3d TEXT_OFFSET = new Vec3d(0, .25, .075);
-    private static final Vec3d INT_OFFSET = new Vec3d(0, .625, .075);
-    public static final float UP_OFFSET = .25f;
-    public static final float DOWN_OFFSET = -.25f;
+    private static final Vec3d TEXT_OFFSET = new Vec3d(0, 0.25, 0.0375);
+    private static final Vec3d INT_OFFSET = new Vec3d(0, 0.625, 0.0375);
+    public static final float UP_OFFSET = 0.259375f;
+    public static final float DOWN_OFFSET = -0.259375f;
     private final TextRenderer tr;
 
     public HighwayKmSignBERenderer(BlockEntityRendererFactory.Context ctx) {
@@ -41,26 +41,25 @@ implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
         if (km < 0) {
             km = ~km;
         }
+        boolean pf = ett.isPointFive();
         BlockState st = ett.getCachedState();
         matrices.push();
-        this.setAngles(
-            matrices,
-            st.get(FACING).isWall() ? (26 - st.get(FACING).id) * 90f :
-            (((32 - st.get(FACING).id) % 16) * 22.5f), st
-        );
+        this.setAngles(matrices, st.get(FACING).isWall() ? (
+            26 - st.get(FACING).id
+        ) * 90f : (((32 - st.get(FACING).id) % 16) * 22.5f), st);
         if (tx != null) {
             this
             .renderText(ett.getPos(), tx, matrices, vcs, light, 8, 90, true);
         }
-        this.renderInt(ett.getPos(), km, matrices, vcs, light, 8, 90, true);
+        this.renderKm(ett.getPos(), km, pf, matrices, vcs, light, 8, 90, true);
         if (!st.get(FACING).isSingle()) {
             if (tx != null) {
                 this.renderText(
                     ett.getPos(), tx, matrices, vcs, light, 8, 90, false
                 );
             }
-            this
-            .renderInt(ett.getPos(), km, matrices, vcs, light, 8, 90, false);
+            this.renderKm(ett.getPos(), km, pf, matrices, vcs, light, 8, 90,
+                          false);
         }
         matrices.pop();
     }
@@ -75,22 +74,18 @@ implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
             matrices.translate(0f, 0f, -.5f);
         }
         switch (st.get(ATTACHMENT).id) {
-            case 1:
-                matrices.translate(0f, DOWN_OFFSET, 0f);
-                break;
-            case 2:
-                matrices.translate(0f, UP_OFFSET, 0f);
-                break;
+            case 1: matrices.translate(0f, DOWN_OFFSET, 0f); break;
+            case 2: matrices.translate(0f, UP_OFFSET, 0f); break;
         }
     }
 
-    void renderText(
+    private void renderText(
         BlockPos pos, Text tx, MatrixStack matrices,
         VertexConsumerProvider vcs, int light, int lineHeight, int lineWidth,
         boolean front
     ) {
         matrices.push();
-        this.setTextAngles(matrices, front, TEXT_OFFSET);
+        setTextAngles(matrices, front, TEXT_OFFSET);
         int i = 16777215;
         int j = 4 * lineHeight / 2;
         OrderedText odt = tx.asOrderedText();
@@ -100,7 +95,7 @@ implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
         matrices.pop();
     }
 
-    private void
+    private static void
     setTextAngles(MatrixStack matrices, boolean front, Vec3d translation) {
         if (!front) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
@@ -110,22 +105,24 @@ implements BlockEntityRenderer<HighwayKmSignBlockEntity> {
         matrices.scale(f, -f, f);
     }
 
-    void renderInt(
-        BlockPos pos, int v, MatrixStack matrices, VertexConsumerProvider vcs,
-        int light, int lineHeight, int lineWidth, boolean front
+    private void renderKm(
+        BlockPos pos, int v, boolean pointFive, MatrixStack matrices,
+        VertexConsumerProvider vcs, int light, int lineHeight, int lineWidth,
+        boolean front
     ) {
         matrices.push();
-        this.setIntAngles(matrices, front, INT_OFFSET);
+        setIntAngles(matrices, front, INT_OFFSET);
         int i = 16777215;
         int j = 4 * lineHeight / 2;
-        OrderedText odt = Text.literal(Integer.toString(v)).asOrderedText();
+        String s = v + (pointFive ? ".\u2085" : "");
+        OrderedText odt = Text.literal(s).asOrderedText();
         this.tr.draw(odt, (float)(-this.tr.getWidth(odt) / 2), (float)j, i,
                      false, matrices.peek().getPositionMatrix(), vcs,
                      TextRenderer.TextLayerType.POLYGON_OFFSET, 0, light);
         matrices.pop();
     }
 
-    private void
+    private static void
     setIntAngles(MatrixStack matrices, boolean front, Vec3d translation) {
         if (!front) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));

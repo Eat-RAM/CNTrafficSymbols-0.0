@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_white_floor_line_eighth": {
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:white_floor_line_eighth"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_yellow_floor_line_eighth": {
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:yellow_floor_line_eighth"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipe": "cntrafficsymbols_0d0:white_25_yellow_25_floor_line"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_floor_line_eighth",
+      "has_yellow_floor_line_eighth"
+    ]
+  ],
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:white_25_yellow_25_floor_line"]},
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 64,
+  "ingredient": {"item": "minecraft:white_concrete"},
+  "result": "cntrafficsymbols_0d0:white_thin_45_floor_line"
+}

@@ -13,6 +13,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Contract;
 
 public class HighwayExitDistanceInfoKmBlockEntity extends BlockEntity
 implements Nameable {
@@ -41,6 +42,11 @@ implements Nameable {
 
     public HighwayExitDistanceInfoKmBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
+    }
+
+    @Contract(pure = true)
+    public float getKm() {
+        return this.km;
     }
 
     public String getKmStr() {

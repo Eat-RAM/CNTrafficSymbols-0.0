@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {"layer0": "cntrafficsymbols_0d0:item/yellow_r0_25_c2_25_floor_line"}
+}

@@ -3,11 +3,11 @@ plugins {
     `maven-publish`
 }
 
-version = project.property("mod_version") as String
+version = project.findProperty("mod_version") as? String ?: "unknown"
 group = project.property("maven_group") as String
 
 base {
-    archivesName = project.property("archives_base_name") as String
+    archivesName = project.findProperty("archives_base_name") as? String ?:name
 }
 
 repositories {
@@ -48,7 +48,9 @@ dependencies {
     // Uncomment the following line to enable the deprecated Fabric API modules. 
     // These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
-    // modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}")
+    //modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${
+    //    project.fabric_version
+    //}")
     modImplementation(files("cntrafficsymbols_core-0.0.3-a1.jar"))
     modImplementation("com.terraformersmc:modmenu:9.2.0") {
         exclude(group = "eu.pb4", module = "placeholder-api")
@@ -71,8 +73,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
-
-val extraResourcesPath: String = "src/main/extra-resources"
 
 tasks.jar {
     from("LICENSE") {
@@ -112,20 +112,23 @@ publishing {
 val isWindowsOs = org.apache.tools.ant.taskdefs.condition.Os.isFamily(
     org.apache.tools.ant.taskdefs.condition.Os.FAMILY_WINDOWS
 )
-val defaultPythonExecutable = project.findProperty("pythonCmd") as? String
-    ?: System.getenv("PYTHON")
-    ?: if (isWindowsOs) "python" else "python3"
+val defaultPythonExecutable =
+project.findProperty("pythonCmd") as? String ?: System.getenv("PYTHON") ?:
+if (isWindowsOs) "python" else "python3"
 
 val generateAssets = tasks.register<Exec>("generateAssets") {
     group = "generation"
-    description = "Regenerates all JSON assets using Python generator scripts."
-    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "src/main/resources")
+    description =
+    "Regenerates all JSON resources using Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all",
+                "src/main/resources")
 }
 
 val verifyAssets = tasks.register<Exec>("verifyAssets") {
     group = "verification"
-    description = "Verifies that all generated JSON assets are in sync with Python generator scripts."
-    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "src/main/resources", "--dry-run")
+    description = "Verifies that all generated JSON resources are in sync using Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all",
+                "src/main/resources", "--dry-run")
 }
 
 tasks.named("check") {

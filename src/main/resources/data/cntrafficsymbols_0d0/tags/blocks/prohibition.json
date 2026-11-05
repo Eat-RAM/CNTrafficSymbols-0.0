@@ -4,6 +4,15 @@
     "cntrafficsymbols_0d0:no_u_turn",
     "cntrafficsymbols_0d0:no_left_turn",
     "cntrafficsymbols_0d0:no_right_turn",
-    "cntrafficsymbols_0d0:no_parking"
+    "cntrafficsymbols_0d0:no_parking",
+    "cntrafficsymbols_0d0:no_entry",
+    "cntrafficsymbols_0d0:no_left_and_right_turn",
+    "cntrafficsymbols_0d0:no_straight_ahead",
+    "cntrafficsymbols_0d0:no_straight_ahead_and_left_turn",
+    "cntrafficsymbols_0d0:no_straight_ahead_and_right_turn",
+    "cntrafficsymbols_0d0:no_stopping",
+    "cntrafficsymbols_0d0:no_stopping_left",
+    "cntrafficsymbols_0d0:no_stopping_left_right",
+    "cntrafficsymbols_0d0:no_stopping_right"
   ]
 }

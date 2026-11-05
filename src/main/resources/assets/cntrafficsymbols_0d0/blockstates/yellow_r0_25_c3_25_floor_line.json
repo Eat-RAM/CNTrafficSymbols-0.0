@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": {"model": "cntrafficsymbols_0d0:block/yellow_r0_25_c3_25_floor_line"},
+    "facing=east": {"model": "cntrafficsymbols_0d0:block/yellow_r0_25_c3_25_floor_line", "y": 90, "uvlock": true},
+    "facing=south": {"model": "cntrafficsymbols_0d0:block/yellow_r0_25_c3_25_floor_line", "y": 180, "uvlock": true},
+    "facing=west": {"model": "cntrafficsymbols_0d0:block/yellow_r0_25_c3_25_floor_line", "y": 270, "uvlock": true}
+  }
+}

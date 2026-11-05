@@ -28,8 +28,10 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoNameBlockEntity;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.HighwayHmSignBlockEntity;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.HighwayKmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .HighwayHmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .HighwayKmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayExitDistanceInfoKmBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
@@ -247,6 +249,15 @@ public class MainClient implements ClientModInitializer {
             AllBlocks.NO_LEFT_TURN,
             AllBlocks.NO_RIGHT_TURN,
             AllBlocks.NO_PARKING,
+            AllBlocks.NO_ENTRY,
+            AllBlocks.NO_LEFT_AND_RIGHT_TURN,
+            AllBlocks.NO_STRAIGHT_AHEAD,
+            AllBlocks.NO_STRAIGHT_AHEAD_AND_LEFT_TURN,
+            AllBlocks.NO_STRAIGHT_AHEAD_AND_RIGHT_TURN,
+            AllBlocks.NO_STOPPING,
+            AllBlocks.NO_STOPPING_LEFT,
+            AllBlocks.NO_STOPPING_LEFT_RIGHT,
+            AllBlocks.NO_STOPPING_RIGHT,
             AllBlocks.HIGHWAY_1HM,
             AllBlocks.HIGHWAY_2HM,
             AllBlocks.HIGHWAY_3HM,
@@ -366,5 +377,7 @@ public class MainClient implements ClientModInitializer {
             HighwayExitDistanceInfoKmBlockEntity.TYPE,
             HighwayExitDistanceInfoKmBERenderer::new
         );
+        io.github.eat_ram.cntrafficsymbols.v0d0.client.network
+        .ModClientNetworking.init();
     }
 }

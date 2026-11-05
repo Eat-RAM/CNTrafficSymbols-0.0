@@ -4,11 +4,19 @@ import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network.ModNetworking;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -63,11 +71,34 @@ implements BlockEntityProvider {
     public ItemStack
     getPickStack(WorldView world, BlockPos pos, BlockState state) {
         BlockEntity be = world.getBlockEntity(pos);
-        return (be instanceof HighwayExitDistanceInfoKmBlockEntity) ?
+        return be instanceof HighwayExitDistanceInfoKmBlockEntity ?
                new ItemStack(this.asItem(), state.get(
                    DoubleFaceFacing90.FACING
                ).isSingle() ? 1 : 2).setCustomName(
                    ((HighwayExitDistanceInfoKmBlockEntity)be).getCustomName()
                ) : super.getPickStack(world, pos, state);
+    }
+
+    @Override
+    public ActionResult onUse(
+        BlockState state, World world, BlockPos pos, PlayerEntity player,
+        Hand hand, BlockHitResult hit
+    ) {
+        HighwayExitDistanceInfoParts parts =
+        new HighwayExitDistanceInfoParts(world, pos, state, hit.getSide());
+        if (parts.kmBe != null &&
+            Math.copySign(1f, parts.kmBe.getKm()) == -1f) {
+            return ActionResult.PASS;
+        }
+        if (!world.isClient && player instanceof
+            net.minecraft.server.network.ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, ModNetworking.OPEN_EDIT_SCREEN_ID,
+                new OpenEditTrafficSignPayload(
+                    pos, OpenEditTrafficSignPayload.TYPE_HIGHWAY_EXIT_INFO,
+                    hit.getSide()
+                ).toBuffer()
+            );
+        }
+        return ActionResult.SUCCESS;
     }
 }

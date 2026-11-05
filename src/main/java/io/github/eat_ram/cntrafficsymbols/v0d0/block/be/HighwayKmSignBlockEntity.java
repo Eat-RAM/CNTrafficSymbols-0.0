@@ -23,6 +23,7 @@ implements net.minecraft.util.Nameable {
 
     private @Nullable Text customName;
     private int km = 0;
+    private boolean pointFive = false;
 
     public HighwayKmSignBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
@@ -52,10 +53,21 @@ implements net.minecraft.util.Nameable {
         this.km = (v <= 99999) ? ((v > -100001) ? v : -100000) : 99999;
     }
 
+    public boolean isPointFive() {
+        return this.pointFive;
+    }
+
+    public void setPointFive(boolean v) {
+        this.pointFive = v;
+    }
+
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         nbt.putInt("km", this.km);
+        if (this.pointFive) {
+            nbt.putBoolean("PointFive", true);
+        }
         if (this.customName != null) {
             nbt.putString("CustomName", Text.Serialization.toJsonString(
                 this.customName
@@ -68,6 +80,8 @@ implements net.minecraft.util.Nameable {
         super.readNbt(nbt);
         this.setKm(nbt.contains("km", NbtElement.INT_TYPE) ?
                    nbt.getInt("km") : 0);
+        this.pointFive =
+        nbt.getBoolean("PointFive") || nbt.getBoolean("pointFive");
         if (nbt.contains("CustomName", NbtElement.STRING_TYPE)) {
             this.customName = Text.Serialization.fromJson(
                 nbt.getString("CustomName")

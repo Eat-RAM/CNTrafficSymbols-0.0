@@ -7,8 +7,9 @@ from typing import Any, List, NoReturn, Tuple, Union
 
 
 __all__: List[str] = [
-    "COLORS", "CompactDict", "CompactList", "create_parser", "dumps_compact",
-    "ensure_output_dir", "write_json_idempotent"
+    "COLORS", "CompactDict", "CompactList", "strict_json_equal",
+    "create_parser", "dumps_compact", "ensure_output_dir",
+    "write_json_idempotent"
 ]
 
 
@@ -25,6 +26,23 @@ class CompactList(list):
 
 class CompactDict(dict):
     """Dict marked to be serialized as a single-line compact JSON object."""
+
+
+def strict_json_equal(a: Any, b: Any, compare_order: bool = True) -> bool:
+    """Strictly compare two JSON-compatible objects,
+    including int vs float vs bool."""
+
+    if isinstance(a, dict):
+        if not isinstance(b, dict) or len(a) != len(b):
+            return False
+        itlr = list if compare_order else set
+        return itlr(a.keys()) == itlr(b.keys()) and \
+               all(strict_json_equal(a[k], b[k], compare_order) for k in a)
+    if isinstance(a, list):
+        return isinstance(b, list) and len(a) == len(b) and all(
+            strict_json_equal(x, y, compare_order) for x, y in zip(a, b)
+        )
+    return type(a) is type(b) and a == b
 
 
 def create_parser(desc: str) -> ArgumentParser:
@@ -96,22 +114,29 @@ def write_json_idempotent(
 
     target_path: str = path.join(target_dir, filename)
     same: bool = False
+    new_file: bool = False
     try:
         with open(target_path, "r", encoding="utf-8") as f:
             original = json.load(f)
-            same = original == to_write
-    except (json.JSONDecodeError, FileNotFoundError):
+            same = strict_json_equal(original, to_write)
+    except FileNotFoundError:
+        new_file = True
+    except json.JSONDecodeError:
         pass
+    log_string: str = f"Wrote {target_path}\n"
+    if new_file:
+        log_string = "[NEW] " + log_string
 
     if same:
         return False
     if dry_run:
-        stderr.write(f"Wrote {filename}\n")
+        stderr.write(log_string)
     else:
         with open(target_path, "w", encoding="utf-8") as f:
             if compact:
                 f.write(dumps_compact(to_write, indent=indent))
             else:
-                json.dump(to_write, f, indent=indent, sort_keys=sort_keys)
-            stderr.write(f"Wrote {filename}\n")
+                json.dump(to_write, f, indent=indent, sort_keys=sort_keys,
+                          ensure_ascii=False)
+            stderr.write(log_string)
     return True

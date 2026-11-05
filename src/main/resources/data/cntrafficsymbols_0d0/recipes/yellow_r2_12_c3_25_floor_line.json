@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {"tag": "cntrafficsymbols_0d0:yellow_12_25_floor_line"},
+  "result": "cntrafficsymbols_0d0:yellow_r2_12_c3_25_floor_line"
+}

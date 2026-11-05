@@ -50,9 +50,7 @@ BASE_UP: Any = {
             "from": CompactList([0, 8, 0]),
             "to": CompactList([16, 9, 16]),
             "faces": {
-                "down": CompactDict({
-                    "uv": [0, 0, 16, 16], "texture": "#this"
-                }),
+                "down":CompactDict({"uv": [0, 0, 16, 16], "texture": "#this"}),
                 "up": CompactDict({"uv": [0, 0, 16, 16], "texture": "#this"}),
                 "north": CompactDict({
                     "uv": [0, 7, 16, 8], "texture": "#this",

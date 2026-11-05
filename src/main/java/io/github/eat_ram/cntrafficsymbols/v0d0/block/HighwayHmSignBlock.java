@@ -6,11 +6,20 @@ import io.github.eat_ram.cntrafficsymbols.core.struct.Attachment3;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayHmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network.ModNetworking;
+import io.github.eat_ram.cntrafficsymbols.v0d0.network
+       .OpenEditTrafficSignPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
@@ -25,35 +34,35 @@ import static net.minecraft.util.shape.VoxelShapes.empty;
 public class HighwayHmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider {
     public static final VoxelShape SHAPE0 =
-    cuboid(.375, .375, .375, .625, .625, .625);
+    cuboid(0.4375, 0.4375, 0.4375, 0.5625, 0.5625, 0.5625);
     public static final VoxelShape SHAPE0N =
-    cuboid(.375, .375, .9375, .625, .625, 1);
+    cuboid(0.4375, 0.4375, 0.984375, 0.5625, 0.5625, 1);
     public static final VoxelShape SHAPE0E =
-    cuboid(0, .375, .375, .0625, .625, .625);
+    cuboid(0, 0.4375, 0.4375, 0.015625, 0.5625, 0.5625);
     public static final VoxelShape SHAPE0S =
-    cuboid(.375, .375, 0, .625, .625, .0625);
+    cuboid(0.4375, 0.4375, 0, 0.5625, 0.5625, 0.015625);
     public static final VoxelShape SHAPE0W =
-    cuboid(.9375, .375, .375, 1, .625, .625);
+    cuboid(0.984375, 0.4375, 0.4375, 1, 0.5625, 0.5625);
     public static final VoxelShape SHAPE1 =
-    cuboid(.375, 0, .375, .625, .25, .625);
+    cuboid(0.4375, 0, 0.4375, 0.5625, 0.125, 0.5625);
     public static final VoxelShape SHAPE1N =
-    cuboid(.375, 0, .9375, .625, .25, 1);
+    cuboid(0.4375, 0, 0.984375, 0.5625, 0.125, 1);
     public static final VoxelShape SHAPE1E =
-    cuboid(0, 0, .375, .0625, .25, .625);
+    cuboid(0, 0, 0.4375, 0.015625, 0.125, 0.5625);
     public static final VoxelShape SHAPE1S =
-    cuboid(.375, 0, 0, .625, .25, .0625);
+    cuboid(0.4375, 0, 0, 0.5625, 0.125, 0.015625);
     public static final VoxelShape SHAPE1W =
-    cuboid(.9375, 0, .375, 1, .25, .625);
+    cuboid(0.984375, 0, 0.4375, 1, 0.125, 0.5625);
     public static final VoxelShape SHAPE2 =
-    cuboid(.375, .75, .375, .625, 1, .625);
+    cuboid(0.4375, 0.875, 0.4375, 0.5625, 1, 0.5625);
     public static final VoxelShape SHAPE2N =
-    cuboid(.375, .75, .9375, .625, 1, 1);
+    cuboid(0.4375, 0.875, 0.984375, 0.5625, 1, 1);
     public static final VoxelShape SHAPE2E =
-    cuboid(0, .75, .375, .0625, 1, .625);
+    cuboid(0, 0.875, 0.4375, 0.015625, 1, 0.5625);
     public static final VoxelShape SHAPE2S =
-    cuboid(.375, .75, 0, .625, 1, .0625);
+    cuboid(0.4375, 0.875, 0, 0.5625, 1, 0.015625);
     public static final VoxelShape SHAPE2W =
-    cuboid(.9375, .75, .375, 1, 1, .625);
+    cuboid(0.984375, 0.875, 0.4375, 1, 1, 0.5625);
 
     public HighwayHmSignBlock(Settings settings) {
         super(settings);
@@ -131,11 +140,45 @@ implements net.minecraft.block.BlockEntityProvider {
     public ItemStack
     getPickStack(WorldView world, BlockPos pos, BlockState state) {
         BlockEntity be = world.getBlockEntity(pos);
-        return (be instanceof HighwayHmSignBlockEntity) ?
+        return be instanceof HighwayHmSignBlockEntity ?
                new ItemStack(this.asItem(), state.get(
                    DoubleFaceFacing.FACING
                ).isSingle() ? 1 : 2).setCustomName(
                    ((HighwayHmSignBlockEntity)be).getCustomName()
                ) : super.getPickStack(world, pos, state);
+    }
+
+    @Override
+    public ActionResult onUse(
+        BlockState state, World world, BlockPos pos, PlayerEntity player,
+        Hand hand, BlockHitResult hit
+    ) {
+        if (!world.isClient && player instanceof
+            net.minecraft.server.network.ServerPlayerEntity spe) {
+            ServerPlayNetworking.send(spe, ModNetworking.OPEN_EDIT_SCREEN_ID,
+                new OpenEditTrafficSignPayload(
+                    pos, OpenEditTrafficSignPayload.TYPE_HIGHWAY_HM,
+                    hit.getSide()
+                ).toBuffer()
+            );
+        }
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean canBucketPlace(BlockState state, Fluid fluid) {
+        return false;
+    }
+
+    public static int getHmDigit(net.minecraft.block.Block block) {
+        if (block == AllBlocks.HIGHWAY_2HM) return 2;
+        if (block == AllBlocks.HIGHWAY_3HM) return 3;
+        if (block == AllBlocks.HIGHWAY_4HM) return 4;
+        if (block == AllBlocks.HIGHWAY_5HM) return 5;
+        if (block == AllBlocks.HIGHWAY_6HM) return 6;
+        if (block == AllBlocks.HIGHWAY_7HM) return 7;
+        if (block == AllBlocks.HIGHWAY_8HM) return 8;
+        if (block == AllBlocks.HIGHWAY_9HM) return 9;
+        return 1;
     }
 }

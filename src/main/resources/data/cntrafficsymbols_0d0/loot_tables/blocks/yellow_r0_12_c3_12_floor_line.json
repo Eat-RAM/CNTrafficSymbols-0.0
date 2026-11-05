@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [{"condition": "minecraft:survives_explosion"}],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "cntrafficsymbols_0d0:yellow_r0_12_c3_12_floor_line"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "cntrafficsymbols_0d0:yellow_r0_12_c3_12_floor_line"
+}

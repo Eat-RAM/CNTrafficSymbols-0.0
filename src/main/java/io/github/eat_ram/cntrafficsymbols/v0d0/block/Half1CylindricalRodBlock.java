@@ -62,291 +62,94 @@ implements FluidloggedConfigurable {
         double rz = ctx.getHitPos().z - ctx.getBlockPos().getZ();
         FacePosition9 rp = st.get(FacePosition9.POSITION);
         switch (ctx.getSide().getId()) {
-            case 5: {
-                switch (closedRangeTo(.25, .75, ry)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_LOWERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_LOWER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_LOWERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.WEST_UPPERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.WEST_UPPER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.WEST_UPPERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
+            case 5:
+                switch (closedRangeTo(.25, .75, ry) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.WEST_LOWERNORTH; break;
+                    case -3: rp = FacePosition9.WEST_LOWER; break;
+                    case -2: rp = FacePosition9.WEST_LOWERSOUTH; break;
+                    case -1: rp = FacePosition9.WEST_NORTH; break;
+                    case 0: rp = FacePosition9.WEST_CENTER; break;
+                    case 1: rp = FacePosition9.WEST_SOUTH; break;
+                    case 2: rp = FacePosition9.WEST_UPPERNORTH; break;
+                    case 3: rp = FacePosition9.WEST_UPPER; break;
+                    case 4: rp = FacePosition9.WEST_UPPERSOUTH; break;
                 }
                 break;
-            }
-            case 4: {
-                switch (closedRangeTo(.25, .75, ry)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_LOWERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_LOWER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_LOWERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.EAST_UPPERNORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.EAST_UPPER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.EAST_UPPERSOUTH;
-                                break;
-                        }
-                        break;
-                    }
+            case 4:
+                switch (closedRangeTo(.25, .75, ry) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.EAST_LOWERNORTH; break;
+                    case -3: rp = FacePosition9.EAST_LOWER; break;
+                    case -2: rp = FacePosition9.EAST_LOWERSOUTH; break;
+                    case -1: rp = FacePosition9.EAST_NORTH; break;
+                    case 0: rp = FacePosition9.EAST_CENTER; break;
+                    case 1: rp = FacePosition9.EAST_SOUTH; break;
+                    case 2: rp = FacePosition9.EAST_UPPERNORTH; break;
+                    case 3: rp = FacePosition9.EAST_UPPER; break;
+                    case 4: rp = FacePosition9.EAST_UPPERSOUTH; break;
                 }
                 break;
-            }
-            case 1: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTHWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTHWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.DOWN_NORTHEAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.DOWN_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.DOWN_SOUTHEAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 1:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.DOWN_NORTHWEST; break;
+                    case -3: rp = FacePosition9.DOWN_WEST; break;
+                    case -2: rp = FacePosition9.DOWN_SOUTHWEST; break;
+                    case -1: rp = FacePosition9.DOWN_NORTH; break;
+                    case 0: rp = FacePosition9.DOWN_CENTER; break;
+                    case 1: rp = FacePosition9.DOWN_SOUTH; break;
+                    case 2: rp = FacePosition9.DOWN_NORTHEAST; break;
+                    case 3: rp = FacePosition9.DOWN_EAST; break;
+                    case 4: rp = FacePosition9.DOWN_SOUTHEAST; break;
                 }
                 break;
-            }
-            case 0: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTHWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTHWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTH;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTH;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, rz)) {
-                            case -1:
-                                rp = FacePosition9.UP_NORTHEAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.UP_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.UP_SOUTHEAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 0:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, rz)) {
+                    case -4: rp = FacePosition9.UP_NORTHWEST; break;
+                    case -3: rp = FacePosition9.UP_WEST; break;
+                    case -2: rp = FacePosition9.UP_SOUTHWEST; break;
+                    case -1: rp = FacePosition9.UP_NORTH; break;
+                    case 0: rp = FacePosition9.UP_CENTER; break;
+                    case 1: rp = FacePosition9.UP_SOUTH; break;
+                    case 2: rp = FacePosition9.UP_NORTHEAST; break;
+                    case 3: rp = FacePosition9.UP_EAST; break;
+                    case 4: rp = FacePosition9.UP_SOUTHEAST; break;
                 }
                 break;
-            }
-            case 3: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWERWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPERWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWER;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPER;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.NORTH_LOWEREAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.NORTH_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.NORTH_UPPEREAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 3:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, ry)) {
+                    case -4: rp = FacePosition9.NORTH_LOWERWEST; break;
+                    case -3: rp = FacePosition9.NORTH_WEST; break;
+                    case -2: rp = FacePosition9.NORTH_UPPERWEST; break;
+                    case -1: rp = FacePosition9.NORTH_LOWER; break;
+                    case 0: rp = FacePosition9.NORTH_CENTER; break;
+                    case 1: rp = FacePosition9.NORTH_UPPER; break;
+                    case 2: rp = FacePosition9.NORTH_LOWEREAST; break;
+                    case 3: rp = FacePosition9.NORTH_EAST; break;
+                    case 4: rp = FacePosition9.NORTH_UPPEREAST; break;
                 }
                 break;
-            }
-            case 2: {
-                switch (closedRangeTo(.25, .75, rx)) {
-                    case -1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWERWEST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_WEST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPERWEST;
-                                break;
-                        }
-                        break;
-                    }
-                    case 0: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWER;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_CENTER;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPER;
-                                break;
-                        }
-                        break;
-                    }
-                    case 1: {
-                        switch (closedRangeTo(.25, .75, ry)) {
-                            case -1:
-                                rp = FacePosition9.SOUTH_LOWEREAST;
-                                break;
-                            case 0:
-                                rp = FacePosition9.SOUTH_EAST;
-                                break;
-                            case 1:
-                                rp = FacePosition9.SOUTH_UPPEREAST;
-                                break;
-                        }
-                        break;
-                    }
+            case 2:
+                switch (closedRangeTo(.25, .75, rx) * 3 +
+                        closedRangeTo(.25, .75, ry)) {
+                    case -4: rp = FacePosition9.SOUTH_LOWERWEST; break;
+                    case -3: rp = FacePosition9.SOUTH_WEST; break;
+                    case -2: rp = FacePosition9.SOUTH_UPPERWEST; break;
+                    case -1: rp = FacePosition9.SOUTH_LOWER; break;
+                    case 0: rp = FacePosition9.SOUTH_CENTER; break;
+                    case 1: rp = FacePosition9.SOUTH_UPPER; break;
+                    case 2: rp = FacePosition9.SOUTH_LOWEREAST; break;
+                    case 3: rp = FacePosition9.SOUTH_EAST; break;
+                    case 4: rp = FacePosition9.SOUTH_UPPEREAST; break;
                 }
                 break;
-            }
         }
-        return this.configurePlacedFluid(st.with(FacePosition9.POSITION, rp),
-                                         ctx);
+        return this.configurePlacedFluid(
+            st.with(FacePosition9.POSITION, rp), ctx
+        );
     }
 
     @Override

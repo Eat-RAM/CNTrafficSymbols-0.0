@@ -13,7 +13,7 @@ FACING_STATES: Tuple[str, ...] = (
 
 
 def make_loot_table(block: str) -> Any:
-    modifiers: Any = [
+    modifiers: List[Any] = [
         {
             "add": False,
             "conditions": [

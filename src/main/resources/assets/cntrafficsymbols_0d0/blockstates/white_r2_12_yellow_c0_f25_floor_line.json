@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "corner=northwest,transposed=false": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line"},
+    "corner=northeast,transposed=false": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line", "y": 90, "uvlock": true},
+    "corner=southeast,transposed=false": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line", "y": 180, "uvlock": true},
+    "corner=southwest,transposed=false": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line", "y": 270, "uvlock": true},
+    "corner=northwest,transposed=true": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line_transposed"},
+    "corner=northeast,transposed=true": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line_transposed", "y": 90, "uvlock": true},
+    "corner=southeast,transposed=true": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line_transposed", "y": 180, "uvlock": true},
+    "corner=southwest,transposed=true": {"model": "cntrafficsymbols_0d0:block/white_r2_12_yellow_c0_f25_floor_line_transposed", "y": 270, "uvlock": true}
+  }
+}

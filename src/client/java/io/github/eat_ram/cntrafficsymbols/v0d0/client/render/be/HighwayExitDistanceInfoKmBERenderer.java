@@ -40,11 +40,9 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoKmBlockEntity> {
         BlockState st = ett.getCachedState();
         matrices.push();
         if (st.getBlock() instanceof HighwayExitDistanceInfoRightBlock) {
-            this.setAngles(
-                matrices,
-                st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
-                (((8 - st.get(FACING).id) % 4) * 90f), st
-            );
+            this.setAngles(matrices, st.get(FACING).isWall() ? (
+                8 - st.get(FACING).id
+            ) * 90f : (((8 - st.get(FACING).id) % 4) * 90f), st);
             BlockPos p = ett.getPos();
             World w = ett.getWorld();
             this.renderText(st, p, tx, matrices, vcs, light, 8, 90, true);
@@ -74,7 +72,7 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoKmBlockEntity> {
         boolean front
     ) {
         matrices.push();
-        this.setTextAngles(st, matrices, front, TEXT_OFFSET);
+        setTextAngles(st, matrices, front, TEXT_OFFSET);
         int i = 16777215;
         int j = 4 * lineHeight / 2;
         net.minecraft.text.OrderedText odt = tx.asOrderedText();
@@ -84,7 +82,7 @@ implements BlockEntityRenderer<HighwayExitDistanceInfoKmBlockEntity> {
         matrices.pop();
     }
 
-    private void setTextAngles(
+    private static void setTextAngles(
         BlockState st, MatrixStack matrices, boolean front, Vec3d translation
     ) {
         if (!front) {

@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_no_stopping": {
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:no_stopping"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipe": "cntrafficsymbols_0d0:no_stopping_left"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_no_stopping"
+    ]
+  ],
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:no_stopping_left"]},
+  "sends_telemetry_event": false
+}
