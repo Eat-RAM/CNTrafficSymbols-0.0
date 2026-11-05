@@ -16,7 +16,7 @@ extends BlockEntityRenderer<T, CustomBERenderState<T>> {
     public default void updateRenderState(
         T blockEntity, CustomBERenderState<T> state, float partialTicks,
         Vec3d cameraPosition,
-        @Nullable ModelCommandRenderer.CrumblingOverlayCommand breakProgress
+        ModelCommandRenderer.@Nullable CrumblingOverlayCommand breakProgress
     ) {
         BlockEntityRenderer.super.updateRenderState(
             blockEntity, state, partialTicks, cameraPosition, breakProgress

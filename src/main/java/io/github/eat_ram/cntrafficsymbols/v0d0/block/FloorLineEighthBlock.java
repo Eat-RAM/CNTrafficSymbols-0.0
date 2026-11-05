@@ -62,8 +62,6 @@ implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
     public static final VoxelShape L5Z = cuboid(.625, 0, 0, .75, .03125, 1);
     public static final VoxelShape L6Z = cuboid(.75, 0, 0, .875, .03125, 1);
     public static final VoxelShape L7Z = cuboid(.875, 0, 0, 1, .03125, 1);
-    private Item itm1;
-    private Item itm2;
 
     public static int to3Pow(BlockState st) {
         return st.get(SLICES160).intValue() * 160 +
@@ -79,6 +77,9 @@ implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
         pow /= 10;
         return st.with(SLICES160, pow % 41);
     }
+
+    private Item itm1;
+    private Item itm2;
 
     public FloorLineEighthBlock(Item itm1, Item itm2, Settings settings) {
         super(settings);
@@ -102,36 +103,22 @@ implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
         int r = to3Pow(state);
         if (state.get(HORIZONTAL_AXIS) == Direction.Axis.X) {
             if (r % 3 != 0) res = union(res, L0X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L1X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L2X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L3X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L4X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L5X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L6X);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L7X);
+            r /= 3; if (r % 3 != 0) res = union(res, L1X);
+            r /= 3; if (r % 3 != 0) res = union(res, L2X);
+            r /= 3; if (r % 3 != 0) res = union(res, L3X);
+            r /= 3; if (r % 3 != 0) res = union(res, L4X);
+            r /= 3; if (r % 3 != 0) res = union(res, L5X);
+            r /= 3; if (r % 3 != 0) res = union(res, L6X);
+            r /= 3; if (r % 3 != 0) res = union(res, L7X);
         } else {
             if (r % 3 != 0) res = union(res, L0Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L1Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L2Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L3Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L4Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L5Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L6Z);
-            r /= 3;
-            if (r % 3 != 0) res = union(res, L7Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L1Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L2Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L3Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L4Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L5Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L6Z);
+            r /= 3; if (r % 3 != 0) res = union(res, L7Z);
         }
         return res;
     }
@@ -187,7 +174,7 @@ implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState st = ctx.getWorld().getBlockState(ctx.getBlockPos());
-        byte repl = 1;
+        int repl = 1;
         if (ctx.getStack().is(this.itm2)) {
             repl++;
         } else if (!ctx.getStack().is(this.itm1)) {
@@ -415,7 +402,7 @@ implements FluidloggedConfigurable, MultiItemComposed, StateOptimizable {
         BlockState state, PlayerEntity player, BlockView view, BlockPos pos
     ) {
         int pow = to3Pow(state);
-        byte s = 0;
+        int s = 0;
         for (int i = 0; i < 8; i++) {
             if (pow % 3 != 0) {
                 s++;

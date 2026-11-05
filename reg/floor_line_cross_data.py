@@ -161,7 +161,8 @@ def generate_cross_texture(info: FloorLineCrossBlockInfo) -> Image.Image:
     col_c: Tuple[int, int, int, int] = white if info.cc == "white" else yellow
     row_c: Tuple[int, int, int, int] = white if info.cr == "white" else yellow
 
-    # Draw the non-f line first, then the f one so f line dominates the crossing
+    # Draw the non-f line first, then the f one so f line dominates
+    # the crossing
     draw_order: Tuple[str, ...] = ("col", "row") if info.fr else ("row", "col")
 
     for part in draw_order:

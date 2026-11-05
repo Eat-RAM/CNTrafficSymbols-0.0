@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": "minecraft:white_concrete",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "cntrafficsymbols_0d0:white_thin_45_floor_line"
+  },
+  "pattern": [
+    "LLL",
+    "LLL",
+    "LLL"
+  ],
   "result": {
     "id": "cntrafficsymbols_0d0:white_floor_line_eighth",
-    "count": 64
-  }
+    "count": 10
+  },
+  "show_notification": true
 }

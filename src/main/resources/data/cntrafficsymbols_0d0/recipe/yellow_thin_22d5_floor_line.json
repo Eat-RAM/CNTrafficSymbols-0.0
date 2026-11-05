@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "cntrafficsymbols_0d0:yellow_thin_45_floor_line"
+  },
+  "pattern": [
+    "LL ",
+    "LLL",
+    " LL"
+  ],
+  "result": {
+    "id": "cntrafficsymbols_0d0:yellow_thin_22d5_floor_line",
+    "count": 8
+  },
+  "show_notification": true
+}

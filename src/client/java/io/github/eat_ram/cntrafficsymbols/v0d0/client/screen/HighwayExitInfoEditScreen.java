@@ -47,11 +47,10 @@ public class HighwayExitInfoEditScreen extends Screen {
         int y = (count == 3) ? 76 : (count == 2 ? 86 : 98);
 
         if (this.parts.leftBe != null) {
-            this.toLeftField = new TextFieldWidget(
-                this.textRenderer, cx - 111, y, 222, 20, tagTr(
-                    "gui.cntrafficsymbols_0d0.highway_exit_distance_info.line1"
-                )
-            );
+            this.toLeftField =
+            new TextFieldWidget(this.textRenderer, cx - 111, y, 222, 20, tagTr(
+                "gui.cntrafficsymbols_0d0.highway_exit_distance_info.line1"
+            ));
             Text cn = this.parts.leftBe.getCustomName();
             this.toLeftField.setText(cn != null ? cn.getString() : "");
             this.toLeftField.setMaxLength(64);
@@ -60,11 +59,10 @@ public class HighwayExitInfoEditScreen extends Screen {
         }
 
         if (this.parts.middleBe != null) {
-            this.toMiddleField = new TextFieldWidget(
-                this.textRenderer, cx - 111, y, 222, 20, tagTr(
-                    "gui.cntrafficsymbols_0d0.highway_exit_distance_info.line2"
-                )
-            );
+            this.toMiddleField =
+            new TextFieldWidget(this.textRenderer, cx - 111, y, 222, 20, tagTr(
+                "gui.cntrafficsymbols_0d0.highway_exit_distance_info.line2"
+            ));
             Text cn = this.parts.middleBe.getCustomName();
             this.toMiddleField.setText(cn != null ? cn.getString() : "");
             this.toMiddleField.setMaxLength(64);
@@ -151,17 +149,15 @@ public class HighwayExitInfoEditScreen extends Screen {
             this.toLeftField != null) {
             NbtCompound nbt = new NbtCompound();
             nbt.putString("CustomName", this.toLeftField.getText());
-            ClientPlayNetworking.send(
-                new UpdateTrafficSignPayload(this.parts.leftPos, nbt)
-            );
+            ClientPlayNetworking
+            .send(new UpdateTrafficSignPayload(this.parts.leftPos, nbt));
         }
         if (this.parts.middleBe != null && this.parts.middlePos != null &&
             this.toMiddleField != null) {
             NbtCompound nbt = new NbtCompound();
             nbt.putString("CustomName", this.toMiddleField.getText());
-            ClientPlayNetworking.send(
-                new UpdateTrafficSignPayload(this.parts.middlePos, nbt)
-            );
+            ClientPlayNetworking
+            .send(new UpdateTrafficSignPayload(this.parts.middlePos, nbt));
         }
         if (this.parts.kmBe != null && this.parts.kmPos != null &&
             this.kmField != null) {
@@ -172,9 +168,8 @@ public class HighwayExitInfoEditScreen extends Screen {
             km = Math.copySign(km, this.locked ? -1f : 1f);
             NbtCompound nbt = new NbtCompound();
             nbt.putFloat("km", km);
-            ClientPlayNetworking.send(
-                new UpdateTrafficSignPayload(this.parts.kmPos, nbt)
-            );
+            ClientPlayNetworking
+            .send(new UpdateTrafficSignPayload(this.parts.kmPos, nbt));
         }
         this.close();
     }
@@ -212,12 +207,12 @@ public class HighwayExitInfoEditScreen extends Screen {
         int exitAreaW = hasDistance ? (pw / 3) : 0;
         int nameAreaW = pw - exitAreaW;
 
-        String ltx = (this.toLeftField != null) ?
-                     this.toLeftField.getText().strip() : "";
+        String ltx =
+        this.toLeftField != null ? this.toLeftField.getText().strip() : "";
         int lColor = 0xFFFFFFFF;
 
-        String mtx = (this.toMiddleField != null) ?
-                     this.toMiddleField.getText().strip() : "";
+        String mtx =
+        this.toMiddleField != null ? this.toMiddleField.getText().strip() : "";
         int mColor = 0xFFFFFFFF;
 
         int nameCenterX = px + nameAreaW / 2;

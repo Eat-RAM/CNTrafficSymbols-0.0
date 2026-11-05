@@ -30,26 +30,16 @@ def make_parent_model(s: int, is_q13o: bool) -> Any:
                         "texture": "#this",
                         "cullface": "down"
                     }),
-                    "up": CompactDict({
-                        "uv": [0, 0, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "north": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "south": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "west": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "east": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    })
+                    "up":
+                    CompactDict({"uv": [0, 0, 16, 16], "texture": "#this"}),
+                    "north":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "south":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "west":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "east":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"})
                 }
             }
         ]

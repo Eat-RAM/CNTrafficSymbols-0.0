@@ -13,7 +13,7 @@ from .reg_utils import (
 def pack_ternary(pattern: Tuple[int, ...]) -> int:
     """Pack 8 ternary slice states into an integer base-3 hash."""
 
-    return sum(v * (3 ** i) for i, v in enumerate(pattern))
+    return sum((3**i)*v for i, v in enumerate(pattern))
 
 
 def unpack_coordinates(hash_code: int) -> Tuple[int, int, int]:
@@ -27,7 +27,8 @@ def unpack_coordinates(hash_code: int) -> Tuple[int, int, int]:
 def build_floor_line_model(pattern: Tuple[int, ...]) -> Any:
     """Build the JSON model structure for a given 8-slice pattern."""
 
-    obj: Any = {"elements": [], "textures": {}}
+    elements: List[Any] = []
+    textures: Dict[str, Any] = {}
     cursor: int = 0
     delta: int = 0
     current_type: int = 0
@@ -50,7 +51,7 @@ def build_floor_line_model(pattern: Tuple[int, ...]) -> Any:
                 if current_type == 1
                 else "cntrafficsymbols_0d0:block/yellow_floor_line_eighths"
             )
-            obj["textures"][tex_key] = tex_val
+            textures[tex_key] = tex_val
 
             from_z: int = (cursor-delta) * 2
             to_z: int = cursor * 2
@@ -102,7 +103,7 @@ def build_floor_line_model(pattern: Tuple[int, ...]) -> Any:
                 else:
                     del element["faces"]["south"]["cullface"]
 
-            obj["elements"].append(element)
+            elements.append(element)
 
         if cursor < 8:
             delta = 0
@@ -111,19 +112,19 @@ def build_floor_line_model(pattern: Tuple[int, ...]) -> Any:
     white_count: int = pattern.count(1)
     yellow_count: int = pattern.count(2)
     if white_count == 0:
-        obj["textures"]["particle"] = \
+        textures["particle"] = \
         "cntrafficsymbols_0d0:block/yellow_floor_line_eighths"
     elif yellow_count == 0:
-        obj["textures"]["particle"] = \
+        textures["particle"] = \
         "cntrafficsymbols_0d0:block/white_floor_line_eighths"
     else:
         frac = Fraction(white_count, yellow_count)
-        obj["textures"]["particle"] = (
+        textures["particle"] = (
             "cntrafficsymbols_0d0:block/"
-            f"floor_line_eighths_particle_{frac.numerator}{frac.denominator}"
+           f"floor_line_eighths_particle_{frac.numerator}{frac.denominator}"
         )
 
-    return obj
+    return {"elements": elements, "textures": textures}
 
 
 def main(argv: Optional[List[str]] = None) -> None:
@@ -133,7 +134,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser.add_argument("dir", help="Directory where model JSON files lie")
     parser.add_argument(
         "--blockstates-dir",
-        default=None,
+        default="",
         help="Directory where floor_line_eighths.json blockstate lies "
              "(defaults to sibling 'blockstates' dir or models dir)"
     )

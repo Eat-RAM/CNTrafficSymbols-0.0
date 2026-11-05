@@ -27,103 +27,69 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.util.shape.VoxelShapes.cuboid;
+import static net.minecraft.util.shape.VoxelShapes.empty;
 import static net.minecraft.util.shape.VoxelShapes.union;
 
 public class HighwayKmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider {
     public static final VoxelShape SHAPE0 =
-    cuboid(.375, .25, .375, .625, .75, .625);
-    public static final VoxelShape SHAPE0N = union(
-        cuboid(.125, .375, .9375, .875, .75, 1),
-        cuboid(.15625, .34375, .9375, .84375, .375, 1),
-        cuboid(.1875, .3125, .9375, .8125, .34375, 1),
-        cuboid(.21875, .28125, .9375, .78125, .3125, 1),
-        cuboid(.25, .25, .9375, .75, .28125, 1)
-    );
-    public static final VoxelShape SHAPE0E = union(
-        cuboid(0, .375, .125, .0625, .75, .875),
-        cuboid(0, .34375, .15625, .0625, .375, .84375),
-        cuboid(0, .3125, .1875, .0625, .34375, .8125),
-        cuboid(0, .28125, .21875, .0625, .3125, .78125),
-        cuboid(0, .25, .25, .0625, .28125, .75)
-    );
-    public static final VoxelShape SHAPE0S = union(
-        cuboid(.125, .375, 0, .875, .75, .0625),
-        cuboid(.15625, .34375, 0, .84375, .375, .0625),
-        cuboid(.1875, .3125, 0, .8125, .34375, .0625),
-        cuboid(.21875, .28125, 0, .78125, .3125, .0625),
-        cuboid(.25, .25, 0, .75, .28125, .0625)
-    );
-    public static final VoxelShape SHAPE0W = union(
-        cuboid(.9375, .375, .125, 1, .75, .875),
-        cuboid(.9375, .34375, .15625, 1, .375, .84375),
-        cuboid(.9375, .3125, .1875, 1, .34375, .8125),
-        cuboid(.9375, .28125, .21875, 1, .3125, .78125),
-        cuboid(.9375, .25, .25, 1, .28125, .75)
-    );
+    cuboid(0.375, 0.259375, 0.375, 0.625, 0.740625, 0.625);
     public static final VoxelShape SHAPE1 =
-    cuboid(.375, 0, .375, .625, .5, .625);
-    public static final VoxelShape SHAPE1N = union(
-        cuboid(.125, .125, .9375, .875, .5, 1),
-        cuboid(.15625, .09375, .9375, .84375, .125, 1),
-        cuboid(.1875, .0625, .9375, .8125, .09375, 1),
-        cuboid(.21875, .03125, .9375, .78125, .0625, 1),
-        cuboid(.25, 0, .9375, .75, .03125, 1)
-    );
-    public static final VoxelShape SHAPE1E = union(
-        cuboid(0, .125, .125, .0625, .5, .875),
-        cuboid(0, .09375, .15625, .0625, .125, .84375),
-        cuboid(0, .0625, .1875, .0625, .09375, .8125),
-        cuboid(0, .03125, .21875, .0625, .0625, .78125),
-        cuboid(0, 0, .25, .0625, .03125, .75)
-    );
-    public static final VoxelShape SHAPE1S = union(
-        cuboid(.125, .125, 0, .875, .5, .0625),
-        cuboid(.15625, .09375, 0, .84375, .125, .0625),
-        cuboid(.1875, .0625, 0, .8125, .09375, .0625),
-        cuboid(.21875, .03125, 0, .78125, .0625, .0625),
-        cuboid(.25, 0, 0, .75, .03125, .0625)
-    );
-    public static final VoxelShape SHAPE1W = union(
-        cuboid(.9375, .125, .125, 1, .5, .875),
-        cuboid(.9375, .09375, .15625, 1, .125, .84375),
-        cuboid(.9375, .0625, .1875, 1, .09375, .8125),
-        cuboid(.9375, .03125, .21875, 1, .0625, .78125),
-        cuboid(.9375, 0, .25, 1, .03125, .75)
-    );
+    cuboid(0.375, 0, 0.375, 0.625, 0.48125, 0.625);
     public static final VoxelShape SHAPE2 =
-    cuboid(.375, .5, .375, .625, 1, .625);
-    public static final VoxelShape SHAPE2N = union(
-        cuboid(.125, .625, .9375, .875, 1, 1),
-        cuboid(.15625, .59375, .9375, .84375, .625, 1),
-        cuboid(.1875, .5625, .9375, .8125, .59375, 1),
-        cuboid(.21875, .53125, .9375, .78125, .5625, 1),
-        cuboid(.25, .5, .9375, .75, .53125, 1)
-    );
-    public static final VoxelShape SHAPE2E = union(
-        cuboid(0, .625, .125, .0625, 1, .875),
-        cuboid(0, .59375, .15625, .0625, .625, .84375),
-        cuboid(0, .5625, .1875, .0625, .59375, .8125),
-        cuboid(0, .53125, .21875, .0625, .5625, .78125),
-        cuboid(0, .5, .25, .0625, .53125, .75)
-    );
-    public static final VoxelShape SHAPE2S = union(
-        cuboid(.125, .625, 0, .875, 1, .0625),
-        cuboid(.15625, .59375, 0, .84375, .625, .0625),
-        cuboid(.1875, .5625, 0, .8125, .59375, .0625),
-        cuboid(.21875, .53125, 0, .78125, .5625, .0625),
-        cuboid(.25, .5, 0, .75, .53125, .0625)
-    );
-    public static final VoxelShape SHAPE2W = union(
-        cuboid(.9375, .625, .125, 1, 1, .875),
-        cuboid(.9375, .59375, .15625, 1, .625, .84375),
-        cuboid(.9375, .5625, .1875, 1, .59375, .8125),
-        cuboid(.9375, .53125, .21875, 1, .5625, .78125),
-        cuboid(.9375, .5, .25, 1, .53125, .75)
-    );
+    cuboid(0.375, 0.51875, 0.375, 0.625, 1, 0.625);
+    private static final double @NotNull[]@NotNull[] BOXES = {
+        {0.15, 0.4125, 0.85, 0.71875},
+        {0.171875, 0.390625, 0.828125, 0.740625},
+        {0.19375, 0.36875, 0.80625, 0.390625},
+        {0.215625, 0.346875, 0.784375, 0.36875},
+        {0.2375, 0.325, 0.7625, 0.346875},
+        {0.259375, 0.303125, 0.740625, 0.325},
+        {0.28125, 0.28125, 0.71875, 0.303125},
+        {0.303125, 0.259375, 0.696875, 0.28125}
+    };
+    public static final VoxelShape SHAPE0N = createWallShape(0., 24);
+    public static final VoxelShape SHAPE0E = createWallShape(0., 25);
+    public static final VoxelShape SHAPE0S = createWallShape(0., 26);
+    public static final VoxelShape SHAPE0W = createWallShape(0., 27);
+    public static final VoxelShape SHAPE1N = createWallShape(-0.259375, 24);
+    public static final VoxelShape SHAPE1E = createWallShape(-0.259375, 25);
+    public static final VoxelShape SHAPE1S = createWallShape(-0.259375, 26);
+    public static final VoxelShape SHAPE1W = createWallShape(-0.259375, 27);
+    public static final VoxelShape SHAPE2N = createWallShape(0.259375, 24);
+    public static final VoxelShape SHAPE2E = createWallShape(0.259375, 25);
+    public static final VoxelShape SHAPE2S = createWallShape(0.259375, 26);
+    public static final VoxelShape SHAPE2W = createWallShape(0.259375, 27);
+
+    private static VoxelShape createWallShape(double yShift, int wallFacing) {
+        VoxelShape shape = empty();
+        for (double[] box : BOXES) {
+            double x1 = box[0];
+            double y1 = box[1] + yShift;
+            double x2 = box[2];
+            double y2 = box[3] + yShift;
+            switch (wallFacing) {
+                case 24:
+                    shape = union(shape, cuboid(x1, y1, 0.975, x2, y2, 1.0));
+                    break;
+                case 25:
+                    shape = union(shape, cuboid(0.0, y1, x1, 0.025, y2, x2));
+                    break;
+                case 26:
+                    shape = union(shape, cuboid(x1, y1, 0.0, x2, y2, 0.025));
+                    break;
+                case 27:
+                    shape = union(shape, cuboid(0.975, y1, x1, 1.0, y2, x2));
+                    break;
+            }
+        }
+        return shape;
+    }
+
     @Deprecated(since = "0.0.3-a1", forRemoval = true)
     public static final TagKey<net.minecraft.item.Item> LOCKS_HIGHWAY_KM_SIGN =
     TagKey.of(RegistryKeys.ITEM, Identifier.of(

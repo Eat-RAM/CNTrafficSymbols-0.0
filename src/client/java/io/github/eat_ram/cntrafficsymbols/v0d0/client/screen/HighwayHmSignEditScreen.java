@@ -5,7 +5,6 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayHmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.network
        .UpdateTrafficSignPayload;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -71,9 +70,8 @@ public class HighwayHmSignEditScreen extends Screen {
     private void saveAndClose() {
         NbtCompound nbt = new NbtCompound();
         nbt.putString("CustomName", this.nameField.getText().strip());
-        ClientPlayNetworking.send(
-            new UpdateTrafficSignPayload(this.be.getPos(), nbt)
-        );
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
+        .send(new UpdateTrafficSignPayload(this.be.getPos(), nbt));
         this.close();
     }
 

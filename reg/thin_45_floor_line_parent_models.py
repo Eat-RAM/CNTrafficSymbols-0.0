@@ -11,7 +11,7 @@ def make_parent_model(s: int, is_q13o: bool) -> Any:
     xc: float = round((s + 0.5) * 2.0 / 3.0, 4)
     x1: float = round(xc - 0.7706, 4)
     x2: float = round(xc + 0.7706, 4)
-    angle: float = 45.0 if is_q13o else -45.0
+    angle: int = 45 if is_q13o else -45
     return {
         "ambientocclusion": False,
         "textures": CompactDict({"particle": "#this"}),
@@ -30,26 +30,16 @@ def make_parent_model(s: int, is_q13o: bool) -> Any:
                         "texture": "#this",
                         "cullface": "down"
                     }),
-                    "up": CompactDict({
-                        "uv": [0, 0, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "north": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "south": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "west": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    }),
-                    "east": CompactDict({
-                        "uv": [0, 15.5, 16, 16],
-                        "texture": "#this"
-                    })
+                    "up":
+                    CompactDict({"uv": [0, 0, 16, 16], "texture": "#this"}),
+                    "north":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "south":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "west":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"}),
+                    "east":
+                    CompactDict({"uv": [0, 15.5, 16, 16], "texture": "#this"})
                 }
             }
         ]

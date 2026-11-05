@@ -15,7 +15,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     for color in COLORS:
         to_write = {
             "type": "minecraft:stonecutting",
-            "ingredient": f"cntrafficsymbols_0d0:{color}_full1_cylindrical_rod",
+            "ingredient":
+            f"cntrafficsymbols_0d0:{color}_full1_cylindrical_rod",
             "result": {
                 "id": f"cntrafficsymbols_0d0:{color}_half1_cylindrical_rod",
                 "count": 2

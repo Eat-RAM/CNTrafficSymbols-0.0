@@ -18,7 +18,7 @@ Z_OFFSETS: Dict[Tuple[int, int], str] = {
     (-6, 0): "west", (-6, 6): "upperwest"
 }
 
-NORTH_OFFSETS: Dict[Tuple[int, int], str]={
+NORTH_OFFSETS: Dict[Tuple[int, int], str] = {
     (0, 0): "center", (0, 6): "upper", (6, 6): "uppereast", (6, 0): "east",
     (6, -6): "lowereast", (0, -6): "lower", (-6, -6): "lowerwest",
     (-6, 0): "west", (-6, 6): "upperwest"
@@ -47,60 +47,48 @@ def build_y_model(half: Union[bool, None], offset: Tuple[int, int]) -> Any:
             "from": CompactList([7+dx, bottom, 6+dy]),
             "to": CompactList([9+dx, top, 7+dy]),
             "faces": {
-                "north": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "west": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                }),
-                "east": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                })
+                "north":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "west":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
             }
         },
         {
             "from": CompactList([7+dx, bottom, 9+dy]),
             "to": CompactList([9+dx, top, 10+dy]),
             "faces": {
-                "south": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "west": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                }),
-                "east": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                })
+                "south":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "west":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
             }
         },
         {
             "from": CompactList([6+dx, bottom, 7+dy]),
             "to": CompactList([7+dx, top, 9+dy]),
             "faces": {
-                "west": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "north": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                }),
-                "south": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                })
+                "west":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "north":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
+                "south":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
             }
         },
         {
             "from": CompactList([9+dx, bottom, 7+dy]),
             "to": CompactList([10+dx, top, 9+dy]),
             "faces": {
-                "east": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "north": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                }),
-                "south": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                })
+                "east":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "north":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
+                "south":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
             }
         },
         {
@@ -132,60 +120,48 @@ def build_z_model(half: Union[bool, None], offset: Tuple[int, int]) -> Any:
             "from": CompactList([7+dx, 6+dy, bottom]),
             "to": CompactList([9+dx, 7+dy, top]),
             "faces": {
-                "down": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "west": CompactDict({
-                    "uv": [0, 15, height, 16], "texture": "#side"
-                }),
-                "east": CompactDict({
-                    "uv": [0, 15, height, 16], "texture": "#side"
-                })
+                "down":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "west":
+                CompactDict({"uv": [0, 15, height, 16], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [0, 15, height, 16], "texture": "#side"})
             }
         },
         {
             "from": CompactList([7+dx, 9+dy, bottom]),
             "to": CompactList([9+dx, 10+dy, top]),
             "faces": {
-                "up": CompactDict({
-                    "uv": [1, 0, 3, height], "texture": "#side"
-                }),
-                "west": CompactDict({
-                    "uv": [0, 12, height, 13], "texture": "#side"
-                }),
-                "east": CompactDict({
-                    "uv": [0, 12, height, 13], "texture": "#side"
-                })
+                "up":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "west":
+                CompactDict({"uv": [0, 12, height, 13], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [0, 12, height, 13], "texture": "#side"})
             }
         },
         {
             "from": CompactList([6+dx, 7+dy, bottom]),
             "to": CompactList([7+dx, 9+dy, top]),
             "faces": {
-                "west": CompactDict({
-                    "uv": [0, 13, height, 15], "texture": "#side"
-                }),
-                "down": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                }),
-                "up": CompactDict({
-                    "uv": [0, 0, 1, height], "texture": "#side"
-                })
+                "west":
+                CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
+                "down":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
+                "up":
+                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
             }
         },
         {
             "from": CompactList([9+dx, 7+dy, bottom]),
             "to": CompactList([10+dx, 9+dy, top]),
             "faces": {
-                "east": CompactDict({
-                    "uv": [0, 13, height, 15], "texture": "#side"
-                }),
-                "down": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                }),
-                "up": CompactDict({
-                    "uv": [3, 0, 4, height], "texture": "#side"
-                })
+                "east":
+                CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
+                "down":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
+                "up":
+                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
             }
         },
         {

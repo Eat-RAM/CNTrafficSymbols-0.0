@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:yellow_concrete",
+  "result": {
+    "id": "cntrafficsymbols_0d0:yellow_thin_22d5_floor_line",
+    "count": 64
+  }
+}

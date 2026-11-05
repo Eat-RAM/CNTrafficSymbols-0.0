@@ -27,26 +27,11 @@ public class ModMenuApiImpl implements ModMenuApi {
         )) {
             public final DirectionalLayoutWidget layout =
             DirectionalLayoutWidget.vertical().spacing(5);
-            public final ButtonWidget
-            hardcodedFloorLineEighthsLootEnabledButton;
-
-            public void draw() {
-                this.layout.getMainPositioner().alignHorizontalCenter()
-                .margin(10);
-                this.layout.refreshPositions();
-                this.layout.forEachChild(this::addDrawableChild);
-                this.addDrawableChild(ButtonWidget.builder(DONE, button -> {
-                    if (this.client != null) {
-                        this.client.setScreenAndRender(parent);
-                    }
-                }).dimensions(this.width / 2 - 100, this.height - 27, 200,
-                              20).build());
-            }
 
             {
                 this.layout.add(new TextWidget(this.title, this.textRenderer),
                                 Positioner::alignHorizontalCenter);
-                ButtonWidget.Builder bwb = ButtonWidget.builder(Text.literal(
+                this.layout.add(ButtonWidget.builder(Text.literal(
                     "hardcoded_floor_line_eighths_loot_enabled: " +
                     getNullableBooleanText(
                         Main.getHardcodedFloorLineEighthsLootEnabled()
@@ -64,10 +49,7 @@ public class ModMenuApiImpl implements ModMenuApi {
                             Main.getHardcodedFloorLineEighthsLootEnabled()
                         )
                     ));
-                }).dimensions(this.width / 2 - 155, 40, 310, 20);
-                this.hardcodedFloorLineEighthsLootEnabledButton = bwb.build();
-                this.layout
-                .add(this.hardcodedFloorLineEighthsLootEnabledButton);
+                }).dimensions(this.width / 2 - 155, 40, 310, 20).build());
                 this.layout.add(ButtonWidget.builder(Text.literal(
                     "highway_hm_wall_up_connection_mode: " +
                     getNullableEnumText(
@@ -102,6 +84,19 @@ public class ModMenuApiImpl implements ModMenuApi {
                         )
                     ));
                 }).dimensions(this.width / 2 - 155, 40, 310, 20).build());
+            }
+
+            public void draw() {
+                this.layout.getMainPositioner().alignHorizontalCenter()
+                .margin(10);
+                this.layout.refreshPositions();
+                this.layout.forEachChild(this::addDrawableChild);
+                this.addDrawableChild(ButtonWidget.builder(DONE, button -> {
+                    if (this.client != null) {
+                        this.client.setScreenAndRender(parent);
+                    }
+                }).dimensions(this.width / 2 - 100, this.height - 27, 200,
+                              20).build());
             }
 
             @Override

@@ -4,15 +4,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.command.OrderedRenderCommandQueue;
-import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.HighwayExitDistanceInfoKmBlockEntity;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.HighwayExitDistanceInfoRightBlock;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .HighwayExitDistanceInfoKmBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block
+       .HighwayExitDistanceInfoRightBlock;
 
 import static io.github.eat_ram.cntrafficsymbols.core.struct.DoubleFaceFacing90
               .FACING;
@@ -33,23 +33,19 @@ implements CustomBERenderer<HighwayExitDistanceInfoKmBlockEntity> {
     public void render(
         CustomBERenderState<HighwayExitDistanceInfoKmBlockEntity> state,
         MatrixStack matrices, OrderedRenderCommandQueue queue,
-        CameraRenderState cameraState
+        net.minecraft.client.render.state.CameraRenderState cameraState
     ) {
         HighwayExitDistanceInfoKmBlockEntity ett = state.blockEntity;
-        int light = (ett.getWorld() != null) ?
-                    getBlockBrightness(ett.getWorld(), ett.getPos()) :
-                    15728880;
+        net.minecraft.world.World w = ett.getWorld();
+        BlockPos p = ett.getPos();
+        int light = w != null ? getBlockBrightness(w, p) : 15728880;
         Text tx = Text.literal(ett.getKmStr() + "km");
         BlockState st = ett.getCachedState();
         matrices.push();
         if (st.getBlock() instanceof HighwayExitDistanceInfoRightBlock) {
-            this.setAngles(
-                matrices,
-                st.get(FACING).isWall() ? (8 - st.get(FACING).id) * 90f :
-                (((8 - st.get(FACING).id) % 4) * 90f), st
-            );
-            BlockPos p = ett.getPos();
-            World w = ett.getWorld();
+            this.setAngles(matrices, st.get(FACING).isWall() ? (
+                8 - st.get(FACING).id
+            ) * 90f : (((8 - st.get(FACING).id) % 4) * 90f), st);
             this.renderText(st, matrices, light, queue, tx, true);
             if (!(st.get(FACING).isSingle())) {
                 this.renderText(st, matrices, light, queue, tx, false);
@@ -76,7 +72,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoKmBlockEntity> {
         OrderedRenderCommandQueue queue, Text tx, boolean front
     ) {
         matrices.push();
-        this.setTextAngles(st, matrices, front, TEXT_OFFSET);
+        setTextAngles(st, matrices, front, TEXT_OFFSET);
         int i = -1;
         int j = 16;
         net.minecraft.text.OrderedText odt = tx.asOrderedText();
@@ -87,7 +83,7 @@ implements CustomBERenderer<HighwayExitDistanceInfoKmBlockEntity> {
         matrices.pop();
     }
 
-    private void setTextAngles(
+    private static void setTextAngles(
         BlockState st, MatrixStack matrices, boolean front, Vec3d translation
     ) {
         if (!front) {

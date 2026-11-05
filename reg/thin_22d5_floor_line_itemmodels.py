@@ -52,10 +52,8 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     for color in COLORS:
         to_write = {
-            "parent": (
-                "cntrafficsymbols_0d0:block/"
-                f"{color}_thin_22d5_floor_line_q13o_s11"
-            ),
+            "parent": "cntrafficsymbols_0d0:block/"
+                     f"{color}_thin_22d5_floor_line_q13o_s11",
             "gui_light": "front",
             "display": DISPLAY
         }

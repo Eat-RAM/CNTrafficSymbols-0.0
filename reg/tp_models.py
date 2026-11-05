@@ -29,9 +29,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         for style in STYLES:
             to_write = {
                 "parent": f"cntrafficsymbols_0d0:block/{style}",
-                "textures": CompactDict({
-                    "this": f"minecraft:block/{color}_concrete"
-                })
+                "textures":
+                CompactDict({"this": f"minecraft:block/{color}_concrete"})
             }
             write_json_idempotent(args.dir, f"{color}_{style}.json", to_write,
                                   args.dry_run, compact=True)

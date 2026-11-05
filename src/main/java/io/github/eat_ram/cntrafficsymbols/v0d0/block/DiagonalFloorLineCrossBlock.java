@@ -29,7 +29,8 @@ implements FluidloggedConfigurable {
     }
 
     public DiagonalFloorLineCrossBlock(
-        @NotNull Iterable<? extends @NotNull Vector4dc> boxes, Settings settings
+        @NotNull Iterable<? extends @NotNull Vector4dc> boxes,
+        Settings settings
     ) {
         super(boxes, 0., 0.03125, 45f, settings);
     }

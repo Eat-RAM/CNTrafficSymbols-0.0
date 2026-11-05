@@ -6,7 +6,6 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.network
        .UpdateTrafficSignPayload;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.Tooltip;
@@ -39,11 +38,11 @@ public class HighwayKmSignEditScreen extends Screen {
     @Override
     protected void init() {
         int cx = this.width / 2;
-        int y = 78;
+        int y = 82;
 
         this.kmField = new NumericTextFieldWidget(
             this.textRenderer, cx - 100, y, 68, 20,
-            tagTr("gui.cntrafficsymbols_0d0.km_point"), false
+            tagTr("gui.cntrafficsymbols_0d0.km_marker"), false
         );
         int currentKm = this.be.getKm();
         this.kmField
@@ -146,9 +145,8 @@ public class HighwayKmSignEditScreen extends Screen {
         nbt.putBoolean("PointFive", this.pointFiveCheckbox.isChecked());
         nbt.putString("CustomName", this.nameField.getText());
 
-        ClientPlayNetworking.send(
-            new UpdateTrafficSignPayload(this.be.getPos(), nbt)
-        );
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
+        .send(new UpdateTrafficSignPayload(this.be.getPos(), nbt));
         this.close();
     }
 
@@ -197,10 +195,10 @@ public class HighwayKmSignEditScreen extends Screen {
         this.renderPreview(context, cx, 22);
 
         context.drawTextWithShadow(this.textRenderer, tagTr(
-            "gui.cntrafficsymbols_0d0.km_point.entry"
-        ), cx - 100, 67, 0xFFA0A0A0);
+            "gui.cntrafficsymbols_0d0.km_marker.entry"
+        ), cx - 100, 71, 0xFFA0A0A0);
         context.drawTextWithShadow(this.textRenderer, tagTr(
             "gui.cntrafficsymbols_0d0.road_number_or_name.entry"
-        ), cx - 100, 125, 0xFFA0A0A0);
+        ), cx - 100, 129, 0xFFA0A0A0);
     }
 }

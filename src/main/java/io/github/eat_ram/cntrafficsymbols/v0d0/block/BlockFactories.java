@@ -846,7 +846,9 @@ public abstract class BlockFactories {
             }
             return wrap(name, WaterloggedDiagonalFloorLineCrossBlock::new);
         }
-        return wrap(name, s -> new DiagonalFloorLineCrossBlock(r, wr, c, wc, s));
+        return wrap(
+            name, s -> new DiagonalFloorLineCrossBlock(r, wr, c, wc, s)
+        );
     }
 
     public static @NotNull Function<

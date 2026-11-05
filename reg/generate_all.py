@@ -7,6 +7,7 @@ from typing import Any, Callable, List, Optional, Tuple
 
 from . import (
     circle_models,
+    circle_parent_models,
     cylindrical_rod_itemmodels,
     cylindrical_rod_models,
     cylindrical_rod_parent_models,
@@ -21,26 +22,22 @@ from . import (
     full1_cylindrical_rod_blockstates,
     full1_cylindrical_rod_recipes,
     generated_item_models,
-    green_wideboard_recipes,
     half1_cylindrical_rod_blockstates,
     half1_cylindrical_rod_recipes,
-    heightlimit_recipes,
     highway_exit_distance_info_loot_tables,
     highway_hm_loot_tables,
     highway_hm_models,
     highway_hm_recipes,
-    lift_speedlimit_high_recipes,
+    highway_km_models,
     model_itemmodels,
-    prohibition_recipes,
     recipe_advancements,
     reg_utils,
     rod_with_lamp_blockstates,
     rod_with_lamp_models,
     rod_with_lamp_recipes,
     rotation_blockstates,
-    speedlimit_high_recipes,
-    speedlimit_low_recipes,
     state_independent_loot_tables,
+    tag_swap_recipes,
     thin_22d5_floor_blockstates,
     thin_22d5_floor_line_itemmodels,
     thin_22d5_floor_line_models,
@@ -55,7 +52,7 @@ from . import (
     tp_parent_models,
     tp_recipes,
     wideboard_models,
-    yellow_wideboard_recipes
+    wideboard_recipes
 )
 
 
@@ -107,67 +104,69 @@ def main(argv: Optional[List[str]] = None) -> None:
     i_models: str = \
     path.join(res, "assets", "cntrafficsymbols_0d0", "models", "item")
     items: str = path.join(res, "assets", "cntrafficsymbols_0d0", "items")
-    blockstates: str = \
-    path.join(res, "assets", "cntrafficsymbols_0d0", "blockstates")
+    bst: str = path.join(res, "assets", "cntrafficsymbols_0d0", "blockstates")
     loot: str = \
     path.join(res, "data", "cntrafficsymbols_0d0", "loot_table", "blocks")
     recipes: str = path.join(res, "data", "cntrafficsymbols_0d0", "recipe")
     adv: str = path.join(
         res, "data", "cntrafficsymbols_0d0", "advancement", "recipes", "misc"
     )
-    tag_b: str = path.join(res, "data", "c", "tags", "block", "dyed")
-    tag_i: str = path.join(res, "data", "c", "tags", "item", "dyed")
+    tag_b: str = path.join(res, "data", "cntrafficsymbols_0d0", "tags","block")
+    tag_i: str = path.join(res, "data", "cntrafficsymbols_0d0", "tags", "item")
+    ctag_b: str = path.join(res, "data", "c", "tags", "block", "dyed")
+    ctag_i: str = path.join(res, "data", "c", "tags", "item", "dyed")
     lang_dir: str = path.join(res, "assets", "cntrafficsymbols_0d0", "lang")
 
     dry_arg: List[str] = ["--dry-run"] if args.dry_run else []
 
     tasks: Tuple[Tuple[Callable[[Optional[List[str]]], None], List[str]], ...]\
     = (
-        # Recipes (12)
+        # Recipes (7)
         (full1_cylindrical_rod_recipes.main, [recipes] + dry_arg),
         (half1_cylindrical_rod_recipes.main, [recipes] + dry_arg),
-        (green_wideboard_recipes.main, [recipes] + dry_arg),
-        (yellow_wideboard_recipes.main, [recipes] + dry_arg),
-        (heightlimit_recipes.main, [recipes] + dry_arg),
         (highway_hm_recipes.main, [recipes] + dry_arg),
-        (lift_speedlimit_high_recipes.main, [recipes] + dry_arg),
-        (prohibition_recipes.main, [recipes] + dry_arg),
         (rod_with_lamp_recipes.main, [recipes] + dry_arg),
-        (speedlimit_high_recipes.main, [recipes] + dry_arg),
-        (speedlimit_low_recipes.main, [recipes] + dry_arg),
+        (tag_swap_recipes.main, [recipes, "--tags-dir", tag_i] + dry_arg),
         (tp_recipes.main, [recipes] + dry_arg),
+        (wideboard_recipes.main, [recipes, "--tags-dir", tag_i] + dry_arg),
         # Advancements (1)
-        (recipe_advancements.main, [adv] + dry_arg),
+        (recipe_advancements.main, [adv, "--tags-dir", tag_i] + dry_arg),
         # Blockstates (9)
-        (floor_line_cross_blockstates.main, [blockstates] + dry_arg),
-        (thin_22d5_floor_blockstates.main, [blockstates] + dry_arg),
-        (thin_45_floor_blockstates.main, [blockstates] + dry_arg),
-        (tp_blockstates.main, [blockstates] + dry_arg),
-        (doublefacefacing90_blockstates.main, [blockstates] + dry_arg),
-        (full1_cylindrical_rod_blockstates.main, [blockstates] + dry_arg),
-        (half1_cylindrical_rod_blockstates.main, [blockstates] + dry_arg),
-        (rod_with_lamp_blockstates.main, [blockstates] + dry_arg),
-        (rotation_blockstates.main, [blockstates] + dry_arg),
+        (doublefacefacing90_blockstates.main,
+         [bst, "--tags-dir", tag_b] + dry_arg),
+        (floor_line_cross_blockstates.main, [bst] + dry_arg),
+        (full1_cylindrical_rod_blockstates.main, [bst] + dry_arg),
+        (half1_cylindrical_rod_blockstates.main, [bst] + dry_arg),
+        (rod_with_lamp_blockstates.main, [bst] + dry_arg),
+        (rotation_blockstates.main, [bst, "--tags-dir", tag_b] + dry_arg),
+        (thin_22d5_floor_blockstates.main, [bst] + dry_arg),
+        (thin_45_floor_blockstates.main, [bst] + dry_arg),
+        (tp_blockstates.main, [bst] + dry_arg),
         # Loot tables (5)
-        (double_loot_tables.main, [loot] + dry_arg),
-        (double90_loot_tables.main, [loot] + dry_arg),
+        (double_loot_tables.main, [loot, "--tags-dir", tag_b] + dry_arg),
+        (double90_loot_tables.main, [loot, "--tags-dir", tag_b] + dry_arg),
         (highway_exit_distance_info_loot_tables.main, [loot] + dry_arg),
         (highway_hm_loot_tables.main, [loot] + dry_arg),
-        (state_independent_loot_tables.main, [loot] + dry_arg),
+        (state_independent_loot_tables.main,
+         [loot, "--tags-dir", tag_b] + dry_arg),
         # Items (3)
-        (model_itemmodels.main, [items] + dry_arg),
         (cylindrical_rod_itemmodels.main, [items] + dry_arg),
+        (model_itemmodels.main, [items, "--tags-dir", tag_i] + dry_arg),
         (tp_itemmodels.main, [items] + dry_arg),
         # Item models (3)
-        (generated_item_models.main, [i_models] + dry_arg),
+        (generated_item_models.main, [i_models, "--tags-dir", tag_i]+dry_arg),
         (thin_22d5_floor_line_itemmodels.main, [i_models] + dry_arg),
         (thin_45_floor_line_itemmodels.main, [i_models] + dry_arg),
-        # Block models (13)
-        (floor_line_cross_models.main, [b_models] + dry_arg),
-        (circle_models.main, [b_models] + dry_arg),
+        # Block models (15)
+        (circle_models.main, [b_models, "--tags-dir", tag_b] + dry_arg),
+        (circle_parent_models.main, [b_models] + dry_arg),
         (cylindrical_rod_models.main, [b_models] + dry_arg),
         (cylindrical_rod_parent_models.main, [b_models] + dry_arg),
+        (floor_line_cross_models.main, [b_models] + dry_arg),
+        (floor_line_eighths.main,
+         [b_models, "--blockstates-dir", bst] + dry_arg),
         (highway_hm_models.main, [b_models] + dry_arg),
+        (highway_km_models.main, [b_models] + dry_arg),
         (rod_with_lamp_models.main, [b_models] + dry_arg),
         (thin_22d5_floor_line_models.main, [b_models] + dry_arg),
         (thin_22d5_floor_line_parent_models.main, [b_models] + dry_arg),
@@ -175,14 +174,10 @@ def main(argv: Optional[List[str]] = None) -> None:
         (thin_45_floor_line_parent_models.main, [b_models] + dry_arg),
         (tp_models.main, [b_models] + dry_arg),
         (tp_parent_models.main, [b_models] + dry_arg),
-        (wideboard_models.main, [b_models] + dry_arg),
-        (
-            floor_line_eighths.main,
-            [b_models, "--blockstates-dir", blockstates] + dry_arg
-        ),
+        (wideboard_models.main, [b_models, "--tags-dir", tag_b] + dry_arg),
         # Tags (2)
-        (dyed_ctags.main, [tag_b] + dry_arg),
-        (dyed_ctags.main, [tag_i] + dry_arg),
+        (dyed_ctags.main, [ctag_b] + dry_arg),
+        (dyed_ctags.main, [ctag_i] + dry_arg),
         # Languages (1)
         (derived_langs.main, [lang_dir] + dry_arg),
     )
@@ -201,7 +196,7 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     if args.dry_run and counter.has_output:
         sys.stderr.write(
-            "\n[ERROR] Generated assets are OUTDATED!\n"
+            "\n[ERROR] Generated resources are OUTDATED!\n"
             "Please run: python -m reg.generate_all src/main/resources\n"
         )
         sys.exit(1)

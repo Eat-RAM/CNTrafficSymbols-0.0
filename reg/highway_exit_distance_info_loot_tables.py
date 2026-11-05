@@ -16,7 +16,7 @@ FACING_STATES: Tuple[str, ...] = ("north_south", "east_west")
 
 
 def make_loot_table(block: str) -> Any:
-    modifiers: Any = [
+    modifiers: List[Any] = [
         {
             "type": "minecraft:set_count",
             "add": False,
@@ -60,9 +60,9 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     for item in ITEMS:
         block: str = f"highway_exit_distance_info_{item}"
-        data = make_loot_table(block)
-        write_json_idempotent(args.dir, f"{block}.json", data, args.dry_run,
-                              compact=True)
+        to_write = make_loot_table(block)
+        write_json_idempotent(args.dir, f"{block}.json", to_write,
+                              args.dry_run, compact=True)
 
 
 if __name__ == "__main__":

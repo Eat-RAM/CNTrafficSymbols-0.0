@@ -5,7 +5,7 @@
     {
       "from": [1.5627, 0.0, -4.0843],
       "to": [3.1039, 0.5, 20.0843],
-      "rotation": {"origin": [2.3333, 0.0, 8.0], "axis": "y", "angle": -45.0},
+      "rotation": {"origin": [2.3333, 0.0, 8.0], "axis": "y", "angle": -45},
       "faces": {
         "down": {"uv": [0, 0, 16, 16], "texture": "#this", "cullface": "down"},
         "up": {"uv": [0, 0, 16, 16], "texture": "#this"},

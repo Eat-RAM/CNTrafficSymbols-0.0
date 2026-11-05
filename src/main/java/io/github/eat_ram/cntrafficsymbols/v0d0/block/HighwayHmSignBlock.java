@@ -33,35 +33,35 @@ import static net.minecraft.util.shape.VoxelShapes.empty;
 public class HighwayHmSignBlock extends Attachment3DoubleFaceFacingBlock
 implements net.minecraft.block.BlockEntityProvider {
     public static final VoxelShape SHAPE0 =
-    cuboid(.375, .375, .375, .625, .625, .625);
+    cuboid(0.4375, 0.4375, 0.4375, 0.5625, 0.5625, 0.5625);
     public static final VoxelShape SHAPE0N =
-    cuboid(.375, .375, .9375, .625, .625, 1);
+    cuboid(0.4375, 0.4375, 0.984375, 0.5625, 0.5625, 1);
     public static final VoxelShape SHAPE0E =
-    cuboid(0, .375, .375, .0625, .625, .625);
+    cuboid(0, 0.4375, 0.4375, 0.015625, 0.5625, 0.5625);
     public static final VoxelShape SHAPE0S =
-    cuboid(.375, .375, 0, .625, .625, .0625);
+    cuboid(0.4375, 0.4375, 0, 0.5625, 0.5625, 0.015625);
     public static final VoxelShape SHAPE0W =
-    cuboid(.9375, .375, .375, 1, .625, .625);
+    cuboid(0.984375, 0.4375, 0.4375, 1, 0.5625, 0.5625);
     public static final VoxelShape SHAPE1 =
-    cuboid(.375, 0, .375, .625, .25, .625);
+    cuboid(0.4375, 0, 0.4375, 0.5625, 0.125, 0.5625);
     public static final VoxelShape SHAPE1N =
-    cuboid(.375, 0, .9375, .625, .25, 1);
+    cuboid(0.4375, 0, 0.984375, 0.5625, 0.125, 1);
     public static final VoxelShape SHAPE1E =
-    cuboid(0, 0, .375, .0625, .25, .625);
+    cuboid(0, 0, 0.4375, 0.015625, 0.125, 0.5625);
     public static final VoxelShape SHAPE1S =
-    cuboid(.375, 0, 0, .625, .25, .0625);
+    cuboid(0.4375, 0, 0, 0.5625, 0.125, 0.015625);
     public static final VoxelShape SHAPE1W =
-    cuboid(.9375, 0, .375, 1, .25, .625);
+    cuboid(0.984375, 0, 0.4375, 1, 0.125, 0.5625);
     public static final VoxelShape SHAPE2 =
-    cuboid(.375, .75, .375, .625, 1, .625);
+    cuboid(0.4375, 0.875, 0.4375, 0.5625, 1, 0.5625);
     public static final VoxelShape SHAPE2N =
-    cuboid(.375, .75, .9375, .625, 1, 1);
+    cuboid(0.4375, 0.875, 0.984375, 0.5625, 1, 1);
     public static final VoxelShape SHAPE2E =
-    cuboid(0, .75, .375, .0625, 1, .625);
+    cuboid(0, 0.875, 0.4375, 0.015625, 1, 0.5625);
     public static final VoxelShape SHAPE2S =
-    cuboid(.375, .75, 0, .625, 1, .0625);
+    cuboid(0.4375, 0.875, 0, 0.5625, 1, 0.015625);
     public static final VoxelShape SHAPE2W =
-    cuboid(.9375, .75, .375, 1, 1, .625);
+    cuboid(0.984375, 0.875, 0.4375, 1, 1, 0.5625);
 
     public HighwayHmSignBlock(Settings settings) {
         super(settings);

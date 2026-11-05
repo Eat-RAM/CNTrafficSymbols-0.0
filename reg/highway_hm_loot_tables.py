@@ -13,7 +13,7 @@ FACING_STATES: Tuple[str, ...] = (
 
 
 def make_loot_table(block: str) -> Any:
-    modifiers: Any = [
+    modifiers: List[Any] = [
         {
             "type": "minecraft:set_count",
             "add": False,
@@ -28,9 +28,7 @@ def make_loot_table(block: str) -> Any:
     modifiers.append({"type": "minecraft:explosion_decay"})
     modifiers.append({
         "type": "minecraft:copy_components",
-        "include": [
-            "minecraft:custom_name"
-        ],
+        "include": ["minecraft:custom_name"],
         "source": "block_entity"
     })
     return {

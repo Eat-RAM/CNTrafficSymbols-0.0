@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.command.OrderedRenderCommandQueue;
-import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
@@ -21,10 +20,10 @@ import static net.minecraft.world.LightUtil.getBlockBrightness;
 
 public class HighwayKmSignBERenderer
 implements CustomBERenderer<HighwayKmSignBlockEntity> {
-    private static final Vec3d TEXT_OFFSET = new Vec3d(0, .25, .075);
-    private static final Vec3d INT_OFFSET = new Vec3d(0, .625, .075);
-    public static final float UP_OFFSET = .25f;
-    public static final float DOWN_OFFSET = -.25f;
+    private static final Vec3d TEXT_OFFSET = new Vec3d(0, 0.25, 0.0375);
+    private static final Vec3d INT_OFFSET = new Vec3d(0, 0.625, 0.0375);
+    public static final float UP_OFFSET = 0.259375f;
+    public static final float DOWN_OFFSET = -0.259375f;
     private final TextRenderer tr;
 
     public HighwayKmSignBERenderer(BlockEntityRendererFactory.Context ctx) {
@@ -35,12 +34,12 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
     public void render(
         CustomBERenderState<HighwayKmSignBlockEntity> state,
         MatrixStack matrices, OrderedRenderCommandQueue queue,
-        CameraRenderState cameraState
+        net.minecraft.client.render.state.CameraRenderState cameraState
     ) {
         HighwayKmSignBlockEntity ett = state.blockEntity;
-        int light = (ett.getWorld() != null) ?
-                    getBlockBrightness(ett.getWorld(), ett.getPos()) :
-                    15728880;
+        net.minecraft.world.World wrld = ett.getWorld();
+        int light =
+        wrld != null ? getBlockBrightness(wrld, ett.getPos()) : 15728880;
         Text tx = ett.getCustomName();
         int km = ett.getKm();
         if (km < 0) {
@@ -49,11 +48,9 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         boolean pf = ett.isPointFive();
         BlockState st = ett.getCachedState();
         matrices.push();
-        this.setAngles(
-            matrices,
-            st.get(FACING).isWall() ? (26 - st.get(FACING).id) * 90f :
-            (((32 - st.get(FACING).id) % 16) * 22.5f), st
-        );
+        this.setAngles(matrices, st.get(FACING).isWall() ? (
+            26 - st.get(FACING).id
+        ) * 90f : (((32 - st.get(FACING).id) % 16) * 22.5f), st);
         if (tx != null) {
             this.renderText(matrices, light, queue, tx, true);
         }
@@ -77,12 +74,8 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
             matrices.translate(0f, 0f, -.5f);
         }
         switch (st.get(ATTACHMENT).id) {
-            case 1:
-                matrices.translate(0f, DOWN_OFFSET, 0f);
-                break;
-            case 2:
-                matrices.translate(0f, UP_OFFSET, 0f);
-                break;
+            case 1: matrices.translate(0f, DOWN_OFFSET, 0f); break;
+            case 2: matrices.translate(0f, UP_OFFSET, 0f); break;
         }
     }
 
@@ -91,7 +84,7 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         Text tx, boolean front
     ) {
         matrices.push();
-        this.setTextAngles(matrices, front, TEXT_OFFSET);
+        setTextAngles(matrices, front, TEXT_OFFSET);
         int i = -1;
         int j = 16;
         OrderedText odt = tx.asOrderedText();
@@ -102,7 +95,7 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         matrices.pop();
     }
 
-    private void
+    private static void
     setTextAngles(MatrixStack matrices, boolean front, Vec3d translation) {
         if (!front) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));
@@ -117,7 +110,7 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         int v, boolean pointFive, boolean front
     ) {
         matrices.push();
-        this.setIntAngles(matrices, front, INT_OFFSET);
+        setIntAngles(matrices, front, INT_OFFSET);
         int i = -1;
         int j = 16;
         String s = v + (pointFive ? ".\u2085" : "");
@@ -129,7 +122,7 @@ implements CustomBERenderer<HighwayKmSignBlockEntity> {
         matrices.pop();
     }
 
-    private void
+    private static void
     setIntAngles(MatrixStack matrices, boolean front, Vec3d translation) {
         if (!front) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180f));

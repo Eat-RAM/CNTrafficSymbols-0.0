@@ -421,14 +421,29 @@ public class AllBlockItems {
     registerNormal(AllBlocks.HEIGHTLIMIT_10);
     public static final Item PROHIBITION =
     registerNormal(AllBlocks.PROHIBITION);
-    public static final Item NO_U_TURN =
-    registerNormal(AllBlocks.NO_U_TURN);
+    public static final Item NO_U_TURN = registerNormal(AllBlocks.NO_U_TURN);
     public static final Item NO_LEFT_TURN =
     registerNormal(AllBlocks.NO_LEFT_TURN);
     public static final Item NO_RIGHT_TURN =
     registerNormal(AllBlocks.NO_RIGHT_TURN);
-    public static final Item NO_PARKING =
-    registerNormal(AllBlocks.NO_PARKING);
+    public static final Item NO_PARKING = registerNormal(AllBlocks.NO_PARKING);
+    public static final Item NO_ENTRY = registerNormal(AllBlocks.NO_ENTRY);
+    public static final Item NO_LEFT_AND_RIGHT_TURN =
+    registerNormal(AllBlocks.NO_LEFT_AND_RIGHT_TURN);
+    public static final Item NO_STRAIGHT_AHEAD =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD);
+    public static final Item NO_STRAIGHT_AHEAD_AND_LEFT_TURN =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD_AND_LEFT_TURN);
+    public static final Item NO_STRAIGHT_AHEAD_AND_RIGHT_TURN =
+    registerNormal(AllBlocks.NO_STRAIGHT_AHEAD_AND_RIGHT_TURN);
+    public static final Item NO_STOPPING =
+    registerNormal(AllBlocks.NO_STOPPING);
+    public static final Item NO_STOPPING_LEFT =
+    registerNormal(AllBlocks.NO_STOPPING_LEFT);
+    public static final Item NO_STOPPING_LEFT_RIGHT =
+    registerNormal(AllBlocks.NO_STOPPING_LEFT_RIGHT);
+    public static final Item NO_STOPPING_RIGHT =
+    registerNormal(AllBlocks.NO_STOPPING_RIGHT);
     public static final Item HIGHWAY_1HM =
     registerNormal(AllBlocks.HIGHWAY_1HM);
     public static final Item HIGHWAY_2HM =
@@ -1393,7 +1408,11 @@ public class AllBlockItems {
             HEIGHTLIMIT_9D9, HEIGHTLIMIT_10
         };
         Item[] PROHIBITION_ITEMS = new Item[]{
-            PROHIBITION, NO_U_TURN, NO_LEFT_TURN, NO_RIGHT_TURN, NO_PARKING
+            PROHIBITION, NO_U_TURN, NO_LEFT_TURN, NO_RIGHT_TURN, NO_PARKING,
+            NO_ENTRY, NO_LEFT_AND_RIGHT_TURN, NO_STRAIGHT_AHEAD,
+            NO_STRAIGHT_AHEAD_AND_LEFT_TURN, NO_STRAIGHT_AHEAD_AND_RIGHT_TURN,
+            NO_STOPPING, NO_STOPPING_LEFT, NO_STOPPING_LEFT_RIGHT,
+            NO_STOPPING_RIGHT
         };
         Item[] HIGHWAY_HM_ITEMS = new Item[]{
             HIGHWAY_1HM, HIGHWAY_2HM, HIGHWAY_3HM, HIGHWAY_4HM, HIGHWAY_5HM,
@@ -1485,43 +1504,37 @@ public class AllBlockItems {
             LIGHT_BLUE_LINED4_TP, YELLOW_LINED4_TP, LIME_LINED4_TP,
             PINK_LINED4_TP, GRAY_LINED4_TP, LIGHT_GRAY_LINED4_TP,
             CYAN_LINED4_TP, PURPLE_LINED4_TP, BLUE_LINED4_TP,
-            BROWN_LINED4_TP, GREEN_LINED4_TP, RED_LINED4_TP,
-            BLACK_LINED4_TP
+            BROWN_LINED4_TP, GREEN_LINED4_TP, RED_LINED4_TP, BLACK_LINED4_TP
         }, new Item[]{
             WHITE_LINED5_TP, ORANGE_LINED5_TP, MAGENTA_LINED5_TP,
             LIGHT_BLUE_LINED5_TP, YELLOW_LINED5_TP, LIME_LINED5_TP,
             PINK_LINED5_TP, GRAY_LINED5_TP, LIGHT_GRAY_LINED5_TP,
             CYAN_LINED5_TP, PURPLE_LINED5_TP, BLUE_LINED5_TP,
-            BROWN_LINED5_TP, GREEN_LINED5_TP, RED_LINED5_TP,
-            BLACK_LINED5_TP
+            BROWN_LINED5_TP, GREEN_LINED5_TP, RED_LINED5_TP, BLACK_LINED5_TP
         }, new Item[]{
             WHITE_LINED6_TP, ORANGE_LINED6_TP, MAGENTA_LINED6_TP,
             LIGHT_BLUE_LINED6_TP, YELLOW_LINED6_TP, LIME_LINED6_TP,
             PINK_LINED6_TP, GRAY_LINED6_TP, LIGHT_GRAY_LINED6_TP,
             CYAN_LINED6_TP, PURPLE_LINED6_TP, BLUE_LINED6_TP,
-            BROWN_LINED6_TP, GREEN_LINED6_TP, RED_LINED6_TP,
-            BLACK_LINED6_TP
+            BROWN_LINED6_TP, GREEN_LINED6_TP, RED_LINED6_TP, BLACK_LINED6_TP
         }, new Item[]{
             WHITE_LINED7_TP, ORANGE_LINED7_TP, MAGENTA_LINED7_TP,
             LIGHT_BLUE_LINED7_TP, YELLOW_LINED7_TP, LIME_LINED7_TP,
             PINK_LINED7_TP, GRAY_LINED7_TP, LIGHT_GRAY_LINED7_TP,
             CYAN_LINED7_TP, PURPLE_LINED7_TP, BLUE_LINED7_TP,
-            BROWN_LINED7_TP, GREEN_LINED7_TP, RED_LINED7_TP,
-            BLACK_LINED7_TP
+            BROWN_LINED7_TP, GREEN_LINED7_TP, RED_LINED7_TP, BLACK_LINED7_TP
         }, new Item[]{
             WHITE_LINED8_TP, ORANGE_LINED8_TP, MAGENTA_LINED8_TP,
             LIGHT_BLUE_LINED8_TP, YELLOW_LINED8_TP, LIME_LINED8_TP,
             PINK_LINED8_TP, GRAY_LINED8_TP, LIGHT_GRAY_LINED8_TP,
             CYAN_LINED8_TP, PURPLE_LINED8_TP, BLUE_LINED8_TP,
-            BROWN_LINED8_TP, GREEN_LINED8_TP, RED_LINED8_TP,
-            BLACK_LINED8_TP
+            BROWN_LINED8_TP, GREEN_LINED8_TP, RED_LINED8_TP, BLACK_LINED8_TP
         }, new Item[]{
             WHITE_LINED9_TP, ORANGE_LINED9_TP, MAGENTA_LINED9_TP,
             LIGHT_BLUE_LINED9_TP, YELLOW_LINED9_TP, LIME_LINED9_TP,
             PINK_LINED9_TP, GRAY_LINED9_TP, LIGHT_GRAY_LINED9_TP,
             CYAN_LINED9_TP, PURPLE_LINED9_TP, BLUE_LINED9_TP,
-            BROWN_LINED9_TP, GREEN_LINED9_TP, RED_LINED9_TP,
-            BLACK_LINED9_TP
+            BROWN_LINED9_TP, GREEN_LINED9_TP, RED_LINED9_TP, BLACK_LINED9_TP
         }, new Item[]{
             WHITE_LINED10_TP, ORANGE_LINED10_TP, MAGENTA_LINED10_TP,
             LIGHT_BLUE_LINED10_TP, YELLOW_LINED10_TP, LIME_LINED10_TP,

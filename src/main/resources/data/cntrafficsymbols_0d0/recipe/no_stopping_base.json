@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "T": "minecraft:blue_dye",
+    "E": "cntrafficsymbols_0d0:circle_backboard",
+    "B": "minecraft:red_dye"
+  },
+  "pattern": [
+    "T",
+    "E",
+    "B"
+  ],
+  "result": {"id": "cntrafficsymbols_0d0:no_stopping"},
+  "show_notification": true
+}

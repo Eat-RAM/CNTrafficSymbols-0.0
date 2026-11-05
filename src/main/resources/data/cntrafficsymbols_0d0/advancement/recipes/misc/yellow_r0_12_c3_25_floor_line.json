@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_yellow_r0_12_c0_25_floor_line": {
+      "conditions": {"items": [{"items": "cntrafficsymbols_0d0:yellow_r0_12_c0_25_floor_line"}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipes": "cntrafficsymbols_0d0:yellow_r0_12_c3_25_floor_line"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yellow_r0_12_c0_25_floor_line"
+    ]
+  ],
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:yellow_r0_12_c3_25_floor_line"]},
+  "sends_telemetry_event": false
+}

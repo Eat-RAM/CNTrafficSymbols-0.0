@@ -6,10 +6,7 @@ from .reg_utils import (
 )
 
 
-FORMS: Dict[str, str] = {
-    "half1": "down_center",
-    "full1": "y_center"
-}
+FORMS: Dict[str, str] = {"half1": "down_center", "full1": "y_center"}
 
 
 def main(argv: Optional[List[str]] = None) -> None:

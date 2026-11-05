@@ -3,7 +3,6 @@ package io.github.eat_ram.cntrafficsymbols.v0d0.client.screen;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import io.github.eat_ram.cntrafficsymbols.core.helper.DoubleIntervalHelper;
 import io.github.eat_ram.cntrafficsymbols.core.helper.String2McText;
@@ -43,6 +42,7 @@ public class RodWithLampEditScreen extends Screen {
     private TimeSlider startSlider;
     private TimeSlider endSlider;
     private TextFieldWidget intervalField;
+    private ButtonWidget doneBtn;
 
     public RodWithLampEditScreen(
         RodWithLampBlockEntity be, LightVisualColor color
@@ -150,17 +150,17 @@ public class RodWithLampEditScreen extends Screen {
             this.textRenderer, cx - 154, y, 308, 20,
             tagTr("gui.cntrafficsymbols_0d0.time_interval_text")
         );
-        this.intervalField.setText(
-            DoubleIntervalHelper.format(this.intervals)
-        );
-        this.intervalField.setMaxLength(128);
+        this.intervalField.setMaxLength(512);
+        this.intervalField
+        .setText(DoubleIntervalHelper.format(this.intervals));
         this.intervalField.setChangedListener(this::onTextChanged);
         this.addDrawableChild(this.intervalField);
 
         y += 28;
-        this.addDrawableChild(ButtonWidget.builder(
+        this.doneBtn = ButtonWidget.builder(
             ScreenTexts.DONE, b -> this.saveAndClose()
-        ).dimensions(cx - 105, y, 100, 20).build());
+        ).dimensions(cx - 105, y, 100, 20).build();
+        this.addDrawableChild(this.doneBtn);
         this.addDrawableChild(ButtonWidget.builder(
             ScreenTexts.CANCEL, b -> this.close()
         ).dimensions(cx + 5, y, 100, 20).build());
@@ -261,6 +261,10 @@ public class RodWithLampEditScreen extends Screen {
             this.intervalField.setText(
                 DoubleIntervalHelper.format(this.intervals)
             );
+            this.intervalField.setEditableColor(0xFFFFFFFF);
+            if (this.doneBtn != null) {
+                this.doneBtn.active = true;
+            }
             this.updatingFromCode = false;
         }
     }
@@ -350,14 +354,15 @@ public class RodWithLampEditScreen extends Screen {
         if (this.updatingFromCode) {
             return;
         }
-        List<DoubleInterval> parsed = DoubleIntervalHelper.parseString(text);
-        if (parsed != null) {
+        List<DoubleInterval> parsed = DoubleIntervalHelper.fromString(text);
+        boolean valid = (parsed != null);
+        this.intervalField.setEditableColor(valid ? 0xFFFFFFFF : 0xFFFF5555);
+        if (this.doneBtn != null) {
+            this.doneBtn.active = valid;
+        }
+        if (valid) {
             this.intervals = new ArrayList<>(parsed);
             this.selectedIntervalIndex = this.intervals.isEmpty() ? -1 : 0;
-            this.updateControlsForSelection();
-        } else if (text.isBlank()) {
-            this.intervals = new ArrayList<>();
-            this.selectedIntervalIndex = -1;
             this.updateControlsForSelection();
         }
     }
@@ -380,8 +385,10 @@ public class RodWithLampEditScreen extends Screen {
             return true;
         }
         if (input.isEnter()) {
-            this.saveAndClose();
-            return true;
+            if (this.doneBtn == null || this.doneBtn.active) {
+                this.saveAndClose();
+                return true;
+            }
         }
         return false;
     }

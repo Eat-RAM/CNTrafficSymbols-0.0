@@ -1,0 +1,12 @@
+{
+  "values": [
+    "cntrafficsymbols_0d0:white_r0_f25_yellow_c0_25_floor_line",
+    "cntrafficsymbols_0d0:yellow_r0_f25_white_c0_25_floor_line",
+    "cntrafficsymbols_0d0:white_r0_f25_yellow_c1_25_floor_line",
+    "cntrafficsymbols_0d0:yellow_r0_f25_white_c1_25_floor_line",
+    "cntrafficsymbols_0d0:white_r0_f25_yellow_c2_25_floor_line",
+    "cntrafficsymbols_0d0:yellow_r0_f25_white_c2_25_floor_line",
+    "cntrafficsymbols_0d0:white_r0_f25_yellow_c3_25_floor_line",
+    "cntrafficsymbols_0d0:yellow_r0_f25_white_c3_25_floor_line"
+  ]
+}

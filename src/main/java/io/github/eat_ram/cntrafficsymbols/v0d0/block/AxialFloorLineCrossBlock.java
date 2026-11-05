@@ -42,9 +42,8 @@ implements FluidloggedConfigurable {
             union(cuboid(0., 0., 0.375, 1., 0.03125, 0.625),
                   cuboid(1. - ez, 0., 0., 1. - sz, 0.03125, 1.))
         };
-        this.setDefaultState(
-            this.getDefaultState().with(FACING, Direction.NORTH)
-        );
+        this
+        .setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
     }
 
     @Override

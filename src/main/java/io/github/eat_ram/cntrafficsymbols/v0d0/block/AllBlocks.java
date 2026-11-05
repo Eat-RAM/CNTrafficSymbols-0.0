@@ -1028,6 +1028,53 @@ public class AllBlocks {
         commitDouble("no_parking"), circleStandingSymbol("no_parking"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
+    public static final Block NO_ENTRY = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_entry"),
+        circleStandingSymbol("no_entry"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_LEFT_AND_RIGHT_TURN = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_left_and_right_turn"),
+        circleStandingSymbol("no_left_and_right_turn"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STRAIGHT_AHEAD = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_straight_ahead"),
+        circleStandingSymbol("no_straight_ahead"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STRAIGHT_AHEAD_AND_LEFT_TURN = registerBlock(
+        Identifier
+        .of("cntrafficsymbols_0d0", "no_straight_ahead_and_left_turn"),
+        circleStandingSymbol("no_straight_ahead_and_left_turn"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STRAIGHT_AHEAD_AND_RIGHT_TURN = registerBlock(
+        Identifier
+        .of("cntrafficsymbols_0d0", "no_straight_ahead_and_right_turn"),
+        circleStandingSymbol("no_straight_ahead_and_right_turn"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STOPPING = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_stopping"),
+        circleStandingSymbol("no_stopping"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STOPPING_LEFT = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_stopping_left"),
+        circleStandingSymbol("no_stopping_left"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STOPPING_LEFT_RIGHT = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_stopping_left_right"),
+        circleStandingSymbol("no_stopping_left_right"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
+    public static final Block NO_STOPPING_RIGHT = registerBlock(
+        Identifier.of("cntrafficsymbols_0d0", "no_stopping_right"),
+        circleStandingSymbol("no_stopping_right"),
+        Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
+    );
     public static final Block HIGHWAY_1HM = registerBlock(
         commitDouble("highway_1hm"), highwayHmSign("highway_1hm"),
         Block.Settings.create().nonOpaque().strength(1f, 4f)
