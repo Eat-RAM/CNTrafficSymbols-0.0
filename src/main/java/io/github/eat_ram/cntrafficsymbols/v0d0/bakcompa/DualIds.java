@@ -11,8 +11,6 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.ApiStatus.Internal;
 import org.jetbrains.annotations.Contract;
 
-import static rege.pegui.cntrafficsymbols.Main.getPreferLegacyIdentifiers;
-
 public abstract class DualIds {
     private static final HashMap<Entry<SimpleRegistry<?>, String>, Runnable>
     COMMITTERS = new HashMap<>();
@@ -20,19 +18,16 @@ public abstract class DualIds {
     @Contract("_, _ -> new")
     public static <T> Identifier
     commitAndGet(SimpleRegistry<T> registry, String path) {
-        Identifier legacyId =
-        new Identifier("regedt32", "cntrafficsymbols/" + path);
-        Identifier newId = new Identifier("cntrafficsymbols_0d0", path);
-        boolean preferLegacy = getPreferLegacyIdentifiers();
-        Identifier preferred = preferLegacy ? legacyId : newId;
+        Identifier preferred = Identifier.of("cntrafficsymbols_0d0", path);
         if (!COMMITTERS.containsKey(
             new SimpleImmutableEntry<SimpleRegistry<?>, String>(registry, path)
         )) {
-            Identifier spare = preferLegacy ? newId : legacyId;
+            Identifier legacyId =
+            Identifier.of("regedt32", "cntrafficsymbols/" + path);
             COMMITTERS.put(new SimpleImmutableEntry<>(
                 registry, path
             ), () -> ((Aliasable)registry).cntrafficsymbols_0d0$addAlias(
-                spare, preferred
+                legacyId, preferred
             ));
         }
         return preferred;

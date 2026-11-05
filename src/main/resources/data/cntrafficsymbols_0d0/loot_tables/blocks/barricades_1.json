@@ -1,0 +1,159 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"northwest": "1"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_75cm_height"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"northwest": "2"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_1m_height"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"northeast": "1"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_75cm_height"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"northeast": "2"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_1m_height"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"southwest": "1"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_75cm_height"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"southwest": "2"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_1m_height"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"southeast": "1"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_75cm_height"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "cntrafficsymbols_0d0:barricades_1",
+                  "properties": {"southeast": "2"}
+                }
+              ],
+              "name": "cntrafficsymbols_0d0:barricade_50cm_edge_1m_height"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "cntrafficsymbols_0d0:barricades_1",
+              "properties": {
+                "northwest": "0",
+                "northeast": "0",
+                "southwest": "0",
+                "southeast": "0"
+              }
+            }
+          ],
+          "name": "cntrafficsymbols_0d0:barricade_1m_edge_1m_height"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
