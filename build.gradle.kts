@@ -1,5 +1,3 @@
-import net.fabricmc.loom.task.RemapJarTask
-
 plugins {
     id("fabric-loom") version "1.6-SNAPSHOT"
     `maven-publish`
@@ -85,18 +83,13 @@ tasks.jar {
     }
 }
 
-tasks.register<Jar>("extraJar") {
-    description = "Jar with extra-resources. Will be removed in 0.0.3-a1."
-    from(zipTree(tasks.named<RemapJarTask>(
-        "remapJar"
-    ).get().archiveFile.get().asFile.path))
-    from(extraResourcesPath)
-    dependsOn(tasks.named("remapJar").get())
-    archiveClassifier = "full"
-}
-
-tasks.build {
-    dependsOn(tasks.named("extraJar"))
+tasks.named<Jar>("sourcesJar") {
+    from("LICENSE") {
+        into("META-INF")
+    }
+    from("LICENSE_Unifont") {
+        into("META-INF")
+    }
 }
 
 // configure the maven publication

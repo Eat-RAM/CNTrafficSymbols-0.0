@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "bottom=true": {"model": "regedt32:block/cntrafficsymbols/yellow_dotted10_tp_bottom"},
-    "bottom=false": {"model": "regedt32:block/cntrafficsymbols/yellow_dotted10_tp_up"}
-  }
-}
