@@ -146,24 +146,29 @@ def transform_zhcn_to_zhhk(
 def main(argv: Optional[List[str]] = None) -> None:
     parser: ArgumentParser = \
     create_parser("Generate derived language files (en_gb.json, zh_hk.json)")
+    parser.add_argument(
+        "--src-dir", type=str, required=True,
+        help="Path to source lang JSON files"
+    )
     args: Namespace = parser.parse_args(argv)
-    lang_dir: str = path.abspath(args.dir)
-    ensure_output_dir(lang_dir, args.dry_run)
+    out_lang_dir: str = path.abspath(args.dir)
+    src_lang_dir: str = path.abspath(args.src_dir)
+    ensure_output_dir(out_lang_dir, args.dry_run)
 
-    enus_path: str = path.join(lang_dir, "en_us.json")
+    enus_path: str = path.join(src_lang_dir, "en_us.json")
     with open(enus_path, "r", encoding="utf-8") as f:
         en_us_data: Dict[str, str] = json.load(f)
 
     engb_data: Dict[str, str] = transform_enus_to_engb(en_us_data)
-    write_json_idempotent(lang_dir, "en_gb.json", engb_data, args.dry_run)
+    write_json_idempotent(out_lang_dir, "en_gb.json", engb_data, args.dry_run)
 
-    zhcn_path: str = path.join(lang_dir, "zh_cn.json")
+    zhcn_path: str = path.join(src_lang_dir, "zh_cn.json")
     with open(zhcn_path, "r", encoding="utf-8") as f:
         zh_cn_data: Dict[str, str] = json.load(f)
 
     converter: Callable[[str], str] = get_s2hk_converter()
     zhhk_data: Dict[str, str] = transform_zhcn_to_zhhk(zh_cn_data, converter)
-    write_json_idempotent(lang_dir, "zh_hk.json", zhhk_data, args.dry_run)
+    write_json_idempotent(out_lang_dir, "zh_hk.json", zhhk_data, args.dry_run)
 
 
 if __name__ == "__main__":

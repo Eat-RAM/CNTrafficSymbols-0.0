@@ -240,6 +240,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         tex_path = path.normpath(path.join(
             args.dir, "..", "..", "textures", "block", "circle_backboard.png"
         ))
+    elif path.isdir(tex_path):
+        tex_path = path.join(tex_path, "circle_backboard.png")
 
     grouped_cols, grouped_rows, tex_size = extract_pixel_spans(tex_path)
 

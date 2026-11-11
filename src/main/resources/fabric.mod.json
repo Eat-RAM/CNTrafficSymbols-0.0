@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "cntrafficsymbols_0d0",
-  "version": "0.0.3-a1",
+  "version": "0.0.3-a2",
   "name": "CNTrafficSymbols 0.0",
   "description": "Contents of version “0.0” phase of CNTrafficSymbols",
   "authors": [
@@ -58,6 +58,6 @@
     "minecraft": "~26.3",
     "java": ">=25",
     "fabric-api": "*",
-    "cntrafficsymbols_core": ">=0.0.2-rc2"
+    "cntrafficsymbols_core": ">=0.0.3-a1"
   }
 }

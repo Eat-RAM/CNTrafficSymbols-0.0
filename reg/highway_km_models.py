@@ -293,6 +293,8 @@ def main(argv: Optional[List[str]] = None) -> None:
             args.dir, "..", "..", "textures", "block",
             "highway_km_backboard.png"
         ))
+    elif path.isdir(tex_path):
+        tex_path = path.join(tex_path, "highway_km_backboard.png")
 
     cols, rows, tex_w, min_y, max_y = extract_pixel_spans(tex_path)
 

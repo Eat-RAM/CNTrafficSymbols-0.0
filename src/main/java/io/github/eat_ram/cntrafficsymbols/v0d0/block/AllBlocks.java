@@ -6,7 +6,6 @@ import io.github.eat_ram.cntrafficsymbols.core.block
 import io.github.eat_ram.cntrafficsymbols.core.block.WideBoardBlock;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Contract;
 
 import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
@@ -14,6 +13,8 @@ import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
 import static io.github.eat_ram.cntrafficsymbols.v0d0.block.BlockFactories.*;
 import static io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper
               .commitDouble;
+import static io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper
+              .nsId;
 import static io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper
               .registerBlock;
 
@@ -1029,50 +1030,43 @@ public class AllBlocks {
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_ENTRY = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_entry"),
-        circleStandingSymbol("no_entry"),
+        nsId("no_entry"), circleStandingSymbol("no_entry"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_LEFT_AND_RIGHT_TURN = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_left_and_right_turn"),
+        nsId("no_left_and_right_turn"),
         circleStandingSymbol("no_left_and_right_turn"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STRAIGHT_AHEAD = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_straight_ahead"),
-        circleStandingSymbol("no_straight_ahead"),
+        nsId("no_straight_ahead"), circleStandingSymbol("no_straight_ahead"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STRAIGHT_AHEAD_AND_LEFT_TURN = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "no_straight_ahead_and_left_turn"),
+        nsId("no_straight_ahead_and_left_turn"),
         circleStandingSymbol("no_straight_ahead_and_left_turn"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STRAIGHT_AHEAD_AND_RIGHT_TURN = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "no_straight_ahead_and_right_turn"),
+        nsId("no_straight_ahead_and_right_turn"),
         circleStandingSymbol("no_straight_ahead_and_right_turn"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STOPPING = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_stopping"),
-        circleStandingSymbol("no_stopping"),
+        nsId("no_stopping"), circleStandingSymbol("no_stopping"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STOPPING_LEFT = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_stopping_left"),
-        circleStandingSymbol("no_stopping_left"),
+        nsId("no_stopping_left"), circleStandingSymbol("no_stopping_left"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STOPPING_LEFT_RIGHT = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_stopping_left_right"),
+        nsId("no_stopping_left_right"),
         circleStandingSymbol("no_stopping_left_right"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block NO_STOPPING_RIGHT = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "no_stopping_right"),
-        circleStandingSymbol("no_stopping_right"),
+        nsId("no_stopping_right"), circleStandingSymbol("no_stopping_right"),
         Block.Settings.create().nonOpaque().strength(9f, 36f).solid()
     );
     public static final Block HIGHWAY_1HM = registerBlock(
@@ -2756,681 +2750,649 @@ public class AllBlocks {
     );
     public static final Thin22d5FloorLineBlock
     WHITE_THIN_22D5_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_thin_22d5_floor_line"),
+        nsId("white_thin_22d5_floor_line"),
         thin22d5FloorLine("white_thin_22d5_floor_line"),
         Block.Settings.create().nonOpaque().strength(4f, 4f)
     );
     public static final Thin22d5FloorLineBlock
     YELLOW_THIN_22D5_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_thin_22d5_floor_line"),
+        nsId("yellow_thin_22d5_floor_line"),
         thin22d5FloorLine("yellow_thin_22d5_floor_line"),
         Block.Settings.create().nonOpaque().strength(4f, 4f)
     );
     public static final Thin45FloorLineBlock
     WHITE_THIN_45_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_thin_45_floor_line"),
+        nsId("white_thin_45_floor_line"),
         thin45FloorLine("white_thin_45_floor_line"),
         Block.Settings.create().nonOpaque().strength(4f, 4f)
     );
     public static final Thin45FloorLineBlock
     YELLOW_THIN_45_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_thin_45_floor_line"),
+        nsId("yellow_thin_45_floor_line"),
         thin45FloorLine("yellow_thin_45_floor_line"),
         Block.Settings.create().nonOpaque().strength(4f, 4f)
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R1_12_C1_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c1_12_floor_line"),
+        nsId("white_r1_12_c1_12_floor_line"),
         diagonalFloorLineCross("white_r1_12_c1_12_floor_line", 1, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c2_12_floor_line"),
+        nsId("white_r1_12_c2_12_floor_line"),
         chiralFloorLineCross("white_r1_12_c2_12_floor_line", 1, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c3_12_floor_line"),
+        nsId("white_r1_12_c3_12_floor_line"),
         chiralFloorLineCross("white_r1_12_c3_12_floor_line", 1, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R2_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c2_12_floor_line"),
+        nsId("white_r2_12_c2_12_floor_line"),
         diagonalFloorLineCross("white_r2_12_c2_12_floor_line", 2, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R2_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c3_12_floor_line"),
+        nsId("white_r2_12_c3_12_floor_line"),
         chiralFloorLineCross("white_r2_12_c3_12_floor_line", 2, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R3_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_12_c3_12_floor_line"),
+        nsId("white_r3_12_c3_12_floor_line"),
         diagonalFloorLineCross("white_r3_12_c3_12_floor_line", 3, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R1_25_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_25_c1_25_floor_line"),
+        nsId("white_r1_25_c1_25_floor_line"),
         diagonalFloorLineCross("white_r1_25_c1_25_floor_line", 1, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_25_c2_25_floor_line"),
+        nsId("white_r1_25_c2_25_floor_line"),
         chiralFloorLineCross("white_r1_25_c2_25_floor_line", 1, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R1_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_25_c3_25_floor_line"),
+        nsId("white_r1_25_c3_25_floor_line"),
         axialFloorLineCross("white_r1_25_c3_25_floor_line", 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R2_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_25_c2_25_floor_line"),
+        nsId("white_r2_25_c2_25_floor_line"),
         diagonalFloorLineCross("white_r2_25_c2_25_floor_line", 2, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R2_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_25_c3_25_floor_line"),
+        nsId("white_r2_25_c3_25_floor_line"),
         axialFloorLineCross("white_r2_25_c3_25_floor_line", 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final CenterSymmetricFloorLineCrossBlock
     WHITE_R3_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_25_c3_25_floor_line"),
+        nsId("white_r3_25_c3_25_floor_line"),
         centerSymmetricFloorLineCross("white_r3_25_c3_25_floor_line"),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c1_25_floor_line"),
+        nsId("white_r1_12_c1_25_floor_line"),
         chiralFloorLineCross("white_r1_12_c1_25_floor_line", 1, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c2_25_floor_line"),
+        nsId("white_r1_12_c2_25_floor_line"),
         chiralFloorLineCross("white_r1_12_c2_25_floor_line", 1, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R1_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c3_25_floor_line"),
+        nsId("white_r1_12_c3_25_floor_line"),
         axialFloorLineCross("white_r1_12_c3_25_floor_line", 1, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R2_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c1_25_floor_line"),
+        nsId("white_r2_12_c1_25_floor_line"),
         chiralFloorLineCross("white_r2_12_c1_25_floor_line", 2, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R2_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c2_25_floor_line"),
+        nsId("white_r2_12_c2_25_floor_line"),
         chiralFloorLineCross("white_r2_12_c2_25_floor_line", 2, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R2_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c3_25_floor_line"),
+        nsId("white_r2_12_c3_25_floor_line"),
         axialFloorLineCross("white_r2_12_c3_25_floor_line", 2, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R3_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_12_c1_25_floor_line"),
+        nsId("white_r3_12_c1_25_floor_line"),
         chiralFloorLineCross("white_r3_12_c1_25_floor_line", 3, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R3_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_12_c2_25_floor_line"),
+        nsId("white_r3_12_c2_25_floor_line"),
         chiralFloorLineCross("white_r3_12_c2_25_floor_line", 3, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R3_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_12_c3_25_floor_line"),
+        nsId("white_r3_12_c3_25_floor_line"),
         axialFloorLineCross("white_r3_12_c3_25_floor_line", 3, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R1_12_C1_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c1_12_floor_line"),
+        nsId("yellow_r1_12_c1_12_floor_line"),
         diagonalFloorLineCross("yellow_r1_12_c1_12_floor_line", 1, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c2_12_floor_line"),
+        nsId("yellow_r1_12_c2_12_floor_line"),
         chiralFloorLineCross("yellow_r1_12_c2_12_floor_line", 1, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c3_12_floor_line"),
+        nsId("yellow_r1_12_c3_12_floor_line"),
         chiralFloorLineCross("yellow_r1_12_c3_12_floor_line", 1, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R2_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c2_12_floor_line"),
+        nsId("yellow_r2_12_c2_12_floor_line"),
         diagonalFloorLineCross("yellow_r2_12_c2_12_floor_line", 2, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R2_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c3_12_floor_line"),
+        nsId("yellow_r2_12_c3_12_floor_line"),
         chiralFloorLineCross("yellow_r2_12_c3_12_floor_line", 2, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R3_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_12_c3_12_floor_line"),
+        nsId("yellow_r3_12_c3_12_floor_line"),
         diagonalFloorLineCross("yellow_r3_12_c3_12_floor_line", 3, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R1_25_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_25_c1_25_floor_line"),
+        nsId("yellow_r1_25_c1_25_floor_line"),
         diagonalFloorLineCross("yellow_r1_25_c1_25_floor_line", 1, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_25_c2_25_floor_line"),
+        nsId("yellow_r1_25_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r1_25_c2_25_floor_line", 1, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R1_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_25_c3_25_floor_line"),
+        nsId("yellow_r1_25_c3_25_floor_line"),
         axialFloorLineCross("yellow_r1_25_c3_25_floor_line", 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R2_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_25_c2_25_floor_line"),
+        nsId("yellow_r2_25_c2_25_floor_line"),
         diagonalFloorLineCross("yellow_r2_25_c2_25_floor_line", 2, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R2_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_25_c3_25_floor_line"),
+        nsId("yellow_r2_25_c3_25_floor_line"),
         axialFloorLineCross("yellow_r2_25_c3_25_floor_line", 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final CenterSymmetricFloorLineCrossBlock
     YELLOW_R3_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_25_c3_25_floor_line"),
+        nsId("yellow_r3_25_c3_25_floor_line"),
         centerSymmetricFloorLineCross("yellow_r3_25_c3_25_floor_line"),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c1_25_floor_line"),
+        nsId("yellow_r1_12_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r1_12_c1_25_floor_line", 1, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c2_25_floor_line"),
+        nsId("yellow_r1_12_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r1_12_c2_25_floor_line", 1, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R1_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c3_25_floor_line"),
+        nsId("yellow_r1_12_c3_25_floor_line"),
         axialFloorLineCross("yellow_r1_12_c3_25_floor_line", 1, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R2_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c1_25_floor_line"),
+        nsId("yellow_r2_12_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r2_12_c1_25_floor_line", 2, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R2_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c2_25_floor_line"),
+        nsId("yellow_r2_12_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r2_12_c2_25_floor_line", 2, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R2_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c3_25_floor_line"),
+        nsId("yellow_r2_12_c3_25_floor_line"),
         axialFloorLineCross("yellow_r2_12_c3_25_floor_line", 2, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R3_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_12_c1_25_floor_line"),
+        nsId("yellow_r3_12_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r3_12_c1_25_floor_line", 3, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R3_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_12_c2_25_floor_line"),
+        nsId("yellow_r3_12_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r3_12_c2_25_floor_line", 3, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R3_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_12_c3_25_floor_line"),
+        nsId("yellow_r3_12_c3_25_floor_line"),
         axialFloorLineCross("yellow_r3_12_c3_25_floor_line", 3, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R0_12_C0_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c0_12_floor_line"),
+        nsId("white_r0_12_c0_12_floor_line"),
         diagonalFloorLineCross("white_r0_12_c0_12_floor_line", 0, 2, 0, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R0_12_C0_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c0_12_floor_line"),
+        nsId("yellow_r0_12_c0_12_floor_line"),
         diagonalFloorLineCross("yellow_r0_12_c0_12_floor_line", 0, 2, 0, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C0_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c0_12_floor_line"),
+        nsId("white_r0_f12_yellow_c0_12_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c0_12_floor_line", 0, 2, 0, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C0_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c0_12_floor_line"),
+        nsId("yellow_r0_f12_white_c0_12_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c0_12_floor_line", 0, 2, 0, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C1_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c1_12_floor_line"),
+        nsId("white_r0_12_c1_12_floor_line"),
         chiralFloorLineCross("white_r0_12_c1_12_floor_line", 0, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C1_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c1_12_floor_line"),
+        nsId("yellow_r0_12_c1_12_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c1_12_floor_line", 0, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C1_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c1_12_floor_line"),
+        nsId("white_r0_f12_yellow_c1_12_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c1_12_floor_line", 0, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C1_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c1_12_floor_line"),
+        nsId("yellow_r0_f12_white_c1_12_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c1_12_floor_line", 0, 2, 1, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c2_12_floor_line"),
+        nsId("white_r0_12_c2_12_floor_line"),
         chiralFloorLineCross("white_r0_12_c2_12_floor_line", 0, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C2_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c2_12_floor_line"),
+        nsId("yellow_r0_12_c2_12_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c2_12_floor_line", 0, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C2_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c2_12_floor_line"),
+        nsId("white_r0_f12_yellow_c2_12_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c2_12_floor_line", 0, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C2_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c2_12_floor_line"),
+        nsId("yellow_r0_f12_white_c2_12_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c2_12_floor_line", 0, 2, 2, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c3_12_floor_line"),
+        nsId("white_r0_12_c3_12_floor_line"),
         chiralFloorLineCross("white_r0_12_c3_12_floor_line", 0, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C3_12_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c3_12_floor_line"),
+        nsId("yellow_r0_12_c3_12_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c3_12_floor_line", 0, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C3_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c3_12_floor_line"),
+        nsId("white_r0_f12_yellow_c3_12_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c3_12_floor_line", 0, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C3_12_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c3_12_floor_line"),
+        nsId("yellow_r0_f12_white_c3_12_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c3_12_floor_line", 0, 2, 3, 2),
         Block.Settings.create().strength(7f, 7f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     WHITE_R0_25_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_25_c0_25_floor_line"),
+        nsId("white_r0_25_c0_25_floor_line"),
         diagonalFloorLineCross("white_r0_25_c0_25_floor_line", 0, 4, 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final DiagonalFloorLineCrossBlock
     YELLOW_R0_25_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_25_c0_25_floor_line"),
+        nsId("yellow_r0_25_c0_25_floor_line"),
         diagonalFloorLineCross("yellow_r0_25_c0_25_floor_line", 0, 4, 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F25_YELLOW_C0_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f25_yellow_c0_25_floor_line"),
+        nsId("white_r0_f25_yellow_c0_25_floor_line"),
         chiralFloorLineCross("white_r0_f25_yellow_c0_25_floor_line", 0, 4, 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F25_WHITE_C0_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f25_white_c0_25_floor_line"),
+        nsId("yellow_r0_f25_white_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f25_white_c0_25_floor_line", 0, 4, 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_25_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_25_c1_25_floor_line"),
+        nsId("white_r0_25_c1_25_floor_line"),
         chiralFloorLineCross("white_r0_25_c1_25_floor_line", 0, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_25_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_25_c1_25_floor_line"),
+        nsId("yellow_r0_25_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r0_25_c1_25_floor_line", 0, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F25_YELLOW_C1_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f25_yellow_c1_25_floor_line"),
+        nsId("white_r0_f25_yellow_c1_25_floor_line"),
         chiralFloorLineCross("white_r0_f25_yellow_c1_25_floor_line", 0, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F25_WHITE_C1_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f25_white_c1_25_floor_line"),
+        nsId("yellow_r0_f25_white_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f25_white_c1_25_floor_line", 0, 4, 1, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_25_c2_25_floor_line"),
+        nsId("white_r0_25_c2_25_floor_line"),
         chiralFloorLineCross("white_r0_25_c2_25_floor_line", 0, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_25_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_25_c2_25_floor_line"),
+        nsId("yellow_r0_25_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r0_25_c2_25_floor_line", 0, 4, 2, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F25_YELLOW_C2_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f25_yellow_c2_25_floor_line"),
+        nsId("white_r0_f25_yellow_c2_25_floor_line"),
         chiralFloorLineCross("white_r0_f25_yellow_c2_25_floor_line", 0, 4, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F25_WHITE_C2_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f25_white_c2_25_floor_line"),
+        nsId("yellow_r0_f25_white_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f25_white_c2_25_floor_line", 0, 4, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R0_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_25_c3_25_floor_line"),
+        nsId("white_r0_25_c3_25_floor_line"),
         axialFloorLineCross("white_r0_25_c3_25_floor_line", 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R0_25_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_25_c3_25_floor_line"),
+        nsId("yellow_r0_25_c3_25_floor_line"),
         axialFloorLineCross("yellow_r0_25_c3_25_floor_line", 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R0_F25_YELLOW_C3_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f25_yellow_c3_25_floor_line"),
+        nsId("white_r0_f25_yellow_c3_25_floor_line"),
         axialFloorLineCross("white_r0_f25_yellow_c3_25_floor_line", 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R0_F25_WHITE_C3_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f25_white_c3_25_floor_line"),
+        nsId("yellow_r0_f25_white_c3_25_floor_line"),
         axialFloorLineCross("yellow_r0_f25_white_c3_25_floor_line", 0, 4),
         Block.Settings.create().strength(12f, 12f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c1_25_floor_line"),
+        nsId("white_r0_12_c1_25_floor_line"),
         chiralFloorLineCross("white_r0_12_c1_25_floor_line", 0, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C1_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c1_25_floor_line"),
+        nsId("yellow_r0_12_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c1_25_floor_line", 0, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C1_25_FLOOR_LINE = registerBlock(
-        Identifier
-         .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c1_25_floor_line"),
+        nsId("white_r0_f12_yellow_c1_25_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c1_25_floor_line", 0, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C1_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c1_25_floor_line"),
+        nsId("yellow_r0_f12_white_c1_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c1_25_floor_line", 0, 2, 1, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c2_25_floor_line"),
+        nsId("white_r0_12_c2_25_floor_line"),
         chiralFloorLineCross("white_r0_12_c2_25_floor_line", 0, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C2_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c2_25_floor_line"),
+        nsId("yellow_r0_12_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c2_25_floor_line", 0, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C2_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c2_25_floor_line"),
+        nsId("white_r0_f12_yellow_c2_25_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c2_25_floor_line", 0, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C2_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c2_25_floor_line"),
+        nsId("yellow_r0_f12_white_c2_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c2_25_floor_line", 0, 2, 2, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R0_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c3_25_floor_line"),
+        nsId("white_r0_12_c3_25_floor_line"),
         axialFloorLineCross("white_r0_12_c3_25_floor_line", 0, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R0_12_C3_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c3_25_floor_line"),
+        nsId("yellow_r0_12_c3_25_floor_line"),
         axialFloorLineCross("yellow_r0_12_c3_25_floor_line", 0, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C3_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c3_25_floor_line"),
+        nsId("white_r0_f12_yellow_c3_25_floor_line"),
         axialFloorLineCross("white_r0_f12_yellow_c3_25_floor_line", 0, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final AxialFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C3_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c3_25_floor_line"),
+        nsId("yellow_r0_f12_white_c3_25_floor_line"),
         axialFloorLineCross("yellow_r0_f12_white_c3_25_floor_line", 0, 2),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r1_12_c0_25_floor_line"),
+        nsId("white_r1_12_c0_25_floor_line"),
         chiralFloorLineCross("white_r1_12_c0_25_floor_line", 1, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r1_12_c0_25_floor_line"),
+        nsId("yellow_r1_12_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r1_12_c0_25_floor_line", 1, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R1_12_YELLOW_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r1_12_yellow_c0_f25_floor_line"),
+        nsId("white_r1_12_yellow_c0_f25_floor_line"),
         chiralFloorLineCross("white_r1_12_yellow_c0_f25_floor_line", 1, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R1_12_WHITE_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r1_12_white_c0_f25_floor_line"),
+        nsId("yellow_r1_12_white_c0_f25_floor_line"),
         chiralFloorLineCross("yellow_r1_12_white_c0_f25_floor_line", 1, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R2_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r2_12_c0_25_floor_line"),
+        nsId("white_r2_12_c0_25_floor_line"),
         chiralFloorLineCross("white_r2_12_c0_25_floor_line", 2, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R2_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r2_12_c0_25_floor_line"),
+        nsId("yellow_r2_12_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r2_12_c0_25_floor_line", 2, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R2_12_YELLOW_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r2_12_yellow_c0_f25_floor_line"),
+        nsId("white_r2_12_yellow_c0_f25_floor_line"),
         chiralFloorLineCross("white_r2_12_yellow_c0_f25_floor_line", 2, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R2_12_WHITE_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r2_12_white_c0_f25_floor_line"),
+        nsId("yellow_r2_12_white_c0_f25_floor_line"),
         chiralFloorLineCross("yellow_r2_12_white_c0_f25_floor_line", 2, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R3_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r3_12_c0_25_floor_line"),
+        nsId("white_r3_12_c0_25_floor_line"),
         chiralFloorLineCross("white_r3_12_c0_25_floor_line", 3, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R3_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r3_12_c0_25_floor_line"),
+        nsId("yellow_r3_12_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r3_12_c0_25_floor_line", 3, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R3_12_YELLOW_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r3_12_yellow_c0_f25_floor_line"),
+        nsId("white_r3_12_yellow_c0_f25_floor_line"),
         chiralFloorLineCross("white_r3_12_yellow_c0_f25_floor_line", 3, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R3_12_WHITE_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r3_12_white_c0_f25_floor_line"),
+        nsId("yellow_r3_12_white_c0_f25_floor_line"),
         chiralFloorLineCross("yellow_r3_12_white_c0_f25_floor_line", 3, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "white_r0_12_c0_25_floor_line"),
+        nsId("white_r0_12_c0_25_floor_line"),
         chiralFloorLineCross("white_r0_12_c0_25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_C0_25_FLOOR_LINE = registerBlock(
-        Identifier.of("cntrafficsymbols_0d0", "yellow_r0_12_c0_25_floor_line"),
+        nsId("yellow_r0_12_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r0_12_c0_25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_F12_YELLOW_C0_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_f12_yellow_c0_25_floor_line"),
+        nsId("white_r0_f12_yellow_c0_25_floor_line"),
         chiralFloorLineCross("white_r0_f12_yellow_c0_25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_F12_WHITE_C0_25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_f12_white_c0_25_floor_line"),
+        nsId("yellow_r0_f12_white_c0_25_floor_line"),
         chiralFloorLineCross("yellow_r0_f12_white_c0_25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     WHITE_R0_12_YELLOW_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "white_r0_12_yellow_c0_f25_floor_line"),
+        nsId("white_r0_12_yellow_c0_f25_floor_line"),
         chiralFloorLineCross("white_r0_12_yellow_c0_f25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
     public static final ChiralFloorLineCrossBlock
     YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE = registerBlock(
-        Identifier
-        .of("cntrafficsymbols_0d0", "yellow_r0_12_white_c0_f25_floor_line"),
+        nsId("yellow_r0_12_white_c0_f25_floor_line"),
         chiralFloorLineCross("yellow_r0_12_white_c0_f25_floor_line", 0, 2, 0, 4),
         Block.Settings.create().strength(10f, 10f).solid()
     );
