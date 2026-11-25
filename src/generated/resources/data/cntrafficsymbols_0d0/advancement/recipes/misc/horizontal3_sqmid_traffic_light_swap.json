@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_horizontal3_traffic_light": {
+      "conditions": {"items": [{"items": "cntrafficsymbols_0d0:horizontal3_traffic_light"}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_horizontal3_sqmid_traffic_light": {
+      "conditions": {"items": [{"items": "cntrafficsymbols_0d0:horizontal3_sqmid_traffic_light"}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vertical3_traffic_light": {
+      "conditions": {"items": [{"items": "cntrafficsymbols_0d0:vertical3_traffic_light"}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vertical3_sqmid_traffic_light": {
+      "conditions": {"items": [{"items": "cntrafficsymbols_0d0:vertical3_sqmid_traffic_light"}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipes": "cntrafficsymbols_0d0:horizontal3_sqmid_traffic_light_swap"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_horizontal3_traffic_light",
+      "has_horizontal3_sqmid_traffic_light",
+      "has_vertical3_traffic_light",
+      "has_vertical3_sqmid_traffic_light"
+    ]
+  ],
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:horizontal3_sqmid_traffic_light_swap"]},
+  "sends_telemetry_event": false
+}

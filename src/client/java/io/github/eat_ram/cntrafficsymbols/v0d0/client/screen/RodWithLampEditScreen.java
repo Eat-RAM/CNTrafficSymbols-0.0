@@ -116,11 +116,11 @@ public class RodWithLampEditScreen extends Screen {
         this.addDrawableChild(this.nextBtn);
 
         this.addDrawableChild(ButtonWidget.builder(tagTr(
-            "gui.cntrafficsymbols_0d0.add_btn"
+            "gui.cntrafficsymbols_core.add_btn"
         ), b -> this.addInterval()).dimensions(cx + 26, y, 62, 20).build());
 
         this.delBtn = ButtonWidget.builder(tagTr(
-            "gui.cntrafficsymbols_0d0.delete_btn"
+            "gui.cntrafficsymbols_core.delete_btn"
         ), b -> this.removeInterval()).dimensions(cx + 92, y, 62, 20).build();
         this.addDrawableChild(this.delBtn);
 

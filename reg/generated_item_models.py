@@ -27,7 +27,7 @@ def blocks(tags_dir: str) -> Iterable[str]:
 def items(tags_dir: str) -> Iterable[str]:
     for id_ in (
         "iron_plate", "white_floor_line_eighth", "yellow_floor_line_eighth",
-        "#rod_with_lamps", "#floor_line_crosses"
+        "#rod_with_lamps", "#floor_line_crosses", "traffic_light_connector"
     ):
         if id_.startswith("#"):
             for item in resolve_tag_items(tags_dir, id_[1:]):

@@ -36,8 +36,9 @@ AABB = Tuple[int, int, int, int]
 
 def clean_num(n: float) -> Union[int, float]:
     """Return int if number has no decimal part, otherwise round float."""
+
     r: float = round(n, 4)
-    return int(r) if r.is_integer() else r
+    return int(r) if r.as_integer_ratio()[1] == 1 else r
 
 
 def extract_pixel_spans(tex_path: str) -> Tuple[

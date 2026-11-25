@@ -66,7 +66,7 @@ dependencies {
     //    project.fabric_version
     //}")
     modImplementation(files(
-        "cntrafficsymbols_core-0.0.3-a1+mc26.3.jar"
+        "cntrafficsymbols_core-0.0.3-a2+mc26.3.jar"
     ))
     modImplementation("com.terraformersmc:modmenu:21.0.0-beta.1")
     //implementation(files("nbtutils-0.0.1a1.jar"))

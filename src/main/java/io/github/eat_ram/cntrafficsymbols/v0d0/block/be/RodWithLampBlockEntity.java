@@ -6,6 +6,7 @@ import java.util.List;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import io.github.eat_ram.cntrafficsymbols.core.helper.DoubleIntervalHelper;
+import io.github.eat_ram.cntrafficsymbols.core.helper.TimelineHelper;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleInterval;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity
@@ -18,13 +19,10 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryView;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.storage.ReadView;
 import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.attribute.timeline.Timeline;
-import net.minecraft.world.attribute.timeline.Timelines;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -112,54 +110,13 @@ public class RodWithLampBlockEntity extends BlockEntity {
     }
 
     public static double getDaytimeProgress(World world) {
-        for (RegistryEntry<Timeline> entry :
-             world.getDimension().timelines()) {
-            if (entry.matchesKey(Timelines.DAY)) {
-                Timeline tl = entry.value();
-                int period = tl.getPeriod().orElse(24000);
-                long time = tl.getEffectiveTimeOfDay(world.getClocks());
-                return (double)((time % period + period) % period) / period;
-            }
-        }
-        var opt = world.getRegistryManager().getOptionalEntry(Timelines.DAY);
-        if (opt.isPresent()) {
-            Timeline tl = opt.get().value();
-            int period = tl.getPeriod().orElse(24000);
-            long time = tl.getEffectiveTimeOfDay(world.getClocks());
-            return (double)((time % period + period) % period) / period;
-        }
-        long dimTime = world.getDimensionTime();
-        return (double)((dimTime % 24000L + 24000L) % 24000L) / 24000.;
+        return TimelineHelper.getDaytimeProgress(world);
     }
 
-    private @Nullable Timeline timeline;
-    private int period = 24000;
-    private boolean timelineResolved = false;
     private @Nullable List<DoubleInterval> durations;
 
     public RodWithLampBlockEntity(BlockPos p, BlockState st) {
         super(TYPE, p, st);
-    }
-
-    private void ensureTimeline(World w) {
-        if (!this.timelineResolved) {
-            this.timelineResolved = true;
-            for (RegistryEntry<Timeline> e : w.getDimension().timelines()) {
-                if (e.matchesKey(Timelines.DAY)) {
-                    this.timeline = e.value();
-                    break;
-                }
-            }
-            if (this.timeline == null) {
-                var opt = w.getRegistryManager().getOptionalEntry(Timelines.DAY);
-                if (opt.isPresent()) {
-                    this.timeline = opt.get().value();
-                }
-            }
-            if (this.timeline != null && this.timeline.getPeriod().isPresent()) {
-                this.period = this.timeline.getPeriod().get();
-            }
-        }
     }
 
     public @Nullable List<DoubleInterval> getDurations() {
@@ -206,12 +163,7 @@ public class RodWithLampBlockEntity extends BlockEntity {
     }
 
     public void tick(World w, BlockPos p, BlockState st) {
-        this.ensureTimeline(w);
-        long t = (this.timeline != null) ?
-                 this.timeline.getEffectiveTimeOfDay(w.getClocks()) :
-                 w.getDimensionTime();
-        double relTime =
-        (double)((t % this.period + this.period) % this.period) / this.period;
+        double relTime = TimelineHelper.getDaytimeProgress(w);
         w.setBlockState(p, st.withIfExists(
             LIT, DoubleIntervalHelper.contains(this.durations, relTime)
         ), 3);

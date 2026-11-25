@@ -922,4 +922,251 @@ public abstract class BlockFactories {
         }
         return wrap(name, s -> new ChiralFloorLineCrossBlock(r, wr, c, wc, s));
     }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Horizontal2TrafficLightBlock
+    > horizontal2TrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedHorizontal2TrafficLightBlock
+            extends Horizontal2TrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedHorizontal2TrafficLightBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedHorizontal2TrafficLightBlock::new);
+        }
+        return wrap(name, Horizontal2TrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Horizontal3TrafficLightBlock
+    > horizontal3TrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedHorizontal3TrafficLightBlock
+            extends Horizontal3TrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedHorizontal3TrafficLightBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedHorizontal3TrafficLightBlock::new);
+        }
+        return wrap(name, Horizontal3TrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Horizontal3SqMidTrafficLightBlock
+    > horizontal3SqMidTrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedHorizontal3SqMidTrafficLightBlock
+            extends Horizontal3SqMidTrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedHorizontal3SqMidTrafficLightBlock(
+                    Settings settings
+                ) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name,
+                        WaterloggedHorizontal3SqMidTrafficLightBlock::new);
+        }
+        return wrap(name, Horizontal3SqMidTrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Vertical2TrafficLightBlock
+    > vertical2TrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedVertical2TrafficLightBlock
+            extends Vertical2TrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedVertical2TrafficLightBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedVertical2TrafficLightBlock::new);
+        }
+        return wrap(name, Vertical2TrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Vertical3TrafficLightBlock
+    > vertical3TrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedVertical3TrafficLightBlock
+            extends Vertical3TrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedVertical3TrafficLightBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedVertical3TrafficLightBlock::new);
+        }
+        return wrap(name, Vertical3TrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull Vertical3SqMidTrafficLightBlock
+    > vertical3SqMidTrafficLight(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedVertical3SqMidTrafficLightBlock
+            extends Vertical3SqMidTrafficLightBlock
+            implements VanillaWaterloggable {
+                WaterloggedVertical3SqMidTrafficLightBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedVertical3SqMidTrafficLightBlock::new);
+        }
+        return wrap(name, Vertical3SqMidTrafficLightBlock::new);
+    }
+
+    public static @NotNull Function<
+        Block.Settings, @NotNull CountdownTimerBlock
+    > countdownTimer(String name) {
+        if (FluidloggingConfig.resolve(name) == FluidloggableType.VANILLA) {
+            class WaterloggedCountdownTimerBlock
+            extends CountdownTimerBlock implements VanillaWaterloggable {
+                WaterloggedCountdownTimerBlock(Settings settings) {
+                    super(settings);
+                    this.setDefaultState(
+                        this.getDefaultState().with(WATERLOGGED, false)
+                    );
+                }
+
+                @Override
+                protected void
+                appendProperties(
+                    StateManager.Builder<Block, BlockState> builder
+                ) {
+                    super.appendProperties(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.get(WATERLOGGED) ?
+                           Fluids.WATER.getStill(false) :
+                           super.getFluidState(state);
+                }
+            }
+            return wrap(name, WaterloggedCountdownTimerBlock::new);
+        }
+        return wrap(name, CountdownTimerBlock::new);
+    }
 }

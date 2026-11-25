@@ -22,12 +22,23 @@ import static io.github.eat_ram.cntrafficsymbols.core.helper.RangeUtil
 
 public class Full1CylindricalRodBlock extends AbstractCylindricalRodBlock
 implements FluidloggedConfigurable {
-    private static final VoxelShape[] SHAPES_BY_ID = {
+    private static final VoxelShape[] COLLISION_SHAPES_BY_ID = {
         X_CENTER, X_UPPER, X_UPPERSOUTH, X_SOUTH, X_LOWERSOUTH, X_LOWER,
         X_LOWERNORTH, X_NORTH, X_UPPERNORTH, Y_CENTER, Y_NORTH, Y_NORTHEAST,
         Y_EAST, Y_SOUTHEAST, Y_SOUTH, Y_SOUTHWEST, Y_WEST, Y_NORTHWEST,
         Z_CENTER, Z_UPPER, Z_UPPEREAST, Z_EAST, Z_LOWEREAST, Z_LOWER,
         Z_LOWERWEST, Z_WEST, Z_UPPERWEST
+    };
+    private static final VoxelShape[] OUTLINE_SHAPES_BY_ID = {
+        OUTLINE_X_CENTER, OUTLINE_X_UPPER, OUTLINE_X_UPPERSOUTH,
+        OUTLINE_X_SOUTH, OUTLINE_X_LOWERSOUTH, OUTLINE_X_LOWER,
+        OUTLINE_X_LOWERNORTH, OUTLINE_X_NORTH, OUTLINE_X_UPPERNORTH,
+        OUTLINE_Y_CENTER, OUTLINE_Y_NORTH, OUTLINE_Y_NORTHEAST,
+        OUTLINE_Y_EAST, OUTLINE_Y_SOUTHEAST, OUTLINE_Y_SOUTH,
+        OUTLINE_Y_SOUTHWEST, OUTLINE_Y_WEST, OUTLINE_Y_NORTHWEST,
+        OUTLINE_Z_CENTER, OUTLINE_Z_UPPER, OUTLINE_Z_UPPEREAST,
+        OUTLINE_Z_EAST, OUTLINE_Z_LOWEREAST, OUTLINE_Z_LOWER,
+        OUTLINE_Z_LOWERWEST, OUTLINE_Z_WEST, OUTLINE_Z_UPPERWEST
     };
 
     public Full1CylindricalRodBlock(Settings settings) {
@@ -47,7 +58,14 @@ implements FluidloggedConfigurable {
     public VoxelShape getOutlineShape(
         BlockState state, BlockView view, BlockPos pos, ShapeContext context
     ) {
-        return SHAPES_BY_ID[state.get(AxisPosition9.POSITION).id];
+        return OUTLINE_SHAPES_BY_ID[state.get(AxisPosition9.POSITION).id];
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(
+        BlockState state, BlockView view, BlockPos pos, ShapeContext context
+    ) {
+        return COLLISION_SHAPES_BY_ID[state.get(AxisPosition9.POSITION).id];
     }
 
     @Override

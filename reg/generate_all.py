@@ -8,6 +8,9 @@ from typing import Any, Callable, List, Optional, Tuple
 from . import (
     circle_models,
     circle_parent_models,
+    countdown_timer_blockstates,
+    countdown_timer_item_models,
+    countdown_timer_parent_models,
     cylindrical_rod_itemmodels,
     cylindrical_rod_models,
     cylindrical_rod_parent_models,
@@ -39,11 +42,11 @@ from . import (
     state_independent_loot_tables,
     tag_swap_recipes,
     thin_22d5_floor_blockstates,
-    thin_22d5_floor_line_itemmodels,
+    thin_22d5_floor_line_item_models,
     thin_22d5_floor_line_models,
     thin_22d5_floor_line_parent_models,
     thin_45_floor_blockstates,
-    thin_45_floor_line_itemmodels,
+    thin_45_floor_line_item_models,
     thin_45_floor_line_models,
     thin_45_floor_line_parent_models,
     tp_blockstates,
@@ -51,6 +54,10 @@ from . import (
     tp_models,
     tp_parent_models,
     tp_recipes,
+    traffic_light_blockstates,
+    traffic_light_item_models,
+    traffic_light_parent_models,
+    traffic_light_textures,
     wideboard_models,
     wideboard_recipes
 )
@@ -134,11 +141,17 @@ def main(argv: Optional[List[str]] = None) -> None:
     out_ctag_i: str = path.join(out_res, "data", "c", "tags", "item", "dyed")
     out_lang_dir: str = \
     path.join(out_res, "assets", "cntrafficsymbols_0d0", "lang")
+    out_tl_tex: str = path.join(
+        out_res, "assets", "cntrafficsymbols_0d0", "textures", "entity",
+        "traffic_light"
+    )
 
     dry_arg: List[str] = ["--dry-run"] if args.dry_run else []
 
     tasks: Tuple[Tuple[Callable[[Optional[List[str]]], None], List[str]], ...]\
     = (
+        # Textures (1)
+        (traffic_light_textures.main, ["--dir", out_tl_tex] + dry_arg),
         # Recipes (7)
         (full1_cylindrical_rod_recipes.main, [out_recipes] + dry_arg),
         (half1_cylindrical_rod_recipes.main, [out_recipes] + dry_arg),
@@ -151,7 +164,8 @@ def main(argv: Optional[List[str]] = None) -> None:
          [out_recipes, "--tags-dir", src_tag_i] + dry_arg),
         # Advancements (1)
         (recipe_advancements.main, [out_adv, "--tags-dir", src_tag_i]+dry_arg),
-        # Blockstates (9)
+        # Blockstates (11)
+        (countdown_timer_blockstates.main, [out_bst] + dry_arg),
         (doublefacefacing90_blockstates.main,
          [out_bst, "--tags-dir", src_tag_b] + dry_arg),
         (floor_line_cross_blockstates.main, [out_bst] + dry_arg),
@@ -163,6 +177,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         (thin_22d5_floor_blockstates.main, [out_bst] + dry_arg),
         (thin_45_floor_blockstates.main, [out_bst] + dry_arg),
         (tp_blockstates.main, [out_bst] + dry_arg),
+        (traffic_light_blockstates.main,
+         [out_bst, "--tags-dir", src_tag_b] + dry_arg),
         # Loot tables (5)
         (double_loot_tables.main, [out_loot, "--tags-dir", src_tag_b]+dry_arg),
         (double90_loot_tables.main,
@@ -175,15 +191,19 @@ def main(argv: Optional[List[str]] = None) -> None:
         (cylindrical_rod_itemmodels.main, [out_items] + dry_arg),
         (model_itemmodels.main, [out_items, "--tags-dir", src_tag_i]+dry_arg),
         (tp_itemmodels.main, [out_items] + dry_arg),
-        # Item models (3)
+        # Item models (5)
+        (countdown_timer_item_models.main, [out_i_models] + dry_arg),
         (generated_item_models.main,
          [out_i_models, "--tags-dir", src_tag_i] + dry_arg),
-        (thin_22d5_floor_line_itemmodels.main, [out_i_models] + dry_arg),
-        (thin_45_floor_line_itemmodels.main, [out_i_models] + dry_arg),
-        # Block models (15)
+        (thin_22d5_floor_line_item_models.main, [out_i_models] + dry_arg),
+        (thin_45_floor_line_item_models.main, [out_i_models] + dry_arg),
+        (traffic_light_item_models.main,
+         [out_i_models, "--tags-dir", src_tag_i] + dry_arg),
+        # Block models (16)
         (circle_models.main, [out_b_models, "--tags-dir", src_tag_b]+dry_arg),
         (circle_parent_models.main,
          [out_b_models, "--texture", src_tex_b] + dry_arg),
+        (countdown_timer_parent_models.main, [out_b_models] + dry_arg),
         (cylindrical_rod_models.main, [out_b_models] + dry_arg),
         (cylindrical_rod_parent_models.main, [out_b_models] + dry_arg),
         (floor_line_cross_models.main, [out_b_models] + dry_arg),
@@ -199,6 +219,7 @@ def main(argv: Optional[List[str]] = None) -> None:
         (thin_45_floor_line_parent_models.main, [out_b_models] + dry_arg),
         (tp_models.main, [out_b_models] + dry_arg),
         (tp_parent_models.main, [out_b_models] + dry_arg),
+        (traffic_light_parent_models.main, [out_b_models] + dry_arg),
         (wideboard_models.main,
          [out_b_models, "--tags-dir", src_tag_b] + dry_arg),
         # Tags (2)
@@ -223,8 +244,9 @@ def main(argv: Optional[List[str]] = None) -> None:
 
     if args.dry_run and counter.has_output:
         sys.stderr.write(
-            "\n[ERROR] Generated resources are OUTDATED!\n"
-            "Please run: python -m reg.generate_all src/main/resources\n"
+            "\n[ERROR] Generated resources are OUTDATED!\nPlease run: "
+            "python -m reg.generate_all --src-dir src/main/resources "
+            "--out-dir src/generated/resources\n"
         )
         sys.exit(1)
 

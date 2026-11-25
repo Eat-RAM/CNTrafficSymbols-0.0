@@ -15,7 +15,8 @@ def item_forms(tags_dir: str) -> Iterable[str]:
         "highway_km", "#wideboard", "iron_plate", "white_floor_line_eighth",
         "yellow_floor_line_eighth", "white_thin_22d5_floor_line",
         "yellow_thin_22d5_floor_line", "white_thin_45_floor_line",
-        "yellow_thin_45_floor_line", "#rod_with_lamps", "#floor_line_crosses"
+        "yellow_thin_45_floor_line", "#rod_with_lamps", "#floor_line_crosses",
+        "#traffic_lights", "countdown_timer", "traffic_light_connector"
     ):
         if id_.startswith("#"):
             for item in resolve_tag_items(tags_dir, id_[1:]):

@@ -1,6 +1,8 @@
 package io.github.eat_ram.cntrafficsymbols.v0d0.client;
 
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .CountdownTimerBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoNameBlockEntity;
@@ -8,6 +10,10 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayHmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .TrafficLightBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
+       .CountdownTimerBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayExitDistanceInfoKmBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
@@ -16,6 +22,8 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayHmSignBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayKmSignBERenderer;
+import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
+       .TrafficLightBERenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -33,6 +41,12 @@ public class MainClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(
             HighwayExitDistanceInfoKmBlockEntity.TYPE,
             HighwayExitDistanceInfoKmBERenderer::new
+        );
+        BlockEntityRendererFactories
+        .register(TrafficLightBlockEntity.TYPE, TrafficLightBERenderer::new);
+        BlockEntityRendererFactories.register(
+            CountdownTimerBlockEntity.TYPE,
+            CountdownTimerBERenderer::new
         );
         io.github.eat_ram.cntrafficsymbols.v0d0.client.network
         .ModClientNetworking.init();

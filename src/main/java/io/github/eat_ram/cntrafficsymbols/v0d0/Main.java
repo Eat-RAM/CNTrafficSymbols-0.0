@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Properties;
 
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlockItems;
-import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.FloorLineEighthBlock;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.HighwayHmWallUpConnection;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.RodWallUpConnection;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.FluidloggingConfig;
 import io.github.eat_ram.cntrafficsymbols.v0d0.helper.MapColorConfig;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .CountdownTimerBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
@@ -24,6 +24,9 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.RodWithLampBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .TrafficLightBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.registry.Registries;
@@ -78,9 +81,7 @@ public class Main implements ModInitializer {
     setBlockstateOptimizations(@NotNull Iterable<@NotNull Class<?>> newVal) {
         HashSet<Class<?>> r = new HashSet<>(blockstateOptimizations);
         blockstateOptimizations.clear();
-        for (Class<?> i : newVal) {
-            blockstateOptimizations.add(i);
-        }
+        newVal.forEach(blockstateOptimizations::add);
         return r;
     }
 
@@ -283,8 +284,9 @@ WORLD_CONFIG.rodWallUpConnectionMode.name()
         } catch (IOException e) {
             LOGGER.error("Error reading cntrafficsymbols_0d0.properties", e);
         }
-        AllBlocks.init();
-        AllBlockItems.init();
+        io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks.init();
+        io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlockItems.init();
+        io.github.eat_ram.cntrafficsymbols.v0d0.traffic.ModPatternTypes.init();
         Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(
             Registries.BLOCK_ENTITY_TYPE, "highway_hm"
         ), HighwayHmSignBlockEntity.TYPE);
@@ -300,6 +302,12 @@ WORLD_CONFIG.rodWallUpConnectionMode.name()
         Registry.register(Registries.BLOCK_ENTITY_TYPE, commitAndGet(
             Registries.BLOCK_ENTITY_TYPE, "rod_with_lamp"
         ), RodWithLampBlockEntity.TYPE);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, RegisterHelper.nsId(
+            "traffic_light"
+        ), TrafficLightBlockEntity.TYPE);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, RegisterHelper.nsId(
+            "countdown_timer"
+        ), CountdownTimerBlockEntity.TYPE);
         io.github.eat_ram.cntrafficsymbols.v0d0.network.ModNetworking.init();
         push();
     }

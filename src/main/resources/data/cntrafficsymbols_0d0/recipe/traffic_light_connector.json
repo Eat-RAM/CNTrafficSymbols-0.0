@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": "minecraft:redstone",
+    "A": "minecraft:amethyst_shard",
+    "I": "cntrafficsymbols_0d0:iron_plate"
+  },
+  "pattern": [
+    "RA",
+    "II",
+    "II"
+  ],
+  "result": {"id": "cntrafficsymbols_0d0:traffic_light_connector"},
+  "show_notification": true
+}

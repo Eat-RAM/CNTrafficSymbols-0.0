@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": "minecraft:redstone_lamp",
+    "A": "minecraft:amethyst_shard",
+    "I": "cntrafficsymbols_0d0:iron_plate"
+  },
+  "pattern": [
+    "III",
+    "ILI",
+    "IAI"
+  ],
+  "result": {
+    "id": "cntrafficsymbols_0d0:countdown_timer",
+    "count": 3
+  },
+  "show_notification": true
+}

@@ -1,5 +1,7 @@
 package io.github.eat_ram.cntrafficsymbols.v0d0.block;
 
+import io.github.eat_ram.cntrafficsymbols.v0d0.item
+       .TrafficLightConnectorItem;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -10,6 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 
 import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
               .commitAndGet;
@@ -1326,9 +1329,27 @@ public class AllBlockItems {
     registerNormal(AllBlocks.WHITE_R0_12_YELLOW_C0_F25_FLOOR_LINE);
     public static final Item YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE =
     registerNormal(AllBlocks.YELLOW_R0_12_WHITE_C0_F25_FLOOR_LINE);
+    public static final Item HORIZONTAL2_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.HORIZONTAL2_TRAFFIC_LIGHT);
+    public static final Item HORIZONTAL3_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.HORIZONTAL3_TRAFFIC_LIGHT);
+    public static final Item HORIZONTAL3_SQMID_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.HORIZONTAL3_SQMID_TRAFFIC_LIGHT);
+    public static final Item VERTICAL2_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.VERTICAL2_TRAFFIC_LIGHT);
+    public static final Item VERTICAL3_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.VERTICAL3_TRAFFIC_LIGHT);
+    public static final Item VERTICAL3_SQMID_TRAFFIC_LIGHT =
+    registerNormal(AllBlocks.VERTICAL3_SQMID_TRAFFIC_LIGHT);
+    public static final Item COUNTDOWN_TIMER =
+    registerNormal(AllBlocks.COUNTDOWN_TIMER);
+    public static final Item TRAFFIC_LIGHT_CONNECTOR = registerItem(
+        commitAndGet(Registries.ITEM, "traffic_light_connector"),
+        TrafficLightConnectorItem::new, new Item.Settings().maxCount(1)
+    );
     public static final ItemGroup ITEM_GROUP;
 
-    public static BlockItem registerNormal(Block block) {
+    public static BlockItem registerNormal(@NotNull Block block) {
         return registerBlockItem(block, new Item.Settings().maxCount(64));
     }
 
@@ -1693,6 +1714,14 @@ public class AllBlockItems {
                 e.add(i);
             }
             e.add(FULL_SQUARE_BACKBOARD);
+            e.add(HORIZONTAL2_TRAFFIC_LIGHT);
+            e.add(HORIZONTAL3_TRAFFIC_LIGHT);
+            e.add(HORIZONTAL3_SQMID_TRAFFIC_LIGHT);
+            e.add(VERTICAL2_TRAFFIC_LIGHT);
+            e.add(VERTICAL3_TRAFFIC_LIGHT);
+            e.add(VERTICAL3_SQMID_TRAFFIC_LIGHT);
+            e.add(COUNTDOWN_TIMER);
+            e.add(TRAFFIC_LIGHT_CONNECTOR);
             for (Item[] i : DOTTED_TP_ITEMS) {
                 for (Item j : i) {
                     e.add(j);

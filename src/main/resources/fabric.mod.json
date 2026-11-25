@@ -58,6 +58,6 @@
     "minecraft": "~26.3",
     "java": ">=25",
     "fabric-api": "*",
-    "cntrafficsymbols_core": ">=0.0.3-a1"
+    "cntrafficsymbols_core": ">=0.0.3-a2"
   }
 }

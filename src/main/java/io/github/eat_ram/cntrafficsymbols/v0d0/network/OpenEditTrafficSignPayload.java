@@ -1,10 +1,10 @@
 package io.github.eat_ram.cntrafficsymbols.v0d0.network;
 
+import io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Contract;
@@ -24,9 +24,7 @@ public record OpenEditTrafficSignPayload(
     }
 
     public static final CustomPayload.Id<OpenEditTrafficSignPayload> ID =
-    new CustomPayload.Id<>(
-        Identifier.of("cntrafficsymbols_0d0", "open_edit_traffic_sign")
-    );
+    new CustomPayload.Id<>(RegisterHelper.nsId("open_edit_traffic_sign"));
 
     public static final PacketCodec<ByteBuf, OpenEditTrafficSignPayload>
     CODEC = PacketCodec.tuple(

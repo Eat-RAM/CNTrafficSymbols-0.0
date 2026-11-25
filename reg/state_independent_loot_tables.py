@@ -13,7 +13,7 @@ def blocks(tags_dir: str) -> Iterable[str]:
         "#rod_with_lamps", "#dotted_tp", "#lined_tp",
         "white_thin_22d5_floor_line", "yellow_thin_22d5_floor_line",
         "white_thin_45_floor_line", "yellow_thin_45_floor_line",
-        "#floor_line_crosses"
+        "#floor_line_crosses", "#traffic_lights", "countdown_timer"
     ):
         if id_.startswith("#"):
             for item in resolve_tag_items(tags_dir, id_[1:]):

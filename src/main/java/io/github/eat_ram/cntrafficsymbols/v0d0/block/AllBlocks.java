@@ -3397,6 +3397,47 @@ public class AllBlocks {
         Block.Settings.create().strength(10f, 10f).solid()
     );
 
+    public static final Horizontal2TrafficLightBlock
+    HORIZONTAL2_TRAFFIC_LIGHT = registerBlock(
+        nsId("horizontal2_traffic_light"),
+        horizontal2TrafficLight("horizontal2_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(3f, 12f).solid()
+    );
+    public static final Horizontal3TrafficLightBlock
+    HORIZONTAL3_TRAFFIC_LIGHT = registerBlock(
+        nsId("horizontal3_traffic_light"),
+        horizontal3TrafficLight("horizontal3_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(4f, 16f).solid()
+    );
+    public static final Horizontal3SqMidTrafficLightBlock
+    HORIZONTAL3_SQMID_TRAFFIC_LIGHT = registerBlock(
+        nsId("horizontal3_sqmid_traffic_light"),
+        horizontal3SqMidTrafficLight("horizontal3_sqmid_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(4f, 16f).solid()
+    );
+    public static final Vertical2TrafficLightBlock
+    VERTICAL2_TRAFFIC_LIGHT = registerBlock(
+        nsId("vertical2_traffic_light"),
+        vertical2TrafficLight("vertical2_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(3f, 12f).solid()
+    );
+    public static final Vertical3TrafficLightBlock
+    VERTICAL3_TRAFFIC_LIGHT = registerBlock(
+        nsId("vertical3_traffic_light"),
+        vertical3TrafficLight("vertical3_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(4f, 16f).solid()
+    );
+    public static final Vertical3SqMidTrafficLightBlock
+    VERTICAL3_SQMID_TRAFFIC_LIGHT = registerBlock(
+        nsId("vertical3_sqmid_traffic_light"),
+        vertical3SqMidTrafficLight("vertical3_sqmid_traffic_light"),
+        Block.Settings.create().nonOpaque().strength(4f, 16f).solid()
+    );
+    public static final CountdownTimerBlock COUNTDOWN_TIMER = registerBlock(
+        nsId("countdown_timer"), countdownTimer("countdown_timer"),
+        Block.Settings.create().nonOpaque().strength(4f, 16f).solid()
+    );
+
     @Deprecated(since = "0.0.3-a1", forRemoval = true)
     @Contract("_ -> new")
     public static CircleStandingSymbolBlock

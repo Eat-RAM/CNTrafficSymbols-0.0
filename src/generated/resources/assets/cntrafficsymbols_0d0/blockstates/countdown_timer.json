@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "facing=south,attachment=middle": {"model": "cntrafficsymbols_0d0:block/countdown_timer_middle"},
+    "facing=south,attachment=up": {"model": "cntrafficsymbols_0d0:block/countdown_timer_up"},
+    "facing=south,attachment=down": {"model": "cntrafficsymbols_0d0:block/countdown_timer_down"},
+    "facing=south,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/countdown_timer_ceiling"},
+    "facing=south,attachment=left": {"model": "cntrafficsymbols_0d0:block/countdown_timer_left"},
+    "facing=south,attachment=right": {"model": "cntrafficsymbols_0d0:block/countdown_timer_right"},
+    "facing=south,attachment=center": {"model": "cntrafficsymbols_0d0:block/countdown_timer_center"},
+    "facing=west,attachment=middle": {"model": "cntrafficsymbols_0d0:block/countdown_timer_middle", "y": 90},
+    "facing=west,attachment=up": {"model": "cntrafficsymbols_0d0:block/countdown_timer_up", "y": 90},
+    "facing=west,attachment=down": {"model": "cntrafficsymbols_0d0:block/countdown_timer_down", "y": 90},
+    "facing=west,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/countdown_timer_ceiling", "y": 90},
+    "facing=west,attachment=left": {"model": "cntrafficsymbols_0d0:block/countdown_timer_left", "y": 90},
+    "facing=west,attachment=right": {"model": "cntrafficsymbols_0d0:block/countdown_timer_right", "y": 90},
+    "facing=west,attachment=center": {"model": "cntrafficsymbols_0d0:block/countdown_timer_center", "y": 90},
+    "facing=north,attachment=middle": {"model": "cntrafficsymbols_0d0:block/countdown_timer_middle", "y": 180},
+    "facing=north,attachment=up": {"model": "cntrafficsymbols_0d0:block/countdown_timer_up", "y": 180},
+    "facing=north,attachment=down": {"model": "cntrafficsymbols_0d0:block/countdown_timer_down", "y": 180},
+    "facing=north,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/countdown_timer_ceiling", "y": 180},
+    "facing=north,attachment=left": {"model": "cntrafficsymbols_0d0:block/countdown_timer_left", "y": 180},
+    "facing=north,attachment=right": {"model": "cntrafficsymbols_0d0:block/countdown_timer_right", "y": 180},
+    "facing=north,attachment=center": {"model": "cntrafficsymbols_0d0:block/countdown_timer_center", "y": 180},
+    "facing=east,attachment=middle": {"model": "cntrafficsymbols_0d0:block/countdown_timer_middle", "y": 270},
+    "facing=east,attachment=up": {"model": "cntrafficsymbols_0d0:block/countdown_timer_up", "y": 270},
+    "facing=east,attachment=down": {"model": "cntrafficsymbols_0d0:block/countdown_timer_down", "y": 270},
+    "facing=east,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/countdown_timer_ceiling", "y": 270},
+    "facing=east,attachment=left": {"model": "cntrafficsymbols_0d0:block/countdown_timer_left", "y": 270},
+    "facing=east,attachment=right": {"model": "cntrafficsymbols_0d0:block/countdown_timer_right", "y": 270},
+    "facing=east,attachment=center": {"model": "cntrafficsymbols_0d0:block/countdown_timer_center", "y": 270}
+  }
+}
