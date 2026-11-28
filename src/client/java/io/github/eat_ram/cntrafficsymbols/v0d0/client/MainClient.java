@@ -25,6 +25,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockRenderView;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .CountdownTimerBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoKmBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayExitDistanceInfoNameBlockEntity;
@@ -32,6 +34,10 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayHmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
+       .TrafficLightBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
+       .CountdownTimerBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayExitDistanceInfoKmBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
@@ -40,6 +46,8 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayHmSignBERenderer;
 import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
        .HighwayKmSignBERenderer;
+import io.github.eat_ram.cntrafficsymbols.v0d0.client.render.be
+       .TrafficLightBERenderer;
 
 @SuppressWarnings("deprecation")
 public class MainClient implements ClientModInitializer {
@@ -267,39 +275,7 @@ public class MainClient implements ClientModInitializer {
             AllBlocks.HIGHWAY_7HM,
             AllBlocks.HIGHWAY_8HM,
             AllBlocks.HIGHWAY_9HM,
-            AllBlocks.HIGHWAY_KM,
-            AllBlocks.WHITE_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.ORANGE_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.MAGENTA_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.LIGHT_BLUE_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.YELLOW_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.LIME_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.PINK_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.GRAY_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.LIGHT_GRAY_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.CYAN_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.PURPLE_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.BLUE_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.BROWN_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.GREEN_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.RED_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.BLACK_HALF1_CYLINDRICAL_ROD,
-            AllBlocks.WHITE_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.ORANGE_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.MAGENTA_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.LIGHT_BLUE_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.YELLOW_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.LIME_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.PINK_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.GRAY_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.LIGHT_GRAY_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.CYAN_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.PURPLE_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.BLUE_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.BROWN_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.GREEN_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.RED_FULL1_CYLINDRICAL_ROD,
-            AllBlocks.BLACK_FULL1_CYLINDRICAL_ROD
+            AllBlocks.HIGHWAY_KM
         };
         for (Block i : tab) {
             BlockRenderLayerMap.INSTANCE.putBlock(i, RenderLayer.getCutout());
@@ -376,6 +352,11 @@ public class MainClient implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(
             HighwayExitDistanceInfoKmBlockEntity.TYPE,
             HighwayExitDistanceInfoKmBERenderer::new
+        );
+        BlockEntityRendererRegistry.INSTANCE
+        .register(TrafficLightBlockEntity.TYPE, TrafficLightBERenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(
+            CountdownTimerBlockEntity.TYPE, CountdownTimerBERenderer::new
         );
         io.github.eat_ram.cntrafficsymbols.v0d0.client.network
         .ModClientNetworking.init();

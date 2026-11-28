@@ -30,7 +30,13 @@ TAGS: Dict[Tuple[str, str], Iterable[str]] = {
     ("white_25_25_floor_line", "{0}"): ("white_r0_25_c0_25_floor_line",),
     ("yellow_25_25_floor_line", "{0}"): ("yellow_r0_25_c0_25_floor_line",),
     ("white_25_yellow_25_floor_line", "{0}"):
-    ("white_r0_f25_yellow_c0_25_floor_line",)
+    ("white_r0_f25_yellow_c0_25_floor_line",),
+    ("l2_traffic_lights", "{0}_swap"):
+    ("horizontal2_traffic_light", "vertical2_traffic_light"),
+    ("all_3_traffic_lights", "{0}_swap"): (
+        "horizontal3_traffic_light", "horizontal3_sqmid_traffic_light",
+        "vertical3_traffic_light", "vertical3_sqmid_traffic_light"
+    )
 }
 
 RECIPES_TO_ITEMS: Dict[str, Iterable[str]] = {
@@ -62,7 +68,15 @@ RECIPES_TO_ITEMS: Dict[str, Iterable[str]] = {
     "white_25_25_floor_line": ("white_floor_line_eighth",),
     "yellow_25_25_floor_line": ("yellow_floor_line_eighth",),
     "white_25_yellow_25_floor_line":
-    ("white_floor_line_eighth", "yellow_floor_line_eighth")
+    ("white_floor_line_eighth", "yellow_floor_line_eighth"),
+    "traffic_light_connector":
+    ("minecraft:redstone", "minecraft:amethyst_shard", "iron_plate"),
+    "horizontal2_traffic_light":
+    ("minecraft:redstone_lamp", "minecraft:amethyst_shard", "iron_plate"),
+    "horizontal3_traffic_light":
+    ("minecraft:redstone_lamp", "minecraft:amethyst_shard", "iron_plate"),
+    "countdown_timer":
+    ("minecraft:redstone_lamp", "minecraft:amethyst_shard", "iron_plate")
 }
 
 

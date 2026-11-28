@@ -10,6 +10,7 @@ import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be
        .HighwayKmSignBlockEntity;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.be.RodWithLampBlockEntity;
+import io.github.eat_ram.cntrafficsymbols.v0d0.helper.RegisterHelper;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -23,9 +24,9 @@ import org.jetbrains.annotations.Contract;
 
 public abstract class ModNetworking {
     public static final Identifier OPEN_EDIT_SCREEN_ID =
-    new Identifier("cntrafficsymbols_0d0", "open_edit_traffic_sign");
+    RegisterHelper.nsId("open_edit_traffic_sign");
     public static final Identifier UPDATE_SIGN_ID =
-    new Identifier("cntrafficsymbols_0d0", "update_traffic_sign");
+    RegisterHelper.nsId("update_traffic_sign");
 
     public static void init() {
         ServerPlayNetworking.registerGlobalReceiver(UPDATE_SIGN_ID, (

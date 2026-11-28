@@ -38,7 +38,8 @@ def main(argv: Optional[List[str]] = None) -> None:
                 args.dir, f"{block}.json", craft, args.dry_run, compact=True
             )
             write_json_idempotent(
-                args.dir, f"{block}_swap.json", swap, args.dry_run, compact=True
+                args.dir, f"{block}_swap.json", swap,
+                args.dry_run, compact=True
             )
 
 

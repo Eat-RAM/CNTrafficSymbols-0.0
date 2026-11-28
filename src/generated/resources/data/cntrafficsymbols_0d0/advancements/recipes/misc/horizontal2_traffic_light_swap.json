@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_horizontal2_traffic_light": {
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:horizontal2_traffic_light"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_vertical2_traffic_light": {
+      "conditions": {"items": [{"items": ["cntrafficsymbols_0d0:vertical2_traffic_light"]}]},
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {"recipe": "cntrafficsymbols_0d0:horizontal2_traffic_light_swap"},
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_horizontal2_traffic_light",
+      "has_vertical2_traffic_light"
+    ]
+  ],
+  "rewards": {"recipes": ["cntrafficsymbols_0d0:horizontal2_traffic_light_swap"]},
+  "sends_telemetry_event": false
+}

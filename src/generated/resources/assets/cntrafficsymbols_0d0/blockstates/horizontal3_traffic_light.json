@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=south,attachment=down": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_down"},
+    "facing=south,attachment=middle": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_middle"},
+    "facing=south,attachment=up": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_up"},
+    "facing=south,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_ceiling"},
+    "facing=west,attachment=down": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_down", "y": 90},
+    "facing=west,attachment=middle": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_middle", "y": 90},
+    "facing=west,attachment=up": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_up", "y": 90},
+    "facing=west,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_ceiling", "y": 90},
+    "facing=north,attachment=down": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_down", "y": 180},
+    "facing=north,attachment=middle": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_middle", "y": 180},
+    "facing=north,attachment=up": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_up", "y": 180},
+    "facing=north,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_ceiling", "y": 180},
+    "facing=east,attachment=down": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_down", "y": 270},
+    "facing=east,attachment=middle": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_middle", "y": 270},
+    "facing=east,attachment=up": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_up", "y": 270},
+    "facing=east,attachment=ceiling": {"model": "cntrafficsymbols_0d0:block/horizontal3_traffic_light_ceiling", "y": 270}
+  }
+}

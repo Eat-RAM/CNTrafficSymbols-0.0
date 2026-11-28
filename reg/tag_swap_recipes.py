@@ -11,7 +11,8 @@ from .reg_utils import (
 
 def resolve_tag_items(tag_dir: str, tag_name: str) -> List[str]:
     res: List[str] = []
-    with open(path.join(tag_dir, f"{tag_name}.json"), "r") as f:
+    with open(path.join(tag_dir, f"{tag_name}.json"), "r",
+              encoding="utf-8") as f:
         tag_defi: List[str] = json.load(f)["values"]
         for i in tag_defi:
             if i[0] == "#":
@@ -35,7 +36,9 @@ TAGS: Dict[Tuple[str, str], Tuple[str, ...]] = {
     ("yellow_12_white_25_floor_line", "{0}"): (),
     ("white_25_25_floor_line", "{0}"): (),
     ("yellow_25_25_floor_line", "{0}"): (),
-    ("white_25_yellow_25_floor_line", "{0}"): ()
+    ("white_25_yellow_25_floor_line", "{0}"): (),
+    ("l2_traffic_lights", "{0}_swap"): (),
+    ("all_3_traffic_lights", "{0}_swap"): ()
 }
 
 

@@ -1,0 +1,147 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "cntrafficsymbols_0d0:block/traffic_light_visor",
+    "visor": "cntrafficsymbols_0d0:block/traffic_light_visor",
+    "base": "cntrafficsymbols_0d0:block/traffic_light_base"
+  },
+  "elements": [
+    {
+      "from": [10, 2.5, 0],
+      "to": [16, 13.5, 2],
+      "faces": {
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#base"},
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [12, 12.7, 2],
+      "to": [14, 12.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [10.6, 10, 2],
+      "to": [10.8, 11.5, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [15.2, 10, 2],
+      "to": [15.4, 11.5, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [12, 12.7, 2],
+      "to": [14, 12.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      },
+      "rotation": {"origin": [13, 10.5, 2], "axis": "z", "angle": 45}
+    },
+    {
+      "from": [12, 12.7, 2],
+      "to": [14, 12.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      },
+      "rotation": {"origin": [13, 10.5, 2], "axis": "z", "angle": -45}
+    },
+    {
+      "from": [12, 7.7, 2],
+      "to": [14, 7.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [10.6, 5, 2],
+      "to": [10.8, 6.5, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [15.2, 5, 2],
+      "to": [15.4, 6.5, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [12, 7.7, 2],
+      "to": [14, 7.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      },
+      "rotation": {"origin": [13, 5.5, 2], "axis": "z", "angle": 45}
+    },
+    {
+      "from": [12, 7.7, 2],
+      "to": [14, 7.9, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      },
+      "rotation": {"origin": [13, 5.5, 2], "axis": "z", "angle": -45}
+    }
+  ]
+}

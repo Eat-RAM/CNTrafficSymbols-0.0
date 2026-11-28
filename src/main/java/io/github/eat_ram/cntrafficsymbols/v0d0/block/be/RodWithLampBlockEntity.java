@@ -6,6 +6,7 @@ import java.util.List;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import io.github.eat_ram.cntrafficsymbols.core.helper.DoubleIntervalHelper;
+import io.github.eat_ram.cntrafficsymbols.core.helper.TimelineHelper;
 import io.github.eat_ram.cntrafficsymbols.core.struct.DoubleInterval;
 import io.github.eat_ram.cntrafficsymbols.v0d0.Main;
 import io.github.eat_ram.cntrafficsymbols.v0d0.block.AllBlocks;
@@ -106,8 +107,7 @@ public class RodWithLampBlockEntity extends BlockEntity {
     }
 
     public static double getDaytimeProgress(World world) {
-        long dimTime = world.getTimeOfDay();
-        return (double)((dimTime % 24000L + 24000L) % 24000L) / 24000.;
+        return TimelineHelper.getDaytimeProgress(world);
     }
 
     private @Nullable List<DoubleInterval> durations;
@@ -164,9 +164,7 @@ public class RodWithLampBlockEntity extends BlockEntity {
     }
 
     public void tick(World w, BlockPos p, BlockState st) {
-        int period = 24000;
-        long t = w.getTimeOfDay();
-        double relTime = (double)((t % period + period) % period) / period;
+        double relTime = TimelineHelper.getDaytimeProgress(w);
         w.setBlockState(p, st.withIfExists(
             LIT, DoubleIntervalHelper.contains(this.durations, relTime)
         ), 3);

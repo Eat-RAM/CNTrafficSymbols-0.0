@@ -15,6 +15,11 @@ import static io.github.eat_ram.cntrafficsymbols.v0d0.bakcompa.DualIds
               .commitAndGet;
 
 public abstract class RegisterHelper {
+    @Contract("_ -> new")
+    public static Identifier nsId(String path) {
+        return new Identifier("cntrafficsymbols_0d0", path);
+    }
+
     public static <T extends Block> T registerBlock(
         Identifier iden,
         @NotNull Function<? super Block.Settings, T> blockFactory,

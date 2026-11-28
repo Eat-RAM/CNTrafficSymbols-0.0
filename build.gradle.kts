@@ -10,6 +10,14 @@ base {
     archivesName = project.findProperty("archives_base_name") as? String ?:name
 }
 
+val generatedResourcesPath = "src/generated/resources"
+
+sourceSets {
+    main {
+        resources.srcDir(generatedResourcesPath)
+    }
+}
+
 repositories {
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
@@ -51,7 +59,7 @@ dependencies {
     //modImplementation("net.fabricmc.fabric-api:fabric-api-deprecated:${
     //    project.fabric_version
     //}")
-    modImplementation(files("cntrafficsymbols_core-0.0.3-a1.jar"))
+    modImplementation(files("cntrafficsymbols_core-0.0.3-a2.jar"))
     modImplementation("com.terraformersmc:modmenu:9.2.0") {
         exclude(group = "eu.pb4", module = "placeholder-api")
     }
@@ -118,17 +126,18 @@ if (isWindowsOs) "python" else "python3"
 
 val generateAssets = tasks.register<Exec>("generateAssets") {
     group = "generation"
-    description =
-    "Regenerates all JSON resources using Python generator scripts."
-    commandLine(defaultPythonExecutable, "-m", "reg.generate_all",
-                "src/main/resources")
+    description = "Regenerates all resources using Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "--src-dir",
+                "src/main/resources", "--out-dir", generatedResourcesPath)
 }
 
 val verifyAssets = tasks.register<Exec>("verifyAssets") {
     group = "verification"
-    description = "Verifies that all generated JSON resources are in sync using Python generator scripts."
-    commandLine(defaultPythonExecutable, "-m", "reg.generate_all",
-                "src/main/resources", "--dry-run")
+    description =
+"Verifies if all generated resources are in sync using Python generator scripts."
+    commandLine(defaultPythonExecutable, "-m", "reg.generate_all", "--src-dir",
+                "src/main/resources", "--out-dir", generatedResourcesPath,
+                "--dry-run")
 }
 
 tasks.named("check") {

@@ -24,13 +24,20 @@ NORTH_OFFSETS: Dict[Tuple[int, int], str] = {
     (-6, 0): "west", (-6, 6): "upperwest"
 }
 
+HALF_SIDE: float = 0.3979
+
 
 def add_cullface(element: Dict[str, Any]) -> None:
+    axis: Optional[str] = \
+    element["rotation"]["axis"] if "rotation" in element else None
     for idx, l, face in (
         (0, 0, "west"), (0, 16, "east"),
         (1, 0, "down"), (1, 16, "up"),
         (2, 0, "north"), (2, 16, "south")
     ):
+        if (axis == "y" and face not in ("down", "up")) or \
+           (axis == "z" and face not in ("north", "south")):
+            continue
         if element["to" if l else "from"][idx] == l and \
            face in element["faces"]:
             element["faces"][face]["cullface"] = face
@@ -42,66 +49,48 @@ def build_y_model(half: Union[bool, None], offset: Tuple[int, int]) -> Any:
     bottom: int = 8 if half else 0
     height: int = 16 if half is None else 8
     top: int = bottom + height
-    elements: List[Dict[str, Any]] = [
-        {
-            "from": CompactList([7+dx, bottom, 6+dy]),
-            "to": CompactList([9+dx, top, 7+dy]),
+    x0: int = 8 + dx
+    z0: int = 8 + dy
+
+    elements: List[Dict[str, Any]] = []
+    for angle in (0, 45, 22.5, -22.5):
+        elem_tall: Dict[str, Any] = {
+            "from": CompactList([round(x0-HALF_SIDE, 4), bottom, z0 - 2]),
+            "to": CompactList([round(x0+HALF_SIDE, 4), top, z0 + 2]),
             "faces": {
                 "north":
                 CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "west":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
-                "east":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([7+dx, bottom, 9+dy]),
-            "to": CompactList([9+dx, top, 10+dy]),
-            "faces": {
                 "south":
                 CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "west":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
-                "east":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([6+dx, bottom, 7+dy]),
-            "to": CompactList([7+dx, top, 9+dy]),
-            "faces": {
-                "west":
-                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "north":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
-                "south":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([9+dx, bottom, 7+dy]),
-            "to": CompactList([10+dx, top, 9+dy]),
-            "faces": {
-                "east":
-                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "north":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
-                "south":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([6+dx, bottom, 6+dy]),
-            "to": CompactList([10+dx, top, 10+dy]),
-            "faces": {
-                "down": CompactDict({"uv": [4, 0, 8, 4], "texture": "#side"}),
-                "up": CompactDict({"uv": [4, 0, 8, 4], "texture": "#side"})
+                "down": CompactDict({"uv": [1, 0, 3, 10], "texture": "#side"}),
+                "up": CompactDict({"uv": [1, 0, 3, 10], "texture": "#side"})
             }
         }
-    ]
-    for i in elements:
-        add_cullface(i)
+        elem_wide: Dict[str, Any] = {
+            "from": CompactList([x0 - 2, bottom, round(z0-HALF_SIDE, 4)]),
+            "to": CompactList([x0 + 2, top, round(z0+HALF_SIDE, 4)]),
+            "faces": {
+                "west":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
+                "down":
+                CompactDict({"uv": [6, 13, 16, 15], "texture": "#side"}),
+                "up": CompactDict({"uv": [6, 13, 16, 15], "texture": "#side"})
+            }
+        }
+        if angle != 0:
+            rot: Dict[str, Any] = CompactDict({
+                "origin": CompactList([x0, bottom, z0]),
+                "axis": "y",
+                "angle": angle
+            })
+            elem_tall["rotation"] = rot
+            elem_wide["rotation"] = rot
+        add_cullface(elem_tall)
+        add_cullface(elem_wide)
+        elements.extend([elem_tall, elem_wide])
+
     return {
         "parent": "minecraft:block/block",
         "textures": CompactDict({"particle": "#side"}),
@@ -115,66 +104,50 @@ def build_z_model(half: Union[bool, None], offset: Tuple[int, int]) -> Any:
     bottom: int = 8 if half else 0
     height: int = 16 if half is None else 8
     top: int = bottom + height
-    elements: List[Dict[str, Any]] = [
-        {
-            "from": CompactList([7+dx, 6+dy, bottom]),
-            "to": CompactList([9+dx, 7+dy, top]),
+    x0: int = 8 + dx
+    y0: int = 8 + dy
+
+    elements: List[Dict[str, Any]] = []
+    for angle in (0, 45, 22.5, -22.5):
+        elem_tall: Dict[str, Any] = {
+            "from": CompactList([round(x0-HALF_SIDE, 4), y0 - 2, bottom]),
+            "to": CompactList([round(x0+HALF_SIDE, 4), y0 + 2, top]),
             "faces": {
                 "down":
-                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "west":
-                CompactDict({"uv": [0, 15, height, 16], "texture": "#side"}),
-                "east":
-                CompactDict({"uv": [0, 15, height, 16], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([7+dx, 9+dy, bottom]),
-            "to": CompactList([9+dx, 10+dy, top]),
-            "faces": {
-                "up":
-                CompactDict({"uv": [1, 0, 3, height], "texture": "#side"}),
-                "west":
-                CompactDict({"uv": [0, 12, height, 13], "texture": "#side"}),
-                "east":
-                CompactDict({"uv": [0, 12, height, 13], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([6+dx, 7+dy, bottom]),
-            "to": CompactList([7+dx, 9+dy, top]),
-            "faces": {
-                "west":
                 CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
-                "down":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"}),
                 "up":
-                CompactDict({"uv": [0, 0, 1, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([9+dx, 7+dy, bottom]),
-            "to": CompactList([10+dx, 9+dy, top]),
-            "faces": {
-                "east":
                 CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
-                "down":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"}),
-                "up":
-                CompactDict({"uv": [3, 0, 4, height], "texture": "#side"})
-            }
-        },
-        {
-            "from": CompactList([6+dx, 6+dy, bottom]),
-            "to": CompactList([10+dx, 10+dy, top]),
-            "faces": {
-                "north": CompactDict({"uv": [4, 0, 8, 4], "texture": "#side"}),
-                "south": CompactDict({"uv": [4, 0, 8, 4], "texture": "#side"})
+                "north":
+                CompactDict({"uv": [1, 0, 3, 10], "texture": "#side"}),
+                "south": CompactDict({"uv": [1, 0, 3, 10], "texture": "#side"})
             }
         }
-    ]
-    for i in elements:
-        add_cullface(i)
+        elem_wide: Dict[str, Any] = {
+            "from": CompactList([x0 - 2, round(y0-HALF_SIDE, 4), bottom]),
+            "to": CompactList([x0 + 2, round(y0+HALF_SIDE, 4), top]),
+            "faces": {
+                "west":
+                CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
+                "east":
+                CompactDict({"uv": [0, 13, height, 15], "texture": "#side"}),
+                "north":
+                CompactDict({"uv": [6, 13, 16, 15], "texture": "#side"}),
+                "south":
+                CompactDict({"uv": [6, 13, 16, 15], "texture": "#side"})
+            }
+        }
+        if angle != 0:
+            rot: Dict[str, Any] = CompactDict({
+                "origin": CompactList([x0, y0, bottom]),
+                "axis": "z",
+                "angle": angle
+            })
+            elem_tall["rotation"] = rot
+            elem_wide["rotation"] = rot
+        add_cullface(elem_tall)
+        add_cullface(elem_wide)
+        elements.extend([elem_tall, elem_wide])
+
     return {
         "parent": "minecraft:block/block",
         "textures": CompactDict({"particle": "#side"}),

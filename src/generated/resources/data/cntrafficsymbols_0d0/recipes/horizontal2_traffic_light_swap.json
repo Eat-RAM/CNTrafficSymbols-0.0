@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {"tag": "cntrafficsymbols_0d0:l2_traffic_lights"},
+  "result": "cntrafficsymbols_0d0:horizontal2_traffic_light"
+}

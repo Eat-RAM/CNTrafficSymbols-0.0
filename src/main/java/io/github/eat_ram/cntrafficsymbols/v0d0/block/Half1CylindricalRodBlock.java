@@ -8,19 +8,21 @@ import io.github.eat_ram.cntrafficsymbols.core.helper.FacePosition9Rotator;
 import io.github.eat_ram.cntrafficsymbols.core.struct.FacePosition9;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 
 import static io.github.eat_ram.cntrafficsymbols.core.helper.RangeUtil
               .closedRangeTo;
 
 public class Half1CylindricalRodBlock extends AbstractCylindricalRodBlock
 implements FluidloggedConfigurable {
-    private static final VoxelShape[] SHAPES_BY_ID = {
+    private static final VoxelShape[] COLLISION_SHAPES_BY_ID = {
         WEST_CENTER, WEST_UPPER, WEST_UPPERSOUTH, WEST_SOUTH, WEST_LOWERSOUTH,
         WEST_LOWER, WEST_LOWERNORTH, WEST_NORTH, WEST_UPPERNORTH, EAST_CENTER,
         EAST_UPPER, EAST_UPPERSOUTH, EAST_SOUTH, EAST_LOWERSOUTH, EAST_LOWER,
@@ -33,6 +35,26 @@ implements FluidloggedConfigurable {
         NORTH_UPPERWEST, SOUTH_CENTER, SOUTH_UPPER, SOUTH_UPPEREAST,
         SOUTH_EAST, SOUTH_LOWEREAST, SOUTH_LOWER, SOUTH_LOWERWEST, SOUTH_WEST,
         SOUTH_UPPERWEST
+    };
+    private static final VoxelShape[] OUTLINE_SHAPES_BY_ID = {
+        OUTLINE_WEST_CENTER, OUTLINE_WEST_UPPER, OUTLINE_WEST_UPPERSOUTH,
+        OUTLINE_WEST_SOUTH, OUTLINE_WEST_LOWERSOUTH, OUTLINE_WEST_LOWER,
+        OUTLINE_WEST_LOWERNORTH, OUTLINE_WEST_NORTH, OUTLINE_WEST_UPPERNORTH,
+        OUTLINE_EAST_CENTER, OUTLINE_EAST_UPPER, OUTLINE_EAST_UPPERSOUTH,
+        OUTLINE_EAST_SOUTH, OUTLINE_EAST_LOWERSOUTH, OUTLINE_EAST_LOWER,
+        OUTLINE_EAST_LOWERNORTH, OUTLINE_EAST_NORTH, OUTLINE_EAST_UPPERNORTH,
+        OUTLINE_DOWN_CENTER, OUTLINE_DOWN_NORTH, OUTLINE_DOWN_NORTHEAST,
+        OUTLINE_DOWN_EAST, OUTLINE_DOWN_SOUTHEAST, OUTLINE_DOWN_SOUTH,
+        OUTLINE_DOWN_SOUTHWEST, OUTLINE_DOWN_WEST, OUTLINE_DOWN_NORTHWEST,
+        OUTLINE_UP_CENTER, OUTLINE_UP_NORTH, OUTLINE_UP_NORTHEAST,
+        OUTLINE_UP_EAST, OUTLINE_UP_SOUTHEAST, OUTLINE_UP_SOUTH,
+        OUTLINE_UP_SOUTHWEST, OUTLINE_UP_WEST, OUTLINE_UP_NORTHWEST,
+        OUTLINE_NORTH_CENTER, OUTLINE_NORTH_UPPER, OUTLINE_NORTH_UPPEREAST,
+        OUTLINE_NORTH_EAST, OUTLINE_NORTH_LOWEREAST, OUTLINE_NORTH_LOWER,
+        OUTLINE_NORTH_LOWERWEST, OUTLINE_NORTH_WEST, OUTLINE_NORTH_UPPERWEST,
+        OUTLINE_SOUTH_CENTER, OUTLINE_SOUTH_UPPER, OUTLINE_SOUTH_UPPEREAST,
+        OUTLINE_SOUTH_EAST, OUTLINE_SOUTH_LOWEREAST, OUTLINE_SOUTH_LOWER,
+        OUTLINE_SOUTH_LOWERWEST, OUTLINE_SOUTH_WEST, OUTLINE_SOUTH_UPPERWEST
     };
 
     public Half1CylindricalRodBlock(Settings settings) {
@@ -49,9 +71,19 @@ implements FluidloggedConfigurable {
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState st, net.minecraft.world
-        .BlockView v, BlockPos p, net.minecraft.block.ShapeContext c) {
-        return SHAPES_BY_ID[st.get(FacePosition9.POSITION).id];
+    @SuppressWarnings("deprecation")
+    public VoxelShape getOutlineShape(
+        BlockState state, BlockView view, BlockPos pos, ShapeContext context
+    ) {
+        return OUTLINE_SHAPES_BY_ID[state.get(FacePosition9.POSITION).id];
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public VoxelShape getCollisionShape(
+        BlockState state, BlockView view, BlockPos pos, ShapeContext context
+    ) {
+        return COLLISION_SHAPES_BY_ID[state.get(FacePosition9.POSITION).id];
     }
 
     @Override
@@ -153,6 +185,7 @@ implements FluidloggedConfigurable {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public BlockState rotate(BlockState st, BlockRotation rot) {
         return rot == BlockRotation.NONE ? st : st.with(
             FacePosition9.POSITION, FacePosition9Rotator.rotate(
@@ -164,6 +197,7 @@ implements FluidloggedConfigurable {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public BlockState mirror(BlockState st, BlockMirror mirror) {
         return mirror == BlockMirror.NONE ? st : st.with(
             FacePosition9.POSITION,

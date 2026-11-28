@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {"item": "minecraft:redstone_lamp"},
+    "A": {"item": "minecraft:amethyst_shard"},
+    "I": {"item": "cntrafficsymbols_0d0:iron_plate"}
+  },
+  "pattern": [
+    "III",
+    "LLA",
+    "III"
+  ],
+  "result": {"item": "cntrafficsymbols_0d0:horizontal3_traffic_light"},
+  "show_notification": true
+}

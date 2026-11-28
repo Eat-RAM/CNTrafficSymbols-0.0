@@ -41,7 +41,7 @@ def clean_num(n: float) -> IntOrFloat:
     """Return int if number has no decimal part, otherwise round float."""
 
     r: float = round(n, 4)
-    return int(r) if r.is_integer() else r
+    return int(r) if r.as_integer_ratio()[1] == 1 else r
 
 
 def extract_pixel_spans(tex_path: str) -> Tuple[List[AABB], List[AABB], int]:
@@ -240,6 +240,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         tex_path = path.normpath(path.join(
             args.dir, "..", "..", "textures", "block", "circle_backboard.png"
         ))
+    elif path.isdir(tex_path):
+        tex_path = path.join(tex_path, "circle_backboard.png")
 
     grouped_cols, grouped_rows, tex_size = extract_pixel_spans(tex_path)
 

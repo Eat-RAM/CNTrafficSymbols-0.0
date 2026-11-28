@@ -1,0 +1,59 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "cntrafficsymbols_0d0:block/traffic_light_visor",
+    "visor": "cntrafficsymbols_0d0:block/traffic_light_visor",
+    "base": "cntrafficsymbols_0d0:block/traffic_light_base"
+  },
+  "elements": [
+    {
+      "from": [0, 3, 0],
+      "to": [11, 13, 2],
+      "faces": {
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#base"},
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [0, 12.75, 2],
+      "to": [11, 13, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [0, 3, 2],
+      "to": [0.25, 13, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    },
+    {
+      "from": [10.75, 3, 2],
+      "to": [11, 13, 4],
+      "faces": {
+        "down": {"texture": "#visor"},
+        "up": {"texture": "#visor"},
+        "north": {"texture": "#visor"},
+        "south": {"texture": "#visor"},
+        "west": {"texture": "#visor"},
+        "east": {"texture": "#visor"}
+      }
+    }
+  ]
+}
